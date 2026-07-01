@@ -1,0 +1,279 @@
+.pageContainer {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    font-family: 'Inter', sans-serif;
+    min-height: 60vh;
+}
+
+.cartCard {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border: 1px solid rgba(166, 67, 66, 0.1);
+}
+
+.header {
+    background: #dfaebf;
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerTitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerTitle h1 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.cartIcon {
+    font-size: 2.5rem;
+}
+
+.content {
+    padding: 3rem;
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4a332c;
+    padding: 3rem 0;
+}
+
+.iconWrapper {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+    background: #fdfbf9;
+    padding: 3rem;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+}
+
+.emptyState h3 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.emptyState p {
+    color: #666;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+.continueBtn {
+    background: #ba8c87;
+    color: white;
+    border: none;
+    padding: 1.2rem 3rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.continueBtn:hover {
+    background: #7c4c0d;
+    transform: translateY(-2px);
+}
+
+/* Cart List */
+.cartList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.cartItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background: #fdfbf9;
+    border-radius: 15px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.itemInfo h4 {
+    margin: 0 0 0.8rem 0;
+    color: #333;
+    font-size: 1.4rem;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+}
+
+.itemPrice {
+    color: #ba8c87;
+    font-weight: bold;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.itemActions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.quantityControls button {
+    background: #f6ede3;
+    border: none;
+    color: #4a332c;
+    font-size: 1.4rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.quantityControls button:hover {
+    background: #dfaebf;
+    color: white;
+}
+
+.quantityControls span {
+    width: 40px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #4a332c;
+}
+
+.removeBtn {
+    background: transparent;
+    border: 1px solid #ffcccc;
+    color: #d32f2f;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.removeBtn:hover {
+    background: #fff0f0;
+    border-color: #d32f2f;
+}
+
+.addMoreSection {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.addMoreLink {
+    color: #ba8c87;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+    background: #fdfbf9;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    display: inline-block;
+    border: 1px dashed #dfaebf;
+}
+
+.addMoreLink:hover {
+    color: #7c4c0d;
+    background: #fff;
+    border-style: solid;
+}
+
+/* Footer */
+.footer {
+    background: #fdfbf9;
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #4a332c;
+}
+
+.totalRow strong {
+    font-size: 2.2rem;
+    color: #ba8c87;
+}
+
+.whatsappBtn {
+    width: 100%;
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+}
+
+.whatsappBtn:hover {
+    background: #1ebc5a;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+}
+
+.waIcon {
+    font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 1.5rem;
+    }
+    
+    .cartItem {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: stretch;
+    }
+
+    .itemActions {
+        justify-content: space-between;
+    }
+}

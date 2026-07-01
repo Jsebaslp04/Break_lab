@@ -1,0 +1,23 @@
+﻿{
+  "short_name": "BreakLab",
+  "name": "BreakLab - Desayunos Sorpresa y Regalos Personalizados",
+  "description": "Sorprende a tus seres queridos con los mejores desayunos sorpresa y cajas de regalos personalizados en Bogotá. Entregas a domicilio el mismo día.",
+  "icons": [
+    {
+      "src": "/break_lab_favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/break_lab_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#f78fa7",
+  "display": "standalone",
+  "orientation": "portrait"
+}

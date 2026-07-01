@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&family=Comic+Neue:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  background-color: #faf5f2;
+}
+
+html,
+body,
+*:not(iframe) {
+  cursor: url('./assets/Pastel_puntero_32.png'), auto !important;
+}
+
+/* Forzar en elementos interactivos */
+a,
+button,
+[role="button"],
+input,
+select,
+textarea {
+  cursor: url('./assets/Pastel_puntero_32.png'), pointer !important;
+}

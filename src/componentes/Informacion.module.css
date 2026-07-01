@@ -1,0 +1,61 @@
+.info_container {
+    padding: 6rem 2rem;
+    background-color: #f6ede3; /* Matches the cream palette */
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.info_card {
+    background-color: #ffffff;
+    max-width: 900px;
+    width: 100%;
+    padding: 4rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(166, 67, 66, 0.1);
+}
+
+.title {
+    font-family: 'Comic Neue', cursive;
+    color: #4a332c;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.underline {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #a64342, #eeb6d2);
+    margin: 0 auto 3rem;
+    border-radius: 2px;
+}
+
+.content {
+    font-family: 'Inter', sans-serif;
+    color: #4a332c;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.content p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .info_container {
+        padding: 4rem 1.5rem;
+    }
+    
+    .info_card {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+}
