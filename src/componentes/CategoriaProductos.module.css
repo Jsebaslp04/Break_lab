@@ -370,10 +370,33 @@
     }
 
     .productName {
-        font-size: 1.6rem;
+        font-size: 1.15rem;
     }
 
     .addBtn {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .productsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .productCard {
+        border-radius: 16px;
+    }
+
+    .cardImageWrapper {
+        height: 200px;
+    }
+
+    .productImage {
+        padding: 0.8rem;
+    }
+
+    .cardBody {
+        padding: 1rem;
     }
 }

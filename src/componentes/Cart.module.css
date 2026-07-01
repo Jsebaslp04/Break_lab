@@ -263,17 +263,83 @@
 }
 
 @media (max-width: 768px) {
+    .pageContainer {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .header {
+        padding: 1.5rem 1rem;
+    }
+
+    .headerTitle h1 {
+        font-size: 1.6rem;
+    }
+
+    .cartIcon {
+        font-size: 1.6rem;
+    }
+
     .content {
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
     }
     
     .cartItem {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
         align-items: stretch;
+        padding: 1.2rem;
+    }
+
+    .itemInfo h4 {
+        font-size: 1.15rem;
+        margin-bottom: 0.4rem;
     }
 
     .itemActions {
+        display: flex;
+        flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .quantityControls button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.1rem;
+    }
+
+    .quantityControls span {
+        width: 30px;
+        font-size: 1rem;
+    }
+
+    .removeBtn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .addMoreLink {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .totalRow {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .totalRow strong {
+        font-size: 1.6rem;
+    }
+
+    .whatsappBtn {
+        padding: 1.2rem;
+        font-size: 1.1rem;
     }
 }
