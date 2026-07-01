@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Menu.module.css";
 import break_lab_logo from "../assets/break_lab.png";
@@ -18,6 +19,7 @@ import { PRODUCTS_DB } from "../data/products";
 export const Menu = () => {
     const location = useLocation();
     const { setIsCartOpen, cartItems } = useCart();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
     const isActive = (path) => location.pathname === path;
@@ -65,17 +67,30 @@ export const Menu = () => {
                         <p className={styles.subtitle}>Desayunos Sorpresa</p>
                     </div>
                 </Link>
+                
                 <div className={styles.searchBar}>
                     <input type="text" placeholder="Buscar productos, categorías..." className={styles.searchInput} />
                     <button className={styles.searchButton} aria-label="Buscar productos">
                         <img src={search} alt="Buscar" />
                     </button>
                 </div>
-                <div className={styles.socialIcons}>
-                    <Link to="/carrito" className={`${styles.iconBtn} ${styles.cartBtn}`} style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }} aria-label={`Carrito de compras, ${cartCount} productos`}>
+                
+                <div className={styles.headerActions}>
+                    <Link to="/carrito" className={`${styles.iconBtn} ${styles.cartBtn}`} aria-label={`Carrito de compras, ${cartCount} productos`}>
                         <img src={carrito} alt="Carrito de compras BreakLab" />
-                        {cartCount > 0 && <span style={{ position: 'absolute', top: '-5px', right: '-5px', background: 'red', color: 'white', borderRadius: '50%', padding: '2px 6px', fontSize: '10px', fontWeight: 'bold' }}>{cartCount}</span>}
+                        {cartCount > 0 && <span className={styles.cartBadge}>{cartCount}</span>}
                     </Link>
+                    
+                    <button 
+                        className={`${styles.hamburgerBtn} ${isMenuOpen ? styles.hamburgerActive : ''}`} 
+                        onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                        aria-label="Abrir menú"
+                        aria-expanded={isMenuOpen}
+                    >
+                        <span className={styles.hamburgerLine}></span>
+                        <span className={styles.hamburgerLine}></span>
+                        <span className={styles.hamburgerLine}></span>
+                    </button>
                 </div>
             </div>
 
@@ -125,6 +140,58 @@ export const Menu = () => {
                     </Link>
                 </div>
             </nav>
+
+            {/* Drawer de Navegación Móvil */}
+            <div className={`${styles.drawerOverlay} ${isMenuOpen ? styles.drawerOpen : ""}`} onClick={() => setIsMenuOpen(false)}>
+                <div className={styles.drawerContent} onClick={(e) => e.stopPropagation()}>
+                    <div className={styles.drawerHeader}>
+                        <strong className={styles.drawerTitle}>Menú</strong>
+                        <button className={styles.drawerClose} onClick={() => setIsMenuOpen(false)} aria-label="Cerrar menú">
+                            &times;
+                        </button>
+                    </div>
+                    <nav className={styles.drawerNav}>
+                        <Link to="/" className={`${styles.drawerLink} ${isActive("/") ? styles.drawerLinkActive : ""}`} onClick={() => setIsMenuOpen(false)}>
+                            🏠 Inicio
+                        </Link>
+                        
+                        <div className={styles.drawerSection}>
+                            <span className={styles.drawerSectionTitle}>🎁 Crea tu Box</span>
+                            <div className={styles.drawerSubLinks}>
+                                <Link to="/categoria/reyes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Reyes</Link>
+                                <Link to="/categoria/kit-escolar" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Kit Escolar</Link>
+                                <Link to="/categoria/san-valentin" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>San Valentín</Link>
+                                <Link to="/categoria/dia-mujer" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día de la Mujer</Link>
+                                <Link to="/categoria/dia-hombre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Hombre</Link>
+                                <Link to="/categoria/semana-santa" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Semana Santa</Link>
+                                <Link to="/categoria/dia-nino" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Niño</Link>
+                                <Link to="/categoria/dia-madre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día de la Madre</Link>
+                                <Link to="/categoria/dia-padre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Padre</Link>
+                            </div>
+                        </div>
+
+                        <div className={styles.drawerSection}>
+                            <span className={styles.drawerSectionTitle}>🎨 Personalizamos</span>
+                            <div className={styles.drawerSubLinks}>
+                                <Link to="/categoria/mugs-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Mugs Personalizados</Link>
+                                <Link to="/categoria/vasos-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Vasos Personalizados</Link>
+                                <Link to="/categoria/rompecabezas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Rompecabezas</Link>
+                                <Link to="/categoria/arte-resina" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Arte en Resina</Link>
+                                <Link to="/categoria/miyuki" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Miyuki</Link>
+                                <Link to="/categoria/globo-mensaje" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Globo Mensaje</Link>
+                                <Link to="/categoria/vino" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Vino</Link>
+                                <Link to="/categoria/figuras-3d" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Figuras 3D</Link>
+                                <Link to="/categoria/amigurumis" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Amigurumis</Link>
+                                <Link to="/categoria/su-flor-especial" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Su Flor Especial</Link>
+                            </div>
+                        </div>
+
+                        <Link to="/Contacto" className={`${styles.drawerLink} ${isActive("/Contacto") ? styles.drawerLinkActive : ""}`} onClick={() => setIsMenuOpen(false)}>
+                            ✉️ Contacto
+                        </Link>
+                    </nav>
+                </div>
+            </div>
         </header>
     );
 };
