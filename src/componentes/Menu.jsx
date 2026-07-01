@@ -20,9 +20,41 @@ export const Menu = () => {
     const location = useLocation();
     const { setIsCartOpen, cartItems } = useCart();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
     const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
     const isActive = (path) => location.pathname === path;
+
+    const handleSearchChange = (e) => {
+        const query = e.target.value;
+        setSearchQuery(query);
+        if (query.trim() === "") {
+            setSearchResults([]);
+        } else {
+            const normalizedQuery = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const allProducts = Object.entries(PRODUCTS_DB).flatMap(([category, items]) =>
+                items.map(item => ({ ...item, category }))
+            );
+            const filtered = allProducts.filter(product => {
+                const nameNorm = product.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const subtitleNorm = (product.subtitle || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const descNorm = (product.description || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const catNorm = product.category.toLowerCase().replace(/-/g, " ");
+                
+                return nameNorm.includes(normalizedQuery) || 
+                       subtitleNorm.includes(normalizedQuery) ||
+                       descNorm.includes(normalizedQuery) ||
+                       catNorm.includes(normalizedQuery);
+            });
+            setSearchResults(filtered.slice(0, 8));
+        }
+    };
+
+    const handleSuggestionClick = () => {
+        setSearchQuery("");
+        setSearchResults([]);
+    };
 
     // Detect active category either from category page or product details page
     let activeCategory = null;
@@ -58,6 +90,17 @@ export const Menu = () => {
     return (
         <header className={styles.header}>
             <div className={styles.headerLogo}>
+                <button 
+                    className={`${styles.hamburgerBtn} ${isMenuOpen ? styles.hamburgerActive : ''}`} 
+                    onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                    aria-label="Abrir menú"
+                    aria-expanded={isMenuOpen}
+                >
+                    <span className={styles.hamburgerLine}></span>
+                    <span className={styles.hamburgerLine}></span>
+                    <span className={styles.hamburgerLine}></span>
+                </button>
+
                 <Link to="/" className={styles.logoSection}>
                     <span className={styles.logoIcon}>
                         <img src={break_lab_logo} alt="Logo de BreakLab - Desayunos Sorpresa y Regalos Personalizados" />
@@ -69,10 +112,35 @@ export const Menu = () => {
                 </Link>
                 
                 <div className={styles.searchBar}>
-                    <input type="text" placeholder="Buscar productos, categorías..." className={styles.searchInput} />
+                    <input 
+                        type="text" 
+                        placeholder="Buscar productos, categorías..." 
+                        className={styles.searchInput} 
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                    />
                     <button className={styles.searchButton} aria-label="Buscar productos">
                         <img src={search} alt="Buscar" />
                     </button>
+                    
+                    {searchResults.length > 0 && (
+                        <div className={styles.searchDropdown}>
+                            {searchResults.map(product => (
+                                <Link 
+                                    key={product.id} 
+                                    to={`/producto/${product.id}`} 
+                                    className={styles.searchResultItem}
+                                    onClick={handleSuggestionClick}
+                                >
+                                    <img src={product.image} alt={product.name} className={styles.searchResultImage} />
+                                    <div className={styles.searchResultInfo}>
+                                        <span className={styles.searchResultName}>{product.name}</span>
+                                        <span className={styles.searchResultPrice}>${product.price.toLocaleString("es-CO")}</span>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    )}
                 </div>
                 
                 <div className={styles.headerActions}>
@@ -80,17 +148,6 @@ export const Menu = () => {
                         <img src={carrito} alt="Carrito de compras BreakLab" />
                         {cartCount > 0 && <span className={styles.cartBadge}>{cartCount}</span>}
                     </Link>
-                    
-                    <button 
-                        className={`${styles.hamburgerBtn} ${isMenuOpen ? styles.hamburgerActive : ''}`} 
-                        onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                        aria-label="Abrir menú"
-                        aria-expanded={isMenuOpen}
-                    >
-                        <span className={styles.hamburgerLine}></span>
-                        <span className={styles.hamburgerLine}></span>
-                        <span className={styles.hamburgerLine}></span>
-                    </button>
                 </div>
             </div>
 
@@ -147,7 +204,7 @@ export const Menu = () => {
                     <div className={styles.drawerHeader}>
                         <strong className={styles.drawerTitle}>Menú</strong>
                         <button className={styles.drawerClose} onClick={() => setIsMenuOpen(false)} aria-label="Cerrar menú">
-                            &times;
+                            ✕
                         </button>
                     </div>
                     <nav className={styles.drawerNav}>
