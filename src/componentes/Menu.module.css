@@ -216,9 +216,19 @@
 
 /* Responsisividad básica */
 @media (max-width: 768px) {
-    .topRow {
+    .headerLogo {
         flex-direction: column;
         gap: 15px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .logoSection {
+        justify-content: center;
     }
 
     .searchBar {
@@ -229,6 +239,18 @@
     .navInner {
         overflow-x: auto;
         justify-content: flex-start;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding: 8px 15px;
+        scrollbar-width: none; /* Oculta scrollbar en Firefox */
+    }
+
+    .navInner::-webkit-scrollbar {
+        display: none; /* Oculta scrollbar en Chrome/Safari/Edge */
+    }
+
+    .navLink {
+        flex-shrink: 0;
     }
 }
 

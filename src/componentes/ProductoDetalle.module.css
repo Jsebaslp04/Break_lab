@@ -510,13 +510,33 @@
     background: #ccc;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
     .detailContainer {
         padding: 2rem 1.5rem;
     }
 
+    .splitView {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .imageSection {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    .mainImage {
+        height: 380px;
+    }
+
     .suggestedItems {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .suggestedBox {
+        width: 100%;
+        max-width: 280px;
     }
 }
 
@@ -597,19 +617,31 @@
 
 /* Gallery responsive adjustment */
 @media (max-width: 768px) {
-    .splitView {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    .imageSection {
-        flex: 1;
-        max-width: 100%;
-    }
     .mainImage {
-        height: 300px;
+        height: 320px;
     }
+
     .title {
         font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainImage {
+        height: 260px;
+    }
+
+    .thumbnailBtn {
+        width: 55px;
+        height: 55px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .priceTag {
+        font-size: 1.6rem;
     }
 }
 
