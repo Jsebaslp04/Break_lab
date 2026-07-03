@@ -336,9 +336,11 @@
 }
 
 .optionPill:hover {
-    border-color: #fcd8e4;
+    border-color: #d65b79;
     color: #d65b79;
     background-color: #fdfafb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(214, 91, 121, 0.2), 0 0 8px rgba(214, 91, 121, 0.15);
 }
 
 .activePill {
@@ -357,7 +359,7 @@
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 4px 15px rgba(227, 223, 252, 0.4);
     width: 100%;
     margin-top: 1rem;
@@ -366,8 +368,10 @@
 }
 
 .addToCartBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(227, 223, 252, 0.6);
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(135deg, #ffb3cc 0%, #c4baff 100%);
+    box-shadow: 0 8px 25px rgba(247, 143, 167, 0.4), 0 0 15px rgba(227, 223, 252, 0.6);
+    filter: brightness(1.05);
 }
 
 
@@ -416,7 +420,7 @@
     border: 2px solid transparent;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -425,8 +429,10 @@
 }
 
 .suggestedBox:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transform: translateY(-4px);
+    border-color: #aa8261;
+    background: #fdfbf9;
+    box-shadow: 0 8px 20px rgba(170, 130, 97, 0.25), 0 0 10px rgba(170, 130, 97, 0.15);
 }
 
 .suggestedBox.selected {
@@ -478,11 +484,13 @@
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.2s;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .btnSecondary:hover {
     background: #ddd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .btnPrimary {
@@ -493,11 +501,13 @@
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.2s, opacity 0.2s;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .btnPrimary:hover {
     background: #4a332c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(124, 76, 13, 0.35), 0 0 10px rgba(124, 76, 13, 0.2);
 }
 
 .btnDisabled {
@@ -615,6 +625,78 @@
     color: #dfaebf;
 }
 
+/* Lightbox Arrow Navigation */
+.lightboxArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 5010;
+    outline: none;
+    padding: 0;
+}
+
+.lightboxArrow:hover {
+    background: rgba(255, 255, 255, 0.85);
+    color: #4a332c;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.lightboxArrowLeft {
+    left: -70px;
+}
+
+.lightboxArrowRight {
+    right: -70px;
+}
+
+/* Lightbox Bullets Pagination */
+.lightboxBullets {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 5010;
+}
+
+.lightboxBullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    outline: none;
+}
+
+.lightboxBullet:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.lightboxBulletActive {
+    background: #f78fa7;
+    transform: scale(1.25);
+    box-shadow: 0 0 10px rgba(247, 143, 167, 0.6);
+}
+
 /* Gallery responsive adjustment */
 @media (max-width: 768px) {
     .mainImage {
@@ -623,6 +705,24 @@
 
     .title {
         font-size: 1.8rem;
+    }
+
+    .lightboxArrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .lightboxArrowLeft {
+        left: 10px;
+    }
+
+    .lightboxArrowRight {
+        right: 10px;
+    }
+
+    .lightboxBullets {
+        bottom: 15px;
     }
 }
 

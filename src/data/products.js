@@ -660,22 +660,36 @@ export const getCategoryProducts = (categoryId) => {
             images: [breakLabLogo]
         }
     ];
-    return products.map(p => ({ 
-        ...p, 
-        image: p.image || breakLabLogo,
-        images: p.images && p.images.length > 0 ? p.images : [p.image || breakLabLogo],
-        subtitle: p.subtitle || 'Detalle único y especial'
-    }));
+    return products.map(p => {
+        const mainImg = p.image || breakLabLogo;
+        let pImages = p.images && p.images.length > 0 ? [...p.images] : [mainImg];
+        if (pImages.length === 1) {
+            const fallback = mainImg === breakLabLogo ? imgGengarBox : breakLabLogo;
+            pImages.push(fallback);
+        }
+        return { 
+            ...p, 
+            image: mainImg,
+            images: pImages,
+            subtitle: p.subtitle || 'Detalle único y especial'
+        };
+    });
 };
 
 export const getProductById = (productId) => {
     for (const category in PRODUCTS_DB) {
         const product = PRODUCTS_DB[category].find(p => p.id === productId);
         if (product) {
+            const mainImg = product.image || breakLabLogo;
+            let pImages = product.images && product.images.length > 0 ? [...product.images] : [mainImg];
+            if (pImages.length === 1) {
+                const fallback = mainImg === breakLabLogo ? imgGengarBox : breakLabLogo;
+                pImages.push(fallback);
+            }
             return { 
                 ...product, 
-                image: product.image || breakLabLogo,
-                images: product.images && product.images.length > 0 ? product.images : [product.image || breakLabLogo],
+                image: mainImg,
+                images: pImages,
                 subtitle: product.subtitle || 'Detalle único y especial'
             };
         }
@@ -689,6 +703,6 @@ export const getProductById = (productId) => {
         price: 45000,
         isNew: false,
         image: breakLabLogo,
-        images: [breakLabLogo]
+        images: [breakLabLogo, imgGengarBox]
     };
 };

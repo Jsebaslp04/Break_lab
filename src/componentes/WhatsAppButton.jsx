@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './WhatsAppButton.module.css';
 
 export function WhatsAppButton() {
     const [showTooltip, setShowTooltip] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
-        // Mostrar el globo después de 3 segundos para llamar la atención del usuario
+        // Resetear y ocultar el globo en cada cambio de página
+        setShowTooltip(false);
+
+        // Mostrar el globo después de 3 segundos
         const timer = setTimeout(() => {
             setShowTooltip(true);
         }, 3000);
 
         return () => clearTimeout(timer);
-    }, []);
+    }, [location.pathname]); // Se ejecuta cada vez que cambia la ruta
 
     const handleCloseTooltip = (e) => {
         e.preventDefault();

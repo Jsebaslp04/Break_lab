@@ -112,17 +112,18 @@
 
 .tooltip_close {
     position: absolute;
-    top: 6px;
-    right: 8px;
+    top: 4px;
+    right: 6px;
     background: none;
     border: none;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #aaa;
     cursor: pointer;
     transition: color 0.2s;
     line-height: 1;
-    padding: 0;
+    padding: 4px;
+    z-index: 10;
 }
 
 .tooltip_close:hover {

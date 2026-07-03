@@ -91,7 +91,8 @@
 
 .continueBtn:hover {
     background: #7c4c0d;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(124, 76, 13, 0.35), 0 0 10px rgba(124, 76, 13, 0.2);
 }
 
 /* Cart List */
@@ -186,6 +187,8 @@
 .removeBtn:hover {
     background: #fff0f0;
     border-color: #d32f2f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
 }
 
 .addMoreSection {
@@ -198,7 +201,7 @@
     text-decoration: none;
     font-weight: 700;
     font-size: 1.2rem;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
     background: #fdfbf9;
     padding: 1rem 2rem;
     border-radius: 30px;
@@ -210,6 +213,8 @@
     color: #7c4c0d;
     background: #fff;
     border-style: solid;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(223, 174, 191, 0.2);
 }
 
 /* Footer */
@@ -254,8 +259,8 @@
 
 .whatsappBtn:hover {
     background: #1ebc5a;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5), 0 0 15px rgba(37, 211, 102, 0.3);
 }
 
 .waIcon {

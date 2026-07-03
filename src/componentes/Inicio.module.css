@@ -7,7 +7,7 @@
     width: 100%;
     padding: 0;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .banner_container {
@@ -1006,5 +1006,14 @@
 
     .arrow_right {
         right: 10px;
+    }
+}
+
+@media (max-width: 580px) {
+    .specialties_grid,
+    .grid_steps,
+    .grid_reasons {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
     }
 }

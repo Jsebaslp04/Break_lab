@@ -12,6 +12,7 @@ export function ProductoDetalle() {
     const [selectedSug, setSelectedSug] = useState({});
     const [activeImageIdx, setActiveImageIdx] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const [lightboxImageIdx, setLightboxImageIdx] = useState(0);
     const { addToCart } = useCart();
 
     const product = getProductById(id || 'kit-escolar-sorpresa');
@@ -208,7 +209,10 @@ export function ProductoDetalle() {
                             </div>
                         )}
 
-                        <div className={styles.mainImage} onClick={() => setIsLightboxOpen(true)}>
+                        <div className={styles.mainImage} onClick={() => {
+                            setLightboxImageIdx(activeImageIdx);
+                            setIsLightboxOpen(true);
+                        }}>
                             <img 
                                 src={product.images[activeImageIdx] || product.image} 
                                 alt={`Fotografía de ${product.name} - Detalle de regalo de BreakLab`} 
@@ -317,11 +321,54 @@ export function ProductoDetalle() {
                         >
                             &times;
                         </button>
+                        
+                        {product.images.length > 1 && (
+                            <button 
+                                className={`${styles.lightboxArrow} ${styles.lightboxArrowLeft}`}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setLightboxImageIdx(prev => (prev === 0 ? product.images.length - 1 : prev - 1));
+                                }}
+                                aria-label="Imagen anterior"
+                            >
+                                &#10094;
+                            </button>
+                        )}
+
                         <img 
-                            src={product.images[activeImageIdx] || product.image} 
-                            alt={`Ampliación de ${product.name}`} 
+                            src={product.images[lightboxImageIdx] || product.image} 
+                            alt={`Ampliación de ${product.name} - Imagen ${lightboxImageIdx + 1}`} 
                             className={styles.lightboxImage} 
                         />
+
+                        {product.images.length > 1 && (
+                            <button 
+                                className={`${styles.lightboxArrow} ${styles.lightboxArrowRight}`}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setLightboxImageIdx(prev => (prev === product.images.length - 1 ? 0 : prev + 1));
+                                }}
+                                aria-label="Siguiente imagen"
+                            >
+                                &#10095;
+                            </button>
+                        )}
+
+                        {product.images.length > 1 && (
+                            <div className={styles.lightboxBullets}>
+                                {product.images.map((_, idx) => (
+                                    <button 
+                                        key={idx}
+                                        className={`${styles.lightboxBullet} ${idx === lightboxImageIdx ? styles.lightboxBulletActive : ''}`}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setLightboxImageIdx(idx);
+                                        }}
+                                        aria-label={`Ir a imagen ${idx + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
