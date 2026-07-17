@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Inicio } from "../Inicio";
 import { Crea_tu_Box } from "../Crea_tu_Box";
 import { Personalizamos } from "../Personalizamos";
+import { Combos } from "../Combos";
 import { Contacto } from "../Contacto";
 import { Informacion } from "../Informacion";
 import { CategoriaProductos } from "../CategoriaProductos";
@@ -14,6 +15,7 @@ export const AppRouter = () => {
         <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/Crea_tu_Box" element={<Crea_tu_Box />} />
+            <Route path="/Combos" element={<Combos />} />
             <Route path="/Personalizamos" element={<Personalizamos />} />
             <Route path="/Envios" element={<Inicio />} />
             <Route path="/Contacto" element={<Contacto />} />

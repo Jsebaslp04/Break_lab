@@ -17,14 +17,17 @@ export const Personalizamos = () => {
     const categories = [
         { id: 'mugs-personalizados', name: 'Mugs Personalizados', icon: '☕', theme: styles.themePlayful },
         { id: 'vasos-personalizados', name: 'Vasos Personalizados', icon: '🥤', theme: styles.themePlayful },
+        { id: 'llaveros', name: 'Llaveros', icon: '🔑', theme: styles.themePlayful },
         { id: 'rompecabezas', name: 'Rompecabezas', icon: '🧩', theme: styles.themePlayful },
+        { id: 'gelatortas', name: 'Gelatortas', icon: '🎂', theme: styles.themeRomantic },
         { id: 'arte-resina', name: 'Arte en Resina', icon: '🎨', theme: styles.themeFestive },
         { id: 'miyuki', name: 'Miyuki', icon: '💎', theme: styles.themeRomantic },
         { id: 'globo-mensaje', name: 'Globo Mensaje', icon: '🎈', theme: styles.themeRomantic },
         { id: 'vino', name: 'Vino', icon: '🍷', theme: styles.themeMasculine },
         { id: 'figuras-3d', name: 'Figuras 3D', icon: '👾', theme: styles.themePlayful },
         { id: 'amigurumis', name: 'Amigurumis', icon: '🧶', theme: styles.themeRomantic },
-        { id: 'su-flor-especial', name: 'Su Flor Especial', icon: '🌹', theme: styles.themeRomantic }
+        { id: 'su-flor-especial', name: 'Su Flor Especial', icon: '🌹', theme: styles.themeRomantic },
+        { id: 'variedades', name: 'Variedades', icon: '🎁', theme: styles.themeFestive }
     ];
 
     return (

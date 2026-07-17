@@ -3,9 +3,10 @@ import { useCart } from './context/CartContext';
 import { Link } from 'react-router-dom';
 import styles from './Cart.module.css';
 import { useSEO } from '../hooks/useSEO';
+import { getProductById, getProductOptions } from '../data/products';
 
 export const Cart = () => {
-    const { cartItems, updateQuantity, removeFromCart } = useCart();
+    const { cartItems, updateQuantity, removeFromCart, updateCartItemOptions } = useCart();
 
     const phoneNumber = "573208738961"; // Real WhatsApp number configured in other parts
 
@@ -58,9 +59,58 @@ export const Cart = () => {
                             <div className={styles.cartList}>
                                 {cartItems.map((item) => (
                                     <div key={item.id} className={styles.cartItem}>
-                                        <div className={styles.itemInfo}>
-                                            <h4>{item.name}</h4>
-                                            <p className={styles.itemPrice}>${item.price.toLocaleString()}</p>
+                                        <div className={styles.itemContainer}>
+                                            {item.image ? (
+                                                item.image.endsWith('.mp4') ? (
+                                                    <video 
+                                                        src={item.image} 
+                                                        className={styles.itemImage} 
+                                                        autoPlay 
+                                                        muted 
+                                                        loop 
+                                                        playsInline 
+                                                    />
+                                                ) : (
+                                                    <img 
+                                                        src={item.image} 
+                                                        alt={item.name} 
+                                                        className={styles.itemImage} 
+                                                    />
+                                                )
+                                            ) : null}
+                                            <div className={styles.itemInfo}>
+                                                <h4>{item.name}</h4>
+                                                <p className={styles.itemPrice}>${item.price.toLocaleString()}</p>
+                                                
+                                                {/* Selector de color dinámico en el carrito */}
+                                                {(() => {
+                                                    const product = getProductById(item.productId);
+                                                    const options = product ? getProductOptions(product) : [];
+                                                    const colorOpt = options.find(o => o.name === 'color');
+                                                    if (!colorOpt) return null;
+                                                    return (
+                                                        <div className={styles.cartColorSelector}>
+                                                            <label htmlFor={`color-select-${item.id}`}>Color: </label>
+                                                            <select
+                                                                id={`color-select-${item.id}`}
+                                                                value={item.selectedOptions?.color || colorOpt.default}
+                                                                onChange={(e) => {
+                                                                    const newColor = e.target.value;
+                                                                    const newOptions = { ...item.selectedOptions, color: newColor };
+                                                                    updateCartItemOptions(item.id, newOptions);
+                                                                }}
+                                                                className={styles.colorSelectDropdown}
+                                                            >
+                                                                {colorOpt.choices.map(choice => (
+                                                                    <option key={choice} value={choice}>
+                                                                        {choice}
+                                                                    </option>
+                                                                ))}
+                                                            </select>
+                                                        </div>
+                                                    );
+                                                })()}
+                                            </div>
                                         </div>
                                         <div className={styles.itemActions}>
                                             <div className={styles.quantityControls}>

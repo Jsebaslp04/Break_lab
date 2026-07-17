@@ -85,6 +85,9 @@ export function ProductoDetalle() {
                 break;
             }
         }
+        if (categoryId.includes('rompecabezas')) {
+            categoryId = 'rompecabezas';
+        }
         navigate(`/categoria/${categoryId}`);
     };
 
@@ -103,18 +106,35 @@ export function ProductoDetalle() {
             ...prev,
             [optionName]: choice
         }));
+
+        if (optionName === 'color' && product.colorImageMap) {
+            const imgIdx = product.colorImageMap[choice];
+            if (imgIdx !== undefined) {
+                setActiveImageIdx(imgIdx);
+            }
+        }
     };
 
     const handleAddSelected = () => {
         const optString = Object.values(selectedOptions).join(', ');
         const optId = Object.values(selectedOptions).join('-');
 
+        let selectedImage = product.image;
+        if (selectedOptions.color && product.colorImageMap && product.images) {
+            const imgIdx = product.colorImageMap[selectedOptions.color];
+            if (imgIdx !== undefined && product.images[imgIdx]) {
+                selectedImage = product.images[imgIdx];
+            }
+        }
+
         const productsToAdd = [{
             id: `${product.id}-${optId}`,
+            productId: product.id,
             name: `${product.name} (${optString})`,
             price: product.price,
             quantity: 1,
-            image: product.image
+            image: selectedImage,
+            selectedOptions: { ...selectedOptions }
         }];
 
         suggestedItems.forEach(sug => {
@@ -137,12 +157,22 @@ export function ProductoDetalle() {
         const optString = Object.values(selectedOptions).join(', ');
         const optId = Object.values(selectedOptions).join('-');
 
+        let selectedImage = product.image;
+        if (selectedOptions.color && product.colorImageMap && product.images) {
+            const imgIdx = product.colorImageMap[selectedOptions.color];
+            if (imgIdx !== undefined && product.images[imgIdx]) {
+                selectedImage = product.images[imgIdx];
+            }
+        }
+
         addToCart([{
             id: `${product.id}-${optId}`,
+            productId: product.id,
             name: `${product.name} (${optString})`,
             price: product.price,
             quantity: 1,
-            image: product.image
+            image: selectedImage,
+            selectedOptions: { ...selectedOptions }
         }]);
         setShowModal(false);
         setSelectedSug({});
@@ -199,11 +229,31 @@ export function ProductoDetalle() {
                                         onClick={() => setActiveImageIdx(idx)}
                                         aria-label={`Ver imagen ${idx + 1}`}
                                     >
-                                        <img 
-                                            src={img} 
-                                            alt={`Vista alternativa ${idx + 1}`} 
-                                            className={styles.thumbnailImg} 
-                                        />
+                                        {img.endsWith('.mp4') ? (
+                                            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                                                <video 
+                                                    src={img} 
+                                                    className={styles.thumbnailImg} 
+                                                    muted 
+                                                    playsInline
+                                                />
+                                                <span style={{
+                                                    position: 'absolute',
+                                                    top: '50%',
+                                                    left: '50%',
+                                                    transform: 'translate(-50%, -50%)',
+                                                    color: 'white',
+                                                    fontSize: '1rem',
+                                                    textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+                                                }}>▶</span>
+                                            </div>
+                                        ) : (
+                                            <img 
+                                                src={img} 
+                                                alt={`Vista alternativa ${idx + 1}`} 
+                                                className={styles.thumbnailImg} 
+                                            />
+                                        )}
                                     </button>
                                 ))}
                             </div>
@@ -213,12 +263,28 @@ export function ProductoDetalle() {
                             setLightboxImageIdx(activeImageIdx);
                             setIsLightboxOpen(true);
                         }}>
-                            <img 
-                                src={product.images[activeImageIdx] || product.image} 
-                                alt={`Fotografía de ${product.name} - Detalle de regalo de BreakLab`} 
-                                className={styles.detailImage} 
-                                loading="eager" 
-                            />
+                            {product.images[activeImageIdx]?.endsWith('.mp4') ? (
+                                <video 
+                                    src={product.images[activeImageIdx]} 
+                                    className={styles.detailImage} 
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    controls
+                                    onClick={(e) => {
+                                        // Permite controlar video sin disparar lightbox necesariamente
+                                        e.stopPropagation();
+                                    }}
+                                />
+                            ) : (
+                                <img 
+                                    src={product.images[activeImageIdx] || product.image} 
+                                    alt={`Fotografía de ${product.name} - Detalle de regalo de BreakLab`} 
+                                    className={styles.detailImage} 
+                                    loading="eager" 
+                                />
+                            )}
                             {product.isNew && <span className={styles.newBadge}>NUEVO</span>}
                             <div className={styles.zoomHoverOverlay}>
                                 <span>🔍 Ampliar</span>
@@ -335,11 +401,20 @@ export function ProductoDetalle() {
                             </button>
                         )}
 
-                        <img 
-                            src={product.images[lightboxImageIdx] || product.image} 
-                            alt={`Ampliación de ${product.name} - Imagen ${lightboxImageIdx + 1}`} 
-                            className={styles.lightboxImage} 
-                        />
+                        {product.images[lightboxImageIdx]?.endsWith('.mp4') ? (
+                            <video 
+                                src={product.images[lightboxImageIdx]} 
+                                className={styles.lightboxImage} 
+                                controls
+                                autoPlay
+                            />
+                        ) : (
+                            <img 
+                                src={product.images[lightboxImageIdx] || product.image} 
+                                alt={`Ampliación de ${product.name} - Imagen ${lightboxImageIdx + 1}`} 
+                                className={styles.lightboxImage} 
+                            />
+                        )}
 
                         {product.images.length > 1 && (
                             <button 

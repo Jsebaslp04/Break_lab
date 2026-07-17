@@ -71,18 +71,29 @@ export const Menu = () => {
     }
 
     const creaTuBoxCategories = [
-        'reyes', 'kit-escolar', 'san-valentin', 'dia-mujer', 'dia-hombre', 
+        'reyes', 'kit-escolar', 'san-valentin', 'box-tematicas', 'dia-mujer', 'dia-hombre', 
         'semana-santa', 'dia-nino', 'dia-madre', 'dia-padre'
     ];
 
+    const combosCategories = [
+        'combo-avengers', 'combo-batman', 'combo-bob-esponja', 'combo-caballeros-del-zodiaco',
+        'combo-friends', 'combo-looney-tunes', 'combo-los-simpson', 'combo-mugs-one-piece'
+    ];
+
     const personalizamosCategories = [
-        'mugs-personalizados', 'vasos-personalizados', 'rompecabezas', 
-        'arte-resina', 'miyuki', 'globo-mensaje', 'vino', 'figuras-3d', 
-        'amigurumis', 'su-flor-especial'
+        'mugs-personalizados', 'vasos-personalizados', 'llaveros', 'rompecabezas', 
+        'gelatortas', 'arte-resina', 'miyuki', 'globo-mensaje', 'vino', 'figuras-3d', 
+        'amigurumis', 'su-flor-especial', 'variedades',
+        'rompecabezas-magneticos', 'rompecabezas-carton', 'rompecabezas-mdf',
+        'gelatortas_mascota', 'gelatorta_tematica',
+        'figuras-3d-mario-bros', 'figuras-3d-bowser', 'figuras-3d-gengar', 'figuras-3d-pokebola', 'figuras-3d-personalizadas'
     ];
 
     const isCreaTuBoxActive = isActive("/Crea_tu_Box") || 
         (activeCategory && creaTuBoxCategories.includes(activeCategory));
+
+    const isCombosActive = isActive("/Combos") || 
+        (activeCategory && combosCategories.includes(activeCategory));
 
     const isPersonalizamosActive = isActive("/Personalizamos") || 
         (activeCategory && personalizamosCategories.includes(activeCategory));
@@ -165,6 +176,7 @@ export const Menu = () => {
                             <Link to="/categoria/reyes" className={styles.dropdownItem}>Reyes</Link>
                             <Link to="/categoria/kit-escolar" className={styles.dropdownItem}>Kit Escolar</Link>
                             <Link to="/categoria/san-valentin" className={styles.dropdownItem}>San Valentín</Link>
+                            <Link to="/categoria/box-tematicas" className={styles.dropdownItem}>Box Temáticas</Link>
                             <Link to="/categoria/dia-mujer" className={styles.dropdownItem}>Día de la Mujer</Link>
                             <Link to="/categoria/dia-hombre" className={styles.dropdownItem}>Día del Hombre</Link>
                             <Link to="/categoria/semana-santa" className={styles.dropdownItem}>Semana Santa</Link>
@@ -175,13 +187,31 @@ export const Menu = () => {
                     </div>
 
                     <div className={styles.dropdownContainer}>
+                        <Link to="/Combos" className={`${styles.navLink} ${isCombosActive ? styles.active : ""}`}>
+                            <span className={styles.navEmoji} style={{ fontSize: '1.4rem', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>☕</span> Combos <span className={styles.arrowIcon}>▼</span>
+                        </Link>
+                        <div className={styles.dropdownMenu}>
+                            <Link to="/categoria/combo-avengers" className={styles.dropdownItem}>Combo Avengers</Link>
+                            <Link to="/categoria/combo-batman" className={styles.dropdownItem}>Combo Batman</Link>
+                            <Link to="/categoria/combo-bob-esponja" className={styles.dropdownItem}>Combo Bob Esponja</Link>
+                            <Link to="/categoria/combo-caballeros-del-zodiaco" className={styles.dropdownItem}>Combo Caballeros Zodíaco</Link>
+                            <Link to="/categoria/combo-friends" className={styles.dropdownItem}>Combo Friends</Link>
+                            <Link to="/categoria/combo-looney-tunes" className={styles.dropdownItem}>Combo Looney Tunes</Link>
+                            <Link to="/categoria/combo-los-simpson" className={styles.dropdownItem}>Combo Los Simpson</Link>
+                            <Link to="/categoria/combo-mugs-one-piece" className={styles.dropdownItem}>Combo One Piece</Link>
+                        </div>
+                    </div>
+
+                    <div className={styles.dropdownContainer}>
                         <Link to="/Personalizamos" className={`${styles.navLink} ${isPersonalizamosActive ? styles.active : ""}`}>
                             <span className={styles.navEmoji}><img src={personalizacion} alt="Personalización de regalos" /></span> Personalizamos <span className={styles.arrowIcon}>▼</span>
                         </Link>
                         <div className={styles.dropdownMenu}>
                             <Link to="/categoria/mugs-personalizados" className={styles.dropdownItem}>Mugs Personalizados</Link>
                             <Link to="/categoria/vasos-personalizados" className={styles.dropdownItem}>Vasos Personalizados</Link>
+                            <Link to="/categoria/llaveros" className={styles.dropdownItem}>Llaveros</Link>
                             <Link to="/categoria/rompecabezas" className={styles.dropdownItem}>Rompecabezas</Link>
+                            <Link to="/categoria/gelatortas" className={styles.dropdownItem}>Gelatortas</Link>
                             <Link to="/categoria/arte-resina" className={styles.dropdownItem}>Arte en Resina</Link>
                             <Link to="/categoria/miyuki" className={styles.dropdownItem}>Miyuki</Link>
                             <Link to="/categoria/globo-mensaje" className={styles.dropdownItem}>Globo Mensaje</Link>
@@ -189,6 +219,7 @@ export const Menu = () => {
                             <Link to="/categoria/figuras-3d" className={styles.dropdownItem}>Figuras 3D</Link>
                             <Link to="/categoria/amigurumis" className={styles.dropdownItem}>Amigurumis</Link>
                             <Link to="/categoria/su-flor-especial" className={styles.dropdownItem}>Su Flor Especial</Link>
+                            <Link to="/categoria/variedades" className={styles.dropdownItem}>Variedades</Link>
                         </div>
                     </div>
 
@@ -218,6 +249,7 @@ export const Menu = () => {
                                 <Link to="/categoria/reyes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Reyes</Link>
                                 <Link to="/categoria/kit-escolar" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Kit Escolar</Link>
                                 <Link to="/categoria/san-valentin" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>San Valentín</Link>
+                                <Link to="/categoria/box-tematicas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Box Temáticas</Link>
                                 <Link to="/categoria/dia-mujer" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día de la Mujer</Link>
                                 <Link to="/categoria/dia-hombre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Hombre</Link>
                                 <Link to="/categoria/semana-santa" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Semana Santa</Link>
@@ -232,7 +264,9 @@ export const Menu = () => {
                             <div className={styles.drawerSubLinks}>
                                 <Link to="/categoria/mugs-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Mugs Personalizados</Link>
                                 <Link to="/categoria/vasos-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Vasos Personalizados</Link>
+                                <Link to="/categoria/llaveros" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Llaveros</Link>
                                 <Link to="/categoria/rompecabezas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Rompecabezas</Link>
+                                <Link to="/categoria/gelatortas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Gelatortas</Link>
                                 <Link to="/categoria/arte-resina" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Arte en Resina</Link>
                                 <Link to="/categoria/miyuki" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Miyuki</Link>
                                 <Link to="/categoria/globo-mensaje" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Globo Mensaje</Link>
@@ -240,6 +274,7 @@ export const Menu = () => {
                                 <Link to="/categoria/figuras-3d" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Figuras 3D</Link>
                                 <Link to="/categoria/amigurumis" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Amigurumis</Link>
                                 <Link to="/categoria/su-flor-especial" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Su Flor Especial</Link>
+                                <Link to="/categoria/variedades" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Variedades</Link>
                             </div>
                         </div>
 

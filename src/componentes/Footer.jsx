@@ -56,7 +56,7 @@ export function Footer() {
                             <img src={facebookIcon} alt="Facebook" className={styles.social_icon} />
                             <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/breaklab_factory/" target="_blank" rel="noreferrer" className={`${styles.social_badge} ${styles.instagram}`}>
+                        <a href="https://www.instagram.com/breaklab.colombia/" target="_blank" rel="noreferrer" className={`${styles.social_badge} ${styles.instagram}`}>
                             <img src={instagramIcon} alt="Instagram" className={styles.social_icon} />
                             <span>Instagram</span>
                         </a>

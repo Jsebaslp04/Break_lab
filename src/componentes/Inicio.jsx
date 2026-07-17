@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Inicio.module.css'
 import { useSEO } from '../hooks/useSEO'
+import { getProductById } from '../data/products'
 import img1 from '../assets/Swiper/impresion-3d-personajes-videojuegos.png.png'
 import img2 from '../assets/Swiper/rompecabezas-magnetico-one-piece-luffy.png.png'
 import img3 from '../assets/Swiper/vaso-frost-personalizado-mascotas.png.png'
@@ -170,6 +171,147 @@ export function Inicio() {
         schema: localBusinessSchema
     });
 
+    const [finderRecipient, setFinderRecipient] = useState(null);
+    const [finderVibe, setFinderVibe] = useState(null);
+    const [isSearching, setIsSearching] = useState(false);
+    const [searchStepText, setSearchStepText] = useState("");
+    const [finderResult, setFinderResult] = useState(null);
+
+    const handleFindGift = () => {
+        if (!finderRecipient || !finderVibe) return;
+
+        setIsSearching(true);
+        const currentResultId = finderResult?.id;
+        setFinderResult(null);
+
+        const steps = [
+            "Buscando en nuestro catálogo de sorpresas... 🔍",
+            "Midiendo los niveles de dulzura y originalidad... 📏",
+            "Añadiendo una pizca de magia BreakLab... ✨",
+            "¡Envoltura virtual completada! 🎁"
+        ];
+
+        let stepIdx = 0;
+        setSearchStepText(steps[0]);
+
+        const interval = setInterval(() => {
+            stepIdx++;
+            if (stepIdx < steps.length) {
+                setSearchStepText(steps[stepIdx]);
+            } else {
+                clearInterval(interval);
+
+                const mapping = {
+                    'pareja_gamer': [
+                        'san-valentin-premium', 
+                        'rompecabezas-magnetico-one-piece-luffy', 
+                        'dia-nino-gamer',
+                        'box-tematica-one-piece',
+                        'rompecabezas-one-piece',
+                        'mug-tematico-anime-gamer',
+                        'llavero-luffy-redondo'
+                    ],
+                    'pareja_gourmet': [
+                        'san-valentin-dulce', 
+                        'vino-caja-madera', 
+                        'vino-personalizado',
+                        'gelatorta-huella-perro'
+                    ],
+                    'pareja_amigurumi': ['amigurumi-mascota', 'amigurumi-llavero', 'dia-nino-amigurumi'],
+                    'pareja_eterno': [
+                        'flor-eterna', 
+                        'pulsera-miyuki', 
+                        'collar-miyuki',
+                        'rompecabezas-carton-personalizado',
+                        'mug-blanco'
+                    ],
+
+                    'mama_gamer': [
+                        'mug-magico', 
+                        'rompecabezas-madera-personalizado', 
+                        'figura-3d-personalizada',
+                        'rompecabezas-sailor-moon',
+                        'reloj-despertador-cubo'
+                    ],
+                    'mama_gourmet': ['dia-madre-rosa-gourmet', 'dia-mujer-premium', 'dia-mujer-spa'],
+                    'mama_amigurumi': ['ramo-flores-tejido', 'amigurumi-mascota', 'amigurumi-llavero'],
+                    'mama_eterno': [
+                        'dia-madre-joyas-flores', 
+                        'flor-eterna', 
+                        'portavasos-resina',
+                        'rompecabezas-carton-personalizado'
+                    ],
+
+                    'papa_gamer': [
+                        'soporte-celular-3d', 
+                        'rompecabezas-magnetico-one-piece-luffy', 
+                        'dia-nino-gamer',
+                        'mouse-pad-gamer-wow',
+                        'rompecabezas-dragon-ball',
+                        'mug-neon',
+                        'llavero-one-piece-destapador'
+                    ],
+                    'papa_gourmet': ['dia-padre-asador', 'dia-hombre-cervecero', 'dia-hombre-ejecutivo'],
+                    'papa_amigurumi': ['dia-padre-cafetero', 'amigurumi-mascota', 'amigurumi-llavero'],
+                    'papa_eterno': ['vino-caja-madera', 'vino-personalizado', 'llavero-resina-letra'],
+
+                    'nino_gamer': [
+                        'dia-nino-gamer', 
+                        'soporte-celular-3d', 
+                        'rompecabezas-magnetico-one-piece-luffy',
+                        'rompecabezas-pokemon',
+                        'rompecabezas-super-mario',
+                        'llavero-pikachu-rectangular',
+                        'llavero-mario-luigi'
+                    ],
+                    'nino_gourmet': [
+                        'kit-escolar-sorpresa', 
+                        'kit-escolar-basico', 
+                        'dia-nino-amigurumi'
+                    ],
+                    'nino_amigurumi': ['dia-nino-amigurumi', 'amigurumi-llavero', 'amigurumi-mascota'],
+                    'nino_eterno': ['figura-3d-personalizada', 'globo-burbuja', 'globo-metalizado-personalizado'],
+
+                    'amigo_gamer': [
+                        'rompecabezas-magnetico-one-piece-luffy', 
+                        'mug-magico', 
+                        'soporte-celular-3d',
+                        'rompecabezas-yugioh',
+                        'mouse-pad-gel-crash',
+                        'mug-tematico-anime-gamer',
+                        'reloj-despertador-cubo'
+                    ],
+                    'amigo_gourmet': [
+                        'mug-interior-color', 
+                        'dia-hombre-ejecutivo', 
+                        'kit-escolar-basico',
+                        'tarro-mason-jar'
+                    ],
+                    'amigo_amigurumi': ['amigurumi-llavero', 'amigurumi-mascota', 'dia-nino-amigurumi'],
+                    'amigo_eterno': ['llavero-resina-letra', 'portavasos-resina', 'pulsera-miyuki']
+                };
+
+                const key = `${finderRecipient}_${finderVibe}`;
+                const candidates = mapping[key] || ['san-valentin-premium'];
+
+                let filtered = candidates.filter(id => id !== currentResultId);
+                if (filtered.length === 0) filtered = candidates;
+
+                const randomId = filtered[Math.floor(Math.random() * filtered.length)];
+                const product = getProductById(randomId);
+
+                setFinderResult(product);
+                setIsSearching(false);
+            }
+        }, 800);
+    };
+
+    const resetFinder = () => {
+        setFinderRecipient(null);
+        setFinderVibe(null);
+        setFinderResult(null);
+    };
+
     return (
         <div className={styles.page_container}>
             <section className={styles.hero_section}>
@@ -224,71 +366,113 @@ export function Inicio() {
                 </div>
             </section>
 
-            <section className={styles.quienes_somos}>
-                <div className={styles.qs_container}>
-                    <div className={styles.qs_text_side}>
-                        <span className={styles.qs_tag}>Detrás de la magia</span>
-                        <h2 className={styles.qs_title}>¿Quiénes estamos detrás de Breaklab?</h2>
-                        <p className={styles.qs_desc}>
-                            En <strong>Breaklab</strong>, más que crear objetos, nos dedicamos a materializar emociones.
-                            Somos un equipo de creativos apasionados por el arte hecho a mano, el diseño y la tecnología de impresión 3D,
-                            unidos por un propósito claro: convertir tus sentimientos en experiencias tangibles que dejan huella.
-                        </p>
-                        <p className={styles.qs_desc_secondary}>
-                            Cada detalle que sale de nuestro laboratorio es diseñado y fabricado a medida en Bogotá, cuidando cada terminación
-                            para garantizar que tu sorpresa se convierta en un recuerdo imborrable en el tiempo.
-                        </p>
+            <section className={styles.gift_finder_section}>
+                <div className={styles.finder_glass_card}>
+                    <span className={styles.finder_tag}>¿No sabes qué regalar?</span>
+                    <h2 className={styles.finder_title}>Asistente Mágico de Regalos 🪄</h2>
+                    <p className={styles.finder_subtitle}>
+                        Responde dos preguntas rápidas y nuestro laboratorio elegirá la sorpresa perfecta que lo dejará con la boca abierta.
+                    </p>
 
-                        <div className={styles.qs_pillars}>
-                            <div className={styles.qs_pillar}>
-                                <span className={styles.qs_pillar_icon}>💝</span>
-                                <div>
-                                    <p className={styles.qs_pillar_title}>Amor por el Detalle</p>
-                                    <p>Cada desayuno y box sorpresa se decora a mano con dedicación exclusiva.</p>
+                    {!finderResult && !isSearching && (
+                        <div className={styles.finder_questions}>
+                            {/* Question 1 */}
+                            <div className={styles.question_group}>
+                                <p className={styles.question_label}>1. ¿Para quién es el regalo especial?</p>
+                                <div className={styles.options_row}>
+                                    {[
+                                        { id: 'pareja', label: 'Mi Pareja 💖' },
+                                        { id: 'mama', label: 'Mamá 🤱' },
+                                        { id: 'papa', label: 'Papá 👔' },
+                                        { id: 'nino', label: 'Niño 🧸' },
+                                        { id: 'amigo', label: 'Amig@ ☕' }
+                                    ].map(opt => (
+                                        <button
+                                            key={opt.id}
+                                            className={`${styles.finder_option} ${finderRecipient === opt.id ? styles.option_active : ''}`}
+                                            onClick={() => setFinderRecipient(opt.id)}
+                                        >
+                                            {opt.label}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
-                            <div className={styles.qs_pillar}>
-                                <span className={styles.qs_pillar_icon}>🚀</span>
-                                <div>
-                                    <p className={styles.qs_pillar_title}>Tecnología & Arte</p>
-                                    <p>Fusionamos impresión 3D en tus detalles.</p>
-                                </div>
-                            </div>
-                            <div className={styles.qs_pillar}>
-                                <span className={styles.qs_pillar_icon}>✨</span>
-                                <div>
-                                    <p className={styles.qs_pillar_title}>Personalización Sin Límites</p>
-                                    <p>Tú imaginas la idea y nosotros la hacemos realidad, adaptada a tus gustos y para toda ocasión.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className={styles.qs_visual_side}>
-                        <div className={styles.qs_stats_card}>
-                            <div className={styles.qs_stat_item}>
-                                <span className={styles.qs_stat_number}>2020</span>
-                                <span className={styles.qs_stat_label}>Creando momentos</span>
+                            {/* Question 2 */}
+                            <div className={styles.question_group}>
+                                <p className={styles.question_label}>2. ¿Qué estilo o vibra le gustaría más?</p>
+                                <div className={styles.options_row}>
+                                    {[
+                                        { id: 'gamer', label: 'Gamer 🎮' },
+                                        { id: 'gourmet', label: 'Gourmet 🥞' },
+                                        { id: 'amigurumi', label: 'Amigurumi 🧶' },
+                                        { id: 'eterno', label: ' Flores 🌹' }
+                                    ].map(opt => (
+                                        <button
+                                            key={opt.id}
+                                            className={`${styles.finder_option} ${finderVibe === opt.id ? styles.option_active : ''}`}
+                                            onClick={() => setFinderVibe(opt.id)}
+                                        >
+                                            {opt.label}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
-                            <div className={styles.qs_stat_item}>
-                                <span className={styles.qs_stat_number}>100%</span>
-                                <span className={styles.qs_stat_label}>Personalizado</span>
+
+                            <button
+                                className={`${styles.finder_btn} ${(!finderRecipient || !finderVibe) ? styles.btn_disabled : ''}`}
+                                onClick={handleFindGift}
+                                disabled={!finderRecipient || !finderVibe}
+                            >
+                                ¡Revelar Regalo Ideal ✨!
+                            </button>
+                        </div>
+                    )}
+
+                    {isSearching && (
+                        <div className={styles.finder_loading}>
+                            <div className={styles.magic_wand_spinner}>
+                                🪄
+                                <div className={styles.magic_sparkle_1}>✨</div>
+                                <div className={styles.magic_sparkle_2}>⭐</div>
+                                <div className={styles.magic_sparkle_3}>🌸</div>
                             </div>
-                            <div className={styles.qs_stat_item}>
-                                <span className={styles.qs_stat_number}>Bogotá</span>
-                                <span className={styles.qs_stat_label}>Envíos seguros</span>
+                            <p className={styles.loading_text}>{searchStepText}</p>
+                        </div>
+                    )}
+
+                    {finderResult && (
+                        <div className={styles.finder_result_container}>
+                            <div className={styles.result_celebration}>🎉 ¡Tenemos la coincidencia perfecta! 🎉</div>
+                            <div className={styles.result_card}>
+                                <div className={styles.result_image_wrapper}>
+                                    <img src={finderResult.image} alt={finderResult.name} className={styles.result_image} />
+                                    {finderResult.isNew && <span className={styles.new_badge}>Nuevo</span>}
+                                </div>
+                                <div className={styles.result_info}>
+                                    <span className={styles.result_label}>RECOMENDADO PARA TI</span>
+                                    <h3>{finderResult.name}</h3>
+                                    <p className={styles.result_subtitle_text}>{finderResult.subtitle}</p>
+                                    <p className={styles.result_description}>{finderResult.description}</p>
+                                    <div className={styles.result_price}>${finderResult.price.toLocaleString("es-CO")}</div>
+
+                                    <div className={styles.result_actions}>
+                                        <Link to={`/producto/${finderResult.id}`} className={styles.view_gift_btn}>
+                                            Ver Detalles del Regalo 💝
+                                        </Link>
+                                        <button className={styles.retry_btn} onClick={handleFindGift}>
+                                            Buscar otro 🪄
+                                        </button>
+                                        <button className={styles.reset_btn} onClick={resetFinder}>
+                                            Cambiar opciones ↺
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className={styles.qs_cta_box}>
-                            <p className={styles.qs_cta_title}>¿Listo para sorprender?</p>
-                            <p>Escríbenos y creemos juntos el regalo ideal.</p>
-                            <a href="https://wa.me/573208738961" target="_blank" rel="noopener noreferrer" className={styles.cta_button}>¡Comenzar ahora! 💬</a>
-                        </div>
-                    </div>
+                    )}
                 </div>
             </section>
-
-
 
             <section className={styles.proceso_compra}>
                 <div className={styles.proceso_container}>

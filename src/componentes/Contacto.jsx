@@ -36,7 +36,7 @@ export const Contacto = () => {
             `*Teléfono:* ${formData.telefono}%0A` +
             `*Ocasión:* ${formData.ocasion}%0A` +
             `*Mensaje:* ${formData.mensaje}`;
-        
+
         window.open(`https://wa.me/573208738961?text=${text}`, '_blank');
     };
 
@@ -49,27 +49,38 @@ export const Contacto = () => {
                             <span className={styles.tag}>¡Hablemos!</span>
                             <h1 className={styles.main_title}>Creemos Momentos Mágicos Juntos</h1>
                             <p className={styles.subtitle}>
-                                ¿Tienes una idea especial en mente, una duda o deseas una cotización corporativa? 
+                                ¿Tienes una idea especial en mente, una duda o deseas una cotización corporativa?
                                 Escríbenos y nuestro equipo creativo te ayudará a diseñar el regalo perfecto.
                             </p>
-                            
                             <div className={styles.info_cards}>
                                 <div className={styles.info_card}>
-                                    <span className={styles.card_icon}>📍</span>
+                                    <span className={styles.card_icon} style={{ backgroundColor: '#fff0f3' }}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#d65b79" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                        </svg>
+                                    </span>
                                     <div>
                                         <h2>Dirección</h2>
                                         <p>Bogotá, Colombia</p>
                                     </div>
                                 </div>
                                 <div className={styles.info_card}>
-                                    <span className={styles.card_icon}>📞</span>
+                                    <span className={styles.card_icon} style={{ backgroundColor: '#e8f8f0' }}>
+                                        <svg width="26" height="26" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.451 5.437.002 9.861-4.416 9.864-9.86.002-2.638-1.022-5.117-2.884-6.98C16.386 1.898 13.916.87 11.272.87 5.834.87 1.411 5.289 1.409 10.73c0 1.558.423 3.082 1.222 4.41l-.979 3.57 3.66-.96c1.332.727 2.768 1.124 4.335 1.124zm11.362-7.75c-.29-.145-1.716-.847-1.982-.944-.266-.097-.46-.145-.653.145-.193.29-.747.944-.916 1.137-.169.194-.338.218-.628.073-.29-.145-1.222-.45-2.327-1.436-.86-.767-1.44-1.716-1.609-2.006-.17-.29-.018-.446.127-.59.13-.13.29-.339.435-.508.145-.17.193-.29.29-.484.097-.193.048-.362-.024-.508-.073-.145-.653-1.573-.894-2.153-.235-.565-.472-.489-.653-.498-.169-.008-.362-.01-.555-.01-.193 0-.508.072-.773.362-.266.29-1.014.99-1.014 2.415 0 1.425 1.038 2.802 1.182 2.996.145.193 2.043 3.12 4.95 4.378.69.299 1.23.478 1.649.612.693.22 1.325.19 1.824.115.556-.08 1.716-.7 1.958-1.378.242-.677.242-1.258.17-1.378-.073-.12-.266-.193-.556-.339z"/>
+                                        </svg>
+                                    </span>
                                     <div>
                                         <h2>WhatsApp Directo</h2>
                                         <p>+57 320 873 8961</p>
                                     </div>
                                 </div>
                                 <div className={styles.info_card}>
-                                    <span className={styles.card_icon}>✉️</span>
+                                    <span className={styles.card_icon} style={{ backgroundColor: '#fde8e8' }}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#EA4335" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                        </svg>
+                                    </span>
                                     <div>
                                         <h2>Correo Electrónico</h2>
                                         <p>breaklab.colombia@gmail.com</p>
@@ -82,12 +93,12 @@ export const Contacto = () => {
                             <form className={styles.form} onSubmit={handleSubmit}>
                                 <div className={styles.field_group}>
                                     <label htmlFor="nombre">Nombre Completo *</label>
-                                    <input 
-                                        type="text" 
-                                        id="nombre" 
-                                        name="nombre" 
-                                        required 
-                                        placeholder="Ej. María Fernanda Rojas" 
+                                    <input
+                                        type="text"
+                                        id="nombre"
+                                        name="nombre"
+                                        required
+                                        placeholder="Escribe tu nombre..."
                                         value={formData.nombre}
                                         onChange={handleChange}
                                     />
@@ -96,24 +107,24 @@ export const Contacto = () => {
                                 <div className={styles.field_row}>
                                     <div className={styles.field_group}>
                                         <label htmlFor="email">Correo Electrónico *</label>
-                                        <input 
-                                            type="email" 
-                                            id="email" 
-                                            name="email" 
-                                            required 
-                                            placeholder="ejemplo@correo.com" 
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            required
+                                            placeholder="ejemplo@correo.com"
                                             value={formData.email}
                                             onChange={handleChange}
                                         />
                                     </div>
                                     <div className={styles.field_group}>
                                         <label htmlFor="telefono">WhatsApp / Teléfono *</label>
-                                        <input 
-                                            type="tel" 
-                                            id="telefono" 
-                                            name="telefono" 
-                                            required 
-                                            placeholder="Ej. 300 123 4567" 
+                                        <input
+                                            type="tel"
+                                            id="telefono"
+                                            name="telefono"
+                                            required
+                                            placeholder="300 123 4567"
                                             value={formData.telefono}
                                             onChange={handleChange}
                                         />
@@ -122,9 +133,9 @@ export const Contacto = () => {
 
                                 <div className={styles.field_group}>
                                     <label htmlFor="ocasion">Ocasión Especial</label>
-                                    <select 
-                                        id="ocasion" 
-                                        name="ocasion" 
+                                    <select
+                                        id="ocasion"
+                                        name="ocasion"
                                         value={formData.ocasion}
                                         onChange={handleChange}
                                     >
@@ -138,11 +149,11 @@ export const Contacto = () => {
 
                                 <div className={styles.field_group}>
                                     <label htmlFor="mensaje">Cuéntanos tu idea (detalles del regalo) *</label>
-                                    <textarea 
-                                        id="mensaje" 
-                                        name="mensaje" 
-                                        required 
-                                        rows="4" 
+                                    <textarea
+                                        id="mensaje"
+                                        name="mensaje"
+                                        required
+                                        rows="4"
                                         placeholder="Cuéntanos qué te gustaría incluir, temática, fecha de entrega y cualquier detalle personalizado..."
                                         value={formData.mensaje}
                                         onChange={handleChange}

@@ -18,6 +18,7 @@ export const Crea_tu_Box = () => {
         { id: 'reyes', name: 'Reyes', icon: '👑', theme: styles.themeFestive },
         { id: 'kit-escolar', name: 'Kit Escolar', icon: '🎒', theme: styles.themePlayful },
         { id: 'san-valentin', name: 'San Valentín', icon: '💘', theme: styles.themeRomantic },
+        { id: 'box-tematicas', name: 'Box Temáticas', icon: '📦', theme: styles.themePlayful },
         { id: 'dia-mujer', name: 'Día de la Mujer', icon: '🌸', theme: styles.themeRomantic },
         { id: 'dia-hombre', name: 'Día del Hombre', icon: '👔', theme: styles.themeMasculine },
         { id: 'semana-santa', name: 'Semana Santa', icon: '🕊️', theme: styles.themeFestive },
