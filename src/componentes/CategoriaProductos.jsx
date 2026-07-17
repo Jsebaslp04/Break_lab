@@ -5,7 +5,7 @@ import { getCategoryProducts, getIncludedItems, getProductOptions } from '../dat
 import { useSEO } from '../hooks/useSEO';
 import { useCart } from './context/CartContext';
 
-function ProductCard({ product, handleOpenAddToCartModal }) {
+function ProductCard({ product }) {
     const [currentIdx, setCurrentIdx] = useState(0);
     const images = product.images && product.images.length > 0 ? product.images : [product.image];
     const hasMultipleImages = images.length > 1;
@@ -29,33 +29,31 @@ function ProductCard({ product, handleOpenAddToCartModal }) {
     };
 
     return (
-        <div className={styles.productCard}>
+        <Link to={`/producto/${product.id}`} className={styles.productCard}>
             <div className={styles.cardImageWrapper}>
-                <Link to={`/producto/${product.id}`} className={styles.imageLink}>
-                    <div className={styles.sliderContainer}>
-                        {images.map((img, idx) => (
-                            img.endsWith('.mp4') ? (
-                                <video
-                                    key={idx}
-                                    src={img}
-                                    className={`${styles.productImage} ${idx === currentIdx ? styles.imageActive : ''}`}
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                />
-                            ) : (
-                                <img
-                                    key={idx}
-                                    src={img}
-                                    alt={`Detalle de ${product.name} - Imagen ${idx + 1}`}
-                                    className={`${styles.productImage} ${idx === currentIdx ? styles.imageActive : ''}`}
-                                    loading="lazy"
-                                />
-                            )
-                        ))}
-                    </div>
-                </Link>
+                <div className={styles.sliderContainer}>
+                    {images.map((img, idx) => (
+                        img.endsWith('.mp4') ? (
+                            <video
+                                key={idx}
+                                src={img}
+                                className={`${styles.productImage} ${idx === currentIdx ? styles.imageActive : ''}`}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                            />
+                        ) : (
+                            <img
+                                key={idx}
+                                src={img}
+                                alt={`Detalle de ${product.name} - Imagen ${idx + 1}`}
+                                className={`${styles.productImage} ${idx === currentIdx ? styles.imageActive : ''}`}
+                                loading="lazy"
+                            />
+                        )
+                    ))}
+                </div>
                 
                 {hasMultipleImages && (
                     <>
@@ -81,9 +79,7 @@ function ProductCard({ product, handleOpenAddToCartModal }) {
             </div>
             
             <div className={styles.cardBody}>
-                <Link to={`/producto/${product.id}`} className={styles.productNameLink}>
-                    <h2 className={styles.productName}>{product.name}</h2>
-                </Link>
+                <h2 className={styles.productName}>{product.name}</h2>
                 
                 <p className={styles.productSubtitle}>{product.subtitle}</p>
                 
@@ -94,15 +90,12 @@ function ProductCard({ product, handleOpenAddToCartModal }) {
                         ${product.price.toLocaleString()}
                     </span>
                     
-                    <button 
-                        className={styles.addBtnMini}
-                        onClick={() => handleOpenAddToCartModal(product)}
-                    >
-                        + Agregar
-                    </button>
+                    <span className={styles.verDetalleBtn}>
+                        Ver Detalles
+                    </span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
 
@@ -132,6 +125,33 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'combo-looney-tunes', label: '🐰 Combo Looney Tunes' },
         { id: 'combo-los-simpson', label: '🍩 Combo Simpson' },
         { id: 'combo-mugs-one-piece', label: '🏴‍☠️ Combo One Piece' }
+    ],
+    'crea-tu-box': [
+        { id: 'reyes', label: '👑 Reyes' },
+        { id: 'kit-escolar', label: '🎒 Kit Escolar' },
+        { id: 'san-valentin', label: '💘 San Valentín' },
+        { id: 'box-tematicas', label: '📦 Box Temáticas' },
+        { id: 'dia-mujer', label: '🌸 Día de la Mujer' },
+        { id: 'dia-hombre', label: '👔 Día del Hombre' },
+        { id: 'semana-santa', label: '🕊️ Semana Santa' },
+        { id: 'dia-nino', label: '🧸 Día del Niño' },
+        { id: 'dia-madre', label: '🤱 Día de la Madre' },
+        { id: 'dia-padre', label: '👨‍👦 Día del Padre' }
+    ],
+    'personalizamos': [
+        { id: 'mugs-personalizados', label: '☕ Mugs Personalizados' },
+        { id: 'vasos-personalizados', label: '🥤 Vasos Personalizados' },
+        { id: 'llaveros', label: '🔑 Llaveros' },
+        { id: 'rompecabezas', label: '🧩 Rompecabezas' },
+        { id: 'gelatortas', label: '🎂 Gelatortas' },
+        { id: 'arte-resina', label: '🎨 Arte en Resina' },
+        { id: 'miyuki', label: '💎 Miyuki' },
+        { id: 'globo-mensaje', label: '🎈 Globo Mensaje' },
+        { id: 'vino', label: '🍷 Vino' },
+        { id: 'figuras-3d', label: '👾 Figuras 3D' },
+        { id: 'amigurumis', label: '🧶 Amigurumis' },
+        { id: 'su-flor-especial', label: '🌹 Su Flor Especial' },
+        { id: 'variedades', label: '🎁 Variedades' }
     ]
 };
 
@@ -139,25 +159,9 @@ export function CategoriaProductos() {
     const { id } = useParams();
     const categoriaId = id || 'kit-escolar';
 
-    // Determine parent category and active subcategory
-    let parentCategory = null;
-    let matchedSubId = null;
-
-    for (const parent in SUBCATEGORIES_CONFIG) {
-        const found = SUBCATEGORIES_CONFIG[parent].find(sub => sub.id === categoriaId);
-        if (found) {
-            parentCategory = parent;
-            matchedSubId = found.id;
-            break;
-        }
-    }
-
-    if (!parentCategory && SUBCATEGORIES_CONFIG[categoriaId]) {
-        parentCategory = categoriaId;
-    }
-
-    const hasSubcategories = !!parentCategory;
-    const subcategories = hasSubcategories ? SUBCATEGORIES_CONFIG[parentCategory] : [];
+    // Determine if the current category is a parent category
+    const isParentCategory = !!SUBCATEGORIES_CONFIG[categoriaId];
+    const subcategories = isParentCategory ? SUBCATEGORIES_CONFIG[categoriaId] : [];
 
     const [selectedOptions, setSelectedOptions] = useState({});
     const [showModal, setShowModal] = useState(false);
@@ -169,9 +173,9 @@ export function CategoriaProductos() {
         return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     };
 
-    const displayCategoryName = parentCategory ? formatCategoryName(parentCategory) : formatCategoryName(categoriaId);
+    const displayCategoryName = formatCategoryName(categoriaId);
 
-    const allProductsCombined = hasSubcategories 
+    const allProductsCombined = isParentCategory 
         ? subcategories.flatMap(sub => getCategoryProducts(sub.id))
         : getCategoryProducts(categoriaId);
 
@@ -204,30 +208,8 @@ export function CategoriaProductos() {
         setShowModal(false);
         setActiveProductForModal(null);
         setSelectedSug({});
-
-        // Scroll smoothly to target subcategory section if matched
-        const targetId = matchedSubId || (hasSubcategories ? null : categoriaId);
-        
-        const timer = setTimeout(() => {
-            if (targetId) {
-                const element = document.getElementById(targetId);
-                if (element) {
-                    const headerOffset = 120; // Accounts for relative header and spacing
-                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - headerOffset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                    return;
-                }
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 150);
-
-        return () => clearTimeout(timer);
-    }, [id, categoriaId, matchedSubId, hasSubcategories]);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [id, categoriaId]);
 
     const getSelectedOption = (productId, optionName, defaultValue) => {
         return selectedOptions[`${productId}_${optionName}`] || defaultValue;
@@ -338,41 +320,14 @@ export function CategoriaProductos() {
         <div className={styles.categoryContainer}>
             <h1 className={styles.categoryTitle}>{displayCategoryName}</h1>
 
-            {hasSubcategories ? (
-                <div className={styles.sectionsContainer}>
-                    {subcategories.map(sub => {
-                        const subProducts = getCategoryProducts(sub.id);
-                        if (subProducts.length === 0) return null;
-                        return (
-                            <div key={sub.id} id={sub.id} className={styles.subCategorySection}>
-                                <div className={styles.sectionHeader}>
-                                    <h2 className={styles.sectionTitle}>{sub.label}</h2>
-                                    <div className={styles.sectionDivider}></div>
-                                </div>
-                                <div className={styles.productsGrid}>
-                                    {subProducts.map(product => (
-                                        <ProductCard 
-                                            key={product.id} 
-                                            product={product} 
-                                            handleOpenAddToCartModal={handleOpenAddToCartModal} 
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            ) : (
-                <div className={styles.productsGrid}>
-                    {allProductsCombined.map(product => (
-                        <ProductCard 
-                            key={product.id} 
-                            product={product} 
-                            handleOpenAddToCartModal={handleOpenAddToCartModal} 
-                        />
-                    ))}
-                </div>
-            )}
+            <div className={styles.productsGrid}>
+                {allProductsCombined.map(product => (
+                    <ProductCard 
+                        key={product.id} 
+                        product={product} 
+                    />
+                ))}
+            </div>
 
 
             {showModal && activeProductForModal && (

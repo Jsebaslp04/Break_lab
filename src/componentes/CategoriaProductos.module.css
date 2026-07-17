@@ -32,6 +32,9 @@
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .productCard:hover {
@@ -50,7 +53,8 @@
     overflow: hidden;
 }
 
-.imageLink {
+.sliderContainer {
+    position: relative;
     display: block;
     width: 100%;
     height: 100%;
@@ -600,4 +604,30 @@
     .sectionTitle {
         font-size: 1.4rem;
     }
+
+    .productsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+.verDetalleBtn {
+    background: #fcd8e4;
+    color: #d65b79;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(247, 143, 167, 0.15);
+}
+
+.productCard:hover .verDetalleBtn {
+    background-color: #f78fa7;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(247, 143, 167, 0.5), 0 0 10px rgba(247, 143, 167, 0.3);
 }

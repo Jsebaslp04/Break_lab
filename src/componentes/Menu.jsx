@@ -90,13 +90,13 @@ export const Menu = () => {
     ];
 
     const isCreaTuBoxActive = isActive("/Crea_tu_Box") || 
-        (activeCategory && creaTuBoxCategories.includes(activeCategory));
+        (activeCategory && (activeCategory === "crea-tu-box" || creaTuBoxCategories.includes(activeCategory)));
 
     const isCombosActive = isActive("/Combos") || 
-        (activeCategory && combosCategories.includes(activeCategory));
+        (activeCategory && (activeCategory === "combos" || combosCategories.includes(activeCategory)));
 
     const isPersonalizamosActive = isActive("/Personalizamos") || 
-        (activeCategory && personalizamosCategories.includes(activeCategory));
+        (activeCategory && (activeCategory === "personalizamos" || personalizamosCategories.includes(activeCategory)));
 
     return (
         <header className={styles.header}>
@@ -244,7 +244,7 @@ export const Menu = () => {
                         </Link>
                         
                         <div className={styles.drawerSection}>
-                            <span className={styles.drawerSectionTitle}>🎁 Crea tu Box</span>
+                            <Link to="/Crea_tu_Box" className={styles.drawerSectionTitleLink} onClick={() => setIsMenuOpen(false)}>🎁 Crea tu Box</Link>
                             <div className={styles.drawerSubLinks}>
                                 <Link to="/categoria/reyes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Reyes</Link>
                                 <Link to="/categoria/kit-escolar" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Kit Escolar</Link>
@@ -260,7 +260,7 @@ export const Menu = () => {
                         </div>
 
                         <div className={styles.drawerSection}>
-                            <span className={styles.drawerSectionTitle}>☕ Combos</span>
+                            <Link to="/Combos" className={styles.drawerSectionTitleLink} onClick={() => setIsMenuOpen(false)}>☕ Combos</Link>
                             <div className={styles.drawerSubLinks}>
                                 <Link to="/categoria/combo-avengers" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Avengers</Link>
                                 <Link to="/categoria/combo-batman" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Batman</Link>
@@ -274,7 +274,7 @@ export const Menu = () => {
                         </div>
 
                         <div className={styles.drawerSection}>
-                            <span className={styles.drawerSectionTitle}>🎨 Personalizamos</span>
+                            <Link to="/Personalizamos" className={styles.drawerSectionTitleLink} onClick={() => setIsMenuOpen(false)}>🎨 Personalizamos</Link>
                             <div className={styles.drawerSubLinks}>
                                 <Link to="/categoria/mugs-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Mugs Personalizados</Link>
                                 <Link to="/categoria/vasos-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Vasos Personalizados</Link>

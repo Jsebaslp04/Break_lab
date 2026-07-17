@@ -574,3 +574,19 @@
     color: #ba8c87;
     font-weight: 600;
 }
+
+.drawerSectionTitleLink {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #ba8c87;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Comic Neue', cursive;
+}
+
+.drawerSectionTitleLink:hover {
+    color: #a64342;
+}
