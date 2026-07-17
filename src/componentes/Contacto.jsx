@@ -18,20 +18,56 @@ export const Contacto = () => {
         keywords: "contacto breaklab, pedir desayuno sorpresa, cotizar regalos bogota, detalles personalizados telefono"
     });
 
+    const WEB3FORMS_ACCESS_KEY = "70eb391a-0ed2-4987-ab7e-1b1a3e8026f6";
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Simular envío de datos
-        setSubmitted(true);
-        // Automatically open WhatsApp with pre-filled message
-        handleSendWhatsApp();
+    const sendEmailInBackground = (labelOcasion) => {
+        if (WEB3FORMS_ACCESS_KEY === "YOUR_ACCESS_KEY_HERE") {
+            console.warn("Web3Forms Access Key no configurada. Obtén tu clave gratuita en https://web3forms.com/ y reemplázala en Contacto.jsx para recibir correos.");
+            return;
+        }
+
+        const emailBody = {
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `Nueva Cotización desde BreakLab - ${formData.nombre}`,
+            from_name: "Contacto BreakLab",
+            to_email: "breaklab.colombia@gmail.com",
+            name: formData.nombre,
+            email: formData.email,
+            phone: formData.telefono,
+            occasion: labelOcasion,
+            message: formData.mensaje
+        };
+
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(emailBody)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                console.log("Correo enviado con éxito a breaklab.colombia@gmail.com!");
+            } else {
+                console.error("Error al enviar correo por Web3Forms:", data.message);
+            }
+        })
+        .catch(err => {
+            console.error("Error de conexión al enviar correo:", err);
+        });
     };
 
-    const handleSendWhatsApp = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted(true);
+
         const ocasionLabels = {
             cumpleanos: "Aniversario / Cumpleaños 🎂",
             amor: "Amor / San Valentín 💖",
@@ -41,11 +77,31 @@ export const Contacto = () => {
         };
         const labelOcasion = ocasionLabels[formData.ocasion] || formData.ocasion;
 
+        // Enviar correo silenciosamente en segundo plano
+        sendEmailInBackground(labelOcasion);
+
+        // Abrir WhatsApp con el texto pre-rellenado
+        handleSendWhatsApp(labelOcasion);
+    };
+
+    const handleSendWhatsApp = (labelOcasion) => {
+        let finalLabel = labelOcasion;
+        if (typeof labelOcasion !== 'string') {
+            const ocasionLabels = {
+                cumpleanos: "Aniversario / Cumpleaños 🎂",
+                amor: "Amor / San Valentín 💖",
+                madre_padre: "Día de la Madre / Padre 👩‍👦",
+                corporativo: "Regalo Empresarial 💼",
+                otro: "Otra Ocasión Especial 🎉"
+            };
+            finalLabel = ocasionLabels[formData.ocasion] || formData.ocasion;
+        }
+
         const text = `¡Hola BreakLab! Me gustaría realizar una cotización:\n\n` +
             `*Nombre:* ${formData.nombre}\n` +
             `*Email:* ${formData.email}\n` +
             `*Teléfono:* ${formData.telefono}\n` +
-            `*Ocasión:* ${labelOcasion}\n` +
+            `*Ocasión:* ${finalLabel}\n` +
             `*Mensaje:* ${formData.mensaje}`;
 
         window.open(`https://wa.me/573208738961?text=${encodeURIComponent(text)}`, '_blank');
