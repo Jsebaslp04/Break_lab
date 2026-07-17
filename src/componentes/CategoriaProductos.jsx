@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './CategoriaProductos.module.css';
-import { getCategoryProducts, getIncludedItems, getProductOptions } from '../data/products';
+import { getCategoryProducts } from '../data/products';
 import { useSEO } from '../hooks/useSEO';
-import { useCart } from './context/CartContext';
 
 function ProductCard({ product }) {
     const [currentIdx, setCurrentIdx] = useState(0);
@@ -163,12 +162,6 @@ export function CategoriaProductos() {
     const isParentCategory = !!SUBCATEGORIES_CONFIG[categoriaId];
     const subcategories = isParentCategory ? SUBCATEGORIES_CONFIG[categoriaId] : [];
 
-    const [selectedOptions, setSelectedOptions] = useState({});
-    const [showModal, setShowModal] = useState(false);
-    const [activeProductForModal, setActiveProductForModal] = useState(null);
-    const [selectedSug, setSelectedSug] = useState({});
-    const { addToCart } = useCart();
-
     const formatCategoryName = (str) => {
         return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     };
@@ -204,117 +197,8 @@ export function CategoriaProductos() {
     });
     
     useEffect(() => {
-        setSelectedOptions({});
-        setShowModal(false);
-        setActiveProductForModal(null);
-        setSelectedSug({});
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [id, categoriaId]);
-
-    const getSelectedOption = (productId, optionName, defaultValue) => {
-        return selectedOptions[`${productId}_${optionName}`] || defaultValue;
-    };
-
-    const handleSelectOption = (productId, optionName, choice) => {
-        setSelectedOptions(prev => ({
-            ...prev,
-            [`${productId}_${optionName}`]: choice
-        }));
-    };
-
-    const handleOpenAddToCartModal = (product) => {
-        const options = getProductOptions(product);
-        const selected = {};
-        options.forEach(opt => {
-            selected[opt.name] = getSelectedOption(product.id, opt.name, opt.default);
-        });
-
-        setActiveProductForModal({ product, selected });
-        setShowModal(true);
-    };
-
-    const suggestedItems = [
-        { id: 'mug', name: 'Mug Personalizado', icon: '☕', price: 15000 },
-        { id: 'llavero', name: 'Llavero Especial', icon: '🔑', price: 8000 },
-        { id: 'chocolates', name: 'Caja Chocolates', icon: '🍫', price: 12000 }
-    ];
-
-    const toggleSuggestion = (sugId) => {
-        setSelectedSug(prev => ({ ...prev, [sugId]: !prev[sugId] }));
-    };
-
-    const handleAddSelected = () => {
-        if (!activeProductForModal) return;
-
-        const { product, selected } = activeProductForModal;
-        const optString = Object.values(selected).join(', ');
-        const optId = Object.values(selected).join('-');
-
-        let selectedImage = product.image;
-        if (selected.color && product.colorImageMap && product.images) {
-            const imgIdx = product.colorImageMap[selected.color];
-            if (imgIdx !== undefined && product.images[imgIdx]) {
-                selectedImage = product.images[imgIdx];
-            }
-        }
-
-        const productsToAdd = [{
-            id: `${product.id}-${optId}`,
-            productId: product.id,
-            name: `${product.name} (${optString})`,
-            price: product.price,
-            quantity: 1,
-            image: selectedImage,
-            selectedOptions: { ...selected }
-        }];
-
-        suggestedItems.forEach(sug => {
-            if (selectedSug[sug.id]) {
-                productsToAdd.push({
-                    id: sug.id,
-                    name: sug.name,
-                    price: sug.price,
-                    quantity: 1
-                });
-            }
-        });
-
-        addToCart(productsToAdd);
-        setShowModal(false);
-        setSelectedSug({});
-        setActiveProductForModal(null);
-    };
-
-    const handleAddOnlyMainProduct = () => {
-        if (!activeProductForModal) return;
-
-        const { product, selected } = activeProductForModal;
-        const optString = Object.values(selected).join(', ');
-        const optId = Object.values(selected).join('-');
-
-        let selectedImage = product.image;
-        if (selected.color && product.colorImageMap && product.images) {
-            const imgIdx = product.colorImageMap[selected.color];
-            if (imgIdx !== undefined && product.images[imgIdx]) {
-                selectedImage = product.images[imgIdx];
-            }
-        }
-
-        addToCart([{
-            id: `${product.id}-${optId}`,
-            productId: product.id,
-            name: `${product.name} (${optString})`,
-            price: product.price,
-            quantity: 1,
-            image: selectedImage,
-            selectedOptions: { ...selected }
-        }]);
-        setShowModal(false);
-        setSelectedSug({});
-        setActiveProductForModal(null);
-    };
-
-    const hasSelection = Object.values(selectedSug).some(Boolean);
 
     return (
         <div className={styles.categoryContainer}>
@@ -328,41 +212,6 @@ export function CategoriaProductos() {
                     />
                 ))}
             </div>
-
-
-            {showModal && activeProductForModal && (
-                <div className={styles.modalOverlay}>
-                    <div className={styles.modalContent}>
-                        <h2>✨ ¡Has añadido un producto al carrito! 🎉</h2>
-                        <p>Sugerimos añadir más productos para complementar tu regalo:</p>
-                        <div className={styles.suggestedItems}>
-                            {suggestedItems.map(sug => (
-                                <div 
-                                    key={sug.id} 
-                                    className={`${styles.suggestedBox} ${selectedSug[sug.id] ? styles.selected : ''}`}
-                                    onClick={() => toggleSuggestion(sug.id)}
-                                >
-                                    <span className={styles.sugIcon}>{sug.icon}</span> 
-                                    <strong>{sug.name}</strong><br/>
-                                    <span className={styles.sugPrice}>+${sug.price.toLocaleString()}</span>
-                                    {selectedSug[sug.id] && <div className={styles.checkIcon}>✓</div>}
-                                </div>
-                            ))}
-                        </div>
-                        <div className={styles.modalActions}>
-                            <button className={styles.btnSecondary} onClick={handleAddOnlyMainProduct}>
-                                No, gracias (Ver carrito)
-                            </button>
-                            <button 
-                                className={`${styles.btnPrimary} ${!hasSelection ? styles.btnDisabled : ''}`} 
-                                onClick={handleAddSelected}
-                            >
-                                {hasSelection ? 'Sí, agregar seleccionados' : 'Selecciona una sugerencia'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
