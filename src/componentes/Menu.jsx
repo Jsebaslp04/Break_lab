@@ -260,6 +260,20 @@ export const Menu = () => {
                         </div>
 
                         <div className={styles.drawerSection}>
+                            <span className={styles.drawerSectionTitle}>☕ Combos</span>
+                            <div className={styles.drawerSubLinks}>
+                                <Link to="/categoria/combo-avengers" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Avengers</Link>
+                                <Link to="/categoria/combo-batman" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Batman</Link>
+                                <Link to="/categoria/combo-bob-esponja" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Bob Esponja</Link>
+                                <Link to="/categoria/combo-caballeros-del-zodiaco" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Caballeros Zodíaco</Link>
+                                <Link to="/categoria/combo-friends" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Friends</Link>
+                                <Link to="/categoria/combo-looney-tunes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Looney Tunes</Link>
+                                <Link to="/categoria/combo-los-simpson" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Los Simpson</Link>
+                                <Link to="/categoria/combo-mugs-one-piece" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo One Piece</Link>
+                            </div>
+                        </div>
+
+                        <div className={styles.drawerSection}>
                             <span className={styles.drawerSectionTitle}>🎨 Personalizamos</span>
                             <div className={styles.drawerSubLinks}>
                                 <Link to="/categoria/mugs-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Mugs Personalizados</Link>

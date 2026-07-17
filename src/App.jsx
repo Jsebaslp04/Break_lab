@@ -12,7 +12,9 @@ function App() {
     <CartProvider>
       <MagicParticles />
       <Menu />
-      <AppRouter />
+      <main id="main-content">
+        <AppRouter />
+      </main>
       <Footer />
       <WhatsAppButton />
     </CartProvider>

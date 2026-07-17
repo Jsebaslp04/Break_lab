@@ -546,3 +546,58 @@
         padding: 0.6rem 0.8rem;
     }
 }
+
+.sectionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.subCategorySection {
+    scroll-margin-top: 130px;
+    width: 100%;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+
+.sectionTitle {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8rem;
+    color: #4a332c;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.sectionDivider {
+    flex: 1;
+    height: 2px;
+    border-bottom: 2px dashed #f6ede3;
+}
+
+@media (max-width: 768px) {
+    .sectionsContainer {
+        gap: 3.5rem;
+    }
+    
+    .subCategorySection {
+        scroll-margin-top: 100px;
+    }
+
+    .sectionHeader {
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.4rem;
+    }
+}

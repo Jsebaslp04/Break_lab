@@ -159,20 +159,11 @@ export function CategoriaProductos() {
     const hasSubcategories = !!parentCategory;
     const subcategories = hasSubcategories ? SUBCATEGORIES_CONFIG[parentCategory] : [];
 
-    const getInitialTab = () => {
-        if (matchedSubId) return matchedSubId;
-        if (hasSubcategories) return subcategories[0].id;
-        return null;
-    };
-
-    const [activeTab, setActiveTab] = useState(getInitialTab());
     const [selectedOptions, setSelectedOptions] = useState({});
     const [showModal, setShowModal] = useState(false);
     const [activeProductForModal, setActiveProductForModal] = useState(null);
     const [selectedSug, setSelectedSug] = useState({});
     const { addToCart } = useCart();
-
-    const products = hasSubcategories ? getCategoryProducts(activeTab) : getCategoryProducts(categoriaId);
 
     const formatCategoryName = (str) => {
         return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -180,14 +171,18 @@ export function CategoriaProductos() {
 
     const displayCategoryName = parentCategory ? formatCategoryName(parentCategory) : formatCategoryName(categoriaId);
 
+    const allProductsCombined = hasSubcategories 
+        ? subcategories.flatMap(sub => getCategoryProducts(sub.id))
+        : getCategoryProducts(categoriaId);
+
     const itemListSchema = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": `${displayCategoryName} - BreakLab`,
         "description": `Colección de regalos personalizados y desayunos sorpresa en la categoría ${displayCategoryName}.`,
         "url": window.location.href,
-        "numberOfItems": products.length,
-        "itemListElement": products.map((prod, idx) => ({
+        "numberOfItems": allProductsCombined.length,
+        "itemListElement": allProductsCombined.map((prod, idx) => ({
             "@type": "ListItem",
             "position": idx + 1,
             "url": `${window.location.origin}/producto/${prod.id}`,
@@ -200,24 +195,38 @@ export function CategoriaProductos() {
         title: `${displayCategoryName} | Cajas de Regalo y Detalles | BreakLab`,
         description: `Descubre nuestra colección de ${displayCategoryName}. Cajas de regalo sorpresa y detalles personalizados de alta calidad para celebrar cualquier ocasión especial.`,
         keywords: `${categoriaId.replace(/-/g, ' ')}, regalos ${categoriaId.replace(/-/g, ' ')}, breaklab ${categoriaId.replace(/-/g, ' ')}, detalles personalizados bogota`,
-        ogImage: products[0]?.image,
+        ogImage: allProductsCombined[0]?.image,
         schema: itemListSchema
     });
     
     useEffect(() => {
-        window.scrollTo(0, 0);
         setSelectedOptions({});
         setShowModal(false);
         setActiveProductForModal(null);
         setSelectedSug({});
+
+        // Scroll smoothly to target subcategory section if matched
+        const targetId = matchedSubId || (hasSubcategories ? null : categoriaId);
         
-        if (matchedSubId) {
-            setActiveTab(matchedSubId);
-        } else if (hasSubcategories) {
-            setActiveTab(subcategories[0].id);
-        } else {
-            setActiveTab(null);
-        }
+        const timer = setTimeout(() => {
+            if (targetId) {
+                const element = document.getElementById(targetId);
+                if (element) {
+                    const headerOffset = 120; // Accounts for relative header and spacing
+                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 150);
+
+        return () => clearTimeout(timer);
     }, [id, categoriaId, matchedSubId, hasSubcategories]);
 
     const getSelectedOption = (productId, optionName, defaultValue) => {
@@ -329,29 +338,41 @@ export function CategoriaProductos() {
         <div className={styles.categoryContainer}>
             <h1 className={styles.categoryTitle}>{displayCategoryName}</h1>
 
-            {hasSubcategories && (
-                <div className={styles.tabContainer}>
-                    {subcategories.map(sub => (
-                        <button 
-                            key={sub.id}
-                            className={`${styles.tabBtn} ${activeTab === sub.id ? styles.tabActive : ''}`}
-                            onClick={() => setActiveTab(sub.id)}
-                        >
-                            {sub.label}
-                        </button>
+            {hasSubcategories ? (
+                <div className={styles.sectionsContainer}>
+                    {subcategories.map(sub => {
+                        const subProducts = getCategoryProducts(sub.id);
+                        if (subProducts.length === 0) return null;
+                        return (
+                            <div key={sub.id} id={sub.id} className={styles.subCategorySection}>
+                                <div className={styles.sectionHeader}>
+                                    <h2 className={styles.sectionTitle}>{sub.label}</h2>
+                                    <div className={styles.sectionDivider}></div>
+                                </div>
+                                <div className={styles.productsGrid}>
+                                    {subProducts.map(product => (
+                                        <ProductCard 
+                                            key={product.id} 
+                                            product={product} 
+                                            handleOpenAddToCartModal={handleOpenAddToCartModal} 
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            ) : (
+                <div className={styles.productsGrid}>
+                    {allProductsCombined.map(product => (
+                        <ProductCard 
+                            key={product.id} 
+                            product={product} 
+                            handleOpenAddToCartModal={handleOpenAddToCartModal} 
+                        />
                     ))}
                 </div>
             )}
-            
-            <div className={styles.productsGrid}>
-                {products.map(product => (
-                    <ProductCard 
-                        key={product.id} 
-                        product={product} 
-                        handleOpenAddToCartModal={handleOpenAddToCartModal} 
-                    />
-                ))}
-            </div>
 
 
             {showModal && activeProductForModal && (

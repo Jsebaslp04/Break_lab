@@ -27,17 +27,28 @@ export const Contacto = () => {
         e.preventDefault();
         // Simular envío de datos
         setSubmitted(true);
+        // Automatically open WhatsApp with pre-filled message
+        handleSendWhatsApp();
     };
 
     const handleSendWhatsApp = () => {
-        const text = `¡Hola BreakLab! Me gustaría realizar una cotización:%0A%0A` +
-            `*Nombre:* ${formData.nombre}%0A` +
-            `*Email:* ${formData.email}%0A` +
-            `*Teléfono:* ${formData.telefono}%0A` +
-            `*Ocasión:* ${formData.ocasion}%0A` +
+        const ocasionLabels = {
+            cumpleanos: "Aniversario / Cumpleaños 🎂",
+            amor: "Amor / San Valentín 💖",
+            madre_padre: "Día de la Madre / Padre 👩‍👦",
+            corporativo: "Regalo Empresarial 💼",
+            otro: "Otra Ocasión Especial 🎉"
+        };
+        const labelOcasion = ocasionLabels[formData.ocasion] || formData.ocasion;
+
+        const text = `¡Hola BreakLab! Me gustaría realizar una cotización:\n\n` +
+            `*Nombre:* ${formData.nombre}\n` +
+            `*Email:* ${formData.email}\n` +
+            `*Teléfono:* ${formData.telefono}\n` +
+            `*Ocasión:* ${labelOcasion}\n` +
             `*Mensaje:* ${formData.mensaje}`;
 
-        window.open(`https://wa.me/573208738961?text=${text}`, '_blank');
+        window.open(`https://wa.me/573208738961?text=${encodeURIComponent(text)}`, '_blank');
     };
 
     return (
