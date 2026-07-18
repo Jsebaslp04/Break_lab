@@ -71,8 +71,11 @@ export const Menu = () => {
     }
 
     const creaTuBoxCategories = [
+        /*
         'reyes', 'kit-escolar', 'san-valentin', 'box-tematicas', 'dia-mujer', 'dia-hombre', 
         'semana-santa', 'dia-nino', 'dia-madre', 'dia-padre'
+        */
+        'desayuno-luxury', 'desayuno-premium', 'desayuno-clasico'
     ];
 
     const combosCategories = [
@@ -170,9 +173,10 @@ export const Menu = () => {
                     
                     <div className={styles.dropdownContainer}>
                         <Link to="/Crea_tu_Box" className={`${styles.navLink} ${isCreaTuBoxActive ? styles.active : ""}`}>
-                            <span className={styles.navEmoji}><img src={box} alt="Caja de regalos" /></span> Crea tu Box <span className={styles.arrowIcon}>▼</span>
+                            <span className={styles.navEmoji}><img src={box} alt="Caja de regalos" /></span> Boxs <span className={styles.arrowIcon}>▼</span>
                         </Link>
                         <div className={styles.dropdownMenu}>
+                            {/*
                             <Link to="/categoria/reyes" className={styles.dropdownItem}>Reyes</Link>
                             <Link to="/categoria/kit-escolar" className={styles.dropdownItem}>Kit Escolar</Link>
                             <Link to="/categoria/san-valentin" className={styles.dropdownItem}>San Valentín</Link>
@@ -183,6 +187,10 @@ export const Menu = () => {
                             <Link to="/categoria/dia-nino" className={styles.dropdownItem}>Día del Niño</Link>
                             <Link to="/categoria/dia-madre" className={styles.dropdownItem}>Día de la Madre</Link>
                             <Link to="/categoria/dia-padre" className={styles.dropdownItem}>Día del Padre</Link>
+                            */}
+                            <Link to="/categoria/desayuno-luxury" className={styles.dropdownItem}>Desayuno Luxury</Link>
+                            <Link to="/categoria/desayuno-premium" className={styles.dropdownItem}>Desayuno Premium</Link>
+                            <Link to="/categoria/desayuno-clasico" className={styles.dropdownItem}>Desayuno Clásico</Link>
                         </div>
                     </div>
 
@@ -244,8 +252,9 @@ export const Menu = () => {
                         </Link>
                         
                         <div className={styles.drawerSection}>
-                            <Link to="/Crea_tu_Box" className={styles.drawerSectionTitleLink} onClick={() => setIsMenuOpen(false)}>🎁 Crea tu Box</Link>
+                            <Link to="/Crea_tu_Box" className={styles.drawerSectionTitleLink} onClick={() => setIsMenuOpen(false)}>🎁 Boxs</Link>
                             <div className={styles.drawerSubLinks}>
+                                {/*
                                 <Link to="/categoria/reyes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Reyes</Link>
                                 <Link to="/categoria/kit-escolar" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Kit Escolar</Link>
                                 <Link to="/categoria/san-valentin" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>San Valentín</Link>
@@ -256,6 +265,10 @@ export const Menu = () => {
                                 <Link to="/categoria/dia-nino" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Niño</Link>
                                 <Link to="/categoria/dia-madre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día de la Madre</Link>
                                 <Link to="/categoria/dia-padre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Padre</Link>
+                                */}
+                                <Link to="/categoria/desayuno-luxury" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Luxury</Link>
+                                <Link to="/categoria/desayuno-premium" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Premium</Link>
+                                <Link to="/categoria/desayuno-clasico" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Clásico</Link>
                             </div>
                         </div>
 

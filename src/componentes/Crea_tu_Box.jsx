@@ -5,7 +5,7 @@ import { useSEO } from '../hooks/useSEO';
 
 export const Crea_tu_Box = () => {
     useSEO({
-        title: "Crea tu Box de Regalos Personalizados | BreakLab",
+        title: "Boxs de Regalos Personalizados | BreakLab",
         description: "Diseña y crea tu propia caja de regalos sorpresa en Bogotá. Elige entre diferentes temáticas como San Valentín, Día de la Madre, Reyes y más, con detalles únicos.",
         keywords: "diseñar caja de regalo, crear box sorpresa, regalos personalizados bogota, detalles personalizados, breaklab box"
     });
@@ -15,6 +15,7 @@ export const Crea_tu_Box = () => {
     }, []);
 
     const categories = [
+        /*
         { id: 'reyes', name: 'Reyes', icon: '👑', theme: styles.themeFestive },
         { id: 'kit-escolar', name: 'Kit Escolar', icon: '🎒', theme: styles.themePlayful },
         { id: 'san-valentin', name: 'San Valentín', icon: '💘', theme: styles.themeRomantic },
@@ -25,13 +26,17 @@ export const Crea_tu_Box = () => {
         { id: 'dia-nino', name: 'Día del Niño', icon: '🧸', theme: styles.themePlayful },
         { id: 'dia-madre', name: 'Día de la Madre', icon: '🤱', theme: styles.themeRomantic },
         { id: 'dia-padre', name: 'Día del Padre', icon: '👨‍👦', theme: styles.themeMasculine }
+        */
+        { id: 'desayuno-luxury', name: 'Desayuno Luxury', icon: '✨', theme: styles.themeFestive },
+        { id: 'desayuno-premium', name: 'Desayuno Premium', icon: '🌟', theme: styles.themeRomantic },
+        { id: 'desayuno-clasico', name: 'Desayuno Clásico', icon: '🍳', theme: styles.themeMasculine }
     ];
 
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h1 className={styles.title}>Crea tu Box Especial</h1>
-                <p className={styles.subtitle}>Selecciona la ocasión que deseas celebrar y descubre nuestros kits personalizados listos para regalar.</p>
+                <h1 className={styles.title}>Boxs</h1>
+                <p className={styles.subtitle}>Selecciona la opción que deseas celebrar y descubre nuestros kits personalizados listos para regalar.</p>
             </div>
             
             <div className={styles.grid}>

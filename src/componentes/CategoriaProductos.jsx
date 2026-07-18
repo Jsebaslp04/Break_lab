@@ -126,6 +126,7 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'combo-mugs-one-piece', label: '🏴‍☠️ Combo One Piece' }
     ],
     'crea-tu-box': [
+        /*
         { id: 'reyes', label: '👑 Reyes' },
         { id: 'kit-escolar', label: '🎒 Kit Escolar' },
         { id: 'san-valentin', label: '💘 San Valentín' },
@@ -136,6 +137,10 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'dia-nino', label: '🧸 Día del Niño' },
         { id: 'dia-madre', label: '🤱 Día de la Madre' },
         { id: 'dia-padre', label: '👨‍👦 Día del Padre' }
+        */
+        { id: 'desayuno-luxury', label: '✨ Desayuno Luxury' },
+        { id: 'desayuno-premium', label: '🌟 Desayuno Premium' },
+        { id: 'desayuno-clasico', label: '🍳 Desayuno Clásico' }
     ],
     'personalizamos': [
         { id: 'mugs-personalizados', label: '☕ Mugs Personalizados' },
@@ -163,6 +168,7 @@ export function CategoriaProductos() {
     const subcategories = isParentCategory ? SUBCATEGORIES_CONFIG[categoriaId] : [];
 
     const formatCategoryName = (str) => {
+        if (str === 'crea-tu-box') return 'Boxs';
         return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     };
 

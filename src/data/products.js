@@ -133,6 +133,42 @@ import imgPuzzleMdfScreenshot from '../assets/Products/Rompecabezas/Rompecabezas
 export { breakLabLogo };
 
 export const PRODUCTS_DB = {
+    'desayuno-luxury': [
+        { 
+            id: 'desayuno-luxury-real', 
+            name: 'Box Desayuno Luxury Real', 
+            subtitle: 'La experiencia gourmet definitiva ✨',
+            description: 'Un desayuno de lujo para celebrar por lo alto. Incluye waffles belgas con frutos rojos y chocolate belga, jugo de naranja natural premium, croissant de almendras, café de origen en prensa francesa, taza dorada de colección y un ramo de flores o detalle tejido a mano. Todo presentado en nuestra caja de madera de pino con decoración elegante.', 
+            price: 110000, 
+            isNew: true, 
+            image: imgMugBordeAsaDorada, 
+            images: [imgMugBordeAsaDorada, breakLabLogo] 
+        }
+    ],
+    'desayuno-premium': [
+        { 
+            id: 'desayuno-premium-sorpresa', 
+            name: 'Box Desayuno Premium Sorpresa', 
+            subtitle: 'Sorpresa y sabor de alta calidad 🌟',
+            description: 'El equilibrio perfecto entre dulzura y elegancia. Incluye sándwich gourmet artesanal, yogurt con granola, jugo natural en botella de vidrio, porción de fruta fresca, taza con interior de color personalizada, peluche mediano y globos decorativos en caja de madera decorada.', 
+            price: 85000, 
+            isNew: true, 
+            image: imgGengarBox, 
+            images: [imgGengarBox, breakLabLogo] 
+        }
+    ],
+    'desayuno-clasico': [
+        { 
+            id: 'desayuno-clasico-breaklab', 
+            name: 'Box Desayuno Clásico BreakLab', 
+            subtitle: 'Un clásico lleno de cariño 🍳',
+            description: 'El desayuno clásico que a todos les encanta. Incluye sándwich de jamón serrano y queso, jugo de naranja en botella decorada, muffin casero de vainilla, mug blanco personalizado con el diseño que desees y tarjeta de regalo en empaque especial.', 
+            price: 60000, 
+            isNew: true, 
+            image: breakLabLogo, 
+            images: [breakLabLogo, imgVasoMascotas] 
+        }
+    ],
     'san-valentin': [
         { 
             id: 'box-san-valentin-gelatorta-vino', 

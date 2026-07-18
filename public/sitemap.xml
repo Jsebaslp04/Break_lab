@@ -59,6 +59,7 @@
   </url>
 
   <!-- Categorías de Crea tu Box -->
+  <!--
   <url>
     <loc>https://breaklab.com/categoria/reyes</loc>
     <lastmod>2026-06-20</lastmod>
@@ -109,6 +110,25 @@
   </url>
   <url>
     <loc>https://breaklab.com/categoria/dia-padre</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  -->
+  <url>
+    <loc>https://breaklab.com/categoria/desayuno-luxury</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://breaklab.com/categoria/desayuno-premium</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://breaklab.com/categoria/desayuno-clasico</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
