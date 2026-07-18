@@ -29,7 +29,8 @@ export const Crea_tu_Box = () => {
         */
         { id: 'desayuno-luxury', name: 'Desayuno Luxury', icon: '✨', theme: styles.themeFestive },
         { id: 'desayuno-premium', name: 'Desayuno Premium', icon: '🌟', theme: styles.themeRomantic },
-        { id: 'desayuno-clasico', name: 'Desayuno Clásico', icon: '🍳', theme: styles.themeMasculine }
+        { id: 'desayuno-clasico', name: 'Desayuno Clásico', icon: '🍳', theme: styles.themeMasculine },
+        { id: 'baby-shower', name: 'Baby Shower', icon: '🍼', theme: styles.themePlayful }
     ];
 
     return (

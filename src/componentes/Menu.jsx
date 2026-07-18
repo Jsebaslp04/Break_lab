@@ -75,7 +75,7 @@ export const Menu = () => {
         'reyes', 'kit-escolar', 'san-valentin', 'box-tematicas', 'dia-mujer', 'dia-hombre', 
         'semana-santa', 'dia-nino', 'dia-madre', 'dia-padre'
         */
-        'desayuno-luxury', 'desayuno-premium', 'desayuno-clasico'
+        'desayuno-luxury', 'desayuno-premium', 'desayuno-clasico', 'baby-shower'
     ];
 
     const combosCategories = [
@@ -191,6 +191,7 @@ export const Menu = () => {
                             <Link to="/categoria/desayuno-luxury" className={styles.dropdownItem}>Desayuno Luxury</Link>
                             <Link to="/categoria/desayuno-premium" className={styles.dropdownItem}>Desayuno Premium</Link>
                             <Link to="/categoria/desayuno-clasico" className={styles.dropdownItem}>Desayuno Clásico</Link>
+                            <Link to="/categoria/baby-shower" className={styles.dropdownItem}>Baby Shower</Link>
                         </div>
                     </div>
 
@@ -269,6 +270,7 @@ export const Menu = () => {
                                 <Link to="/categoria/desayuno-luxury" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Luxury</Link>
                                 <Link to="/categoria/desayuno-premium" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Premium</Link>
                                 <Link to="/categoria/desayuno-clasico" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Clásico</Link>
+                                <Link to="/categoria/baby-shower" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Baby Shower</Link>
                             </div>
                         </div>
 

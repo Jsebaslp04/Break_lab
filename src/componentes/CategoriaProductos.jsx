@@ -140,7 +140,8 @@ const SUBCATEGORIES_CONFIG = {
         */
         { id: 'desayuno-luxury', label: '✨ Desayuno Luxury' },
         { id: 'desayuno-premium', label: '🌟 Desayuno Premium' },
-        { id: 'desayuno-clasico', label: '🍳 Desayuno Clásico' }
+        { id: 'desayuno-clasico', label: '🍳 Desayuno Clásico' },
+        { id: 'baby-shower', label: '🍼 Baby Shower' }
     ],
     'personalizamos': [
         { id: 'mugs-personalizados', label: '☕ Mugs Personalizados' },

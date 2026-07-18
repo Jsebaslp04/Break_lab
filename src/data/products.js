@@ -169,6 +169,18 @@ export const PRODUCTS_DB = {
             images: [breakLabLogo, imgVasoMascotas] 
         }
     ],
+    'baby-shower': [
+        { 
+            id: 'box-baby-shower-bienvenida', 
+            name: 'Box Baby Shower Dulce Espera', 
+            subtitle: 'Celebra la llegada del bebé 🍼👶',
+            description: 'Un tierno detalle para felicitar a los futuros padres. Incluye un amigurumi tejido a mano de apego, sonajero de madera, babero de algodón personalizado, globos decorativos y una caja de dulces y galletas decorativas en una hermosa caja de madera decorada.', 
+            price: 75000, 
+            isNew: true, 
+            image: breakLabLogo, 
+            images: [breakLabLogo] 
+        }
+    ],
     'san-valentin': [
         { 
             id: 'box-san-valentin-gelatorta-vino', 
