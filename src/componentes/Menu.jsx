@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Menu.module.css";
 import break_lab_logo from "../assets/break_lab.png";
@@ -22,6 +22,32 @@ export const Menu = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [drawerSections, setDrawerSections] = useState({
+        boxs: false,
+        combos: false,
+        personalizamos: false
+    });
+
+    const toggleDrawerSection = (section) => {
+        setDrawerSections(prev => ({
+            ...prev,
+            [section]: !prev[section]
+        }));
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 40) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
     const isActive = (path) => location.pathname === path;
@@ -102,7 +128,7 @@ export const Menu = () => {
         (activeCategory && (activeCategory === "personalizamos" || personalizamosCategories.includes(activeCategory)));
 
     return (
-        <header className={styles.header}>
+        <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
             <div className={styles.headerLogo}>
                 <button 
                     className={`${styles.hamburgerBtn} ${isMenuOpen ? styles.hamburgerActive : ''}`} 
@@ -128,7 +154,7 @@ export const Menu = () => {
                 <div className={styles.searchBar}>
                     <input 
                         type="text" 
-                        placeholder="Buscar productos, categorías..." 
+                        placeholder="Buscar productos..." 
                         className={styles.searchInput} 
                         value={searchQuery}
                         onChange={handleSearchChange}
@@ -175,23 +201,37 @@ export const Menu = () => {
                         <Link to="/Crea_tu_Box" className={`${styles.navLink} ${isCreaTuBoxActive ? styles.active : ""}`}>
                             <span className={styles.navEmoji}><img src={box} alt="Caja de regalos" /></span> Boxs <span className={styles.arrowIcon}>▼</span>
                         </Link>
-                        <div className={styles.dropdownMenu}>
-                            {/*
-                            <Link to="/categoria/reyes" className={styles.dropdownItem}>Reyes</Link>
-                            <Link to="/categoria/kit-escolar" className={styles.dropdownItem}>Kit Escolar</Link>
-                            <Link to="/categoria/san-valentin" className={styles.dropdownItem}>San Valentín</Link>
-                            <Link to="/categoria/box-tematicas" className={styles.dropdownItem}>Box Temáticas</Link>
-                            <Link to="/categoria/dia-mujer" className={styles.dropdownItem}>Día de la Mujer</Link>
-                            <Link to="/categoria/dia-hombre" className={styles.dropdownItem}>Día del Hombre</Link>
-                            <Link to="/categoria/semana-santa" className={styles.dropdownItem}>Semana Santa</Link>
-                            <Link to="/categoria/dia-nino" className={styles.dropdownItem}>Día del Niño</Link>
-                            <Link to="/categoria/dia-madre" className={styles.dropdownItem}>Día de la Madre</Link>
-                            <Link to="/categoria/dia-padre" className={styles.dropdownItem}>Día del Padre</Link>
-                            */}
-                            <Link to="/categoria/desayuno-luxury" className={styles.dropdownItem}>Desayuno Luxury</Link>
-                            <Link to="/categoria/desayuno-premium" className={styles.dropdownItem}>Desayuno Premium</Link>
-                            <Link to="/categoria/desayuno-clasico" className={styles.dropdownItem}>Desayuno Clásico</Link>
-                            <Link to="/categoria/baby-shower" className={styles.dropdownItem}>Baby Shower</Link>
+                        <div className={`${styles.dropdownMenu} ${styles.megaMenuBoxs}`}>
+                            <div className={styles.megaGridBoxs}>
+                                <Link to="/categoria/desayuno-luxury" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>👑</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Desayuno Luxury</span>
+                                        <span className={styles.megaDesc}>Para impresionar con la máxima elegancia y detalles gourmet.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/desayuno-premium" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>✨</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Desayuno Premium</span>
+                                        <span className={styles.megaDesc}>Nuestra selección especial con excelente variedad de sabores.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/desayuno-clasico" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>🥐</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Desayuno Clásico</span>
+                                        <span className={styles.megaDesc}>El toque tradicional perfecto para alegrar cualquier mañana.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/baby-shower" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>🍼</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Baby Shower</span>
+                                        <span className={styles.megaDesc}>Cajas llenas de ternura y amor para dar la bienvenida al bebé.</span>
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
                     </div>
 
@@ -199,15 +239,65 @@ export const Menu = () => {
                         <Link to="/Combos" className={`${styles.navLink} ${isCombosActive ? styles.active : ""}`}>
                             <span className={styles.navEmoji} style={{ fontSize: '1.4rem', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>☕</span> Combos <span className={styles.arrowIcon}>▼</span>
                         </Link>
-                        <div className={styles.dropdownMenu}>
-                            <Link to="/categoria/combo-avengers" className={styles.dropdownItem}>Combo Avengers</Link>
-                            <Link to="/categoria/combo-batman" className={styles.dropdownItem}>Combo Batman</Link>
-                            <Link to="/categoria/combo-bob-esponja" className={styles.dropdownItem}>Combo Bob Esponja</Link>
-                            <Link to="/categoria/combo-caballeros-del-zodiaco" className={styles.dropdownItem}>Combo Caballeros Zodíaco</Link>
-                            <Link to="/categoria/combo-friends" className={styles.dropdownItem}>Combo Friends</Link>
-                            <Link to="/categoria/combo-looney-tunes" className={styles.dropdownItem}>Combo Looney Tunes</Link>
-                            <Link to="/categoria/combo-los-simpson" className={styles.dropdownItem}>Combo Los Simpson</Link>
-                            <Link to="/categoria/combo-mugs-one-piece" className={styles.dropdownItem}>Combo One Piece</Link>
+                        <div className={`${styles.dropdownMenu} ${styles.megaMenuCombos}`}>
+                            <div className={styles.megaGridCombos}>
+                                <Link to="/categoria/combo-avengers" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>🦸‍♂️</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Combo Avengers</span>
+                                        <span className={styles.megaDesc}>Poder y sabor para fanáticos de Marvel.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/combo-batman" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>🦇</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Combo Batman</span>
+                                        <span className={styles.megaDesc}>Un estilo oscuro directo de Gótica.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/combo-bob-esponja" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>🍍</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Combo Bob Esponja</span>
+                                        <span className={styles.megaDesc}>Diversión marina para un desayuno alegre.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/combo-caballeros-del-zodiaco" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>💫</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Combo Caballeros Zodíaco</span>
+                                        <span className={styles.megaDesc}>Lleva tu nostalgia al nivel del cosmos.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/combo-friends" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>☕</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Combo Friends</span>
+                                        <span className={styles.megaDesc}>Ideal para compartir con tus mejores amigos.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/combo-looney-tunes" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>🐰</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Combo Looney Tunes</span>
+                                        <span className={styles.megaDesc}>Sabor clásico y divertido con Bugs Bunny.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/combo-los-simpson" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>🍩</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Combo Los Simpson</span>
+                                        <span className={styles.megaDesc}>¡D'oh! El combo para fans de Springfield.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/combo-mugs-one-piece" className={styles.megaItem}>
+                                    <span className={styles.megaIcon}>🏴‍☠️</span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Combo One Piece</span>
+                                        <span className={styles.megaDesc}>Embárcate en una aventura pirata de sabor.</span>
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
                     </div>
 
@@ -215,20 +305,31 @@ export const Menu = () => {
                         <Link to="/Personalizamos" className={`${styles.navLink} ${isPersonalizamosActive ? styles.active : ""}`}>
                             <span className={styles.navEmoji}><img src={personalizacion} alt="Personalización de regalos" /></span> Personalizamos <span className={styles.arrowIcon}>▼</span>
                         </Link>
-                        <div className={styles.dropdownMenu}>
-                            <Link to="/categoria/mugs-personalizados" className={styles.dropdownItem}>Mugs Personalizados</Link>
-                            <Link to="/categoria/vasos-personalizados" className={styles.dropdownItem}>Vasos Personalizados</Link>
-                            <Link to="/categoria/llaveros" className={styles.dropdownItem}>Llaveros</Link>
-                            <Link to="/categoria/rompecabezas" className={styles.dropdownItem}>Rompecabezas</Link>
-                            <Link to="/categoria/gelatortas" className={styles.dropdownItem}>Gelatortas</Link>
-                            <Link to="/categoria/arte-resina" className={styles.dropdownItem}>Arte en Resina</Link>
-                            <Link to="/categoria/miyuki" className={styles.dropdownItem}>Miyuki</Link>
-                            <Link to="/categoria/globo-mensaje" className={styles.dropdownItem}>Globo Mensaje</Link>
-                            <Link to="/categoria/vino" className={styles.dropdownItem}>Vino</Link>
-                            <Link to="/categoria/figuras-3d" className={styles.dropdownItem}>Figuras 3D</Link>
-                            <Link to="/categoria/amigurumis" className={styles.dropdownItem}>Amigurumis</Link>
-                            <Link to="/categoria/su-flor-especial" className={styles.dropdownItem}>Su Flor Especial</Link>
-                            <Link to="/categoria/variedades" className={styles.dropdownItem}>Variedades</Link>
+                        <div className={`${styles.dropdownMenu} ${styles.megaMenuPersonalizamos}`}>
+                            <div className={styles.megaColumnsPersonalizamos}>
+                                <div className={styles.megaColumn}>
+                                    <span className={styles.megaColumnHeader}>☕ Mugs y Copas</span>
+                                    <Link to="/categoria/mugs-personalizados" className={styles.megaSubItem}>Mugs Personalizados</Link>
+                                    <Link to="/categoria/vasos-personalizados" className={styles.megaSubItem}>Vasos Personalizados</Link>
+                                    <Link to="/categoria/vino" className={styles.megaSubItem}>Vino con Etiqueta</Link>
+                                    <Link to="/categoria/globo-mensaje" className={styles.megaSubItem}>Globo Mensaje</Link>
+                                </div>
+                                <div className={styles.megaColumn}>
+                                    <span className={styles.megaColumnHeader}>🎨 Regalos y Arte</span>
+                                    <Link to="/categoria/llaveros" className={styles.megaSubItem}>Llaveros Creativos</Link>
+                                    <Link to="/categoria/rompecabezas" className={styles.megaSubItem}>Rompecabezas</Link>
+                                    <Link to="/categoria/miyuki" className={styles.megaSubItem}>Miyuki (Bisutería)</Link>
+                                    <Link to="/categoria/variedades" className={styles.megaSubItem}>Detalles Varios</Link>
+                                </div>
+                                <div className={styles.megaColumn}>
+                                    <span className={styles.megaColumnHeader}>🍰 Especiales</span>
+                                    <Link to="/categoria/gelatortas" className={styles.megaSubItem}>Gelatortas Únicas</Link>
+                                    <Link to="/categoria/arte-resina" className={styles.megaSubItem}>Arte en Resina</Link>
+                                    <Link to="/categoria/figuras-3d" className={styles.megaSubItem}>Figuras 3D</Link>
+                                    <Link to="/categoria/amigurumis" className={styles.megaSubItem}>Amigurumis</Link>
+                                    <Link to="/categoria/su-flor-especial" className={styles.megaSubItem}>Su Flor Especial</Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -253,57 +354,57 @@ export const Menu = () => {
                         </Link>
                         
                         <div className={styles.drawerSection}>
-                            <Link to="/Crea_tu_Box" className={styles.drawerSectionTitleLink} onClick={() => setIsMenuOpen(false)}>🎁 Boxs</Link>
-                            <div className={styles.drawerSubLinks}>
-                                {/*
-                                <Link to="/categoria/reyes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Reyes</Link>
-                                <Link to="/categoria/kit-escolar" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Kit Escolar</Link>
-                                <Link to="/categoria/san-valentin" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>San Valentín</Link>
-                                <Link to="/categoria/box-tematicas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Box Temáticas</Link>
-                                <Link to="/categoria/dia-mujer" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día de la Mujer</Link>
-                                <Link to="/categoria/dia-hombre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Hombre</Link>
-                                <Link to="/categoria/semana-santa" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Semana Santa</Link>
-                                <Link to="/categoria/dia-nino" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Niño</Link>
-                                <Link to="/categoria/dia-madre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día de la Madre</Link>
-                                <Link to="/categoria/dia-padre" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Día del Padre</Link>
-                                */}
-                                <Link to="/categoria/desayuno-luxury" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Luxury</Link>
-                                <Link to="/categoria/desayuno-premium" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Premium</Link>
-                                <Link to="/categoria/desayuno-clasico" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Desayuno Clásico</Link>
-                                <Link to="/categoria/baby-shower" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Baby Shower</Link>
+                            <div className={styles.drawerSectionHeader} onClick={() => toggleDrawerSection('boxs')}>
+                                <span className={styles.drawerSectionTitle}>🎁 Boxs</span>
+                                <span className={`${styles.drawerChevron} ${drawerSections.boxs ? styles.chevronOpen : ""}`}>▼</span>
+                            </div>
+                            <div className={`${styles.drawerSubLinks} ${drawerSections.boxs ? styles.subLinksOpen : ""}`}>
+                                <Link to="/Crea_tu_Box" className={styles.drawerSubLinkViewAll} onClick={() => setIsMenuOpen(false)}>Ver Todos los Boxs →</Link>
+                                <Link to="/categoria/desayuno-luxury" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>👑 Desayuno Luxury</Link>
+                                <Link to="/categoria/desayuno-premium" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>✨ Desayuno Premium</Link>
+                                <Link to="/categoria/desayuno-clasico" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🥐 Desayuno Clásico</Link>
+                                <Link to="/categoria/baby-shower" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🍼 Baby Shower</Link>
                             </div>
                         </div>
 
                         <div className={styles.drawerSection}>
-                            <Link to="/Combos" className={styles.drawerSectionTitleLink} onClick={() => setIsMenuOpen(false)}>☕ Combos</Link>
-                            <div className={styles.drawerSubLinks}>
-                                <Link to="/categoria/combo-avengers" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Avengers</Link>
-                                <Link to="/categoria/combo-batman" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Batman</Link>
-                                <Link to="/categoria/combo-bob-esponja" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Bob Esponja</Link>
-                                <Link to="/categoria/combo-caballeros-del-zodiaco" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Caballeros Zodíaco</Link>
-                                <Link to="/categoria/combo-friends" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Friends</Link>
-                                <Link to="/categoria/combo-looney-tunes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Looney Tunes</Link>
-                                <Link to="/categoria/combo-los-simpson" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo Los Simpson</Link>
-                                <Link to="/categoria/combo-mugs-one-piece" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Combo One Piece</Link>
+                            <div className={styles.drawerSectionHeader} onClick={() => toggleDrawerSection('combos')}>
+                                <span className={styles.drawerSectionTitle}>☕ Combos</span>
+                                <span className={`${styles.drawerChevron} ${drawerSections.combos ? styles.chevronOpen : ""}`}>▼</span>
+                            </div>
+                            <div className={`${styles.drawerSubLinks} ${drawerSections.combos ? styles.subLinksOpen : ""}`}>
+                                <Link to="/Combos" className={styles.drawerSubLinkViewAll} onClick={() => setIsMenuOpen(false)}>Ver Todos los Combos →</Link>
+                                <Link to="/categoria/combo-avengers" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🦸‍♂️ Combo Avengers</Link>
+                                <Link to="/categoria/combo-batman" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🦇 Combo Batman</Link>
+                                <Link to="/categoria/combo-bob-esponja" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🍍 Combo Bob Esponja</Link>
+                                <Link to="/categoria/combo-caballeros-del-zodiaco" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>💫 Combo Caballeros</Link>
+                                <Link to="/categoria/combo-friends" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>☕ Combo Friends</Link>
+                                <Link to="/categoria/combo-looney-tunes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🐰 Combo Looney Tunes</Link>
+                                <Link to="/categoria/combo-los-simpson" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🍩 Combo Los Simpson</Link>
+                                <Link to="/categoria/combo-mugs-one-piece" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🏴‍☠️ Combo One Piece</Link>
                             </div>
                         </div>
 
                         <div className={styles.drawerSection}>
-                            <Link to="/Personalizamos" className={styles.drawerSectionTitleLink} onClick={() => setIsMenuOpen(false)}>🎨 Personalizamos</Link>
-                            <div className={styles.drawerSubLinks}>
-                                <Link to="/categoria/mugs-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Mugs Personalizados</Link>
-                                <Link to="/categoria/vasos-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Vasos Personalizados</Link>
-                                <Link to="/categoria/llaveros" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Llaveros</Link>
-                                <Link to="/categoria/rompecabezas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Rompecabezas</Link>
-                                <Link to="/categoria/gelatortas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Gelatortas</Link>
-                                <Link to="/categoria/arte-resina" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Arte en Resina</Link>
-                                <Link to="/categoria/miyuki" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Miyuki</Link>
-                                <Link to="/categoria/globo-mensaje" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Globo Mensaje</Link>
-                                <Link to="/categoria/vino" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Vino</Link>
-                                <Link to="/categoria/figuras-3d" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Figuras 3D</Link>
-                                <Link to="/categoria/amigurumis" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Amigurumis</Link>
-                                <Link to="/categoria/su-flor-especial" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Su Flor Especial</Link>
-                                <Link to="/categoria/variedades" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>Variedades</Link>
+                            <div className={styles.drawerSectionHeader} onClick={() => toggleDrawerSection('personalizamos')}>
+                                <span className={styles.drawerSectionTitle}>🎨 Personalizamos</span>
+                                <span className={`${styles.drawerChevron} ${drawerSections.personalizamos ? styles.chevronOpen : ""}`}>▼</span>
+                            </div>
+                            <div className={`${styles.drawerSubLinks} ${drawerSections.personalizamos ? styles.subLinksOpen : ""}`}>
+                                <Link to="/Personalizamos" className={styles.drawerSubLinkViewAll} onClick={() => setIsMenuOpen(false)}>Ver Todo Personalizado →</Link>
+                                <Link to="/categoria/mugs-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>☕ Mugs Personalizados</Link>
+                                <Link to="/categoria/vasos-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🥤 Vasos Personalizados</Link>
+                                <Link to="/categoria/llaveros" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🔑 Llaveros</Link>
+                                <Link to="/categoria/rompecabezas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🧩 Rompecabezas</Link>
+                                <Link to="/categoria/gelatortas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🎂 Gelatortas</Link>
+                                <Link to="/categoria/arte-resina" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>✨ Arte en Resina</Link>
+                                <Link to="/categoria/miyuki" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>📿 Miyuki</Link>
+                                <Link to="/categoria/globo-mensaje" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🎈 Globo Mensaje</Link>
+                                <Link to="/categoria/vino" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🍷 Vino</Link>
+                                <Link to="/categoria/figuras-3d" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🤖 Figuras 3D</Link>
+                                <Link to="/categoria/amigurumis" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🧸 Amigurumis</Link>
+                                <Link to="/categoria/su-flor-especial" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🌹 Su Flor Especial</Link>
+                                <Link to="/categoria/variedades" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🎁 Variedades</Link>
                             </div>
                         </div>
 
