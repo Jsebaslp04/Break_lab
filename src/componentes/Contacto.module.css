@@ -298,3 +298,22 @@
         max-width: 320px;
     }
 }
+
+@media (max-width: 480px) {
+    .contacto_section {
+        padding: 2rem 1rem;
+    }
+    
+    .contacto_container {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+    }
+    
+    .main_title {
+        font-size: 1.8rem;
+    }
+    
+    .form_column {
+        padding: 1.5rem 1rem;
+    }
+}
