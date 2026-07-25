@@ -37,8 +37,8 @@ export function MagicParticles() {
                 this.alpha = 1;
                 this.fadeSpeed = isClick ? Math.random() * 0.015 + 0.01 : Math.random() * 0.02 + 0.01;
                 
-                // Sparkle color palette: Pink, Rose, Soft Gold, Violet
-                const colors = ['#f78fa7', '#ea4335', '#fecb00', '#c084fc', '#d65b79'];
+                // Sparkle color palette: Rose, Coral, Soft Gold, Violet, Lavender
+                const colors = ['#ff6584', '#ff3b61', '#fecb00', '#ffc107', '#c084fc', '#ab82ff'];
                 this.color = colors[Math.floor(Math.random() * colors.length)];
                 
                 // Particle type: 0 = circle, 1 = star/sparkle, 2 = heart

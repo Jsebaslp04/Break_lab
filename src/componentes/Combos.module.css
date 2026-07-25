@@ -12,7 +12,7 @@
 
 .title {
     font-family: 'Outfit', sans-serif;
-    color: #4a332c;
+    color: var(--text-dark);
     font-size: 3.2rem;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -20,7 +20,7 @@
 }
 
 .subtitle {
-    color: #666;
+    color: var(--text-medium);
     font-size: 1.15rem;
     max-width: 600px;
     margin: 0 auto;
@@ -45,7 +45,7 @@
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15), box-shadow 0.4s ease, border-color 0.4s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    box-shadow: var(--shadow-sm);
     z-index: 1;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .cardTitle {
-    color: #4a332c;
+    color: var(--text-dark);
     font-family: 'Outfit', sans-serif;
     font-size: 1.65rem;
     margin-bottom: 1.8rem;
@@ -90,13 +90,13 @@
 
 .exploreBtn {
     background: rgba(255, 255, 255, 0.95);
-    color: #7c4c0d;
+    color: var(--secondary);
     padding: 0.65rem 1.6rem;
     border-radius: 50px;
     font-weight: 700;
     font-size: 0.9rem;
-    border: 1px solid rgba(124, 76, 13, 0.12);
-    box-shadow: 0 4px 12px rgba(124, 76, 13, 0.05);
+    border: 1px solid var(--border-medium);
+    box-shadow: var(--shadow-sm);
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 2;
     display: inline-flex;
@@ -105,10 +105,10 @@
 }
 
 .card:hover .exploreBtn {
-    background: linear-gradient(135deg, #f78fa7 0%, #d65b79 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: white;
     border-color: transparent;
-    box-shadow: 0 8px 20px rgba(214, 91, 121, 0.3);
+    box-shadow: 0 8px 20px var(--primary-glow);
     transform: scale(1.05);
 }
 
@@ -169,18 +169,18 @@
 }
 
 .themeRomantic {
-    background: linear-gradient(135deg, #fffcfd 0%, #fff5f7 50%, #ffe3e8 100%);
-    border: 1.5px solid rgba(247, 143, 167, 0.15);
+    background: linear-gradient(135deg, #fffcfd 0%, var(--bg-pink) 50%, var(--primary-light) 100%);
+    border: 1.5px solid var(--border-primary);
 }
 
 .themeRomantic::after,
 .themeRomantic::before {
-    background: #d65b79;
+    background: var(--primary);
 }
 
 .themeRomantic:hover {
-    border-color: rgba(247, 143, 167, 0.32);
-    box-shadow: 0 20px 45px rgba(247, 143, 167, 0.18);
+    border-color: var(--primary-hover);
+    box-shadow: var(--shadow-primary);
 }
 
 .themeMasculine {

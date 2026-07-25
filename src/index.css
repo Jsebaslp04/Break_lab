@@ -1,5 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&family=Comic+Neue:wght@300;400;700&display=swap');
 
+:root {
+  /* Brand Primary - Trendy Elegant Rose/Coral (Soft and Warm) */
+  --primary: #ff6584;
+  --primary-hover: #ff3b61;
+  --primary-light: #fff0f3;
+  --primary-glow: rgba(255, 101, 132, 0.15);
+
+  /* Brand Secondary - Warm Deep Chocolate/Cocoa (Premium and High Contrast) */
+  --secondary: #5a3c28;
+  --secondary-hover: #452b1a;
+  --secondary-light: #f5ebe6;
+  --secondary-glow: rgba(90, 60, 40, 0.15);
+
+  /* Background Colors */
+  --bg-body: #fdfaf7;     /* Soft ivory, very comfortable to look at */
+  --bg-card: #ffffff;     /* Clean white for high readability card background */
+  --bg-cream: #faf2ea;    /* Warm cream for sections */
+  --bg-pink: #fef0f2;     /* Subtle rose blush for banners/alerts */
+
+  /* Neutral Text Colors */
+  --text-dark: #3a2518;   /* Deep cocoa/charcoal for main text */
+  --text-medium: #705445; /* Medium cocoa for secondary text */
+  --text-light: #a38c80;  /* Light grey-brown for placeholders/meta */
+  --text-white: #ffffff;  /* White text */
+
+  /* Border / Outline */
+  --border-light: rgba(90, 60, 40, 0.08);
+  --border-medium: rgba(90, 60, 40, 0.18);
+  --border-primary: rgba(255, 101, 132, 0.2);
+
+  /* Shadow Design Token (Soft and Premium) */
+  --shadow-sm: 0 2px 8px rgba(90, 60, 40, 0.04);
+  --shadow-md: 0 10px 30px rgba(90, 60, 40, 0.06);
+  --shadow-lg: 0 20px 50px rgba(90, 60, 40, 0.1);
+  --shadow-primary: 0 10px 25px rgba(255, 101, 132, 0.15);
+
+  /* Transitions */
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +54,7 @@ body {
   overflow-x: clip;
   max-width: 100%;
   width: 100%;
-  background-color: #faf5f2;
+  background-color: var(--bg-body);
 }
 
 html,

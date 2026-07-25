@@ -7,15 +7,15 @@
 }
 
 .cartCard {
-    background: #ffffff;
+    background: var(--bg-card);
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-md);
     overflow: hidden;
-    border: 1px solid rgba(166, 67, 66, 0.1);
+    border: 1px solid var(--border-light);
 }
 
 .header {
-    background: #dfaebf;
+    background: var(--primary);
     color: white;
     padding: 2rem;
     display: flex;
@@ -44,6 +44,8 @@
     padding: 3rem;
 }
 
+
+
 /* Empty State */
 .emptyState {
     display: flex;
@@ -51,48 +53,53 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #4a332c;
-    padding: 3rem 0;
+    color: var(--text-dark);
+    padding: 1.5rem 0;
 }
 
 .iconWrapper {
-    font-size: 6rem;
-    margin-bottom: 2rem;
-    background: #fdfbf9;
-    padding: 3rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
+    background: var(--bg-body);
+    padding: 1.5rem;
     border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
 }
 
 .emptyState h3 {
     font-family: 'Comic Neue', cursive;
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
 }
 
 .emptyState p {
-    color: #666;
-    margin-bottom: 3rem;
-    font-size: 1.2rem;
+    color: var(--text-medium);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
 }
 
 .continueBtn {
-    background: #ba8c87;
+    background: var(--primary);
     color: white;
     border: none;
-    padding: 1.2rem 3rem;
+    padding: 0.9rem 2.2rem;
     border-radius: 30px;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     text-decoration: none;
     transition: background 0.3s, transform 0.2s;
 }
 
 .continueBtn:hover {
-    background: #7c4c0d;
+    background: var(--primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(124, 76, 13, 0.35), 0 0 10px rgba(124, 76, 13, 0.2);
+    box-shadow: 0 8px 20px var(--primary-glow);
 }
 
 /* Cart List */
@@ -108,21 +115,21 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    background: #fdfbf9;
+    background: var(--bg-body);
     border-radius: 15px;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid var(--border-light);
 }
 
 .itemInfo h4 {
     margin: 0 0 0.8rem 0;
-    color: #333;
+    color: var(--text-dark);
     font-size: 1.4rem;
     font-family: 'Comic Neue', cursive;
     font-weight: 700;
 }
 
 .itemPrice {
-    color: #ba8c87;
+    color: var(--primary);
     font-weight: bold;
     margin: 0;
     font-size: 1.2rem;
@@ -137,16 +144,16 @@
 .quantityControls {
     display: flex;
     align-items: center;
-    background: #ffffff;
+    background: var(--bg-card);
     border-radius: 30px;
     padding: 0.5rem 1rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .quantityControls button {
-    background: #f6ede3;
+    background: var(--bg-cream);
     border: none;
-    color: #4a332c;
+    color: var(--text-dark);
     font-size: 1.4rem;
     width: 35px;
     height: 35px;
@@ -160,7 +167,7 @@
 }
 
 .quantityControls button:hover {
-    background: #dfaebf;
+    background: var(--primary);
     color: white;
 }
 
@@ -169,7 +176,7 @@
     text-align: center;
     font-weight: 700;
     font-size: 1.2rem;
-    color: #4a332c;
+    color: var(--text-dark);
 }
 
 .removeBtn {
@@ -197,32 +204,32 @@
 }
 
 .addMoreLink {
-    color: #ba8c87;
+    color: var(--primary);
     text-decoration: none;
     font-weight: 700;
     font-size: 1.2rem;
     transition: all 0.3s ease;
-    background: #fdfbf9;
+    background: var(--bg-body);
     padding: 1rem 2rem;
     border-radius: 30px;
     display: inline-block;
-    border: 1px dashed #dfaebf;
+    border: 1px dashed var(--border-primary);
 }
 
 .addMoreLink:hover {
-    color: #7c4c0d;
-    background: #fff;
+    color: var(--primary-hover);
+    background: var(--bg-card);
     border-style: solid;
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(223, 174, 191, 0.2);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Footer */
 .footer {
-    background: #fdfbf9;
+    background: var(--bg-body);
     padding: 2.5rem;
     border-radius: 20px;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid var(--border-light);
 }
 
 .totalRow {
@@ -231,12 +238,12 @@
     align-items: center;
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    color: #4a332c;
+    color: var(--text-dark);
 }
 
 .totalRow strong {
     font-size: 2.2rem;
-    color: #ba8c87;
+    color: var(--primary);
 }
 
 .whatsappBtn {
@@ -370,15 +377,15 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.95rem;
-    color: #555;
+    color: var(--text-medium);
 }
 
 .colorSelectDropdown {
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    border: 1px solid #dfaebf;
-    background-color: #fff;
-    color: #4a332c;
+    border: 1px solid var(--border-primary);
+    background-color: var(--bg-card);
+    color: var(--text-dark);
     font-weight: 600;
     cursor: pointer;
     outline: none;
@@ -386,8 +393,8 @@
 }
 
 .colorSelectDropdown:hover, .colorSelectDropdown:focus {
-    border-color: #ba8c87;
-    box-shadow: 0 2px 8px rgba(223, 174, 191, 0.3);
+    border-color: var(--primary-hover);
+    box-shadow: 0 2px 8px var(--primary-glow);
 }
 
 @media (max-width: 768px) {

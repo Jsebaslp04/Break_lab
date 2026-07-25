@@ -91,21 +91,21 @@
 
 /* Tooltip bubble styled above the widget */
 .tooltip_bubble {
-    background-color: white;
-    color: #333;
+    background-color: var(--bg-card);
+    color: var(--text-dark);
     padding: 0.8rem 2.2rem 0.8rem 1rem;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-md);
     position: relative;
     max-width: 250px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-light);
     animation: pop_in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
 .tooltip_text {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #4a332c;
+    color: var(--text-dark);
     line-height: 1.4;
     margin: 0;
 }
@@ -118,7 +118,7 @@
     border: none;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #aaa;
+    color: var(--text-light);
     cursor: pointer;
     transition: color 0.2s;
     line-height: 1;
@@ -127,7 +127,7 @@
 }
 
 .tooltip_close:hover {
-    color: #666;
+    color: var(--text-medium);
 }
 
 /* Tooltip tail pointer */

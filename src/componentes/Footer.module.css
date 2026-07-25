@@ -1,9 +1,9 @@
 .footer {
-    background: linear-gradient(180deg, #f5f4f3 0%, #e6dfdb 100%);
-    color: #4a332c;
+    background: linear-gradient(180deg, var(--bg-body) 0%, var(--bg-cream) 100%);
+    color: var(--text-dark);
     font-family: 'Inter', sans-serif;
     padding: 4rem 2rem 1.5rem 2rem;
-    border-top: 1px solid rgba(74, 51, 44, 0.1);
+    border-top: 1px solid var(--border-light);
     margin-top: auto;
 }
 
@@ -17,7 +17,7 @@
 
 .col h3 {
     font-family: 'Comic Neue', cursive;
-    color: #a64342;
+    color: var(--primary);
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
@@ -40,7 +40,7 @@
     font-family: 'Quicksand', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #7c4c0d;
+    color: var(--secondary);
 }
 
 .col p {
@@ -89,7 +89,7 @@
 }
 
 .footer_link:hover {
-    color: #a64342;
+    color: var(--primary-hover);
 }
 
 /* Social Badges Container */
@@ -176,7 +176,7 @@
     margin-top: 4rem;
     text-align: center;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(74, 51, 44, 0.1);
+    border-top: 1px solid var(--border-light);
     font-size: 0.85rem;
     opacity: 0.9;
 }

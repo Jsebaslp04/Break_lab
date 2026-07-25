@@ -51,20 +51,35 @@
 }
 
 .detailContainer {
-    max-width: 1050px;
-    margin: 0 auto;
-    padding: 3rem;
-    font-family: 'Inter', sans-serif;
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 1100px;
+    background: radial-gradient(circle at top right, var(--bg-pink) 0%, var(--primary-light) 40%, var(--bg-card) 100%);
+    border-radius: 36px;
+    padding: 3.5rem;
+    box-shadow: var(--shadow-lg);
     position: relative;
-    z-index: 2;
-    background: #ffffff;
-    border-radius: 24px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+/* Sweet yellow background variant */
+.sweetTheme {
+    background: radial-gradient(circle at top left, #fffde7 0%, #fff9c4 30%, var(--bg-card) 100%);
+}
+
+/* Fresh blue background variant */
+.freshTheme {
+    background: radial-gradient(circle at bottom right, #f0f8ff 0%, #e1f5fe 40%, var(--bg-card) 100%);
+}
+
+/* Elegant purple background variant */
+.elegantTheme {
+    background: radial-gradient(circle at top center, #f8f0ff 0%, #f3e5f5 50%, var(--bg-card) 100%);
 }
 
 .splitView {
     display: flex;
-    flex-direction: row;
     gap: 3.5rem;
     align-items: flex-start;
     width: 100%;
@@ -98,7 +113,7 @@
     content: '';
     display: block;
     width: 24px;
-    background-color: #ebd2dd;
+    background-color: var(--primary-light);
     flex-shrink: 0;
 }
 
@@ -114,7 +129,7 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    background: #f78fa7;
+    background: var(--primary);
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -122,7 +137,7 @@
     font-weight: bold;
     letter-spacing: 0.5px;
     font-family: 'Inter', sans-serif;
-    box-shadow: 0 4px 10px rgba(247, 143, 167, 0.3);
+    box-shadow: 0 4px 10px var(--primary-glow);
 }
 
 .thumbnailList {
@@ -142,8 +157,8 @@
     padding: 0;
     overflow: hidden;
     cursor: pointer;
-    background: #fdfbf9;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    background: var(--bg-body);
+    box-shadow: var(--shadow-sm);
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -152,8 +167,8 @@
 }
 
 .thumbnailActive {
-    border-color: #dfaebf;
-    box-shadow: 0 4px 12px rgba(223, 174, 191, 0.3);
+    border-color: var(--border-primary);
+    box-shadow: 0 4px 12px var(--primary-glow);
 }
 
 .thumbnailImg {
@@ -179,7 +194,7 @@
 }
 
 .categoryLabel {
-    color: #dfaebf;
+    color: var(--primary);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -191,7 +206,7 @@
 
 .title {
     font-family: 'Inter', sans-serif;
-    color: #2d3748;
+    color: var(--text-dark);
     font-size: 2.2rem;
     margin-bottom: 0.8rem;
     font-weight: 700;
@@ -199,7 +214,7 @@
 }
 
 .subtitle {
-    color: #ba8c87;
+    color: var(--text-medium);
     font-weight: 600;
     font-size: 1.1rem;
     font-style: italic;
@@ -208,7 +223,7 @@
 
 .description {
     font-family: 'Inter', sans-serif;
-    color: #718096;
+    color: var(--text-light);
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
@@ -222,7 +237,7 @@
 .includedTitle {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    color: #4a332c;
+    color: var(--text-dark);
     font-size: 0.95rem;
     margin-bottom: 0.6rem;
 }
@@ -238,7 +253,7 @@
 
 .includedItem {
     font-family: 'Inter', sans-serif;
-    color: #4a5568;
+    color: var(--text-medium);
     font-size: 0.9rem;
     line-height: 1.4;
     display: flex;
@@ -246,7 +261,7 @@
 }
 
 .includedIcon {
-    color: #f78fa7;
+    color: var(--primary);
     margin-right: 0.5rem;
     font-size: 0.85rem;
 }
@@ -258,8 +273,8 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: #fcd8e4;
-    color: #d65b79;
+    background-color: var(--primary-light);
+    color: var(--primary-hover);
     border: none;
     font-size: 2rem;
     font-weight: 700;
@@ -269,20 +284,20 @@
     cursor: pointer;
     z-index: 100;
     transition: transform 0.2s ease, background-color 0.2s ease;
-    box-shadow: 0 4px 10px rgba(214, 91, 121, 0.15);
+    box-shadow: 0 4px 10px var(--primary-glow);
     line-height: 1;
     padding-bottom: 4px;
 }
 
 .closeCircleBtn:hover {
     transform: scale(1.08);
-    background-color: #fbc6d8;
+    background-color: var(--border-primary);
 }
 
 .tagline {
     font-family: 'Inter', sans-serif;
     font-style: italic;
-    color: #f78fa7;
+    color: var(--primary);
     font-weight: 600;
     font-size: 1.05rem;
     margin-bottom: 1.2rem;
@@ -293,7 +308,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 2rem;
     font-weight: 800;
-    color: #f78fa7;
+    color: var(--primary);
     margin-bottom: 1.8rem;
     line-height: 1;
 }
@@ -309,7 +324,7 @@
 .optionsTitle {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    color: #2d3748;
+    color: var(--text-dark);
     font-size: 0.95rem;
     margin-bottom: 0.6rem;
 }
@@ -323,12 +338,12 @@
 
 .optionPill {
     background: white;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-light);
     border-radius: 20px;
     padding: 0.5rem 1.2rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #4a5568;
+    color: var(--text-medium);
     cursor: pointer;
     transition: all 0.2s ease;
     outline: none;
@@ -336,22 +351,22 @@
 }
 
 .optionPill:hover {
-    border-color: #d65b79;
-    color: #d65b79;
-    background-color: #fdfafb;
+    border-color: var(--primary);
+    color: var(--primary-hover);
+    background-color: var(--bg-pink);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(214, 91, 121, 0.2), 0 0 8px rgba(214, 91, 121, 0.15);
+    box-shadow: var(--shadow-primary), 0 0 8px var(--primary-glow);
 }
 
 .activePill {
-    border-color: #d65b79;
-    color: #d65b79;
-    background-color: #fdfafb;
-    box-shadow: 0 0 0 1px #d65b79;
+    border-color: var(--primary);
+    color: var(--primary-hover);
+    background-color: var(--bg-pink);
+    box-shadow: 0 0 0 1px var(--primary);
 }
 
 .addToCartBtn {
-    background: linear-gradient(135deg, #fcd8e4 0%, #e3dffc 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     color: white;
     font-size: 1.2rem;
     font-weight: 700;
@@ -360,7 +375,7 @@
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 15px rgba(227, 223, 252, 0.4);
+    box-shadow: 0 4px 15px var(--primary-glow);
     width: 100%;
     margin-top: 1rem;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -369,8 +384,8 @@
 
 .addToCartBtn:hover {
     transform: translateY(-3px) scale(1.02);
-    background: linear-gradient(135deg, #ffb3cc 0%, #c4baff 100%);
-    box-shadow: 0 8px 25px rgba(247, 143, 167, 0.4), 0 0 15px rgba(227, 223, 252, 0.6);
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+    box-shadow: 0 8px 25px var(--primary-glow), 0 0 15px var(--primary-glow);
     filter: brightness(1.05);
 }
 
@@ -391,18 +406,18 @@
 }
 
 .modalContent {
-    background: white;
+    background: var(--bg-card);
     padding: 3rem;
     border-radius: 20px;
     text-align: center;
     max-width: 600px;
     width: 90%;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-lg);
 }
 
 .modalContent h2 {
     font-family: 'Comic Neue', cursive;
-    color: #a64342;
+    color: var(--primary-hover);
     margin-bottom: 1rem;
 }
 
@@ -414,7 +429,7 @@
 }
 
 .suggestedBox {
-    background: #f6ede3;
+    background: var(--bg-cream);
     padding: 1.5rem 1rem;
     border-radius: 10px;
     border: 2px solid transparent;
@@ -430,15 +445,15 @@
 
 .suggestedBox:hover {
     transform: translateY(-4px);
-    border-color: #aa8261;
-    background: #fdfbf9;
-    box-shadow: 0 8px 20px rgba(170, 130, 97, 0.25), 0 0 10px rgba(170, 130, 97, 0.15);
+    border-color: var(--border-medium);
+    background: var(--bg-body);
+    box-shadow: var(--shadow-sm);
 }
 
 .suggestedBox.selected {
-    border-color: #aa8261;
-    background: #fdfbf9;
-    box-shadow: 0 5px 15px rgba(170, 130, 97, 0.2);
+    border-color: var(--border-medium);
+    background: var(--bg-body);
+    box-shadow: var(--shadow-sm);
 }
 
 .sugIcon {
@@ -447,7 +462,7 @@
 }
 
 .sugPrice {
-    color: #aa8261;
+    color: var(--text-medium);
     font-weight: bold;
     margin-top: 0.5rem;
     font-size: 0.9rem;
@@ -457,7 +472,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #aa8261;
+    background: var(--secondary);
     color: white;
     width: 20px;
     height: 20px;
@@ -479,8 +494,8 @@
 .btnSecondary {
     padding: 0.8rem 1.5rem;
     border: none;
-    background: #eee;
-    color: #555;
+    background: var(--secondary-light);
+    color: var(--text-medium);
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
@@ -488,15 +503,15 @@
 }
 
 .btnSecondary:hover {
-    background: #ddd;
+    background: var(--border-medium);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-sm);
 }
 
 .btnPrimary {
     padding: 0.8rem 1.5rem;
     border: none;
-    background: #7c4c0d;
+    background: var(--secondary);
     color: white;
     border-radius: 20px;
     cursor: pointer;
@@ -505,21 +520,22 @@
 }
 
 .btnPrimary:hover {
-    background: #4a332c;
+    background: var(--secondary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(124, 76, 13, 0.35), 0 0 10px rgba(124, 76, 13, 0.2);
+    box-shadow: 0 6px 18px var(--secondary-glow), 0 0 10px var(--secondary-glow);
 }
-
 .btnDisabled {
-    background: #ccc;
+    background: var(--border-medium) !important;
+    color: var(--text-light) !important;
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.6;
+    box-shadow: none !important;
 }
 
 .btnDisabled:hover {
-    background: #ccc;
+    background: var(--border-medium) !important;
+    transform: none !important;
 }
-
 @media (max-width: 950px) {
     .detailContainer {
         padding: 2rem 1.5rem;
@@ -560,7 +576,7 @@
     border-radius: 30px;
     font-size: 0.8rem;
     font-weight: bold;
-    color: #4a332c;
+    color: var(--text-dark);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -622,7 +638,7 @@
 }
 
 .lightboxClose:hover {
-    color: #dfaebf;
+    color: var(--primary);
 }
 
 /* Lightbox Arrow Navigation */
@@ -651,7 +667,7 @@
 
 .lightboxArrow:hover {
     background: rgba(255, 255, 255, 0.85);
-    color: #4a332c;
+    color: var(--text-dark);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
@@ -692,9 +708,9 @@
 }
 
 .lightboxBulletActive {
-    background: #f78fa7;
+    background: var(--primary);
     transform: scale(1.25);
-    box-shadow: 0 0 10px rgba(247, 143, 167, 0.6);
+    box-shadow: 0 0 10px var(--primary-glow);
 }
 
 /* Gallery responsive adjustment */
