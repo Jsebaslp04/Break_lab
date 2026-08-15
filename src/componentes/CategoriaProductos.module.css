@@ -7,7 +7,7 @@
 }
 
 .categoryTitle {
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Playfair Display', serif;
     color: var(--text-dark);
     font-size: 2.5rem;
     text-align: center;
@@ -217,7 +217,7 @@
 }
 
 .modalContent h2 {
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Playfair Display', serif;
     color: var(--text-dark);
     margin-bottom: 1rem;
     font-size: 1.8rem;
@@ -514,7 +514,7 @@
 .tabBtn {
     background: transparent;
     border: none;
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Inter', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-medium);
@@ -574,7 +574,7 @@
 }
 
 .sectionTitle {
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: var(--text-dark);
     font-weight: 700;

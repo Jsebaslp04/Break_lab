@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&family=Comic+Neue:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 .header {
     width: 100%;
@@ -54,7 +54,7 @@
 }
 
 .title {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 2.4rem;
     line-height: 1;
     font-weight: bold;
@@ -64,7 +64,7 @@
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--secondary);
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Playfair Display', serif;
 }
 
 .searchBar {
@@ -188,7 +188,7 @@
     align-items: center;
     gap: 8px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     position: relative;
 }
 
@@ -343,7 +343,7 @@
 }
 
 .megaTitle {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--secondary);
@@ -438,7 +438,7 @@
 }
 
 .featuredTitle {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--secondary);
@@ -466,7 +466,7 @@
     border-radius: 10px;
     font-size: 0.8rem;
     font-weight: 700;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     box-shadow: 0 4px 12px var(--primary-glow);
     transition: all 0.3s ease;
     text-align: center;
@@ -507,7 +507,7 @@
 }
 
 .megaColumnHeader {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 800;
     color: var(--primary-hover);
@@ -656,7 +656,7 @@
 }
 
 .drawerTitle {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Playfair Display', serif;
     color: var(--primary-hover);
     font-size: 1.6rem;
     font-weight: 700;
@@ -688,7 +688,7 @@
     color: var(--text-dark);
     font-size: 1.1rem;
     font-weight: 700;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     display: flex;
     align-items: center;
     padding: 0.6rem 0.8rem;
@@ -723,7 +723,7 @@
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-dark);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .drawerChevron {
@@ -760,7 +760,7 @@
     color: var(--text-medium);
     font-size: 0.85rem;
     font-weight: 700;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin-bottom: 4px;
     transition: all 0.2s;
     text-align: left;

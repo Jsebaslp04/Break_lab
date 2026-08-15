@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import styles from './Inicio.module.css'
 import { useSEO } from '../hooks/useSEO'
 import { getProductById } from '../data/products'
-import img1 from '../assets/Swiper/impresion-3d-personajes-videojuegos.png.png'
-import img2 from '../assets/Swiper/rompecabezas-magnetico-one-piece-luffy.png.png'
-import img3 from '../assets/Swiper/vaso-frost-personalizado-mascotas.png.png'
-import img4 from '../assets/Swiper/desayuno-sorpresa-tematico-pokemon-gengar-breaklab.png.png'
+import img1 from '../assets/Swiper/impresion-3d-personajes-videojuegos.png'
+import img2 from '../assets/Swiper/rompecabezas-magnetico-one-piece-luffy.png'
+import img3 from '../assets/Swiper/vaso-frost-personalizado-mascotas.png'
+import img4 from '../assets/Swiper/desayuno-sorpresa-tematico-pokemon-gengar-breaklab.png'
 
 export function Banner() {
     const slides = [

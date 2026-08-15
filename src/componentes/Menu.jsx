@@ -102,7 +102,7 @@ export const Menu = () => {
         'amigurumis', 'su-flor-especial', 'variedades',
         'rompecabezas-magneticos', 'rompecabezas-carton', 'rompecabezas-mdf',
         'gelatortas_mascota', 'gelatorta_tematica',
-        'figuras-3d-mario-bros', 'figuras-3d-bowser', 'figuras-3d-gengar', 'figuras-3d-pokebola', 'figuras-3d-personalizadas'
+        'figuras-3d-mario-bros', 'figuras-3d-bowser', 'figuras-3d-gengar', 'figuras-3d-pokebola', 'figuras-3d-mewtwo', 'figuras-3d-personalizadas'
     ];
 
     const isCreaTuBoxActive = isActive("/Crea_tu_Box") || 

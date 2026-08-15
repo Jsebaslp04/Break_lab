@@ -60,7 +60,7 @@
 }
 
 .title {
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Playfair Display', serif;
     color: #4a332c;
     font-size: 2.5rem;
     text-align: center;
@@ -168,7 +168,7 @@
 }
 
 .payment_header h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Playfair Display', serif;
     color: #2d3748;
     font-size: 1.2rem;
     margin: 0;
@@ -322,7 +322,7 @@
 }
 
 .about_card h3, .shipping_card h3, .terms_card h3, .privacy_card h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Playfair Display', serif;
     color: #2d3748;
     font-size: 1.15rem;
     margin: 0 0 0.8rem 0;
@@ -403,7 +403,7 @@
 }
 
 .qs_title {
-    font-family: 'Outfit', 'Comic Neue', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: clamp(1.8rem, 4vw, 2.4rem);
     color: #4a332c;
     margin: 0 0 1.5rem 0;
@@ -456,7 +456,7 @@
 }
 
 .qs_pillar_title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
     color: #4a332c;
     margin: 0 0 0.3rem 0;
@@ -499,7 +499,7 @@
 }
 
 .qs_stat_number {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: clamp(1.4rem, 3.5vw, 2rem);
     font-weight: 700;
     color: #a64342;
@@ -525,7 +525,7 @@
 }
 
 .qs_cta_title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     font-weight: 700;
     margin: 0 0 0.8rem 0;

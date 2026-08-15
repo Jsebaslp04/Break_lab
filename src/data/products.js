@@ -1,21 +1,21 @@
 // Swiper imports
-import imgFigura3d from '../assets/Swiper/impresion-3d-personajes-videojuegos.png.png';
-import imgRompecabezasLuffy from '../assets/Swiper/rompecabezas-magnetico-one-piece-luffy.png.png';
-import imgVasoMascotas from '../assets/Swiper/vaso-frost-personalizado-mascotas.png.png';
-import imgGengarBox from '../assets/Swiper/desayuno-sorpresa-tematico-pokemon-gengar-breaklab.png.png';
+import imgFigura3d from '../assets/Swiper/impresion-3d-personajes-videojuegos.png';
+import imgRompecabezasLuffy from '../assets/Swiper/rompecabezas-magnetico-one-piece-luffy.png';
+import imgVasoMascotas from '../assets/Swiper/vaso-frost-personalizado-mascotas.png';
+import imgGengarBox from '../assets/Swiper/desayuno-sorpresa-tematico-pokemon-gengar-breaklab.png';
 import breakLabLogo from '../assets/break_lab_logo.png';
 
 // Box San Valentin imports
-import videoBoxSanValentin from '../assets/Products/Box San Valentin/0710 (2).mp4';
+import videoBoxSanValentin from '../assets/Products/Box San Valentin/video-caja-desayuno-sorpresa-san-valentin.mp4';
 import imgBoxSanValentin from '../assets/Products/Box San Valentin/set-regalo-romantico-gelatorta-vino-bogota.png';
 
 // Boxs / Box temática imports
-import videoBoxTematica from '../assets/Products/Boxs/Box temática/0710 (1)(1).mp4';
+import videoBoxTematica from '../assets/Products/Boxs/Box temática/video-desayuno-sorpresa-personalizado.mp4';
 import imgBoxTematica from '../assets/Products/Boxs/Box temática/gelatorta-tematica-one-piece-set-regalo.png';
 
 // Gelatortas imports
-import imgGelatortaHuellaPerro from '../assets/Products/Gelatortas/gelatorta-tematica-huella-perro.jpg.png';
-import videoGelatortaHuellaPerro from '../assets/Products/Gelatortas/Professional_video_of_gelatorta_202607101735.mp4';
+import imgGelatortaHuellaPerro from '../assets/Products/Gelatortas/gelatorta-tematica-huella-perro.png';
+import videoGelatortaHuellaPerro from '../assets/Products/Gelatortas/video-gelatorta-cumpleanos-perro.mp4';
 
 // Llaveros imports
 import imgLlaveroMarioLuigi from '../assets/Products/Llaveros/llavero-cuadrado-acrilico-mario-luigi-bros.png';
@@ -42,7 +42,7 @@ import imgMugHoraAventura from '../assets/Products/Mugs/taza-personalizada-hora-
 import imgMugDoradaRomantica from '../assets/Products/Mugs/taza-romantica-personalizada-dorada-aniversario.png';
 import imgMugLuffyRojo from '../assets/Products/Mugs/taza-sublimada-one-piece-luffy-diseno-rojo.png';
 import imgMugColoresVariados from '../assets/Products/Mugs/tazas-ceramica-colores-variados-personalizables.png';
-import imgMugParejas1 from '../assets/Products/Mugs/tazas-personalizadas-pareja-.png';
+import imgMugParejas1 from '../assets/Products/Mugs/tazas-personalizadas-pareja.png';
 import imgMugParejas2 from '../assets/Products/Mugs/tazas-personalizadas-pareja-ilustracion-romantica.png';
 
 // Rompecabezas imports
@@ -72,7 +72,7 @@ import imgRelojDespertadorCubo from '../assets/Products/Variedades/reloj-despert
 
 // Vasos imports
 import imgVasoMasonJar from '../assets/Products/Vasos/tarros-mason-jar-vidrio-satinado-degradado-colores.png';
-import imgVasoNeonOpalizado from '../assets/Products/Vasos/tazas-neón-opalizadas-mate-personalizadas-pack-colores.png';
+import imgVasoNeonOpalizado from '../assets/Products/Vasos/tazas-neon-opalizadas-mate-personalizadas-pack-colores.png';
 
 // Combos imports
 import imgComboAvengersTazaMarvelVengadoresHulkWolverineGrupo from '../assets/Products/Combos_mugs/Combo_Avengers/taza-marvel-vengadores-hulk-wolverine-grupo.png';
@@ -85,8 +85,8 @@ import imgComboFriendsTazaFriendsMonicaGellerChefAzul from '../assets/Products/C
 import imgComboFriendsTazaFriendsPrincessLeiaStarWarsAmarillaRachel from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-princess-leia-star-wars-amarilla-rachel.png';
 import imgComboFriendsTazaFriendsRachelGreenChibiMoradaPhoebe from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-rachel-green-chibi-morada_phoebe.png';
 import imgComboFriendsTazaFriendsRossGellerNegra from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-ross-geller-negra.png';
-import imgComboLooneyTunesCapturaDePantalla20260716171907 from '../assets/Products/Combos_mugs/Combo_Looney_tunes/Captura de pantalla 2026-07-16 171907.png';
-import imgComboLooneyTunesCapturaDePantalla20260716171914 from '../assets/Products/Combos_mugs/Combo_Looney_tunes/Captura de pantalla 2026-07-16 171914.png';
+import imgComboLooneyTunesCapturaDePantalla20260716171907 from '../assets/Products/Combos_mugs/Combo_Looney_tunes/combo-tazas-looney-tunes-personajes.png';
+import imgComboLooneyTunesCapturaDePantalla20260716171914 from '../assets/Products/Combos_mugs/Combo_Looney_tunes/set-mugs-looney-tunes-decorativo.png';
 import imgComboLooneyTunesTazaBugsBunnySombreroSketchAzul from '../assets/Products/Combos_mugs/Combo_Looney_tunes/taza-bugs-bunny-sombrero-sketch-azul.png';
 import imgComboLooneyTunesTazaMickeyMouseBocetosClasicosRoja from '../assets/Products/Combos_mugs/Combo_Looney_tunes/taza-mickey-mouse-bocetos-clasicos-roja.png';
 import imgComboLooneyTunesTazaPatoLucasBreaklabAmarilla from '../assets/Products/Combos_mugs/Combo_Looney_tunes/taza-pato-lucas-breaklab-amarilla.png';
@@ -96,7 +96,7 @@ import imgComboLooneyTunesTazaRoadRunnerBocetosAmarillaCorreCaminos from '../ass
 import imgComboLooneyTunesTazaSilvestreGatoBocetosBlanca from '../assets/Products/Combos_mugs/Combo_Looney_tunes/taza-silvestre-gato-bocetos-blanca.png';
 import imgComboLooneyTunesTazaTazDemonioDeTasmaniaBocetosNegra from '../assets/Products/Combos_mugs/Combo_Looney_tunes/taza-taz-demonio-de-tasmania-bocetos-negra.png';
 import imgComboLooneyTunesTazaWileECoyoteBocetosTecnicosNegra from '../assets/Products/Combos_mugs/Combo_Looney_tunes/taza-wile-e-coyote-bocetos-tecnicos-negra.png';
-import imgComboLosSimpsonCapturaDePantalla20260716171812 from '../assets/Products/Combos_mugs/Combo_Los_simpson/Captura de pantalla 2026-07-16 171812.png';
+import imgComboLosSimpsonCapturaDePantalla20260716171812 from '../assets/Products/Combos_mugs/Combo_Los_simpson/combo-tazas-los-simpson-coleccion.png';
 import imgComboLosSimpsonTazaAyudanteDeSantaHuesosDestruyendoPlanoBreaklab from '../assets/Products/Combos_mugs/Combo_Los_simpson/taza-ayudante-de-santa-huesos-destruyendo-plano-breaklab.png';
 import imgComboLosSimpsonTazaLisaSimpsonSaxofonSketchArtAmarilla from '../assets/Products/Combos_mugs/Combo_Los_simpson/taza-lisa-simpson-saxofon-sketch-art-amarilla.png';
 import imgComboLosSimpsonTazaMaggieSimpsonBocetosCaracterizacionAmarilla from '../assets/Products/Combos_mugs/Combo_Los_simpson/taza-maggie-simpson-bocetos-caracterizacion-amarilla.png';
@@ -110,25 +110,29 @@ import imgComboMugsOnePieceTazaSublimadaOnePieceNamiEstiloChibiFanArt from '../a
 import imgComboMugsOnePieceTazaTematicaOnePieceRoronoaZoroChibiRegaloAnime from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-tematica-one-piece-roronoa-zoro-chibi-regalo-anime.png';
 
 // Impresiones 3D imports
-import img3dBombMarioBrossCajaBombMarioBross1 from '../assets/Products/Impresiones_3d/Bomb_Mario_Bross/Caja_bomb_mario_bross_1.png';
-import img3dBombMarioBrossCajaBombMarioBross2 from '../assets/Products/Impresiones_3d/Bomb_Mario_Bross/Caja_bomb_mario_bross_2.png';
-import img3dBombMarioBrossCajaBombMarioBross3 from '../assets/Products/Impresiones_3d/Bomb_Mario_Bross/Caja_bomb_mario_bross_3.png';
+import img3dBombMarioBrossCajaBombMarioBross1 from '../assets/Products/Impresiones_3d/Bomb_Mario_Bross/caja-sorpresa-bomba-mario-bros-impresion-3d-1.png';
+import img3dBombMarioBrossCajaBombMarioBross2 from '../assets/Products/Impresiones_3d/Bomb_Mario_Bross/caja-sorpresa-bomba-mario-bros-impresion-3d-2.png';
+import img3dBombMarioBrossCajaBombMarioBross3 from '../assets/Products/Impresiones_3d/Bomb_Mario_Bross/caja-sorpresa-bomba-mario-bros-impresion-3d-3.png';
 import img3dBowserFiguraBowser16cmImpresion3dColeccionable1 from '../assets/Products/Impresiones_3d/Bowser/figura-bowser-16cm-impresion-3d-coleccionable-1.png';
 import img3dBowserFiguraBowser16cmImpresion3dColeccionable2 from '../assets/Products/Impresiones_3d/Bowser/figura-bowser-16cm-impresion-3d-coleccionable-2.png';
-import img3dGengar3DPrintedGengarFigureShowcase202606301718 from '../assets/Products/Impresiones_3d/Gengar/3D_printed_Gengar_figure_showcase_202606301718.mp4';
-import img3dGengarGeminiGeneratedImageItdohiitdohiitdo from '../assets/Products/Impresiones_3d/Gengar/Gemini_Generated_Image_itdohiitdohiitdo.png';
+import img3dGengar3DPrintedGengarFigureShowcase202606301718 from '../assets/Products/Impresiones_3d/Gengar/video-figura-coleccionable-gengar-pokemon-impresion-3d.mp4';
+import img3dGengarGeminiGeneratedImageItdohiitdohiitdo from '../assets/Products/Impresiones_3d/Gengar/figura-gengar-pokemon-impresion-3d-translucida.png';
 import img3dPokebolaPokebolaGengarEdicion9cmImpresion3d1 from '../assets/Products/Impresiones_3d/Pokebola/pokebola-gengar-edicion-9cm-impresion-3d-1.png';
 import img3dPokebolaPokebolaGengarEdicion9cmImpresion3d2 from '../assets/Products/Impresiones_3d/Pokebola/pokebola-gengar-edicion-9cm-impresion-3d-2.png';
+import img3dMewtwoFiguraColeccionableMewtwoArmadura1 from '../assets/Products/Impresiones_3d/Newtwo/figura-coleccionable-mewtwo-armadura-pokemon-impresion-3d-breaklab.png';
+import img3dMewtwoPerfil3CuartosMewtwoArmadura2 from '../assets/Products/Impresiones_3d/Newtwo/perfil-3-cuartos-mewtwo-armadura-figura-impresion-3d-calidad.png';
+import video3dMewtwoVideoFiguraColeccionableMewtwoArmadura from '../assets/Products/Impresiones_3d/Newtwo/video-figura-coleccionable-mewtwo-armadura-pokemon-impresion-3d-breaklab.mp4';
+import img3dMewtwoVistaTraseraMewtwoArmadura3 from '../assets/Products/Impresiones_3d/Newtwo/vista-trasera-mewtwo-armadura-figura-impresion-3d-detalle-cola.png';
 
 // Gelatortas extra imports
-import imgGelatortaTematicaGelatortaTematicaBarcelona1 from '../assets/Products/Gelatortas/Gelatorta_tematica/Gelatorta_tematica_barcelona_1.png';
-import imgGelatortaTematicaGelatortaTematicaBarcelona2 from '../assets/Products/Gelatortas/Gelatorta_tematica/Gelatorta_tematica_barcelona_2.png';
+import imgGelatortaTematicaGelatortaTematicaBarcelona1 from '../assets/Products/Gelatortas/Gelatorta_tematica/gelatorta-tematica-fc-barcelona-futbol-1.png';
+import imgGelatortaTematicaGelatortaTematicaBarcelona2 from '../assets/Products/Gelatortas/Gelatorta_tematica/gelatorta-tematica-fc-barcelona-futbol-2.png';
 
 // Rompecabezas extra imports
 import imgPuzzleMarioMagneticoExtra from '../assets/Products/Rompecabezas/Magnetico/RompecabezasPersonalizadoSuperMario.png';
 import imgPuzzleRickMortyCarton from '../assets/Products/Rompecabezas/Rompecabezas de carton/Rompecabezas Circular Rick y Morty - Portal Dimensional Breaklab.png';
 import imgPuzzleDonkeyKongCarton from '../assets/Products/Rompecabezas/Rompecabezas de carton/Rompecabezas Personalizado Donkey Kong - Edición Breaklab.png';
-import imgPuzzleMdfScreenshot from '../assets/Products/Rompecabezas/Rompecabezas MDF/Captura de pantalla 2026-07-13 163936.png';
+import imgPuzzleMdfScreenshot from '../assets/Products/Rompecabezas/Rompecabezas MDF/rompecabezas-madera-mdf-personalizado.png';
 
 export { breakLabLogo };
 
@@ -960,6 +964,23 @@ export const PRODUCTS_DB = {
             ]
         }
     ],
+    'figuras-3d-mewtwo': [
+        {
+            id: 'figuras-3d-mewtwo-product',
+            name: 'Figura Mewtwo Armadura 3D',
+            subtitle: 'Edición coleccionable Mewtwo con Armadura 🛡️',
+            description: 'Impresionante figura de Mewtwo con su armadura cibernética detallada. Impreso en 3D en resina/PLA de alta definición y con acabados de alta fidelidad.',
+            price: 85000,
+            isNew: true,
+            image: img3dMewtwoFiguraColeccionableMewtwoArmadura1,
+            images: [
+                img3dMewtwoFiguraColeccionableMewtwoArmadura1,
+                img3dMewtwoPerfil3CuartosMewtwoArmadura2,
+                img3dMewtwoVistaTraseraMewtwoArmadura3,
+                video3dMewtwoVideoFiguraColeccionableMewtwoArmadura
+            ]
+        }
+    ],
     'figuras-3d-personalizadas': [
         { 
             id: 'figura-3d-personalizada', 
@@ -1387,6 +1408,7 @@ export const getCategoryProducts = (categoryId) => {
             ...getCategoryProducts('figuras-3d-bowser'),
             ...getCategoryProducts('figuras-3d-gengar'),
             ...getCategoryProducts('figuras-3d-pokebola'),
+            ...getCategoryProducts('figuras-3d-mewtwo'),
             ...getCategoryProducts('figuras-3d-personalizadas')
         ];
     }

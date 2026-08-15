@@ -113,6 +113,7 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'figuras-3d-bowser', label: '🐢 Bowser 3D' },
         { id: 'figuras-3d-gengar', label: '😈 Gengar 3D' },
         { id: 'figuras-3d-pokebola', label: '🔴 Pokebola Gengar' },
+        { id: 'figuras-3d-mewtwo', label: '🛡️ Mewtwo Armadura' },
         { id: 'figuras-3d-personalizadas', label: '⚙️ Diseños Varios' }
     ],
     'combos': [
