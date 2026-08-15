@@ -94,7 +94,7 @@
     font-size: 0.75rem;
     font-weight: bold;
     letter-spacing: 0.5px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     box-shadow: 0 4px 10px var(--primary-glow);
 }
 
@@ -112,7 +112,7 @@
 }
 
 .productName {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-dark);
     font-size: 1.15rem;
     font-weight: 700;
@@ -126,7 +126,7 @@
 }
 
 .productSubtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-medium);
     font-size: 0.88rem;
     font-style: italic;
@@ -150,7 +150,7 @@
 }
 
 .productPrice {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.3rem;
     font-weight: 800;
     color: var(--primary);
@@ -163,7 +163,7 @@
     border: none;
     border-radius: 50px;
     padding: 0.5rem 1.2rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 0.88rem;
     cursor: pointer;
@@ -224,7 +224,7 @@
 }
 
 .modalContent p {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-medium);
     margin-bottom: 1.5rem;
 }
@@ -308,7 +308,7 @@
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .btnSecondary:hover {
@@ -326,7 +326,7 @@
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .btnPrimary:hover {
@@ -514,7 +514,7 @@
 .tabBtn {
     background: transparent;
     border: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-medium);
@@ -618,7 +618,7 @@
     border: none;
     border-radius: 50px;
     padding: 0.5rem 1.2rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 0.88rem;
     text-align: center;
