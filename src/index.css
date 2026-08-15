@@ -71,4 +71,5 @@ input,
 select,
 textarea {
   cursor: url('./assets/Pastel_puntero_32.png'), pointer !important;
+  font-family: inherit;
 }
