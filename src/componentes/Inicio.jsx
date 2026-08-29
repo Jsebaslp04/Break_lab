@@ -11,6 +11,12 @@ import img3d from '../assets/figura-coleccionable-impresa-en-3d-anime-videojuego
 import imgDesayuno from '../assets/desayuno-sorpresa-gourmet-personalizado-regalo-especial.jpeg'
 import imgRegalos from '../assets/regalos-personalizados-hechos-a-mano-detalles-unicos.jpeg'
 
+// Step icon imports
+import iconOcasion from '../assets/Images_inicio/breaklab-icono-ocasion-perfecta.jpeg'
+import iconDisena from '../assets/Images_inicio/breaklab-icono-disena-desde-cero.jpeg'
+import iconExperiencias from '../assets/Images_inicio/breaklab-icono-experiencias-tematicas.jpeg'
+import iconEnvios from '../assets/Images_inicio/breaklab-icono-envios-domicilios.jpeg'
+
 
 export function Banner() {
     const slides = [
@@ -197,7 +203,7 @@ export function Inicio() {
 
         const today = new Date();
         const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-        
+
         const shuffled = [...allProducts];
         let currentSeed = seed;
         for (let i = shuffled.length - 1; i > 0; i--) {
@@ -206,7 +212,7 @@ export function Inicio() {
             const j = Math.floor(r * (i + 1));
             [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
-        
+
         setDailyProducts(shuffled.slice(0, 9));
     }, []);
 
@@ -291,8 +297,8 @@ export function Inicio() {
 
                 const mapping = {
                     'pareja_gamer': [
-                        'san-valentin-premium', 
-                        'rompecabezas-magnetico-one-piece-luffy', 
+                        'san-valentin-premium',
+                        'rompecabezas-magnetico-one-piece-luffy',
                         'dia-nino-gamer',
                         'box-tematica-one-piece',
                         'rompecabezas-one-piece',
@@ -300,8 +306,8 @@ export function Inicio() {
                         'llavero-luffy-redondo'
                     ],
                     'pareja_gourmet': [
-                        'san-valentin-dulce', 
-                        'vino-caja-madera', 
+                        'san-valentin-dulce',
+                        'vino-caja-madera',
                         'vino-personalizado',
                         'gelatorta-huella-perro'
                     ],
@@ -312,16 +318,16 @@ export function Inicio() {
                         'colgador-3d-huevo-frito'
                     ],
                     'pareja_chocolates': [
-                        'flor-eterna', 
-                        'pulsera-miyuki', 
+                        'flor-eterna',
+                        'pulsera-miyuki',
                         'collar-miyuki',
                         'rompecabezas-carton-personalizado',
                         'mug-blanco'
                     ],
 
                     'mama_gamer': [
-                        'mug-magico', 
-                        'rompecabezas-madera-personalizado', 
+                        'mug-magico',
+                        'rompecabezas-madera-personalizado',
                         'figura-3d-personalizada',
                         'rompecabezas-sailor-moon',
                         'reloj-despertador-cubo'
@@ -334,15 +340,15 @@ export function Inicio() {
                         'colgador-3d-huevo-frito'
                     ],
                     'mama_chocolates': [
-                        'dia-madre-joyas-flores', 
-                        'flor-eterna', 
+                        'dia-madre-joyas-flores',
+                        'flor-eterna',
                         'portavasos-resina',
                         'rompecabezas-carton-personalizado'
                     ],
 
                     'papa_gamer': [
-                        'soporte-celular-3d', 
-                        'rompecabezas-magnetico-one-piece-luffy', 
+                        'soporte-celular-3d',
+                        'rompecabezas-magnetico-one-piece-luffy',
                         'dia-nino-gamer',
                         'mouse-pad-gamer-wow',
                         'rompecabezas-dragon-ball',
@@ -358,8 +364,8 @@ export function Inicio() {
                     'papa_chocolates': ['vino-caja-madera', 'vino-personalizado', 'llavero-resina-letra'],
 
                     'nino_gamer': [
-                        'dia-nino-gamer', 
-                        'soporte-celular-3d', 
+                        'dia-nino-gamer',
+                        'soporte-celular-3d',
                         'rompecabezas-magnetico-one-piece-luffy',
                         'rompecabezas-pokemon',
                         'rompecabezas-super-mario',
@@ -367,8 +373,8 @@ export function Inicio() {
                         'llavero-mario-luigi'
                     ],
                     'nino_gourmet': [
-                        'kit-escolar-sorpresa', 
-                        'kit-escolar-basico', 
+                        'kit-escolar-sorpresa',
+                        'kit-escolar-basico',
                         'dia-nino-amigurumi'
                     ],
                     'nino_impresion_3d': [
@@ -379,8 +385,8 @@ export function Inicio() {
                     'nino_chocolates': ['figura-3d-personalizada', 'globo-burbuja', 'globo-metalizado-personalizado'],
 
                     'amigo_gamer': [
-                        'rompecabezas-magnetico-one-piece-luffy', 
-                        'mug-magico', 
+                        'rompecabezas-magnetico-one-piece-luffy',
+                        'mug-magico',
                         'soporte-celular-3d',
                         'rompecabezas-yugioh',
                         'mouse-pad-gel-crash',
@@ -388,8 +394,8 @@ export function Inicio() {
                         'reloj-despertador-cubo'
                     ],
                     'amigo_gourmet': [
-                        'mug-interior-color', 
-                        'dia-hombre-ejecutivo', 
+                        'mug-interior-color',
+                        'dia-hombre-ejecutivo',
                         'kit-escolar-basico',
                         'tarro-mason-jar'
                     ],
@@ -591,25 +597,33 @@ export function Inicio() {
                     <div className={styles.grid_steps}>
                         <div className={styles.step_card}>
                             <div className={styles.step_badge}>Paso 1</div>
-                            <div className={styles.step_icon}>📦</div>
+                            <div className={styles.step_icon}>
+                                <img src={iconOcasion} className={`${styles.step_icon_img} ${styles.icon_step1}`} alt="Ocasión perfecta" />
+                            </div>
                             <p className={styles.step_title}>Elige tu experiencia</p>
                             <p>Selecciona la ocasión perfecta o diseña desde cero una box que capture exactamente lo que quieres decir.</p>
                         </div>
                         <div className={styles.step_card}>
                             <div className={styles.step_badge}>Paso 2</div>
-                            <div className={styles.step_icon}>🎨</div>
+                            <div className={styles.step_icon}>
+                                <img src={iconDisena} className={`${styles.step_icon_img} ${styles.icon_step2}`} alt="Diseña desde cero" />
+                            </div>
                             <p className={styles.step_title}>Hazlo único</p>
                             <p>Añade detalles con alma: chocolates, globos, amigurumis o piezas impresas en 3D. ¡Tú diriges la personalización!</p>
                         </div>
                         <div className={styles.step_card}>
                             <div className={styles.step_badge}>Paso 3</div>
-                            <div className={styles.step_icon}>🛒</div>
+                            <div className={styles.step_icon}>
+                                <img src={iconExperiencias} className={`${styles.step_icon_img} ${styles.icon_step3}`} alt="Confirmación y preparación" />
+                            </div>
                             <p className={styles.step_title}>Confirma tu pedido</p>
                             <p>Revisa tu selección, completa tus datos de envío en nuestro checkout seguro y despreocúpate.</p>
                         </div>
                         <div className={styles.step_card}>
                             <div className={styles.step_badge}>Paso 4</div>
-                            <div className={styles.step_icon}>🛵</div>
+                            <div className={styles.step_icon}>
+                                <img src={iconEnvios} className={`${styles.step_icon_img} ${styles.icon_step4}`} alt="Envíos a domicilio" />
+                            </div>
                             <p className={styles.step_title}>¡Recibe y enamora!</p>
                             <p>Coordinamos la entrega en Bogotá y te mantenemos al tanto por WhatsApp hasta que tu sorpresa llegue a su destino.</p>
                         </div>
@@ -621,20 +635,20 @@ export function Inicio() {
                 <div className={styles.recomendados_container}>
                     <h2 className={styles.section_title}>Productos Recomendados <span className={styles.underline}></span></h2>
                     <p className={styles.recomendados_subtitle}>
-                        Descubre nuestra selección especial del día, recomendada para ti. ¡Cambia cada 24 horas!
+                        Descubre nuestra selección especial del día, recomendada para ti.
                     </p>
-                    
+
                     <div className={styles.swiper_wrapper}>
-                        <button 
-                            className={`${styles.swiper_nav_btn} ${styles.nav_left}`} 
+                        <button
+                            className={`${styles.swiper_nav_btn} ${styles.nav_left}`}
                             onClick={prevSlide}
                             aria-label="Anterior"
                         >
                             ❮
                         </button>
-                        
+
                         <div className={styles.swiper_track_container}>
-                            <div 
+                            <div
                                 className={styles.swiper_track}
                                 style={{
                                     transform: `translateX(-${currentIndex * (100 / totalPages)}%)`,
@@ -642,14 +656,14 @@ export function Inicio() {
                                 }}
                             >
                                 {productPages.map((page, pageIdx) => (
-                                    <div 
-                                        key={pageIdx} 
+                                    <div
+                                        key={pageIdx}
                                         className={styles.swiper_page}
                                         style={{ width: `${100 / totalPages}%` }}
                                     >
                                         {page.map((product) => (
-                                            <div 
-                                                key={product.id} 
+                                            <div
+                                                key={product.id}
                                                 className={styles.product_slide_card}
                                                 style={{ width: `${100 / visibleItems}%` }}
                                             >
@@ -693,9 +707,9 @@ export function Inicio() {
                                 ))}
                             </div>
                         </div>
-                        
-                        <button 
-                            className={`${styles.swiper_nav_btn} ${styles.nav_right}`} 
+
+                        <button
+                            className={`${styles.swiper_nav_btn} ${styles.nav_right}`}
                             onClick={nextSlide}
                             aria-label="Siguiente"
                         >
