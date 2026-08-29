@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Inicio.module.css'
 import { useSEO } from '../hooks/useSEO'
-import { getProductById } from '../data/products'
+import { getProductById, PRODUCTS_DB, breakLabLogo } from '../data/products'
 import img1 from '../assets/Swiper/impresion-3d-personajes-videojuegos.png'
 import img2 from '../assets/Swiper/rompecabezas-magnetico-one-piece-luffy.png'
 import img3 from '../assets/Swiper/vaso-frost-personalizado-mascotas.png'
 import img4 from '../assets/Swiper/desayuno-sorpresa-tematico-pokemon-gengar-breaklab.png'
+import img3d from '../assets/figura-coleccionable-impresa-en-3d-anime-videojuegos.jpeg'
+import imgDesayuno from '../assets/desayuno-sorpresa-gourmet-personalizado-regalo-especial.jpeg'
+import imgRegalos from '../assets/regalos-personalizados-hechos-a-mano-detalles-unicos.jpeg'
+
 
 export function Banner() {
     const slides = [
@@ -171,6 +175,90 @@ export function Inicio() {
         schema: localBusinessSchema
     });
 
+    const [dailyProducts, setDailyProducts] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [visibleItems, setVisibleItems] = useState(3);
+    const [isHovered, setIsHovered] = useState(false);
+
+    useEffect(() => {
+        const allProducts = Object.entries(PRODUCTS_DB).flatMap(([category, items]) =>
+            items.map(item => ({
+                ...item,
+                category,
+                image: item.image || breakLabLogo,
+                subtitle: item.subtitle || 'Detalle único y especial'
+            }))
+        );
+
+        function seededRandom(seed) {
+            let x = Math.sin(seed++) * 10000;
+            return x - Math.floor(x);
+        }
+
+        const today = new Date();
+        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        
+        const shuffled = [...allProducts];
+        let currentSeed = seed;
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const r = seededRandom(currentSeed);
+            currentSeed++;
+            const j = Math.floor(r * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        
+        setDailyProducts(shuffled.slice(0, 9));
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 640) {
+                setVisibleItems(1);
+            } else if (window.innerWidth < 1024) {
+                setVisibleItems(2);
+            } else {
+                setVisibleItems(3);
+            }
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        setCurrentIndex(0);
+    }, [visibleItems]);
+
+    const chunkProducts = (arr, size) => {
+        if (!arr || arr.length === 0 || !size) return [];
+        const chunks = [];
+        for (let i = 0; i < arr.length; i += size) {
+            chunks.push(arr.slice(i, i + size));
+        }
+        return chunks;
+    };
+
+    const productPages = chunkProducts(dailyProducts, visibleItems);
+    const totalPages = productPages.length;
+
+    useEffect(() => {
+        if (isHovered || totalPages <= 1) return;
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev >= totalPages - 1 ? 0 : prev + 1));
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [isHovered, totalPages]);
+
+    const prevSlide = () => {
+        if (totalPages <= 1) return;
+        setCurrentIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+    };
+
+    const nextSlide = () => {
+        if (totalPages <= 1) return;
+        setCurrentIndex((prev) => (prev >= totalPages - 1 ? 0 : prev + 1));
+    };
+
     const [finderRecipient, setFinderRecipient] = useState(null);
     const [finderVibe, setFinderVibe] = useState(null);
     const [isSearching, setIsSearching] = useState(false);
@@ -217,8 +305,12 @@ export function Inicio() {
                         'vino-personalizado',
                         'gelatorta-huella-perro'
                     ],
-                    'pareja_amigurumi': ['amigurumi-mascota', 'amigurumi-llavero', 'dia-nino-amigurumi'],
-                    'pareja_eterno': [
+                    'pareja_impresion_3d': [
+                        'figuras-3d-mapache-product',
+                        'figuras-3d-pokebola-product',
+                        'figuras-3d-gengar-product'
+                    ],
+                    'pareja_chocolates': [
                         'flor-eterna', 
                         'pulsera-miyuki', 
                         'collar-miyuki',
@@ -234,8 +326,12 @@ export function Inicio() {
                         'reloj-despertador-cubo'
                     ],
                     'mama_gourmet': ['dia-madre-rosa-gourmet', 'dia-mujer-premium', 'dia-mujer-spa'],
-                    'mama_amigurumi': ['ramo-flores-tejido', 'amigurumi-mascota', 'amigurumi-llavero'],
-                    'mama_eterno': [
+                    'mama_impresion_3d': [
+                        'figuras-3d-pokebola-product',
+                        'figuras-3d-mapache-product',
+                        'figura-3d-personalizada'
+                    ],
+                    'mama_chocolates': [
                         'dia-madre-joyas-flores', 
                         'flor-eterna', 
                         'portavasos-resina',
@@ -252,8 +348,12 @@ export function Inicio() {
                         'llavero-one-piece-destapador'
                     ],
                     'papa_gourmet': ['dia-padre-asador', 'dia-hombre-cervecero', 'dia-hombre-ejecutivo'],
-                    'papa_amigurumi': ['dia-padre-cafetero', 'amigurumi-mascota', 'amigurumi-llavero'],
-                    'papa_eterno': ['vino-caja-madera', 'vino-personalizado', 'llavero-resina-letra'],
+                    'papa_impresion_3d': [
+                        'figuras-3d-t-rex-product',
+                        'figuras-3d-mewtwo-product',
+                        'figuras-3d-bowser-product'
+                    ],
+                    'papa_chocolates': ['vino-caja-madera', 'vino-personalizado', 'llavero-resina-letra'],
 
                     'nino_gamer': [
                         'dia-nino-gamer', 
@@ -269,8 +369,12 @@ export function Inicio() {
                         'kit-escolar-basico', 
                         'dia-nino-amigurumi'
                     ],
-                    'nino_amigurumi': ['dia-nino-amigurumi', 'amigurumi-llavero', 'amigurumi-mascota'],
-                    'nino_eterno': ['figura-3d-personalizada', 'globo-burbuja', 'globo-metalizado-personalizado'],
+                    'nino_impresion_3d': [
+                        'figuras-3d-bomb-mario-bross-product',
+                        'figuras-3d-pokebola-product',
+                        'figuras-3d-mapache-product'
+                    ],
+                    'nino_chocolates': ['figura-3d-personalizada', 'globo-burbuja', 'globo-metalizado-personalizado'],
 
                     'amigo_gamer': [
                         'rompecabezas-magnetico-one-piece-luffy', 
@@ -287,8 +391,12 @@ export function Inicio() {
                         'kit-escolar-basico',
                         'tarro-mason-jar'
                     ],
-                    'amigo_amigurumi': ['amigurumi-llavero', 'amigurumi-mascota', 'dia-nino-amigurumi'],
-                    'amigo_eterno': ['llavero-resina-letra', 'portavasos-resina', 'pulsera-miyuki']
+                    'amigo_impresion_3d': [
+                        'figuras-3d-gengar-product',
+                        'figuras-3d-mapache-product',
+                        'figuras-3d-t-rex-product'
+                    ],
+                    'amigo_chocolates': ['llavero-resina-letra', 'portavasos-resina', 'pulsera-miyuki']
                 };
 
                 const key = `${finderRecipient}_${finderVibe}`;
@@ -347,17 +455,17 @@ export function Inicio() {
 
                         <div className={styles.specialties_grid}>
                             <div className={styles.specialty_card}>
-                                <div className={`${styles.specialty_icon} ${styles.bg_purple}`}>👾</div>
+                                <img src={img3d} className={styles.specialty_img} alt="Coleccionables impresos en 3D" />
                                 <p className={styles.specialty_title}>Coleccionables impresos en 3D</p>
                                 <p>Damos vida a tus personajes favoritos de videojuegos y anime.</p>
                             </div>
                             <div className={styles.specialty_card}>
-                                <div className={`${styles.specialty_icon} ${styles.bg_pink}`}>🎁</div>
+                                <img src={imgDesayuno} className={styles.specialty_img} alt="Desayunos sorpresa que enamoran" />
                                 <p className={styles.specialty_title}>Desayunos sorpresa que enamoran</p>
                                 <p>Cajas gourmet diseñadas a medida, con detalles únicos y mensajes que transforman cualquier día en una celebración inolvidable.</p>
                             </div>
                             <div className={styles.specialty_card}>
-                                <div className={`${styles.specialty_icon} ${styles.bg_cyan}`}>🎨</div>
+                                <img src={imgRegalos} className={styles.specialty_img} alt="Regalos hechos a mano con alma" />
                                 <p className={styles.specialty_title}>Regalos hechos a mano con alma</p>
                                 <p>Desde piezas en 3D hasta detalles personalizados que cuentan tu historia.</p>
                             </div>
@@ -405,8 +513,8 @@ export function Inicio() {
                                     {[
                                         { id: 'gamer', label: 'Gamer 🎮' },
                                         { id: 'gourmet', label: 'Gourmet 🥞' },
-                                        { id: 'amigurumi', label: 'Amigurumi 🧶' },
-                                        { id: 'eterno', label: ' Flores 🌹' }
+                                        { id: 'impresion_3d', label: 'Impresión 3D 👾' },
+                                        { id: 'chocolates', label: 'Chocolates 🍫' }
                                     ].map(opt => (
                                         <button
                                             key={opt.id}
@@ -502,6 +610,105 @@ export function Inicio() {
                             <p className={styles.step_title}>¡Recibe y enamora!</p>
                             <p>Coordinamos la entrega en Bogotá y te mantenemos al tanto por WhatsApp hasta que tu sorpresa llegue a su destino.</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className={styles.productos_recomendados} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+                <div className={styles.recomendados_container}>
+                    <h2 className={styles.section_title}>Productos Recomendados <span className={styles.underline}></span></h2>
+                    <p className={styles.recomendados_subtitle}>
+                        Descubre nuestra selección especial del día, recomendada para ti. ¡Cambia cada 24 horas!
+                    </p>
+                    
+                    <div className={styles.swiper_wrapper}>
+                        <button 
+                            className={`${styles.swiper_nav_btn} ${styles.nav_left}`} 
+                            onClick={prevSlide}
+                            aria-label="Anterior"
+                        >
+                            ❮
+                        </button>
+                        
+                        <div className={styles.swiper_track_container}>
+                            <div 
+                                className={styles.swiper_track}
+                                style={{
+                                    transform: `translateX(-${currentIndex * (100 / totalPages)}%)`,
+                                    width: `${totalPages * 100}%`
+                                }}
+                            >
+                                {productPages.map((page, pageIdx) => (
+                                    <div 
+                                        key={pageIdx} 
+                                        className={styles.swiper_page}
+                                        style={{ width: `${100 / totalPages}%` }}
+                                    >
+                                        {page.map((product) => (
+                                            <div 
+                                                key={product.id} 
+                                                className={styles.product_slide_card}
+                                                style={{ width: `${100 / visibleItems}%` }}
+                                            >
+                                                <Link to={`/producto/${product.id}`} className={styles.rec_product_link}>
+                                                    <div className={styles.rec_image_wrapper}>
+                                                        {product.image.endsWith('.mp4') ? (
+                                                            <video
+                                                                src={product.image}
+                                                                className={styles.rec_product_image}
+                                                                autoPlay
+                                                                muted
+                                                                loop
+                                                                playsInline
+                                                            />
+                                                        ) : (
+                                                            <img
+                                                                src={product.image}
+                                                                alt={product.name}
+                                                                className={styles.rec_product_image}
+                                                                loading="lazy"
+                                                            />
+                                                        )}
+                                                        {product.isNew && <span className={styles.rec_new_badge}>Nuevo</span>}
+                                                    </div>
+                                                    <div className={styles.rec_card_body}>
+                                                        <h3 className={styles.rec_product_name}>{product.name}</h3>
+                                                        <p className={styles.rec_product_subtitle}>{product.subtitle}</p>
+                                                        <div className={styles.rec_card_footer}>
+                                                            <span className={styles.rec_product_price}>
+                                                                ${product.price.toLocaleString("es-CO")}
+                                                            </span>
+                                                            <span className={styles.rec_ver_detalle}>
+                                                                Ver Regalo 💝
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        <button 
+                            className={`${styles.swiper_nav_btn} ${styles.nav_right}`} 
+                            onClick={nextSlide}
+                            aria-label="Siguiente"
+                        >
+                            ❯
+                        </button>
+                    </div>
+
+                    <div className={styles.swiper_dots}>
+                        {Array.from({ length: totalPages }).map((_, idx) => (
+                            <button
+                                key={idx}
+                                className={`${styles.swiper_dot} ${idx === currentIndex ? styles.dot_active : ''}`}
+                                onClick={() => setCurrentIndex(idx)}
+                                aria-label={`Ir a la página ${idx + 1}`}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>

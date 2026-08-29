@@ -124,6 +124,20 @@ import img3dMewtwoPerfil3CuartosMewtwoArmadura2 from '../assets/Products/Impresi
 import video3dMewtwoVideoFiguraColeccionableMewtwoArmadura from '../assets/Products/Impresiones_3d/Newtwo/video-figura-coleccionable-mewtwo-armadura-pokemon-impresion-3d-breaklab.mp4';
 import img3dMewtwoVistaTraseraMewtwoArmadura3 from '../assets/Products/Impresiones_3d/Newtwo/vista-trasera-mewtwo-armadura-figura-impresion-3d-detalle-cola.png';
 
+// Mapache Fidget Toy imports
+import img3dMapacheAccesorio from '../assets/Products/Impresiones_3d/Mapache_Fidget_Toy/accesorio-mapache-impreso-3d-breaklab.jpeg';
+import img3dMapacheLlaveroArticuladoBogota from '../assets/Products/Impresiones_3d/Mapache_Fidget_Toy/llavero-mapache-articulado-impresion-3d-bogota.jpeg';
+import img3dMapacheLlaveroOriginal from '../assets/Products/Impresiones_3d/Mapache_Fidget_Toy/llavero-mapache-articulado-regalo-original.jpeg';
+import video3dMapacheLlavero from '../assets/Products/Impresiones_3d/Mapache_Fidget_Toy/video-llavero-mapache-articulado-impresion-3d-bogota.mp4';
+
+// Portacelulares T-Rex imports
+import img3dTRexBase from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/base-celular-t-rex-3d-accesorios-desk.jpeg';
+import img3dTRexFigura from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/figura-portacelular-dinosaurio-coleccionable-breaklab.jpeg';
+import img3dTRexPortacelularesBogota from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/portacelulares-dinosaurio-t-rex-impresion-3d-bogota.jpeg';
+import img3dTRexSoporteEsqueleto from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/soporte-celular-esqueleto-dinosaurio-pla-15cm.jpeg';
+import video3dTRexSoporte from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/video-soporte-celular-dinosaurio-t-rex-3d-bogota.mp4';
+
+
 // Gelatortas extra imports
 import imgGelatortaTematicaGelatortaTematicaBarcelona1 from '../assets/Products/Gelatortas/Gelatorta_tematica/gelatorta-tematica-fc-barcelona-futbol-1.png';
 import imgGelatortaTematicaGelatortaTematicaBarcelona2 from '../assets/Products/Gelatortas/Gelatorta_tematica/gelatorta-tematica-fc-barcelona-futbol-2.png';
@@ -584,6 +598,21 @@ export const PRODUCTS_DB = {
             isNew: true,
             image: imgLlaveroLuffyOnePiece,
             images: [imgLlaveroLuffyOnePiece]
+        },
+        {
+            id: 'figuras-3d-mapache-product',
+            name: 'Llavero Mapache Articulado 3D',
+            subtitle: 'Divertido mapache fidget articulado 🦝',
+            description: 'Llavero de mapache totalmente articulado impreso en 3D. Excelente juguete antiestrés y accesorio para tus llaves o mochila.',
+            price: 18000,
+            isNew: true,
+            image: img3dMapacheLlaveroArticuladoBogota,
+            images: [
+                img3dMapacheLlaveroArticuladoBogota,
+                img3dMapacheAccesorio,
+                img3dMapacheLlaveroOriginal,
+                video3dMapacheLlavero
+            ]
         }
     ],
     'gelatortas_mascota': [
@@ -981,6 +1010,41 @@ export const PRODUCTS_DB = {
             ]
         }
     ],
+    'figuras-3d-mapache': [
+        {
+            id: 'figuras-3d-mapache-product',
+            name: 'Llavero Mapache Articulado 3D',
+            subtitle: 'Divertido mapache fidget articulado 🦝',
+            description: 'Llavero de mapache totalmente articulado impreso en 3D. Excelente juguete antiestrés y accesorio para tus llaves o mochila.',
+            price: 18000,
+            isNew: true,
+            image: img3dMapacheLlaveroArticuladoBogota,
+            images: [
+                img3dMapacheLlaveroArticuladoBogota,
+                img3dMapacheAccesorio,
+                img3dMapacheLlaveroOriginal,
+                video3dMapacheLlavero
+            ]
+        }
+    ],
+    'figuras-3d-t-rex': [
+        {
+            id: 'figuras-3d-t-rex-product',
+            name: 'Soporte Celular T-Rex 3D',
+            subtitle: 'Soporte de dinosaurio para tu escritorio 🦖',
+            description: 'Espectacular soporte porta celular con forma de esqueleto o figura de dinosaurio T-Rex, ideal para decorar tu espacio de trabajo y sostener tu celular de forma segura.',
+            price: 28000,
+            isNew: true,
+            image: img3dTRexPortacelularesBogota,
+            images: [
+                img3dTRexPortacelularesBogota,
+                img3dTRexBase,
+                img3dTRexFigura,
+                img3dTRexSoporteEsqueleto,
+                video3dTRexSoporte
+            ]
+        }
+    ],
     'figuras-3d-personalizadas': [
         { 
             id: 'figura-3d-personalizada', 
@@ -991,6 +1055,24 @@ export const PRODUCTS_DB = {
             isNew: true, 
             image: imgFigura3d, 
             images: [imgFigura3d, breakLabLogo] 
+        },
+    ],
+    'soportes': [
+        {
+            id: 'figuras-3d-t-rex-product',
+            name: 'Soporte Celular T-Rex 3D',
+            subtitle: 'Soporte de dinosaurio para tu escritorio 🦖',
+            description: 'Espectacular soporte porta celular con forma de esqueleto o figura de dinosaurio T-Rex, ideal para decorar tu espacio de trabajo y sostener tu celular de forma segura.',
+            price: 28000,
+            isNew: true,
+            image: img3dTRexPortacelularesBogota,
+            images: [
+                img3dTRexPortacelularesBogota,
+                img3dTRexBase,
+                img3dTRexFigura,
+                img3dTRexSoporteEsqueleto,
+                video3dTRexSoporte
+            ]
         },
         { 
             id: 'soporte-celular-3d', 
@@ -1409,6 +1491,8 @@ export const getCategoryProducts = (categoryId) => {
             ...getCategoryProducts('figuras-3d-gengar'),
             ...getCategoryProducts('figuras-3d-pokebola'),
             ...getCategoryProducts('figuras-3d-mewtwo'),
+            ...getCategoryProducts('figuras-3d-mapache'),
+            ...getCategoryProducts('figuras-3d-t-rex'),
             ...getCategoryProducts('figuras-3d-personalizadas')
         ];
     }

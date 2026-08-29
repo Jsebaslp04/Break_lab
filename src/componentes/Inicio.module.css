@@ -251,6 +251,24 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
 }
 
+.specialty_img {
+    width: 100%;
+    height: 200px;
+    border-radius: 16px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.specialty_card:hover .specialty_img {
+    transform: scale(1.04);
+}
+
+
+
 .bg_pink {
     background: linear-gradient(135deg, var(--primary-light) 0%, #ffcdd2 100%);
 }
@@ -364,7 +382,7 @@
 /* Quienes Somos */
 .quienes_somos {
     background: linear-gradient(135deg, #fdf8f5 0%, #f6ede3 100%);
-    padding: 6rem 2rem;
+    padding: 6rem 2rem 2.5rem;
     position: relative;
     overflow: hidden;
 }
@@ -1014,7 +1032,7 @@
 
 /* Gift Finder Section Styles */
 .gift_finder_section {
-    padding: 6rem 2rem;
+    padding: 2.5rem 2rem 6rem;
     background: radial-gradient(circle at bottom, var(--primary-light) 0%, var(--bg-body) 60%, var(--bg-card) 100%);
     display: flex;
     justify-content: center;
@@ -1079,7 +1097,7 @@
 }
 
 .question_label {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 1.15rem;
     font-weight: 700;
     color: var(--text-dark);
@@ -1098,7 +1116,7 @@
     color: var(--text-medium);
     padding: 0.8rem 1.4rem;
     border-radius: 50px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 800;
     font-size: 0.95rem;
     cursor: pointer;
@@ -1129,7 +1147,7 @@
     border: none;
     border-radius: 50px;
     padding: 1.1rem 3rem;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
@@ -1457,5 +1475,265 @@
 
     .qs_stat_label {
         font-size: 0.75rem;
+    }
+}
+
+/* Productos Recomendados Section */
+.productos_recomendados {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #ffffff 0%, #faf6f2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.recomendados_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.recomendados_subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #795548;
+    font-size: 1.1rem;
+    margin-top: -0.5rem;
+    margin-bottom: 3.5rem;
+    font-weight: 500;
+}
+
+.swiper_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.swiper_track_container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 1.5rem 0.5rem;
+    margin: -1.5rem -0.5rem; /* Allow shadows to bleed */
+}
+
+.swiper_track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.swiper_page {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    flex-shrink: 0 !important;
+}
+
+.product_slide_card {
+    padding: 0 1rem;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.rec_product_link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(166, 67, 66, 0.04);
+    border: 1px solid rgba(166, 67, 66, 0.08);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
+}
+
+.rec_product_link:hover {
+    transform: translateY(-8px);
+    border-color: rgba(166, 67, 66, 0.25);
+    box-shadow: 0 20px 40px rgba(166, 67, 66, 0.12);
+}
+
+.rec_image_wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    background-color: #faf5f2;
+    overflow: hidden;
+}
+
+.rec_product_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.rec_product_link:hover .rec_product_image {
+    transform: scale(1.06);
+}
+
+.rec_new_badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #a64342 0%, #d32f2f 100%);
+    color: white;
+    padding: 0.35rem 0.9rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(166, 67, 66, 0.25);
+}
+
+.rec_card_body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.rec_product_name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4a332c;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 3.5rem; /* Max 2 lines */
+}
+
+.rec_product_subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.88rem;
+    color: #8d6e63;
+    margin: 0 0 1.2rem 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.6rem; /* Max 2 lines */
+}
+
+.rec_card_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(166, 67, 66, 0.08);
+}
+
+.rec_product_price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #a64342;
+}
+
+.rec_ver_detalle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #a64342;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.rec_product_link:hover .rec_ver_detalle {
+    transform: translateX(3px);
+}
+
+.swiper_nav_btn {
+    background: white;
+    border: 1px solid rgba(166, 67, 66, 0.15);
+    color: #a64342;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.swiper_nav_btn:hover {
+    background: #a64342;
+    color: white;
+    border-color: #a64342;
+    box-shadow: 0 8px 20px rgba(166, 67, 66, 0.25);
+    transform: scale(1.05);
+}
+
+.swiper_nav_btn:active {
+    transform: scale(0.95);
+}
+
+.swiper_dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.swiper_dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(166, 67, 66, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.swiper_dot:hover {
+    background-color: rgba(166, 67, 66, 0.5);
+}
+
+.swiper_dot.dot_active {
+    width: 28px;
+    border-radius: 10px;
+    background-color: #a64342;
+}
+
+@media (max-width: 1024px) {
+    .swiper_nav_btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .productos_recomendados {
+        padding: 4rem 1rem;
+    }
+    .swiper_wrapper {
+        gap: 0.5rem;
+    }
+    .swiper_nav_btn {
+        display: none; /* Hide arrows on mobile, rely on dots or touch swipe */
+    }
+    .rec_product_name {
+        font-size: 1.15rem;
     }
 }

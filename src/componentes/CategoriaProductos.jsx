@@ -114,6 +114,8 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'figuras-3d-gengar', label: '😈 Gengar 3D' },
         { id: 'figuras-3d-pokebola', label: '🔴 Pokebola Gengar' },
         { id: 'figuras-3d-mewtwo', label: '🛡️ Mewtwo Armadura' },
+        { id: 'figuras-3d-mapache', label: '🦝 Mapache Fidget' },
+        { id: 'figuras-3d-t-rex', label: '🦖 Portacelulares T-Rex' },
         { id: 'figuras-3d-personalizadas', label: '⚙️ Diseños Varios' }
     ],
     'combos': [
@@ -155,6 +157,7 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'globo-mensaje', label: '🎈 Globo Mensaje' },
         { id: 'vino', label: '🍷 Vino' },
         { id: 'figuras-3d', label: '👾 Figuras 3D' },
+        { id: 'soportes', label: '📱 Soportes' },
         { id: 'amigurumis', label: '🧶 Amigurumis' },
         { id: 'su-flor-especial', label: '🌹 Su Flor Especial' },
         { id: 'variedades', label: '🎁 Variedades' }

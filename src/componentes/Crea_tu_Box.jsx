@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Crea_tu_Box.module.css';
 import { useSEO } from '../hooks/useSEO';
+import imgLuxury from '../assets/desayuno-sorpresa-luxury-cumpleanos-breaklab.png';
+import imgPremium from '../assets/desayuno-sorpresa-premium-impresion-3d-te-amo-breaklab.png';
+import imgClasico from '../assets/desayuno-sorpresa-clasico-cumpleanos-breaklab.png';
+import imgBabyShower from '../assets/regalo-sorpresa-bienvenida-baby-shower-breaklab.png';
 
 export const Crea_tu_Box = () => {
     useSEO({
@@ -27,10 +31,10 @@ export const Crea_tu_Box = () => {
         { id: 'dia-madre', name: 'Día de la Madre', icon: '🤱', theme: styles.themeRomantic },
         { id: 'dia-padre', name: 'Día del Padre', icon: '👨‍👦', theme: styles.themeMasculine }
         */
-        { id: 'desayuno-luxury', name: 'Desayuno Luxury', icon: '✨', theme: styles.themeFestive },
-        { id: 'desayuno-premium', name: 'Desayuno Premium', icon: '🌟', theme: styles.themeRomantic },
-        { id: 'desayuno-clasico', name: 'Desayuno Clásico', icon: '🍳', theme: styles.themeMasculine },
-        { id: 'baby-shower', name: 'Baby Shower', icon: '🍼', theme: styles.themePlayful }
+        { id: 'desayuno-luxury', name: 'Desayuno Luxury', img: imgLuxury, theme: styles.themeFestive },
+        { id: 'desayuno-premium', name: 'Desayuno Premium', img: imgPremium, theme: styles.themeRomantic },
+        { id: 'desayuno-clasico', name: 'Desayuno Clásico', img: imgClasico, theme: styles.themeMasculine },
+        { id: 'baby-shower', name: 'Baby Shower', img: imgBabyShower, theme: styles.themePlayful }
     ];
 
     return (
@@ -44,7 +48,11 @@ export const Crea_tu_Box = () => {
                 {categories.map((cat) => (
                     <Link to={`/categoria/${cat.id}`} key={cat.id} className={`${styles.card} ${cat.theme}`}>
                         <div className={styles.iconWrapper}>
-                            <span className={styles.icon}>{cat.icon}</span>
+                            {cat.img ? (
+                                <img src={cat.img} alt={cat.name} className={styles.categoryImg} />
+                            ) : (
+                                <span className={styles.icon}>{cat.icon}</span>
+                            )}
                         </div>
                         <h2 className={styles.cardTitle}>{cat.name}</h2>
                         <span className={styles.exploreBtn}>Ver Opciones →</span>

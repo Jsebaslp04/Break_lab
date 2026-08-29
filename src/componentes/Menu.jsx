@@ -99,10 +99,10 @@ export const Menu = () => {
     const personalizamosCategories = [
         'mugs-personalizados', 'vasos-personalizados', 'llaveros', 'rompecabezas', 
         'gelatortas', 'arte-resina', 'miyuki', 'globo-mensaje', 'vino', 'figuras-3d', 
-        'amigurumis', 'su-flor-especial', 'variedades',
+        'amigurumis', 'su-flor-especial', 'variedades', 'soportes',
         'rompecabezas-magneticos', 'rompecabezas-carton', 'rompecabezas-mdf',
         'gelatortas_mascota', 'gelatorta_tematica',
-        'figuras-3d-mario-bros', 'figuras-3d-bowser', 'figuras-3d-gengar', 'figuras-3d-pokebola', 'figuras-3d-mewtwo', 'figuras-3d-personalizadas'
+        'figuras-3d-mario-bros', 'figuras-3d-bowser', 'figuras-3d-gengar', 'figuras-3d-pokebola', 'figuras-3d-mewtwo', 'figuras-3d-mapache', 'figuras-3d-t-rex', 'figuras-3d-personalizadas'
     ];
 
     const isCreaTuBoxActive = isActive("/Crea_tu_Box") || 
@@ -334,6 +334,7 @@ export const Menu = () => {
                                         <Link to="/categoria/gelatortas" className={styles.megaSubItem}>Gelatortas Únicas</Link>
                                         <Link to="/categoria/arte-resina" className={styles.megaSubItem}>Arte en Resina</Link>
                                         <Link to="/categoria/figuras-3d" className={styles.megaSubItem}>Figuras 3D</Link>
+                                        <Link to="/categoria/soportes" className={styles.megaSubItem}>Soportes</Link>
                                         <Link to="/categoria/amigurumis" className={styles.megaSubItem}>Amigurumis</Link>
                                         <Link to="/categoria/su-flor-especial" className={styles.megaSubItem}>Su Flor Especial</Link>
                                     </div>
@@ -419,6 +420,7 @@ export const Menu = () => {
                                 <Link to="/categoria/globo-mensaje" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🎈 Globo Mensaje</Link>
                                 <Link to="/categoria/vino" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🍷 Vino</Link>
                                 <Link to="/categoria/figuras-3d" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🤖 Figuras 3D</Link>
+                                <Link to="/categoria/soportes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>📱 Soportes</Link>
                                 <Link to="/categoria/amigurumis" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🧸 Amigurumis</Link>
                                 <Link to="/categoria/su-flor-especial" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🌹 Su Flor Especial</Link>
                                 <Link to="/categoria/variedades" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🎁 Variedades</Link>
