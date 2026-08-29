@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Menu.module.css";
 import break_lab_logo from "../assets/break_lab.png";
@@ -36,6 +36,13 @@ export const Menu = () => {
     };
 
     const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+    useEffect(() => {
+        // Clear focus on page change to close any focused menus or dropdowns
+        if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+        }
+    }, [location]);
 
     const isActive = (path) => location.pathname === path;
 

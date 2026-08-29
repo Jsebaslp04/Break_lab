@@ -70,6 +70,11 @@ import imgMousePadGelCrash from '../assets/Products/Variedades/mouse-pad-gel-cra
 import imgPlacaPerroPanelita from '../assets/Products/Variedades/placa-identificacion-perros-personalizada-nombre-panelita.png';
 import imgRelojDespertadorCubo from '../assets/Products/Variedades/reloj-despertador-cubo-personajes-cartoon-network-breaklab.png';
 
+// Huevo Frito Wall Hanger imports
+import imgColgadorHuevoFrito from '../assets/Products/Variedades/colgador-3d-huevo-frito/colgador-pared-huevo-frito-impresion-3d.jpeg';
+import imgColgadorHuevoFritoGancho from '../assets/Products/Variedades/colgador-3d-huevo-frito/gancho-pared-huevo-frito-3d-minimalista.jpeg';
+import videoColgadorHuevoFrito from '../assets/Products/Variedades/colgador-3d-huevo-frito/video-proceso-colgador-huevo-frito-3d.mp4';
+
 // Vasos imports
 import imgVasoMasonJar from '../assets/Products/Vasos/tarros-mason-jar-vidrio-satinado-degradado-colores.png';
 import imgVasoNeonOpalizado from '../assets/Products/Vasos/tazas-neon-opalizadas-mate-personalizadas-pack-colores.png';
@@ -682,6 +687,20 @@ export const PRODUCTS_DB = {
             isNew: true,
             image: imgRelojDespertadorCubo,
             images: [imgRelojDespertadorCubo]
+        },
+        {
+            id: 'colgador-3d-huevo-frito',
+            name: 'Colgador de Pared Huevo Frito 3D',
+            subtitle: 'Un detalle divertido y funcional 🍳',
+            description: 'Práctico y original colgador de pared con forma de huevo frito impreso en 3D. Su diseño minimalista y resistente es ideal para organizar tus llaves, abrigos, bolsos o accesorios con un toque creativo único.',
+            price: 15000,
+            isNew: true,
+            image: imgColgadorHuevoFrito,
+            images: [
+                imgColgadorHuevoFrito,
+                imgColgadorHuevoFritoGancho,
+                videoColgadorHuevoFrito
+            ]
         }
     ],
     'rompecabezas-magneticos': [
@@ -1056,6 +1075,20 @@ export const PRODUCTS_DB = {
             image: imgFigura3d, 
             images: [imgFigura3d, breakLabLogo] 
         },
+        {
+            id: 'colgador-3d-huevo-frito',
+            name: 'Colgador de Pared Huevo Frito 3D',
+            subtitle: 'Un detalle divertido y funcional 🍳',
+            description: 'Práctico y original colgador de pared con forma de huevo frito impreso en 3D. Su diseño minimalista y resistente es ideal para organizar tus llaves, abrigos, bolsos o accesorios con un toque creativo único.',
+            price: 15000,
+            isNew: true,
+            image: imgColgadorHuevoFrito,
+            images: [
+                imgColgadorHuevoFrito,
+                imgColgadorHuevoFritoGancho,
+                videoColgadorHuevoFrito
+            ]
+        }
     ],
     'soportes': [
         {

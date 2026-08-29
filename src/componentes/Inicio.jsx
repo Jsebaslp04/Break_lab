@@ -308,7 +308,8 @@ export function Inicio() {
                     'pareja_impresion_3d': [
                         'figuras-3d-mapache-product',
                         'figuras-3d-pokebola-product',
-                        'figuras-3d-gengar-product'
+                        'figuras-3d-gengar-product',
+                        'colgador-3d-huevo-frito'
                     ],
                     'pareja_chocolates': [
                         'flor-eterna', 
@@ -329,7 +330,8 @@ export function Inicio() {
                     'mama_impresion_3d': [
                         'figuras-3d-pokebola-product',
                         'figuras-3d-mapache-product',
-                        'figura-3d-personalizada'
+                        'figura-3d-personalizada',
+                        'colgador-3d-huevo-frito'
                     ],
                     'mama_chocolates': [
                         'dia-madre-joyas-flores', 
@@ -394,7 +396,8 @@ export function Inicio() {
                     'amigo_impresion_3d': [
                         'figuras-3d-gengar-product',
                         'figuras-3d-mapache-product',
-                        'figuras-3d-t-rex-product'
+                        'figuras-3d-t-rex-product',
+                        'colgador-3d-huevo-frito'
                     ],
                     'amigo_chocolates': ['llavero-resina-letra', 'portavasos-resina', 'pulsera-miyuki']
                 };
