@@ -46,23 +46,24 @@ import imgMugParejas1 from '../assets/Products/Mugs/tazas-personalizadas-pareja.
 import imgMugParejas2 from '../assets/Products/Mugs/tazas-personalizadas-pareja-ilustracion-romantica.png';
 
 // Rompecabezas imports
-import imgPuzzleSaintSeiyaHades from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-caballeros-zodiaco-saint-seiya-hades.png';
-import imgPuzzleSaintSeiya from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-caballeros-zodiaco-saint-seiya.png';
-import imgPuzzleGohan from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-dragon-ball-z-gohan.png';
-import imgPuzzleGokuFrieza from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-dragon-ball-z-goku-frieza.png';
-import imgPuzzleGokuShenlong from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-dragon-ball-z-goku-shenlong.png';
-import imgPuzzleGokuFamiliar from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-familiar-dragon-ball-goku.png';
-import imgPuzzleLuffyZoroDuelo from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-one-piece-luffy-zoro-duelo.png';
-import imgPuzzleZoroEspadas from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-one-piece-roronoa-zoro-espadas.png';
-import imgPuzzleTripulacion from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-one-piece-tripulacion-piratas.png';
-import imgPuzzlePokemon from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-pokemon-pikachu-bulbasaur-charmander.png';
-import imgPuzzleSailorMoonGato from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-sailor-moon-gato-luna.png';
-import imgPuzzleSailorMoonGuerreras from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-sailor-moon-guerreras-luna.png';
-import imgPuzzleMarioBros from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-super-mario-bros-aventura.png';
-import imgPuzzleYugiohDragonBlanco from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-yu-gi-oh-dragon-blanco-ojos-azules.png';
-import imgPuzzleYugiohDragonRojo from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-yu-gi-oh-dragon-rojo-fuego.png';
-import imgPuzzleYugiohExodia from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-yu-gi-oh-exodia-cartas.png';
-import imgPuzzleYugiohMagoOscuro from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/rompecabezas-yu-gi-oh-mago-oscuro-yugi.png';
+import imgPuzzleSaintSeiyaHades from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-caballeros-del-zodiaco-magneticos/rompecabezas-caballeros-zodiaco-saint-seiya-hades.png';
+import imgPuzzleSaintSeiya from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-caballeros-del-zodiaco-magneticos/rompecabezas-caballeros-zodiaco-saint-seiya.png';
+import imgPuzzleGohan from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-dragon-ball-z-magneticos/rompecabezas-dragon-ball-z-gohan.png';
+import imgPuzzleGokuFrieza from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-dragon-ball-z-magneticos/rompecabezas-dragon-ball-z-goku-frieza.png';
+import imgPuzzleGokuShenlong from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-dragon-ball-z-magneticos/rompecabezas-dragon-ball-z-goku-shenlong.png';
+import imgPuzzleGokuFamiliar from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-dragon-ball-z-magneticos/rompecabezas-familiar-dragon-ball-goku.png';
+import imgPuzzleLuffyZoroDuelo from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-one-piece-magneticos/rompecabezas-one-piece-luffy-zoro-duelo.png';
+import imgPuzzleZoroEspadas from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-one-piece-magneticos/rompecabezas-one-piece-roronoa-zoro-espadas.png';
+import imgPuzzleTripulacion from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-one-piece-magneticos/rompecabezas-one-piece-tripulacion-piratas.png';
+import imgPuzzlePokemon from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-pokemon-magneticos/rompecabezas-pokemon-pikachu-bulbasaur-charmander.png';
+import imgPuzzleSailorMoonGato from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-sailor-moon-magneticos/rompecabezas-sailor-moon-gato-luna.png';
+import imgPuzzleSailorMoonGuerreras from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-sailor-moon-magneticos/rompecabezas-sailor-moon-guerreras-luna.png';
+import imgPuzzleMarioBros from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-mario-bross-magneticos/rompecabezas-super-mario-bros-aventura.png';
+import imgPuzzleYugiohDragonBlanco from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-yugi-oh-magneticos/rompecabezas-yu-gi-oh-dragon-blanco-ojos-azules.png';
+import imgPuzzleYugiohDragonRojo from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-yugi-oh-magneticos/rompecabezas-yu-gi-oh-dragon-rojo-fuego.png';
+import imgPuzzleYugiohExodia from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-yugi-oh-magneticos/rompecabezas-yu-gi-oh-exodia-cartas.png';
+import imgPuzzleYugiohMagoOscuro from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-yugi-oh-magneticos/rompecabezas-yu-gi-oh-mago-oscuro-yugi.png';
+import videoPuzzleYugioh from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-yugi-oh-magneticos/video-rompecabezas-magnetico-yugioh-coleccionable-bogota.mp4';
 
 // Variedades imports
 import imgMousePadWow from '../assets/Products/Variedades/mouse-pad-gamer-mapa-world-of-warcraft-personalizado.png';
@@ -148,7 +149,7 @@ import imgGelatortaTematicaGelatortaTematicaBarcelona1 from '../assets/Products/
 import imgGelatortaTematicaGelatortaTematicaBarcelona2 from '../assets/Products/Gelatortas/Gelatorta_tematica/gelatorta-tematica-fc-barcelona-futbol-2.png';
 
 // Rompecabezas extra imports
-import imgPuzzleMarioMagneticoExtra from '../assets/Products/Rompecabezas/Magnetico/RompecabezasPersonalizadoSuperMario.png';
+import imgPuzzleMarioMagneticoExtra from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-mario-bross-magneticos/RompecabezasPersonalizadoSuperMario.png';
 import imgPuzzleRickMortyCarton from '../assets/Products/Rompecabezas/Rompecabezas de carton/Rompecabezas Circular Rick y Morty - Portal Dimensional Breaklab.png';
 import imgPuzzleDonkeyKongCarton from '../assets/Products/Rompecabezas/Rompecabezas de carton/Rompecabezas Personalizado Donkey Kong - Edición Breaklab.png';
 import imgPuzzleMdfScreenshot from '../assets/Products/Rompecabezas/Rompecabezas MDF/rompecabezas-madera-mdf-personalizado.png';
@@ -703,7 +704,7 @@ export const PRODUCTS_DB = {
             ]
         }
     ],
-    'rompecabezas-magneticos': [
+    'rompecabezas-one-piece': [
         { 
             id: 'rompecabezas-magnetico-one-piece-luffy', 
             name: 'Rompecabezas Magnético One Piece Luffy', 
@@ -713,31 +714,6 @@ export const PRODUCTS_DB = {
             isNew: true, 
             image: imgRompecabezasLuffy, 
             images: [imgRompecabezasLuffy, breakLabLogo, imgGengarBox] 
-        },
-        {
-            id: 'rompecabezas-saint-seiya',
-            name: 'Rompecabezas Caballeros del Zodíaco Saint Seiya',
-            subtitle: '¡Eleva tu cosmos! 🌌',
-            description: 'Espectacular rompecabezas de Los Caballeros del Zodíaco (Saga de Hades). Disponible en madera MDF o magnético para nevera, corte de precisión.',
-            price: 30000,
-            isNew: true,
-            image: imgPuzzleSaintSeiya,
-            images: [imgPuzzleSaintSeiya, imgPuzzleSaintSeiyaHades]
-        },
-        {
-            id: 'rompecabezas-dragon-ball',
-            name: 'Rompecabezas Dragon Ball Z Colección',
-            subtitle: 'Goku y los guerreros Z en 120 piezas ☄️',
-            description: 'Reúne a Goku, Gohan, Shenlong y más en esta gran colección de rompecabezas de Dragon Ball Z. Colores vivos y durabilidad garantizada.',
-            price: 30000,
-            isNew: true,
-            image: imgPuzzleGokuShenlong,
-            images: [
-                imgPuzzleGokuShenlong,
-                imgPuzzleGohan,
-                imgPuzzleGokuFrieza,
-                imgPuzzleGokuFamiliar
-            ]
         },
         {
             id: 'rompecabezas-one-piece',
@@ -752,7 +728,38 @@ export const PRODUCTS_DB = {
                 imgPuzzleLuffyZoroDuelo,
                 imgPuzzleZoroEspadas
             ]
-        },
+        }
+    ],
+    'rompecabezas-caballeros-del-zodiaco': [
+        {
+            id: 'rompecabezas-saint-seiya',
+            name: 'Rompecabezas Caballeros del Zodíaco Saint Seiya',
+            subtitle: '¡Eleva tu cosmos! 🌌',
+            description: 'Espectacular rompecabezas de Los Caballeros del Zodíaco (Saga de Hades). Disponible en madera MDF o magnético para nevera, corte de precisión.',
+            price: 30000,
+            isNew: true,
+            image: imgPuzzleSaintSeiya,
+            images: [imgPuzzleSaintSeiya, imgPuzzleSaintSeiyaHades]
+        }
+    ],
+    'rompecabezas-dragon-ball-z': [
+        {
+            id: 'rompecabezas-dragon-ball',
+            name: 'Rompecabezas Dragon Ball Z Colección',
+            subtitle: 'Goku y los guerreros Z en 120 piezas ☄️',
+            description: 'Reúne a Goku, Gohan, Shenlong y más en esta gran colección de rompecabezas de Dragon Ball Z. Colores vivos y durabilidad garantizada.',
+            price: 30000,
+            isNew: true,
+            image: imgPuzzleGokuShenlong,
+            images: [
+                imgPuzzleGokuShenlong,
+                imgPuzzleGohan,
+                imgPuzzleGokuFrieza,
+                imgPuzzleGokuFamiliar
+            ]
+        }
+    ],
+    'rompecabezas-pokemon': [
         {
             id: 'rompecabezas-pokemon',
             name: 'Rompecabezas Pokémon Kanto',
@@ -762,7 +769,9 @@ export const PRODUCTS_DB = {
             isNew: true,
             image: imgPuzzlePokemon,
             images: [imgPuzzlePokemon]
-        },
+        }
+    ],
+    'rompecabezas-sailor-moon': [
         {
             id: 'rompecabezas-sailor-moon',
             name: 'Rompecabezas Sailor Moon Guardiana',
@@ -772,7 +781,9 @@ export const PRODUCTS_DB = {
             isNew: true,
             image: imgPuzzleSailorMoonGuerreras,
             images: [imgPuzzleSailorMoonGuerreras, imgPuzzleSailorMoonGato]
-        },
+        }
+    ],
+    'rompecabezas-mario-bros': [
         {
             id: 'rompecabezas-super-mario',
             name: 'Rompecabezas Super Mario Bros Aventura',
@@ -783,6 +794,18 @@ export const PRODUCTS_DB = {
             image: imgPuzzleMarioBros,
             images: [imgPuzzleMarioBros]
         },
+        {
+            id: 'rompecabezas-mario-personalizado-magnetico',
+            name: 'Rompecabezas Magnético Super Mario',
+            subtitle: 'Aventura magnética en 120 piezas 🍄',
+            description: 'Divertido rompecabezas magnético de Super Mario Bros. Ideal para neveras y pizarras magnéticas, fabricado en materiales resistentes de alta definición.',
+            price: 30000,
+            isNew: true,
+            image: imgPuzzleMarioMagneticoExtra,
+            images: [imgPuzzleMarioMagneticoExtra]
+        }
+    ],
+    'rompecabezas-yugi-oh': [
         {
             id: 'rompecabezas-yugioh',
             name: 'Rompecabezas Yu-Gi-Oh! El Duelo',
@@ -795,18 +818,9 @@ export const PRODUCTS_DB = {
                 imgPuzzleYugiohMagoOscuro,
                 imgPuzzleYugiohDragonBlanco,
                 imgPuzzleYugiohDragonRojo,
-                imgPuzzleYugiohExodia
+                imgPuzzleYugiohExodia,
+                videoPuzzleYugioh
             ]
-        },
-        {
-            id: 'rompecabezas-mario-personalizado-magnetico',
-            name: 'Rompecabezas Magnético Super Mario',
-            subtitle: 'Aventura magnética en 120 piezas 🍄',
-            description: 'Divertido rompecabezas magnético de Super Mario Bros. Ideal para neveras y pizarras magnéticas, fabricado en materiales resistentes de alta definición.',
-            price: 30000,
-            isNew: true,
-            image: imgPuzzleMarioMagneticoExtra,
-            images: [imgPuzzleMarioMagneticoExtra]
         }
     ],
     'rompecabezas-carton': [
@@ -1509,6 +1523,17 @@ export const getCategoryProducts = (categoryId) => {
             ...getCategoryProducts('rompecabezas-magneticos'),
             ...getCategoryProducts('rompecabezas-carton'),
             ...getCategoryProducts('rompecabezas-mdf')
+        ];
+    }
+    if (categoryId === 'rompecabezas-magneticos') {
+        return [
+            ...getCategoryProducts('rompecabezas-one-piece'),
+            ...getCategoryProducts('rompecabezas-dragon-ball-z'),
+            ...getCategoryProducts('rompecabezas-mario-bros'),
+            ...getCategoryProducts('rompecabezas-caballeros-del-zodiaco'),
+            ...getCategoryProducts('rompecabezas-pokemon'),
+            ...getCategoryProducts('rompecabezas-sailor-moon'),
+            ...getCategoryProducts('rompecabezas-yugi-oh')
         ];
     }
     if (categoryId === 'gelatortas') {

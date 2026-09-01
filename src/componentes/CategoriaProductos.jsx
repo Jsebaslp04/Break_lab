@@ -100,9 +100,24 @@ function ProductCard({ product }) {
 
 const SUBCATEGORIES_CONFIG = {
     'rompecabezas': [
-        { id: 'rompecabezas-magneticos', label: '🧲 Rompecabezas Magnéticos' },
+        { id: 'rompecabezas-one-piece', label: '🏴‍☠️ One Piece' },
+        { id: 'rompecabezas-dragon-ball-z', label: '☄️ Dragon Ball Z' },
+        { id: 'rompecabezas-mario-bros', label: '🍄 Super Mario' },
+        { id: 'rompecabezas-caballeros-del-zodiaco', label: '🌌 Caballeros del Zodíaco' },
+        { id: 'rompecabezas-pokemon', label: '⚡ Pokémon' },
+        { id: 'rompecabezas-sailor-moon', label: '🌙 Sailor Moon' },
+        { id: 'rompecabezas-yugi-oh', label: '🃏 Yu-Gi-Oh!' },
         { id: 'rompecabezas-carton', label: '🧩 Rompecabezas de Cartón' },
         { id: 'rompecabezas-mdf', label: '🪵 Rompecabezas MDF' }
+    ],
+    'rompecabezas-magneticos': [
+        { id: 'rompecabezas-one-piece', label: '🏴‍☠️ One Piece' },
+        { id: 'rompecabezas-dragon-ball-z', label: '☄️ Dragon Ball Z' },
+        { id: 'rompecabezas-mario-bros', label: '🍄 Super Mario' },
+        { id: 'rompecabezas-caballeros-del-zodiaco', label: '🌌 Caballeros del Zodíaco' },
+        { id: 'rompecabezas-pokemon', label: '⚡ Pokémon' },
+        { id: 'rompecabezas-sailor-moon', label: '🌙 Sailor Moon' },
+        { id: 'rompecabezas-yugi-oh', label: '🃏 Yu-Gi-Oh!' }
     ],
     'gelatortas': [
         { id: 'gelatortas_mascota', label: '🐶 Gelatortas de Mascotas' },
