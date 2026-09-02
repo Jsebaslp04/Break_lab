@@ -29,10 +29,10 @@ export function Footer() {
                 <div className={styles.col}>
                     <h3>Categorías</h3>
                     <ul>
-                        <li><Link to="/Crea_tu_Box" className={styles.footer_link}>Boxs</Link></li>
+                        <li><Link to="/Boxs" className={styles.footer_link}>Boxs</Link></li>
+                        <li><Link to="/Crea_tu_Box" className={styles.footer_link}>Arma tu Box</Link></li>
+                        <li><Link to="/Combos" className={styles.footer_link}>Combos</Link></li>
                         <li><Link to="/Personalizamos" className={styles.footer_link}>Personalizamos</Link></li>
-                        <li><Link to="/" className={styles.footer_link}>Productos Destacados</Link></li>
-                        <li><Link to="/" className={styles.footer_link}>Los Más Vendidos</Link></li>
                     </ul>
                 </div>
                 <div className={styles.col}>

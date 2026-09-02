@@ -3,6 +3,16 @@ import { Link } from 'react-router-dom';
 import styles from './Combos.module.css';
 import { useSEO } from '../hooks/useSEO';
 
+// Imágenes reales de alta calidad de la carpeta banner-combos-mugs-coleccionables-breaklab
+import imgComboAvengers from '../assets/banner-combos-mugs-coleccionables-breaklab/taza-heroes-comic-marvel-dc-vengadores-breaklab.png';
+import imgComboBatman from '../assets/banner-combos-mugs-coleccionables-breaklab/mug-batman-logo-rojo-negro-the-batman-breaklab.png';
+import imgComboBobEsponja from '../assets/banner-combos-mugs-coleccionables-breaklab/mug-bob-esponja-patricio-edicion-especial-breaklab.png';
+import imgComboCaballeros from '../assets/banner-combos-mugs-coleccionables-breaklab/mug-caballeros-zodiaco-saint-seiya-coleccion-breaklab.png';
+import imgComboFriends from '../assets/banner-combos-mugs-coleccionables-breaklab/taza-friends-central-perk-logo-coleccionable-breaklab.png';
+import imgComboLooneyTunes from '../assets/banner-combos-mugs-coleccionables-breaklab/tazas-looney-tunes-piolin-taz-coleccion-breaklab.jpeg';
+import imgComboLosSimpson from '../assets/banner-combos-mugs-coleccionables-breaklab/tazas-los-simpson-familia-edicion-especial-breaklab.jpeg';
+import imgComboOnePiece from '../assets/banner-combos-mugs-coleccionables-breaklab/mug-one-piece-luffy-zoro-chopper-coleccionable-breaklab.jpeg';
+
 export const Combos = () => {
     useSEO({
         title: "Combos de Mugs Temáticos y Personalizados | BreakLab",
@@ -15,14 +25,62 @@ export const Combos = () => {
     }, []);
 
     const categories = [
-        { id: 'combo-avengers', name: 'Combo Avengers', icon: '🦸', theme: styles.themePlayful },
-        { id: 'combo-batman', name: 'Combo Batman', icon: '🦇', theme: styles.themeMasculine },
-        { id: 'combo-bob-esponja', name: 'Combo Bob Esponja', icon: '🧽', theme: styles.themePlayful },
-        { id: 'combo-caballeros-del-zodiaco', name: 'Combo Caballeros del Zodíaco', icon: '🌌', theme: styles.themePlayful },
-        { id: 'combo-friends', name: 'Combo Friends', icon: '☕', theme: styles.themeRomantic },
-        { id: 'combo-looney-tunes', name: 'Combo Looney Tunes', icon: '🐰', theme: styles.themePlayful },
-        { id: 'combo-los-simpson', name: 'Combo Los Simpson', icon: '🍩', theme: styles.themePlayful },
-        { id: 'combo-mugs-one-piece', name: 'Combo One Piece', icon: '🏴‍☠️', theme: styles.themePlayful }
+        { 
+            id: 'combo-avengers', 
+            name: 'Combo Avengers', 
+            image: imgComboAvengers, 
+            alt: 'Combo Mugs Avengers Marvel BreakLab', 
+            theme: styles.themePlayful 
+        },
+        { 
+            id: 'combo-batman', 
+            name: 'Combo Batman', 
+            image: imgComboBatman, 
+            alt: 'Combo Mugs Batman DC Comics BreakLab', 
+            theme: styles.themeMasculine 
+        },
+        { 
+            id: 'combo-bob-esponja', 
+            name: 'Combo Bob Esponja', 
+            image: imgComboBobEsponja, 
+            alt: 'Combo Mugs Bob Esponja y Patricio BreakLab', 
+            theme: styles.themePlayful 
+        },
+        { 
+            id: 'combo-caballeros-del-zodiaco', 
+            name: 'Combo Caballeros del Zodíaco', 
+            image: imgComboCaballeros, 
+            alt: 'Combo Mugs Caballeros del Zodíaco Saint Seiya BreakLab', 
+            theme: styles.themePlayful 
+        },
+        { 
+            id: 'combo-friends', 
+            name: 'Combo Friends', 
+            image: imgComboFriends, 
+            alt: 'Combo Mugs Friends Central Perk BreakLab', 
+            theme: styles.themeRomantic 
+        },
+        { 
+            id: 'combo-looney-tunes', 
+            name: 'Combo Looney Tunes', 
+            image: imgComboLooneyTunes, 
+            alt: 'Combo Mugs Looney Tunes Piolín Taz BreakLab', 
+            theme: styles.themePlayful 
+        },
+        { 
+            id: 'combo-los-simpson', 
+            name: 'Combo Los Simpson', 
+            image: imgComboLosSimpson, 
+            alt: 'Combo Mugs Los Simpson Familia BreakLab', 
+            theme: styles.themePlayful 
+        },
+        { 
+            id: 'combo-mugs-one-piece', 
+            name: 'Combo One Piece', 
+            image: imgComboOnePiece, 
+            alt: 'Combo Mugs One Piece Luffy Zoro Chopper BreakLab', 
+            theme: styles.themePlayful 
+        }
     ];
 
     return (
@@ -35,8 +93,8 @@ export const Combos = () => {
             <div className={styles.grid}>
                 {categories.map((cat) => (
                     <Link to={`/categoria/${cat.id}`} key={cat.id} className={`${styles.card} ${cat.theme}`}>
-                        <div className={styles.iconWrapper}>
-                            <span className={styles.icon}>{cat.icon}</span>
+                        <div className={styles.imageWrapper}>
+                            <img src={cat.image} alt={cat.alt} className={styles.categoryImg} loading="lazy" />
                         </div>
                         <h2 className={styles.cardTitle}>{cat.name}</h2>
                         <span className={styles.exploreBtn}>Ver Opciones →</span>

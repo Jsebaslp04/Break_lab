@@ -289,14 +289,39 @@
 
 /* Boxs Mega menu content */
 .megaMenuBoxs {
-    min-width: 600px;
+    width: 540px;
+    max-width: 92vw;
 }
 
 .megaGridBoxs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    flex: 1;
+}
+
+.dropdownFooter {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-light, rgba(0, 0, 0, 0.06));
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dropdownFooterLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--primary-hover);
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.dropdownFooterLink:hover {
+    transform: translateX(4px);
+    color: var(--secondary);
 }
 
 .megaItem {
@@ -329,6 +354,42 @@
     width: 48px;
     height: 48px;
     transition: transform 0.3s ease;
+}
+
+.megaIconImage {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border: 1.5px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    transition: transform 0.3s ease;
+}
+
+.megaItem:hover .megaIconImage {
+    transform: scale(1.08) rotate(3deg);
+}
+
+.megaThumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.drawerThumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .megaItem:hover .megaIcon {

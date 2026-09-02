@@ -48,7 +48,7 @@ export function Banner() {
             image: img4,
             title: "Desayunos Sorpresa Temáticos",
             description: "Sorprende con desayunos y boxes de tus personajes favoritos, como este espectacular Box de Pokémon Gengar.",
-            link: "/Crea_tu_Box",
+            link: "/Boxs",
             btnText: "Ver Desayunos Sorpresa 🥞",
             alt: "Desayuno sorpresa temático de Pokémon Gengar personalizado en Bogotá"
         }

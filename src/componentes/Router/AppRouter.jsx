@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Inicio } from "../Inicio";
+import { Boxs } from "../Boxs";
 import { Crea_tu_Box } from "../Crea_tu_Box";
 import { Personalizamos } from "../Personalizamos";
 import { Combos } from "../Combos";
@@ -14,7 +15,12 @@ export const AppRouter = () => {
     return (
         <Routes>
             <Route path="/" element={<Inicio />} />
+            <Route path="/Boxs" element={<Boxs />} />
+            <Route path="/box" element={<Boxs />} />
+            <Route path="/Box" element={<Boxs />} />
             <Route path="/Crea_tu_Box" element={<Crea_tu_Box />} />
+            <Route path="/Arma_tu_Box" element={<Crea_tu_Box />} />
+            <Route path="/arma-tu-box" element={<Crea_tu_Box />} />
             <Route path="/Combos" element={<Combos />} />
             <Route path="/Personalizamos" element={<Personalizamos />} />
             <Route path="/Envios" element={<Inicio />} />

@@ -154,19 +154,38 @@ import imgPuzzleRickMortyCarton from '../assets/Products/Rompecabezas/Rompecabez
 import imgPuzzleDonkeyKongCarton from '../assets/Products/Rompecabezas/Rompecabezas de carton/Rompecabezas Personalizado Donkey Kong - Edición Breaklab.png';
 import imgPuzzleMdfScreenshot from '../assets/Products/Rompecabezas/Rompecabezas MDF/rompecabezas-madera-mdf-personalizado.png';
 
+// Boxs dedicadas imports
+import imgDesayunoGourmet from '../assets/desayuno-sorpresa-gourmet-personalizado-regalo-especial.jpeg';
+import imgDesayunoLuxury from '../assets/desayuno-sorpresa-luxury-cumpleanos-breaklab.png';
+import imgDesayunoPremium from '../assets/desayuno-sorpresa-premium-impresion-3d-te-amo-breaklab.png';
+import imgDesayunoClasico from '../assets/desayuno-sorpresa-clasico-cumpleanos-breaklab.png';
+import imgBabyShower from '../assets/regalo-sorpresa-bienvenida-baby-shower-breaklab.png';
+
 export { breakLabLogo };
 
 export const PRODUCTS_DB = {
     'desayuno-luxury': [
         { 
             id: 'desayuno-luxury-real', 
-            name: 'Box Desayuno Luxury Real', 
+            name: 'Box Desayuno Gourmet Luxury', 
             subtitle: 'La experiencia gourmet definitiva ✨',
             description: 'Un desayuno de lujo para celebrar por lo alto. Incluye waffles belgas con frutos rojos y chocolate belga, jugo de naranja natural premium, croissant de almendras, café de origen en prensa francesa, taza dorada de colección y un ramo de flores o detalle tejido a mano. Todo presentado en nuestra caja de madera de pino con decoración elegante.', 
             price: 110000, 
             isNew: true, 
-            image: imgMugBordeAsaDorada, 
-            images: [imgMugBordeAsaDorada, breakLabLogo] 
+            image: imgDesayunoGourmet, 
+            images: [imgDesayunoGourmet, imgDesayunoLuxury, imgMugBordeAsaDorada] 
+        }
+    ],
+    'desayuno-gourmet': [
+        { 
+            id: 'desayuno-luxury-real', 
+            name: 'Box Desayuno Gourmet Luxury', 
+            subtitle: 'La experiencia gourmet definitiva ✨',
+            description: 'Un desayuno de lujo para celebrar por lo alto. Incluye waffles belgas con frutos rojos y chocolate belga, jugo de naranja natural premium, croissant de almendras, café de origen en prensa francesa, taza dorada de colección y un ramo de flores o detalle tejido a mano. Todo presentado en nuestra caja de madera de pino con decoración elegante.', 
+            price: 110000, 
+            isNew: true, 
+            image: imgDesayunoGourmet, 
+            images: [imgDesayunoGourmet, imgDesayunoLuxury, imgMugBordeAsaDorada] 
         }
     ],
     'desayuno-premium': [
@@ -177,8 +196,8 @@ export const PRODUCTS_DB = {
             description: 'El equilibrio perfecto entre dulzura y elegancia. Incluye sándwich gourmet artesanal, yogurt con granola, jugo natural en botella de vidrio, porción de fruta fresca, taza con interior de color personalizada, peluche mediano y globos decorativos en caja de madera decorada.', 
             price: 85000, 
             isNew: true, 
-            image: imgGengarBox, 
-            images: [imgGengarBox, breakLabLogo] 
+            image: imgDesayunoPremium, 
+            images: [imgDesayunoPremium, imgGengarBox] 
         }
     ],
     'desayuno-clasico': [
@@ -189,8 +208,8 @@ export const PRODUCTS_DB = {
             description: 'El desayuno clásico que a todos les encanta. Incluye sándwich de jamón serrano y queso, jugo de naranja en botella decorada, muffin casero de vainilla, mug blanco personalizado con el diseño que desees y tarjeta de regalo en empaque especial.', 
             price: 60000, 
             isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo, imgVasoMascotas] 
+            image: imgDesayunoClasico, 
+            images: [imgDesayunoClasico, imgVasoMascotas] 
         }
     ],
     'baby-shower': [
@@ -201,8 +220,8 @@ export const PRODUCTS_DB = {
             description: 'Un tierno detalle para felicitar a los futuros padres. Incluye un amigurumi tejido a mano de apego, sonajero de madera, babero de algodón personalizado, globos decorativos y una caja de dulces y galletas decorativas en una hermosa caja de madera decorada.', 
             price: 75000, 
             isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            image: imgBabyShower, 
+            images: [imgBabyShower, breakLabLogo] 
         }
     ],
     'san-valentin': [

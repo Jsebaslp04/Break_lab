@@ -22,14 +22,14 @@
 .subtitle {
     color: var(--text-medium);
     font-size: 1.15rem;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     gap: 2.5rem;
 }
 
@@ -39,7 +39,7 @@
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    padding: 1.6rem 1.5rem 2rem;
+    padding: 1.6rem 1.6rem 2.2rem;
     border-radius: 24px;
     text-decoration: none;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15), box-shadow 0.4s ease, border-color 0.4s ease;
@@ -53,16 +53,32 @@
     transform: translateY(-8px) scale(1.02);
 }
 
+.badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    z-index: 3;
+}
+
 .imageWrapper {
     background: white;
     width: 100%;
-    height: 210px;
+    height: 220px;
     border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.4rem;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     border: 2px solid rgba(255, 255, 255, 0.9);
     overflow: hidden;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
@@ -85,30 +101,45 @@
     transform: scale(1.08);
 }
 
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    z-index: 2;
+}
+
 .cardTitle {
     color: var(--text-dark);
     font-family: 'Playfair Display', serif;
-    font-size: 1.65rem;
-    margin-bottom: 1.8rem;
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
     font-weight: 700;
     letter-spacing: -0.3px;
-    z-index: 2;
+}
+
+.cardDesc {
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 2rem;
+    max-width: 280px;
 }
 
 .exploreBtn {
     background: rgba(255, 255, 255, 0.95);
     color: var(--secondary);
-    padding: 0.65rem 1.6rem;
+    padding: 0.75rem 1.8rem;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     border: 1px solid var(--border-medium);
     box-shadow: var(--shadow-sm);
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 2;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .card:hover .exploreBtn {
@@ -139,7 +170,6 @@
     opacity: 0.28;
 }
 
-/* Card Glow Orbs top right */
 .card::before {
     content: '';
     position: absolute;
@@ -159,71 +189,113 @@
     opacity: 0.22;
 }
 
-/* Thematic Backgrounds for Cards */
-.themePlayful {
-    background: linear-gradient(135deg, #fffdf2 0%, #fffcf0 50%, #fff6d6 100%);
-    border: 1.5px solid rgba(245, 158, 11, 0.12);
+/* Specific themes */
+.themeLuxury {
+    background: linear-gradient(135deg, #fffcf5 0%, #fcf6e8 50%, #fbf0d3 100%);
+    border: 1.5px solid rgba(217, 119, 6, 0.18);
+}
+.themeLuxury::after,
+.themeLuxury::before {
+    background: #d97706;
+}
+.themeLuxury:hover {
+    border-color: rgba(217, 119, 6, 0.35);
+    box-shadow: 0 20px 45px rgba(217, 119, 6, 0.16);
 }
 
-.themePlayful::after,
-.themePlayful::before {
-    background: #f59e0b;
-}
-
-.themePlayful:hover {
-    border-color: rgba(245, 158, 11, 0.28);
-    box-shadow: 0 20px 45px rgba(245, 158, 11, 0.14);
-}
-
-.themeRomantic {
+.themePremium {
     background: linear-gradient(135deg, #fffcfd 0%, var(--bg-pink) 50%, var(--primary-light) 100%);
     border: 1.5px solid var(--border-primary);
 }
-
-.themeRomantic::after,
-.themeRomantic::before {
+.themePremium::after,
+.themePremium::before {
     background: var(--primary);
 }
-
-.themeRomantic:hover {
+.themePremium:hover {
     border-color: var(--primary-hover);
     box-shadow: var(--shadow-primary);
 }
 
-.themeMasculine {
-    background: linear-gradient(135deg, #fbfdff 0%, #f4f9ff 50%, #e3f1ff 100%);
-    border: 1.5px solid rgba(14, 165, 233, 0.12);
+.themeClassic {
+    background: linear-gradient(135deg, #fffdfa 0%, #fff8f0 50%, #ffeedb 100%);
+    border: 1.5px solid rgba(249, 115, 22, 0.15);
+}
+.themeClassic::after,
+.themeClassic::before {
+    background: #f97316;
+}
+.themeClassic:hover {
+    border-color: rgba(249, 115, 22, 0.3);
+    box-shadow: 0 20px 45px rgba(249, 115, 22, 0.14);
 }
 
-.themeMasculine::after,
-.themeMasculine::before {
-    background: #0ea5e9;
+.themeBaby {
+    background: linear-gradient(135deg, #f7fcff 0%, #eff8ff 50%, #e0f2fe 100%);
+    border: 1.5px solid rgba(56, 189, 248, 0.2);
+}
+.themeBaby::after,
+.themeBaby::before {
+    background: #38bdf8;
+}
+.themeBaby:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 20px 45px rgba(56, 189, 248, 0.16);
 }
 
-.themeMasculine:hover {
-    border-color: rgba(14, 165, 233, 0.28);
-    box-shadow: 0 20px 45px rgba(14, 165, 233, 0.14);
+/* Callout banner to promote custom builder */
+.builderPromo {
+    margin-top: 4.5rem;
+    background: linear-gradient(135deg, rgba(255, 240, 245, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border: 1.5px dashed var(--primary);
+    border-radius: 20px;
+    padding: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    box-shadow: var(--shadow-sm);
 }
 
-.themeFestive {
-    background: linear-gradient(135deg, #fdfbff 0%, #fbf5ff 50%, #f2e3ff 100%);
-    border: 1.5px solid rgba(139, 92, 246, 0.12);
+.builderPromoContent {
+    max-width: 650px;
 }
 
-.themeFestive::after,
-.themeFestive::before {
-    background: #8b5cf6;
+.builderPromoTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
 }
 
-.themeFestive:hover {
-    border-color: rgba(139, 92, 246, 0.28);
-    box-shadow: 0 20px 45px rgba(139, 92, 246, 0.18);
+.builderPromoText {
+    color: var(--text-medium);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.builderPromoBtn {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color: white;
+    padding: 0.85rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px var(--primary-glow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.builderPromoBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px var(--primary-glow);
 }
 
 @media (max-width: 768px) {
     .container {
         padding: 2rem 1rem 4rem;
-        margin: 1.5rem auto;
     }
 
     .grid {
@@ -232,7 +304,7 @@
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 2.1rem;
     }
 
     .card {
@@ -245,35 +317,41 @@
         margin-bottom: 1.1rem;
         border-radius: 14px;
     }
+
+    .cardTitle {
+        font-size: 1.2rem;
+    }
+
+    .cardDesc {
+        font-size: 0.82rem;
+        margin-bottom: 1.1rem;
+    }
+
+    .builderPromo {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.8rem;
+    }
 }
 
 @media (max-width: 480px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
 
     .card {
-        padding: 0.9rem 0.75rem 1.3rem;
-        border-radius: 16px;
+        padding: 1.2rem 1rem 1.6rem;
     }
 
     .imageWrapper {
         width: 100%;
-        height: 130px;
-        margin-bottom: 0.8rem;
-        border-radius: 12px;
+        height: 200px;
+        margin-bottom: 1.1rem;
+        border-radius: 14px;
     }
 
     .cardTitle {
-        font-size: 0.98rem;
-        margin-bottom: 0.8rem;
-        line-height: 1.3;
-    }
-
-    .exploreBtn {
-        padding: 0.45rem 0.9rem;
-        font-size: 0.75rem;
+        font-size: 1.25rem;
     }
 }
-

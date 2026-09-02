@@ -143,22 +143,22 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'combo-los-simpson', label: '🍩 Combo Simpson' },
         { id: 'combo-mugs-one-piece', label: '🏴‍☠️ Combo One Piece' }
     ],
-    'crea-tu-box': [
-        /*
-        { id: 'reyes', label: '👑 Reyes' },
-        { id: 'kit-escolar', label: '🎒 Kit Escolar' },
-        { id: 'san-valentin', label: '💘 San Valentín' },
-        { id: 'box-tematicas', label: '📦 Box Temáticas' },
-        { id: 'dia-mujer', label: '🌸 Día de la Mujer' },
-        { id: 'dia-hombre', label: '👔 Día del Hombre' },
-        { id: 'semana-santa', label: '🕊️ Semana Santa' },
-        { id: 'dia-nino', label: '🧸 Día del Niño' },
-        { id: 'dia-madre', label: '🤱 Día de la Madre' },
-        { id: 'dia-padre', label: '👨‍👦 Día del Padre' }
-        */
-        { id: 'desayuno-luxury', label: '✨ Desayuno Luxury' },
+    'boxs': [
         { id: 'desayuno-premium', label: '🌟 Desayuno Premium' },
-        { id: 'desayuno-clasico', label: '🍳 Desayuno Clásico' },
+        { id: 'desayuno-luxury', label: '👑 Desayuno Gourmet' },
+        { id: 'desayuno-clasico', label: '🥐 Desayuno Clásico' },
+        { id: 'baby-shower', label: '🍼 Baby Shower' }
+    ],
+    'box': [
+        { id: 'desayuno-premium', label: '🌟 Desayuno Premium' },
+        { id: 'desayuno-luxury', label: '👑 Desayuno Gourmet' },
+        { id: 'desayuno-clasico', label: '🥐 Desayuno Clásico' },
+        { id: 'baby-shower', label: '🍼 Baby Shower' }
+    ],
+    'crea-tu-box': [
+        { id: 'desayuno-premium', label: '🌟 Desayuno Premium' },
+        { id: 'desayuno-luxury', label: '👑 Desayuno Gourmet' },
+        { id: 'desayuno-clasico', label: '🥐 Desayuno Clásico' },
         { id: 'baby-shower', label: '🍼 Baby Shower' }
     ],
     'personalizamos': [
@@ -188,7 +188,11 @@ export function CategoriaProductos() {
     const subcategories = isParentCategory ? SUBCATEGORIES_CONFIG[categoriaId] : [];
 
     const formatCategoryName = (str) => {
-        if (str === 'crea-tu-box') return 'Boxs';
+        if (str === 'boxs' || str === 'box' || str === 'crea-tu-box') return 'Boxs y Desayunos Sorpresa';
+        if (str === 'desayuno-luxury' || str === 'desayuno-gourmet') return 'Desayuno Gourmet';
+        if (str === 'desayuno-premium') return 'Desayuno Premium';
+        if (str === 'desayuno-clasico') return 'Desayuno Clásico';
+        if (str === 'baby-shower') return 'Baby Shower';
         return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     };
 
