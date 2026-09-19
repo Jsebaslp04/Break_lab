@@ -6,22 +6,33 @@ import imgGengarBox from '../assets/Swiper/desayuno-sorpresa-tematico-pokemon-ge
 import breakLabLogo from '../assets/break_lab_logo.png';
 
 // Box San Valentin imports
-import videoBoxSanValentin from '../assets/Products/Box San Valentin/video-caja-desayuno-sorpresa-san-valentin.mp4';
-import imgBoxSanValentin from '../assets/Products/Box San Valentin/set-regalo-romantico-gelatorta-vino-bogota.png';
+import videoBoxSanValentin from '../assets/Products/Boxs/Box San Valentin/video-caja-desayuno-sorpresa-san-valentin.mp4';
+import imgBoxSanValentin from '../assets/Products/Boxs/Box San Valentin/set-regalo-romantico-gelatorta-vino-bogota.png';
+
+// Kit Cómo Entrenar a Tu Dragón imports
+import imgDragonSet from '../assets/Products/Boxs/kit-regalo-personalizado-como-entrenar-a-tu-dragon-tazas-puzzle/set-regalo-pareja-toothless-light-fury-tazas-puzzle-corazon-spotify-chimuelo.jpeg';
+import imgDragonTazaNorma from '../assets/Products/Boxs/kit-regalo-personalizado-como-entrenar-a-tu-dragon-tazas-puzzle/taza-personalizada-nombre-norma-toothless-codigo-spotify-arcoiris.png';
+import imgDragonTazasPareja from '../assets/Products/Boxs/kit-regalo-personalizado-como-entrenar-a-tu-dragon-tazas-puzzle/tazas-ceramica-toothless-furia-luminosa-como-entrenar-a-tu-dragon.jpeg';
+import imgDragonTazaJuan from '../assets/Products/Boxs/kit-regalo-personalizado-como-entrenar-a-tu-dragon-tazas-puzzle/tazas-personalizadas-nombre-juan-toothless-light-fury-codigo-spotify.jpeg';
+import videoDragonPuzzle from '../assets/Products/Boxs/kit-regalo-personalizado-como-entrenar-a-tu-dragon-tazas-puzzle/video-demostracion-puzzle-corazon-spotify-regalo-pareja-toothless-light-fury.mp4';
 
 // Boxs / Box temática imports
 import videoBoxTematica from '../assets/Products/Boxs/Box temática/video-desayuno-sorpresa-personalizado.mp4';
 import imgBoxTematica from '../assets/Products/Boxs/Box temática/gelatorta-tematica-one-piece-set-regalo.png';
 
 // Gelatortas imports
-import imgGelatortaHuellaPerro from '../assets/Products/Gelatortas/gelatorta-tematica-huella-perro.png';
-import videoGelatortaHuellaPerro from '../assets/Products/Gelatortas/video-gelatorta-cumpleanos-perro.mp4';
+import imgGelatortaHuellaPerro from '../assets/Products/Gelatortas/Gelatortas_mascota/gelatorta-tematica-huella-perro.jpg.png';
+import videoGelatortaHuellaPerro from '../assets/Products/Gelatortas/Gelatortas_mascota/Professional_video_of_gelatorta_202607101735.mp4';
+import imgGelatortaViajes from '../assets/Products/Gelatortas/gelatorta-tematica-viajes-breaklab/gelatorta-personalizada-tematica-viajes-mapamundi-bogota.jpeg';
+import videoGelatortaViajes from '../assets/Products/Gelatortas/gelatorta-tematica-viajes-breaklab/video-gelatorta-personalizada-mapamundi-viajes-bogota.mp4';
 
 // Llaveros imports
 import imgLlaveroMarioLuigi from '../assets/Products/Llaveros/llavero-cuadrado-acrilico-mario-luigi-bros.png';
 import imgLlaveroOnePieceBandera from '../assets/Products/Llaveros/llavero-destapador-metalico-one-piece-bandera.png';
 import imgLlaveroPokemonPikachu from '../assets/Products/Llaveros/llavero-rectangular-personalizado-pokemon-pikachu.png';
 import imgLlaveroLuffyOnePiece from '../assets/Products/Llaveros/llavero-redondo-personalizado-luffy-one-piece.png';
+import imgLlaveroAguacatePareja from '../assets/Products/Llaveros/llaveros-aguacate-clicker-pareja-breaklab/llaveros-pareja-aguacate-clicker-amor-y-amistad-bogota.jpeg';
+import videoLlaveroAguacate from '../assets/Products/Llaveros/llaveros-aguacate-clicker-pareja-breaklab/video-llavero-clicker-aguacate-corazon-impresion-3d.mp4';
 
 // Mugs imports
 import imgMugNeonPack from '../assets/Products/Mugs/set-tazas-ceramica-colores-neon-coleccion.png';
@@ -64,12 +75,19 @@ import imgPuzzleYugiohDragonRojo from '../assets/Products/Rompecabezas/Rompecabe
 import imgPuzzleYugiohExodia from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-yugi-oh-magneticos/rompecabezas-yu-gi-oh-exodia-cartas.png';
 import imgPuzzleYugiohMagoOscuro from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-yugi-oh-magneticos/rompecabezas-yu-gi-oh-mago-oscuro-yugi.png';
 import videoPuzzleYugioh from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-yugi-oh-magneticos/video-rompecabezas-magnetico-yugioh-coleccionable-bogota.mp4';
+import videoPuzzleOnePieceDuelo from '../assets/Products/Rompecabezas/video-rompecabezas-magnetico-one-piece-luffy-zoro-bogota.mp4';
 
 // Variedades imports
 import imgMousePadWow from '../assets/Products/Variedades/mouse-pad-gamer-mapa-world-of-warcraft-personalizado.png';
 import imgMousePadGelCrash from '../assets/Products/Variedades/mouse-pad-gel-crash-bandicoot-diseno-gaming.png';
 import imgPlacaPerroPanelita from '../assets/Products/Variedades/placa-identificacion-perros-personalizada-nombre-panelita.png';
 import imgRelojDespertadorCubo from '../assets/Products/Variedades/reloj-despertador-cubo-personajes-cartoon-network-breaklab.png';
+
+// Imanes 3D 16cm imports
+import imgImanSet16cm from '../assets/Products/Variedades/imanes-nevera-puerta-3d-16cm-personajes-coleccionables/set-imanes-nevera-16cm-wile-e-coyote-pato-lucas-pikachu-3d.jpeg';
+import imgImanCoyoteHelp from '../assets/Products/Variedades/imanes-nevera-puerta-3d-16cm-personajes-coleccionables/iman-nevera-wile-e-coyote-16cm-cartel-help-looney-tunes-3d.jpeg';
+import imgImanPatoLucas from '../assets/Products/Variedades/imanes-nevera-puerta-3d-16cm-personajes-coleccionables/iman-nevera-pato-lucas-16cm-estrellado-looney-tunes-3d.jpeg';
+import imgImanPikachu from '../assets/Products/Variedades/imanes-nevera-puerta-3d-16cm-personajes-coleccionables/iman-nevera-pikachu-16cm-grieta-pared-pokemon-3d.jpeg';
 
 // Huevo Frito Wall Hanger imports
 import imgColgadorHuevoFrito from '../assets/Products/Variedades/colgador-3d-huevo-frito/colgador-pared-huevo-frito-impresion-3d.jpeg';
@@ -82,7 +100,17 @@ import imgVasoNeonOpalizado from '../assets/Products/Vasos/tazas-neon-opalizadas
 
 // Combos imports
 import imgComboAvengersTazaMarvelVengadoresHulkWolverineGrupo from '../assets/Products/Combos_mugs/Combo_Avengers/taza-marvel-vengadores-hulk-wolverine-grupo.png';
-import imgComboBatmanTazaTheBatmanLogotipoRojoGrupo from '../assets/Products/Combos_mugs/Combo_batman/taza-the-batman-logotipo-rojo-grupo.png';
+import imgComboAvengersSpiderman from '../assets/Products/Combos_mugs/Combo_Avengers/taza-cafe-spiderman-comic-marvel-personalizada.png';
+import imgComboAvengersHulk from '../assets/Products/Combos_mugs/Combo_Avengers/taza-coleccionable-the-incredible-hulk-marvel-regalo.png';
+import imgComboAvengersPersonalizada from '../assets/Products/Combos_mugs/Combo_Avengers/taza-personalizada-avengers-marvel-comics-coleccionable.png';
+import imgComboAvengersSuperheroes from '../assets/Products/Combos_mugs/Combo_Avengers/taza-superheroes-marvel-avengers-hulk-ironman.png';
+import imgComboAvengersWolverine from '../assets/Products/Combos_mugs/Combo_Avengers/taza-wolverine-xmen-marvel-comics-coleccion-geek.png';
+import imgComboBatmanGrupo from '../assets/Products/Combos_mugs/Combo_batman/taza-the-batman-rojo-grupo.png';
+import imgComboBatmanLogoAmarillo from '../assets/Products/Combos_mugs/Combo_batman/taza-the-batman-logo-amarillo-negro-ceramica-alta-calidad-breaklab.jpeg';
+import imgComboBatmanBatisenal from '../assets/Products/Combos_mugs/Combo_batman/taza-batman-batisenal-roja-coleccionable-breaklab.jpeg';
+import imgComboBatmanComicRetro from '../assets/Products/Combos_mugs/Combo_batman/taza-batman-comic-retro-vintage-regalo-falso-breaklab.jpeg';
+import imgComboBatmanSiluetaGotham from '../assets/Products/Combos_mugs/Combo_batman/taza-batman-silueta-gotham-luna-roja-merch-dc-breaklab.jpeg';
+import imgComboBatmanDuoBatimovil from '../assets/Products/Combos_mugs/Combo_batman/set-duo-tazas-batman-comic-batimovil-regalo-pareja-breaklab.jpeg';
 import imgComboBobEsponjaTazaBobEsponjaPatricioPirataGrupo from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-bob-esponja-patricio-pirata-grupo.png';
 import imgComboCaballerosDelZodiacoTazaSaintSeiyaCaballerosZodiacoGrupo from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/taza-saint-seiya-caballeros-zodiaco-grupo.png';
 import imgComboFriendsTazaFriendsChandlerBingVerde from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-chandler-bing-verde.png';
@@ -108,12 +136,12 @@ import imgComboLosSimpsonTazaLisaSimpsonSaxofonSketchArtAmarilla from '../assets
 import imgComboLosSimpsonTazaMaggieSimpsonBocetosCaracterizacionAmarilla from '../assets/Products/Combos_mugs/Combo_Los_simpson/taza-maggie-simpson-bocetos-caracterizacion-amarilla.png';
 import imgComboLosSimpsonTazaMargeSimpsonAnimacionSketchAmarillaBreaklab from '../assets/Products/Combos_mugs/Combo_Los_simpson/taza-marge-simpson-animacion-sketch-amarilla-breaklab.png';
 import imgComboLosSimpsonTazonHomerSimpsonEdicionSketchAsaAmarillaBreaklab from '../assets/Products/Combos_mugs/Combo_Los_simpson/tazon-homer-simpson-edicion-sketch-asa-amarilla-breaklab.png';
-import imgComboMugsOnePieceMugPersonalizadoOnePieceLuffySombreroPaja1 from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/mug-personalizado-one-piece-luffy-sombrero-paja-1.png';
-import imgComboMugsOnePieceTazaDeCeramicaOnePieceNicoRobinChibiColeccionableJpg from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-de-ceramica-one-piece-nico-robin-chibi-coleccionable.jpg.png';
-import imgComboMugsOnePieceTazaPersonalizadaOnePieceBrookReyDelSoulChibi from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-personalizada-one-piece-brook-rey-del-soul-chibi.png';
-import imgComboMugsOnePieceTazaPersonalizadaOnePieceLuffyChibiDisenoExclusivo from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-personalizada-one-piece-luffy-chibi-diseno-exclusivo.png';
-import imgComboMugsOnePieceTazaSublimadaOnePieceNamiEstiloChibiFanArt from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-sublimada-one-piece-nami-estilo-chibi-fan-art.png';
-import imgComboMugsOnePieceTazaTematicaOnePieceRoronoaZoroChibiRegaloAnime from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-tematica-one-piece-roronoa-zoro-chibi-regalo-anime.png';
+import imgComboMugsOnePieceWantedCarteles from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-one-piece-interior-negro-carteles-recompensa-wanted-luffy-zoro.jpeg';
+import imgComboMugsOnePieceLuffyNamiZoro from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-ceramica-one-piece-luffy-nami-zoro-interior-negro.jpeg';
+import imgComboMugsOnePieceJollyRoger from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-negra-interior-one-piece-jolly-roger-luffy-bandera.jpeg';
+import imgComboMugsOnePieceGear5Tripulacion from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-one-piece-luffy-gear-5-tripulacion-interior-negro.jpeg';
+import imgComboMugsOnePieceRostros from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-one-piece-rostros-sombrero-de-paja-interior-negro.jpeg';
+import imgComboMugsOnePieceThousandSunny from '../assets/Products/Combos_mugs/Combo_mugs_one_piece/taza-one-piece-thousand-sunny-tripulacion-interior-negro.jpeg';
 
 // Impresiones 3D imports
 import img3dBombMarioBrossCajaBombMarioBross1 from '../assets/Products/Impresiones_3d/Bomb_Mario_Bross/caja-sorpresa-bomba-mario-bros-impresion-3d-1.png';
@@ -130,6 +158,18 @@ import img3dMewtwoPerfil3CuartosMewtwoArmadura2 from '../assets/Products/Impresi
 import video3dMewtwoVideoFiguraColeccionableMewtwoArmadura from '../assets/Products/Impresiones_3d/Newtwo/video-figura-coleccionable-mewtwo-armadura-pokemon-impresion-3d-breaklab.mp4';
 import img3dMewtwoVistaTraseraMewtwoArmadura3 from '../assets/Products/Impresiones_3d/Newtwo/vista-trasera-mewtwo-armadura-figura-impresion-3d-detalle-cola.png';
 
+// Figuras Coleccionables Wile E. Coyote y Correcaminos ACME imports
+import img3dCoyoteSet from '../assets/Products/Impresiones_3d/figuras-coleccionables-wile-e-coyote-correcaminos-acme-3d/set-figuras-coleccionables-wile-e-coyote-y-correcaminos-acme.jpeg';
+import img3dCoyoteDinamita from '../assets/Products/Impresiones_3d/figuras-coleccionables-wile-e-coyote-correcaminos-acme-3d/figura-3d-wile-e-coyote-dinamita-acme-looney-tunes.jpeg';
+import img3dCorrecaminosFigura from '../assets/Products/Impresiones_3d/figuras-coleccionables-wile-e-coyote-correcaminos-acme-3d/figura-3d-correcaminos-road-runner-looney-tunes-coleccion.jpeg';
+import img3dCoyoteAntorcha from '../assets/Products/Impresiones_3d/figuras-coleccionables-wile-e-coyote-correcaminos-acme-3d/estatua-coleccionable-wile-e-coyote-con-antorcha-productos-acme.jpeg';
+import img3dCorrecaminosEstatua from '../assets/Products/Impresiones_3d/figuras-coleccionables-wile-e-coyote-correcaminos-acme-3d/estatua-road-runner-coleccionable-portafolio-diseno.jpeg';
+import video3dCoyoteCorrecaminos from '../assets/Products/Impresiones_3d/figuras-coleccionables-wile-e-coyote-correcaminos-acme-3d/video-figuras-coleccionables-coyote-y-correcaminos-27cm-bogota-acme.mp4';
+
+// Portafolio Figuras 3D One Piece & Pokemon imports
+import img3dOnePieceFrutaGomu from '../assets/Products/Impresiones_3d/portafolio-figuras-3d-one-piece-pokemon/set-coleccionable-one-piece-luffy-fruta-del-diablo-gomu-gomu.jpeg';
+import video3dOnePiecePokeball from '../assets/Products/Impresiones_3d/portafolio-figuras-3d-one-piece-pokemon/video-muestra-figuras-3d-fruta-del-diablo-pokeball.mp4';
+
 // Mapache Fidget Toy imports
 import img3dMapacheAccesorio from '../assets/Products/Impresiones_3d/Mapache_Fidget_Toy/accesorio-mapache-impreso-3d-breaklab.jpeg';
 import img3dMapacheLlaveroArticuladoBogota from '../assets/Products/Impresiones_3d/Mapache_Fidget_Toy/llavero-mapache-articulado-impresion-3d-bogota.jpeg';
@@ -143,10 +183,9 @@ import img3dTRexPortacelularesBogota from '../assets/Products/Impresiones_3d/Por
 import img3dTRexSoporteEsqueleto from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/soporte-celular-esqueleto-dinosaurio-pla-15cm.jpeg';
 import video3dTRexSoporte from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/video-soporte-celular-dinosaurio-t-rex-3d-bogota.mp4';
 
-
 // Gelatortas extra imports
-import imgGelatortaTematicaGelatortaTematicaBarcelona1 from '../assets/Products/Gelatortas/Gelatorta_tematica/gelatorta-tematica-fc-barcelona-futbol-1.png';
-import imgGelatortaTematicaGelatortaTematicaBarcelona2 from '../assets/Products/Gelatortas/Gelatorta_tematica/gelatorta-tematica-fc-barcelona-futbol-2.png';
+import imgGelatortaTematicaGelatortaTematicaBarcelona1 from '../assets/Products/Gelatortas/Gelatorta_tematica_futbol/gelatorta-tematica-fc-barcelona-futbol-1.png';
+import imgGelatortaTematicaGelatortaTematicaBarcelona2 from '../assets/Products/Gelatortas/Gelatorta_tematica_futbol/gelatorta-tematica-fc-barcelona-futbol-2.png';
 
 // Rompecabezas extra imports
 import imgPuzzleMarioMagneticoExtra from '../assets/Products/Rompecabezas/Rompecabezas_magneticos/Rompecabezas-mario-bross-magneticos/RompecabezasPersonalizadoSuperMario.png';
@@ -161,99 +200,122 @@ import imgDesayunoPremium from '../assets/desayuno-sorpresa-premium-impresion-3d
 import imgDesayunoClasico from '../assets/desayuno-sorpresa-clasico-cumpleanos-breaklab.png';
 import imgBabyShower from '../assets/regalo-sorpresa-bienvenida-baby-shower-breaklab.png';
 
-export { breakLabLogo };
+export {
+    breakLabLogo,
+    imgDragonSet,
+    imgBoxTematica,
+    imgBoxSanValentin
+};
 
 export const PRODUCTS_DB = {
     'desayuno-luxury': [
-        { 
-            id: 'desayuno-luxury-real', 
-            name: 'Box Desayuno Gourmet Luxury', 
+        {
+            id: 'desayuno-luxury-real',
+            name: 'Box Desayuno Gourmet Luxury',
             subtitle: 'La experiencia gourmet definitiva ✨',
-            description: 'Un desayuno de lujo para celebrar por lo alto. Incluye waffles belgas con frutos rojos y chocolate belga, jugo de naranja natural premium, croissant de almendras, café de origen en prensa francesa, taza dorada de colección y un ramo de flores o detalle tejido a mano. Todo presentado en nuestra caja de madera de pino con decoración elegante.', 
-            price: 110000, 
-            isNew: true, 
-            image: imgDesayunoGourmet, 
-            images: [imgDesayunoGourmet, imgDesayunoLuxury, imgMugBordeAsaDorada] 
+            description: 'Un desayuno de lujo para celebrar por lo alto. Incluye waffles belgas con frutos rojos y chocolate belga, jugo de naranja natural premium, croissant de almendras, café de origen en prensa francesa, taza dorada de colección y un ramo de flores o detalle tejido a mano. Todo presentado en nuestra caja de madera de pino con decoración elegante.',
+            price: 110000,
+            isNew: true,
+            image: imgDesayunoGourmet,
+            images: [imgDesayunoGourmet, imgDesayunoLuxury, imgMugBordeAsaDorada]
         }
     ],
     'desayuno-gourmet': [
-        { 
-            id: 'desayuno-luxury-real', 
-            name: 'Box Desayuno Gourmet Luxury', 
+        {
+            id: 'desayuno-luxury-real',
+            name: 'Box Desayuno Gourmet Luxury',
             subtitle: 'La experiencia gourmet definitiva ✨',
-            description: 'Un desayuno de lujo para celebrar por lo alto. Incluye waffles belgas con frutos rojos y chocolate belga, jugo de naranja natural premium, croissant de almendras, café de origen en prensa francesa, taza dorada de colección y un ramo de flores o detalle tejido a mano. Todo presentado en nuestra caja de madera de pino con decoración elegante.', 
-            price: 110000, 
-            isNew: true, 
-            image: imgDesayunoGourmet, 
-            images: [imgDesayunoGourmet, imgDesayunoLuxury, imgMugBordeAsaDorada] 
+            description: 'Un desayuno de lujo para celebrar por lo alto. Incluye waffles belgas con frutos rojos y chocolate belga, jugo de naranja natural premium, croissant de almendras, café de origen en prensa francesa, taza dorada de colección y un ramo de flores o detalle tejido a mano. Todo presentado en nuestra caja de madera de pino con decoración elegante.',
+            price: 110000,
+            isNew: true,
+            image: imgDesayunoGourmet,
+            images: [imgDesayunoGourmet, imgDesayunoLuxury, imgMugBordeAsaDorada]
         }
     ],
     'desayuno-premium': [
-        { 
-            id: 'desayuno-premium-sorpresa', 
-            name: 'Box Desayuno Premium Sorpresa', 
+        {
+            id: 'desayuno-premium-sorpresa',
+            name: 'Box Desayuno Premium Sorpresa',
             subtitle: 'Sorpresa y sabor de alta calidad 🌟',
-            description: 'El equilibrio perfecto entre dulzura y elegancia. Incluye sándwich gourmet artesanal, yogurt con granola, jugo natural en botella de vidrio, porción de fruta fresca, taza con interior de color personalizada, peluche mediano y globos decorativos en caja de madera decorada.', 
-            price: 85000, 
-            isNew: true, 
-            image: imgDesayunoPremium, 
-            images: [imgDesayunoPremium, imgGengarBox] 
+            description: 'El equilibrio perfecto entre dulzura y elegancia. Incluye sándwich gourmet artesanal, yogurt con granola, jugo natural en botella de vidrio, porción de fruta fresca, taza con interior de color personalizada, peluche mediano y globos decorativos en caja de madera decorada.',
+            price: 85000,
+            isNew: true,
+            image: imgDesayunoPremium,
+            images: [imgDesayunoPremium, imgGengarBox]
         }
     ],
     'desayuno-clasico': [
-        { 
-            id: 'desayuno-clasico-breaklab', 
-            name: 'Box Desayuno Clásico BreakLab', 
+        {
+            id: 'desayuno-clasico-breaklab',
+            name: 'Box Desayuno Clásico BreakLab',
             subtitle: 'Un clásico lleno de cariño 🍳',
-            description: 'El desayuno clásico que a todos les encanta. Incluye sándwich de jamón serrano y queso, jugo de naranja en botella decorada, muffin casero de vainilla, mug blanco personalizado con el diseño que desees y tarjeta de regalo en empaque especial.', 
-            price: 60000, 
-            isNew: true, 
-            image: imgDesayunoClasico, 
-            images: [imgDesayunoClasico, imgVasoMascotas] 
+            description: 'El desayuno clásico que a todos les encanta. Incluye sándwich de jamón serrano y queso, jugo de naranja en botella decorada, muffin casero de vainilla, mug blanco personalizado con el diseño que desees y tarjeta de regalo en empaque especial.',
+            price: 60000,
+            isNew: true,
+            image: imgDesayunoClasico,
+            images: [imgDesayunoClasico, imgVasoMascotas]
         }
     ],
     'baby-shower': [
-        { 
-            id: 'box-baby-shower-bienvenida', 
-            name: 'Box Baby Shower Dulce Espera', 
+        {
+            id: 'box-baby-shower-bienvenida',
+            name: 'Box Baby Shower Dulce Espera',
             subtitle: 'Celebra la llegada del bebé 🍼👶',
-            description: 'Un tierno detalle para felicitar a los futuros padres. Incluye un amigurumi tejido a mano de apego, sonajero de madera, babero de algodón personalizado, globos decorativos y una caja de dulces y galletas decorativas en una hermosa caja de madera decorada.', 
-            price: 75000, 
-            isNew: true, 
-            image: imgBabyShower, 
-            images: [imgBabyShower, breakLabLogo] 
+            description: 'Un tierno detalle para felicitar a los futuros padres. Incluye un amigurumi tejido a mano de apego, sonajero de madera, babero de algodón personalizado, globos decorativos y una caja de dulces y galletas decorativas en una hermosa caja de madera decorada.',
+            price: 75000,
+            isNew: true,
+            image: imgBabyShower,
+            images: [imgBabyShower, breakLabLogo]
         }
     ],
     'san-valentin': [
-        { 
-            id: 'box-san-valentin-gelatorta-vino', 
-            name: 'Box San Valentín Gelatorta & Vino', 
+        {
+            id: 'box-san-valentin-gelatorta-vino',
+            name: 'Box San Valentín Gelatorta & Vino',
             subtitle: 'El regalo perfecto para tu pareja 🍷💝',
-            description: 'Exclusivo desayuno y detalle sorpresa que combina una deliciosa gelatorta temática con una botella de vino tinto grabada con dedicatoria. Incluye caja de madera decorativa con moño, globos y tarjeta de regalo.', 
-            price: 95000, 
-            isNew: true, 
-            image: imgBoxSanValentin, 
-            images: [imgBoxSanValentin, videoBoxSanValentin] 
+            description: 'Exclusivo desayuno y detalle sorpresa que combina una deliciosa gelatorta temática con una botella de vino tinto grabada con dedicatoria. Incluye caja de madera decorativa con moño, globos y tarjeta de regalo.',
+            price: 95000,
+            isNew: true,
+            image: imgBoxSanValentin,
+            images: [imgBoxSanValentin, videoBoxSanValentin]
         },
-        { 
-            id: 'san-valentin-premium', 
-            name: 'Box San Valentín Premium', 
+        {
+            id: 'san-valentin-premium',
+            name: 'Box San Valentín Premium',
             subtitle: 'El amor se celebra con detalles',
-            description: 'Un desayuno sorpresa premium decorado con amor. Incluye peluche temático, taza personalizada, jugo natural, sándwich gourmet y globos decorativos 💕', 
-            price: 85000, 
-            isNew: false, 
-            image: imgGengarBox, 
-            images: [imgGengarBox, breakLabLogo] 
+            description: 'Un desayuno sorpresa premium decorado con amor. Incluye peluche temático, taza personalizada, jugo natural, sándwich gourmet y globos decorativos 💕',
+            price: 85000,
+            isNew: false,
+            image: imgGengarBox,
+            images: [imgGengarBox, breakLabLogo]
         },
-        { 
-            id: 'san-valentin-dulce', 
-            name: 'Box Dulce San Valentín', 
+        {
+            id: 'san-valentin-dulce',
+            name: 'Box Dulce San Valentín',
             subtitle: 'Endulza su día especial 🍫',
-            description: 'La combinación perfecta de fresas con chocolate, golosinas importadas y un mensaje personalizado en una caja de madera decorativa.', 
-            price: 65000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'La combinación perfecta de fresas con chocolate, golosinas importadas y un mensaje personalizado en una caja de madera decorativa.',
+            price: 65000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
+        }
+    ],
+    'kit-pareja-dragon': [
+        {
+            id: 'kit-regalo-como-entrenar-a-tu-dragon',
+            name: 'Kit Regalo Pareja Cómo Entrenar a Tu Dragón',
+            subtitle: 'Tazas personalizadas y puzzle corazón Spotify 🐉✨',
+            description: 'El regalo de pareja más especial y romántico. Incluye 2 tazas de cerámica premium de Chimuelo (Toothless) y Furia Luminosa personalizadas con nombres y código interactivo escaneable de Spotify, más rompecabezas magnético en forma de corazón interactivo con tu canción especial, todo en caja de regalo decorada con empaque especial.',
+            price: 85000,
+            isNew: true,
+            image: imgDragonSet,
+            images: [
+                imgDragonSet,
+                imgDragonTazasPareja,
+                imgDragonTazaNorma,
+                imgDragonTazaJuan,
+                videoDragonPuzzle
+            ]
         }
     ],
     'box-tematicas': [
@@ -269,194 +331,194 @@ export const PRODUCTS_DB = {
         }
     ],
     'kit-escolar': [
-        { 
-            id: 'kit-escolar-sorpresa', 
-            name: 'Box Kit Escolar', 
+        {
+            id: 'kit-escolar-sorpresa',
+            name: 'Box Kit Escolar',
             subtitle: '¡A aprender con alegría!',
-            description: '¡Regresa a clases con toda la energía! Caja decorada que incluye cartuchera personalizada, termo para agua, set de colores y snacks deliciosos.', 
-            price: 38000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: '¡Regresa a clases con toda la energía! Caja decorada que incluye cartuchera personalizada, termo para agua, set de colores y snacks deliciosos.',
+            price: 38000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'kit-escolar-basico', 
-            name: 'Kit Escolar Básico', 
+        {
+            id: 'kit-escolar-basico',
+            name: 'Kit Escolar Básico',
             subtitle: 'Listos para el regreso a clases 📚',
-            description: 'Práctico y funcional. Libreta de notas con diseño a elegir, bolígrafo temático y galletas artesanales para acompañar la jornada escolar.', 
-            price: 25000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Práctico y funcional. Libreta de notas con diseño a elegir, bolígrafo temático y galletas artesanales para acompañar la jornada escolar.',
+            price: 25000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'reyes': [
-        { 
-            id: 'reyes-magos-box', 
-            name: 'Box Día de Reyes', 
+        {
+            id: 'reyes-magos-box',
+            name: 'Box Día de Reyes',
             subtitle: '¡Que la magia te acompañe!',
-            description: 'Celebra la magia de los Reyes con este box gourmet. Rosca de reyes individual, chocolate caliente artesanal y figuritas de reyes en resina coleccionables.', 
-            price: 45000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Celebra la magia de los Reyes con este box gourmet. Rosca de reyes individual, chocolate caliente artesanal y figuritas de reyes en resina coleccionables.',
+            price: 45000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'reyes-magos-dulce', 
-            name: 'Caja Regalo Carbón Dulce', 
+        {
+            id: 'reyes-magos-dulce',
+            name: 'Caja Regalo Carbón Dulce',
             subtitle: 'Momentos mágicos de Reyes ✨',
-            description: 'Caja temática con "carbón dulce" comestible, chocolates finos y una carta personalizada de los Reyes Magos para divertir y consentir.', 
-            price: 38000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Caja temática con "carbón dulce" comestible, chocolates finos y una carta personalizada de los Reyes Magos para divertir y consentir.',
+            price: 38000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'dia-mujer': [
-        { 
-            id: 'dia-mujer-premium', 
-            name: 'Box Día de la Mujer Flores & Café', 
+        {
+            id: 'dia-mujer-premium',
+            name: 'Box Día de la Mujer Flores & Café',
             subtitle: 'Flores, aromas y dulzura 🌹',
-            description: 'Consiente a esa mujer especial. Hermosa cúpula con rosa eterna, taza personalizada de cerámica, café premium colombiano y galletas gourmet.', 
-            price: 90000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo, imgVasoMascotas] 
+            description: 'Consiente a esa mujer especial. Hermosa cúpula con rosa eterna, taza personalizada de cerámica, café premium colombiano y galletas gourmet.',
+            price: 90000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo, imgVasoMascotas]
         },
-        { 
-            id: 'dia-mujer-spa', 
-            name: 'Box Día de la Mujer Relajación Spa', 
+        {
+            id: 'dia-mujer-spa',
+            name: 'Box Día de la Mujer Relajación Spa',
             subtitle: 'Un momento de relajación único 💆‍♀️',
-            description: 'Caja de madera con sales de baño, vela aromática de cera de soja, jabón artesanal de avena y miel, y un amigurumi decorativo en forma de flor.', 
-            price: 72000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Caja de madera con sales de baño, vela aromática de cera de soja, jabón artesanal de avena y miel, y un amigurumi decorativo en forma de flor.',
+            price: 72000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'dia-hombre': [
-        { 
-            id: 'dia-hombre-cervecero', 
-            name: 'Box Día del Hombre Cervecero', 
+        {
+            id: 'dia-hombre-cervecero',
+            name: 'Box Día del Hombre Cervecero',
             subtitle: 'Brindemos por los buenos tiempos 🍺',
-            description: 'Caja rústica con cervezas artesanales premium, mix de frutos secos salados, vaso cervecero grabado y un llavero en resina personalizado con sus iniciales.', 
-            price: 78000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Caja rústica con cervezas artesanales premium, mix de frutos secos salados, vaso cervecero grabado y un llavero en resina personalizado con sus iniciales.',
+            price: 78000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'dia-hombre-ejecutivo', 
-            name: 'Box Día del Hombre Elegante', 
+        {
+            id: 'dia-hombre-ejecutivo',
+            name: 'Box Día del Hombre Elegante',
             subtitle: 'Estilo y sabor en su escritorio 💼',
-            description: 'Ideal para la oficina. Mug térmico de acero inoxidable personalizado, libreta ejecutiva de cuero sintético y chocolates gourmet.', 
-            price: 65000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Ideal para la oficina. Mug térmico de acero inoxidable personalizado, libreta ejecutiva de cuero sintético y chocolates gourmet.',
+            price: 65000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'semana-santa': [
-        { 
-            id: 'semana-santa-pascua', 
-            name: 'Box de Pascua Familiar', 
+        {
+            id: 'semana-santa-pascua',
+            name: 'Box de Pascua Familiar',
             subtitle: 'Celebración de pascua en familia 🐣',
-            description: 'Caja de pascua decorada con conejo tejido a mano, huevos de chocolate rellenos y set de decoración para que los niños pinten en casa.', 
-            price: 49000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Caja de pascua decorada con conejo tejido a mano, huevos de chocolate rellenos y set de decoración para que los niños pinten en casa.',
+            price: 49000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'semana-santa-espiritual', 
-            name: 'Box Meditación & Paz', 
+        {
+            id: 'semana-santa-espiritual',
+            name: 'Box Meditación & Paz',
             subtitle: 'Momentos de paz y reflexión 🕊️',
-            description: 'Detalle sobrio y elegante. Vela aromática con aroma a sándalo, libreta de agradecimiento hecha a mano y llavero de resina con cruz encapsulada.', 
-            price: 36000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Detalle sobrio y elegante. Vela aromática con aroma a sándalo, libreta de agradecimiento hecha a mano y llavero de resina con cruz encapsulada.',
+            price: 36000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'dia-nino': [
-        { 
-            id: 'dia-nino-gamer', 
-            name: 'Box Día del Niño Gamer', 
+        {
+            id: 'dia-nino-gamer',
+            name: 'Box Día del Niño Gamer',
             subtitle: '¡Para los pequeños campeones! 🎮',
-            description: '¡Diversión garantizada! Taza con diseño de consola retro, chocolates con forma de control, snacks surtidos y una figura 3D pintada a mano.', 
-            price: 62000, 
-            isNew: true, 
-            image: imgGengarBox, 
-            images: [imgGengarBox, breakLabLogo] 
+            description: '¡Diversión garantizada! Taza con diseño de consola retro, chocolates con forma de control, snacks surtidos y una figura 3D pintada a mano.',
+            price: 62000,
+            isNew: true,
+            image: imgGengarBox,
+            images: [imgGengarBox, breakLabLogo]
         },
-        { 
-            id: 'dia-nino-amigurumi', 
-            name: 'Box Día del Niño Juguetón', 
+        {
+            id: 'dia-nino-amigurumi',
+            name: 'Box Día del Niño Juguetón',
             subtitle: 'Ternura tejida con amor 🧸',
-            description: 'Incluye un tierno oso de peluche tejido a mano (amigurumi), vaso frost con pitillo personalizado con su nombre y dulces variados.', 
-            price: 54000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Incluye un tierno oso de peluche tejido a mano (amigurumi), vaso frost con pitillo personalizado con su nombre y dulces variados.',
+            price: 54000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'dia-madre': [
-        { 
-            id: 'dia-madre-rosa-gourmet', 
-            name: 'Box Día de la Madre Desayuno de la Reina', 
+        {
+            id: 'dia-madre-rosa-gourmet',
+            name: 'Box Día de la Madre Desayuno de la Reina',
             subtitle: 'El desayuno de la reina de casa 👑',
-            description: 'Haz que empiece su día con una sonrisa. Waffles con fresas y chocolate, jugo de naranja en botella decorada, taza premium y un ramo de flores tejidas.', 
-            price: 95000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Haz que empiece su día con una sonrisa. Waffles con fresas y chocolate, jugo de naranja en botella decorada, taza premium y un ramo de flores tejidas.',
+            price: 95000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'dia-madre-joyas-flores', 
-            name: 'Box Día de la Madre Amor Eterno', 
+        {
+            id: 'dia-madre-joyas-flores',
+            name: 'Box Día de la Madre Amor Eterno',
             subtitle: 'Un detalle eterno para mamá 💖',
-            description: 'Elegante regalo con cúpula de rosa preservada, pulsera Miyuki tejida a mano con diseño de corazón y chocolates finos.', 
-            price: 88000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Elegante regalo con cúpula de rosa preservada, pulsera Miyuki tejida a mano con diseño de corazón y chocolates finos.',
+            price: 88000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'dia-padre': [
-        { 
-            id: 'dia-padre-asador', 
-            name: 'Box Día del Padre Parrillero', 
+        {
+            id: 'dia-padre-asador',
+            name: 'Box Día del Padre Parrillero',
             subtitle: 'Para el mejor asador del mundo 🍖',
-            description: 'Para los papás amantes de la cocina. Delantal de cuero personalizado con su nombre, salsa barbacoa artesanal, cerveza y snacks.', 
-            price: 89000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Para los papás amantes de la cocina. Delantal de cuero personalizado con su nombre, salsa barbacoa artesanal, cerveza y snacks.',
+            price: 89000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'dia-padre-cafetero', 
-            name: 'Box Día del Padre Espresso', 
+        {
+            id: 'dia-padre-cafetero',
+            name: 'Box Día del Padre Espresso',
             subtitle: 'Café del bueno para el mejor papá ☕',
-            description: 'Incluye prensa francesa pequeña, mug de cerámica de alta calidad personalizado y bolsa de café artesanal molido de origen.', 
-            price: 75000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Incluye prensa francesa pequeña, mug de cerámica de alta calidad personalizado y bolsa de café artesanal molido de origen.',
+            price: 75000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'mugs-personalizados': [
-        { 
-            id: 'mug-interior-color', 
-            name: 'Mug con Interior y Asa de Color', 
+        {
+            id: 'mug-interior-color',
+            name: 'Mug con Interior y Asa de Color',
             subtitle: 'Elige tu color preferido 🌈',
-            description: 'Mug de cerámica de alta calidad personalizado con asa e interior de color. Resistente al microondas y lavavajillas. Elige el color que mejor combine con tu diseño.', 
-            price: 18000, 
-            isNew: true, 
-            image: imgMugInteriorAmarillo, 
+            description: 'Mug de cerámica de alta calidad personalizado con asa e interior de color. Resistente al microondas y lavavajillas. Elige el color que mejor combine con tu diseño.',
+            price: 18000,
+            isNew: true,
+            image: imgMugInteriorAmarillo,
             images: [
-                imgMugInteriorAmarillo, 
-                imgMugInteriorAzul, 
-                imgMugInteriorRojo, 
+                imgMugInteriorAmarillo,
+                imgMugInteriorAzul,
+                imgMugInteriorRojo,
                 imgMugInteriorVerde
             ],
             options: [
@@ -474,44 +536,44 @@ export const PRODUCTS_DB = {
                 'Verde': 3
             }
         },
-        { 
-            id: 'mug-magico', 
-            name: 'Mug Mágico Personalizado', 
+        {
+            id: 'mug-magico',
+            name: 'Mug Mágico Personalizado',
             subtitle: 'Sorpresa de color al instante 🔮',
-            description: 'Taza de cerámica negra que revela el diseño personalizado al verter líquidos calientes. Con destellos sutiles de glitter tipo galaxia. Ideal para fotos familiares, de mascotas o textos ocultos.', 
-            price: 25000, 
-            isNew: true, 
-            image: imgMugMagicaGlitter, 
-            images: [imgMugMagicaGlitter, imgMugNeonPack] 
+            description: 'Taza de cerámica negra que revela el diseño personalizado al verter líquidos calientes. Con destellos sutiles de glitter tipo galaxia. Ideal para fotos familiares, de mascotas o textos ocultos.',
+            price: 25000,
+            isNew: true,
+            image: imgMugMagicaGlitter,
+            images: [imgMugMagicaGlitter, imgMugNeonPack]
         },
-        { 
-            id: 'mug-borde-asa-dorada', 
-            name: 'Mug Premium con Borde y Asa Dorada', 
+        {
+            id: 'mug-borde-asa-dorada',
+            name: 'Mug Premium con Borde y Asa Dorada',
             subtitle: 'Elegancia y brillo en tu taza ✨',
-            description: 'Taza de cerámica premium con acabado metálico dorado en el asa y el borde superior. Ideal para diseños de aniversario, marcas elegantes y regalos de lujo.', 
-            price: 22000, 
-            isNew: true, 
-            image: imgMugBordeAsaDorada, 
-            images: [imgMugBordeAsaDorada, imgMugDoradaRomantica] 
+            description: 'Taza de cerámica premium con acabado metálico dorado en el asa y el borde superior. Ideal para diseños de aniversario, marcas elegantes y regalos de lujo.',
+            price: 22000,
+            isNew: true,
+            image: imgMugBordeAsaDorada,
+            images: [imgMugBordeAsaDorada, imgMugDoradaRomantica]
         },
-        { 
-            id: 'mug-neon', 
-            name: 'Mug Neón Cyberpunk Sci-Fi', 
+        {
+            id: 'mug-neon',
+            name: 'Mug Neón Cyberpunk Sci-Fi',
             subtitle: 'Colores neón que resaltan ⚡',
-            description: 'Taza personalizada con colores neón mate. Diseño vibrante de alta visibilidad, excelente para diseños gaming, modernos y atrevidos.', 
-            price: 20000, 
-            isNew: true, 
-            image: imgMugNeonCyberpunk, 
-            images: [imgMugNeonCyberpunk, imgMugNeonPack] 
+            description: 'Taza personalizada con colores neón mate. Diseño vibrante de alta visibilidad, excelente para diseños gaming, modernos y atrevidos.',
+            price: 20000,
+            isNew: true,
+            image: imgMugNeonCyberpunk,
+            images: [imgMugNeonCyberpunk, imgMugNeonPack]
         },
-        { 
-            id: 'mug-tematico-anime-gamer', 
-            name: 'Mugs Colección Anime & Geek', 
+        {
+            id: 'mug-tematico-anime-gamer',
+            name: 'Mugs Colección Anime & Geek',
             subtitle: 'Tus personajes e historias favoritas ⚔️',
-            description: 'Mugs temáticos sublimados en alta definición con diseños de Dragon Ball, Pokémon, Death Note, One Piece, Hora de Aventura y más. Material resistente.', 
-            price: 18000, 
-            isNew: true, 
-            image: imgMugPikachuCharizard, 
+            description: 'Mugs temáticos sublimados en alta definición con diseños de Dragon Ball, Pokémon, Death Note, One Piece, Hora de Aventura y más. Material resistente.',
+            price: 18000,
+            isNew: true,
+            image: imgMugPikachuCharizard,
             images: [
                 imgMugPikachuCharizard,
                 imgMugDbz,
@@ -520,67 +582,67 @@ export const PRODUCTS_DB = {
                 imgMugLuffyRojo
             ]
         },
-        { 
-            id: 'mugs-parejas', 
-            name: 'Set de Mugs Personalizados Pareja', 
+        {
+            id: 'mugs-parejas',
+            name: 'Set de Mugs Personalizados Pareja',
             subtitle: 'El complemento perfecto para los dos 💕',
-            description: 'Set de dos tazas con ilustraciones románticas y mensajes combinados. Ideales para aniversarios, bodas o simplemente celebrar el amor diario.', 
-            price: 32000, 
-            isNew: true, 
-            image: imgMugParejas2, 
-            images: [imgMugParejas2, imgMugParejas1] 
+            description: 'Set de dos tazas con ilustraciones románticas y mensajes combinados. Ideales para aniversarios, bodas o simplemente celebrar el amor diario.',
+            price: 32000,
+            isNew: true,
+            image: imgMugParejas2,
+            images: [imgMugParejas2, imgMugParejas1]
         },
-        { 
-            id: 'mug-blanco', 
-            name: 'Mug Blanco Clásico', 
+        {
+            id: 'mug-blanco',
+            name: 'Mug Blanco Clásico',
             subtitle: 'Diseños nítidos y duraderos 🎨',
-            description: 'Taza de cerámica blanca premium brillante. Estampado de alta durabilidad apto para microondas y lavavajillas con tu diseño preferido.', 
-            price: 15000, 
-            isNew: false, 
-            image: imgMugBordeAsaNegra, 
-            images: [imgMugBordeAsaNegra, imgMugAsaCorazon, imgMugAsaCorazonUp] 
+            description: 'Taza de cerámica blanca premium brillante. Estampado de alta durabilidad apto para microondas y lavavajillas con tu diseño preferido.',
+            price: 15000,
+            isNew: false,
+            image: imgMugBordeAsaNegra,
+            images: [imgMugBordeAsaNegra, imgMugAsaCorazon, imgMugAsaCorazonUp]
         }
     ],
     'vasos-personalizados': [
-        { 
-            id: 'tarro-mason-jar', 
-            name: 'Tarro Mason Jar Vidrio Satinado Degradado', 
+        {
+            id: 'tarro-mason-jar',
+            name: 'Tarro Mason Jar Vidrio Satinado Degradado',
             subtitle: 'Bebidas con estilo y color 🥤',
-            description: 'Tarro tipo Mason Jar de vidrio satinado opalizado con un hermoso degradado de colores. Incluye tapa y pitillo. Perfecto para jugos, batidos y cocteles.', 
-            price: 28000, 
-            isNew: true, 
-            image: imgVasoMasonJar, 
-            images: [imgVasoMasonJar] 
+            description: 'Tarro tipo Mason Jar de vidrio satinado opalizado con un hermoso degradado de colores. Incluye tapa y pitillo. Perfecto para jugos, batidos y cocteles.',
+            price: 28000,
+            isNew: true,
+            image: imgVasoMasonJar,
+            images: [imgVasoMasonJar]
         },
-        { 
-            id: 'tazas-neon-opalizadas', 
-            name: 'Tazas Neón Opalizadas Mate', 
+        {
+            id: 'tazas-neon-opalizadas',
+            name: 'Tazas Neón Opalizadas Mate',
             subtitle: 'Diseño traslúcido y colorido 🌟',
-            description: 'Tazas hechas de vidrio opalizado mate con acabado en colores neón vibrantes. Perfectas para café, té y de tragos con estilo original.', 
-            price: 18000, 
-            isNew: true, 
-            image: imgVasoNeonOpalizado, 
-            images: [imgVasoNeonOpalizado] 
+            description: 'Tazas hechas de vidrio opalizado mate con acabado en colores neón vibrantes. Perfectas para café, té y de tragos con estilo original.',
+            price: 18000,
+            isNew: true,
+            image: imgVasoNeonOpalizado,
+            images: [imgVasoNeonOpalizado]
         },
-        { 
-            id: 'vaso-frost-personalizado-mascotas', 
-            name: 'Vaso Frost Personalizado Mascotas', 
+        {
+            id: 'vaso-frost-personalizado-mascotas',
+            name: 'Vaso Frost Personalizado Mascotas',
             subtitle: 'Tu fiel amigo en tu bebida 🐶',
-            description: 'Vaso de vidrio esmerilado con la ilustración de tu mascota a todo color. Incluye tapa de madera de bambú ecológica y pitillo transparente.', 
-            price: 32000, 
-            isNew: true, 
-            image: imgVasoMascotas, 
-            images: [imgVasoMascotas, breakLabLogo] 
+            description: 'Vaso de vidrio esmerilado con la ilustración de tu mascota a todo color. Incluye tapa de madera de bambú ecológica y pitillo transparente.',
+            price: 32000,
+            isNew: true,
+            image: imgVasoMascotas,
+            images: [imgVasoMascotas, breakLabLogo]
         },
-        { 
-            id: 'vaso-frost-frase-personalizada', 
-            name: 'Vaso Frost con Frase Especial', 
+        {
+            id: 'vaso-frost-frase-personalizada',
+            name: 'Vaso Frost con Frase Especial',
             subtitle: 'Tus bebidas con frases motivacionales 🥤',
-            description: 'Vaso opalizado templado personalizado con frases motivacionales o nombres. Incluye pitillo y tapa de silicona antiderrame.', 
-            price: 24000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Vaso opalizado templado personalizado con frases motivacionales o nombres. Incluye pitillo y tapa de silicona antiderrame.',
+            price: 24000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'llaveros': [
@@ -638,6 +700,16 @@ export const PRODUCTS_DB = {
                 img3dMapacheLlaveroOriginal,
                 video3dMapacheLlavero
             ]
+        },
+        {
+            id: 'llavero-aguacate-clicker-pareja',
+            name: 'Set Llaveros Pareja Aguacate Clicker 3D',
+            subtitle: 'El match perfecto con clicker de corazón interactivo 🥑❤️',
+            description: 'Set de dos llaveros complementarios en forma de aguacate impresos en 3D. Incorporan un botón clicker interactivo con tacto y sonido satisfactorio, y detalle de corazón central. El regalo más tierno y original para parejas en aniversarios o San Valentín.',
+            price: 24000,
+            isNew: true,
+            image: imgLlaveroAguacatePareja,
+            images: [imgLlaveroAguacatePareja, videoLlaveroAguacate]
         }
     ],
     'gelatortas_mascota': [
@@ -665,6 +737,18 @@ export const PRODUCTS_DB = {
                 imgGelatortaTematicaGelatortaTematicaBarcelona1,
                 imgGelatortaTematicaGelatortaTematicaBarcelona2
             ]
+        }
+    ],
+    'gelatorta_viajes': [
+        {
+            id: 'gelatorta-tematica-viajes',
+            name: 'Gelatorta Temática Viajes y Mapamundi',
+            subtitle: 'Deliciosa gelatina con diseño de viajes y mapas ✈️🌍',
+            description: 'Espectacular gelatorta artesanal personalizada con diseño temático de mapamundi, pasaporte y detalles de viaje en relieve. Perfecta para amantes de viajar, despedidas, bienvenidas y cumpleaños.',
+            price: 60000,
+            isNew: true,
+            image: imgGelatortaViajes,
+            images: [imgGelatortaViajes, videoGelatortaViajes]
         }
     ],
     'variedades': [
@@ -721,18 +805,33 @@ export const PRODUCTS_DB = {
                 imgColgadorHuevoFritoGancho,
                 videoColgadorHuevoFrito
             ]
+        },
+        {
+            id: 'imanes-3d-16cm-personajes-coleccionables',
+            name: 'Set Imanes 3D Nevera y Puerta 16cm Personajes',
+            subtitle: 'Efecto estrellado en pared y nevera 16cm 💥',
+            description: 'Imanes decorativos gigantes de 16cm en 3D para nevera o puertas con efecto óptico de personajes estrellados o saliendo de la pared (Wile E. Coyote con cartel HELP, Pato Lucas y Pikachu). Incluye imán de neodimio de alta potencia para máxima fijación.',
+            price: 32000,
+            isNew: true,
+            image: imgImanSet16cm,
+            images: [
+                imgImanSet16cm,
+                imgImanCoyoteHelp,
+                imgImanPatoLucas,
+                imgImanPikachu
+            ]
         }
     ],
     'rompecabezas-one-piece': [
-        { 
-            id: 'rompecabezas-magnetico-one-piece-luffy', 
-            name: 'Rompecabezas Magnético One Piece Luffy', 
+        {
+            id: 'rompecabezas-magnetico-one-piece-luffy',
+            name: 'Rompecabezas Magnético One Piece Luffy',
             subtitle: 'Luffy Gear 5 en tu nevera ⚓',
-            description: 'Rompecabezas imantado con diseño de Luffy en Wano. Ideal para decorar la nevera o pizarras magnéticas, fabricado en materiales resistentes de alta definición.', 
-            price: 28000, 
-            isNew: true, 
-            image: imgRompecabezasLuffy, 
-            images: [imgRompecabezasLuffy, breakLabLogo, imgGengarBox] 
+            description: 'Rompecabezas imantado con diseño de Luffy en Wano. Ideal para decorar la nevera o pizarras magnéticas, fabricado en materiales resistentes de alta definición.',
+            price: 28000,
+            isNew: true,
+            image: imgRompecabezasLuffy,
+            images: [imgRompecabezasLuffy, breakLabLogo, imgGengarBox]
         },
         {
             id: 'rompecabezas-one-piece',
@@ -744,6 +843,7 @@ export const PRODUCTS_DB = {
             image: imgPuzzleTripulacion,
             images: [
                 imgPuzzleTripulacion,
+                videoPuzzleOnePieceDuelo,
                 imgPuzzleLuffyZoroDuelo,
                 imgPuzzleZoroEspadas
             ]
@@ -843,25 +943,25 @@ export const PRODUCTS_DB = {
         }
     ],
     'rompecabezas-carton': [
-        { 
-            id: 'rompecabezas-carton-personalizado', 
-            name: 'Rompecabezas de Cartón Personalizado', 
+        {
+            id: 'rompecabezas-carton-personalizado',
+            name: 'Rompecabezas de Cartón Personalizado',
             subtitle: 'Tus recuerdos en cartón satinado 🧩',
-            description: 'Envíanos tu foto o diseño favorito y lo plasmaremos en un rompecabezas de cartón prensado satinado de alta calidad, ideal para regalos y sorpresas.', 
-            price: 25000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Envíanos tu foto o diseño favorito y lo plasmaremos en un rompecabezas de cartón prensado satinado de alta calidad, ideal para regalos y sorpresas.',
+            price: 25000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'rompecabezas-madera-personalizado', 
-            name: 'Rompecabezas de Madera Personalizado', 
+        {
+            id: 'rompecabezas-madera-personalizado',
+            name: 'Rompecabezas de Madera Personalizado',
             subtitle: 'Tus mejores recuerdos en madera 🪵',
-            description: 'Envíanos tu foto familiar o retrato favorito y crearemos un rompecabezas duradero de madera MDF de 120 piezas con corte de precisión.', 
-            price: 35000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Envíanos tu foto familiar o retrato favorito y crearemos un rompecabezas duradero de madera MDF de 120 piezas con corte de precisión.',
+            price: 35000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
         {
             id: 'rompecabezas-carton-rick-morty',
@@ -897,91 +997,91 @@ export const PRODUCTS_DB = {
         }
     ],
     'arte-resina': [
-        { 
-            id: 'llavero-resina-letra', 
-            name: 'Llavero de Inicial Personalizado', 
+        {
+            id: 'llavero-resina-letra',
+            name: 'Llavero de Inicial Personalizado',
             subtitle: 'Iniciales con estilo encapsuladas 🌸',
-            description: 'Llavero de inicial de resina epóxica hecha a mano con flores prensadas, hojilla de oro o purpurina según tu preferencia. Incluye borla decorativa.', 
-            price: 12000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Llavero de inicial de resina epóxica hecha a mano con flores prensadas, hojilla de oro o purpurina según tu preferencia. Incluye borla decorativa.',
+            price: 12000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'portavasos-resina', 
-            name: 'Set de Portavasos Resina Epoxi', 
+        {
+            id: 'portavasos-resina',
+            name: 'Set de Portavasos Resina Epoxi',
             subtitle: 'Arte epoxi para tu mesa 🥂',
-            description: 'Set de 4 portavasos circulares hechos a mano con resina epoxi de alta resistencia. Diseños personalizados imitando geodas o marmolado.', 
-            price: 35000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Set de 4 portavasos circulares hechos a mano con resina epoxi de alta resistencia. Diseños personalizados imitando geodas o marmolado.',
+            price: 35000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'miyuki': [
-        { 
-            id: 'pulsera-miyuki', 
-            name: 'Pulsera Miyuki Tejida a Mano', 
+        {
+            id: 'pulsera-miyuki',
+            name: 'Pulsera Miyuki Tejida a Mano',
             subtitle: 'Elegancia tejida a mano ✨',
-            description: 'Pulsera fina tejida a mano con mostacillas japonesas Delica Miyuki de alta calidad, creando patrones geométricos elegantes y ajustables.', 
-            price: 28000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Pulsera fina tejida a mano con mostacillas japonesas Delica Miyuki de alta calidad, creando patrones geométricos elegantes y ajustables.',
+            price: 28000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'collar-miyuki', 
-            name: 'Collar Gargantilla Miyuki', 
+        {
+            id: 'collar-miyuki',
+            name: 'Collar Gargantilla Miyuki',
             subtitle: 'Detalle sutil y moderno 💎',
-            description: 'Delicado collar con dije central tejido en Miyuki en forma de corazón, estrella o inicial, montado en cadena de acero inoxidable hipoalergénico.', 
-            price: 42000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Delicado collar con dije central tejido en Miyuki en forma de corazón, estrella o inicial, montado en cadena de acero inoxidable hipoalergénico.',
+            price: 42000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'globo-mensaje': [
-        { 
-            id: 'globo-burbuja', 
-            name: 'Globo Burbuja con Mensaje', 
+        {
+            id: 'globo-burbuja',
+            name: 'Globo Burbuja con Mensaje',
             subtitle: 'Mensajes gigantes en el aire 🎈',
-            description: 'Globo gigante transparente relleno de confeti metálico o plumas de colores, con mensaje personalizado en vinilo adhesivo y base de soporte.', 
-            price: 30000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Globo gigante transparente relleno de confeti metálico o plumas de colores, con mensaje personalizado en vinilo adhesivo y base de soporte.',
+            price: 30000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'globo-metalizado-personalizado', 
-            name: 'Ramo de Globos Metalizados', 
+        {
+            id: 'globo-metalizado-personalizado',
+            name: 'Ramo de Globos Metalizados',
             subtitle: 'Bouquets festivos inflados con helio 🎉',
-            description: 'Bouquet de globos con forma de estrella, corazón o números gigantes para cumpleaños, inflados con helio y rotulados con nombres.', 
-            price: 45000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Bouquet de globos con forma de estrella, corazón o números gigantes para cumpleaños, inflados con helio y rotulados con nombres.',
+            price: 45000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'vino': [
-        { 
-            id: 'vino-personalizado', 
-            name: 'Vino Botella Grabada', 
+        {
+            id: 'vino-personalizado',
+            name: 'Vino Botella Grabada',
             subtitle: 'Copas y dedicatorias grabadas 🍷',
-            description: 'Botella de vino tinto Gato Negro personalizada con grabado láser en el vidrio con el mensaje o dedicatoria que prefieras.', 
-            price: 45000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Botella de vino tinto Gato Negro personalizada con grabado láser en el vidrio con el mensaje o dedicatoria que prefieras.',
+            price: 45000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'vino-caja-madera', 
-            name: 'Estuche de Vino Gourmet', 
+        {
+            id: 'vino-caja-madera',
+            name: 'Estuche de Vino Gourmet',
             subtitle: 'Estuches finos de madera 🍾',
-            description: 'Botella de vino tinto grabada, presentada en una caja de madera personalizada con tapa deslizable y copas de cristal grabadas.', 
-            price: 95000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Botella de vino tinto grabada, presentada en una caja de madera personalizada con tapa deslizable y copas de cristal grabadas.',
+            price: 95000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'figuras-3d-mario-bros': [
@@ -1098,15 +1198,15 @@ export const PRODUCTS_DB = {
         }
     ],
     'figuras-3d-personalizadas': [
-        { 
-            id: 'figura-3d-personalizada', 
-            name: 'Figura Impresión 3D Pintada a Mano', 
+        {
+            id: 'figura-3d-personalizada',
+            name: 'Figura Impresión 3D Pintada a Mano',
             subtitle: 'Tus personajes favoritos en tus manos 👾',
-            description: 'Modelado, impresión 3D en resina o PLA de alta definición y pintura artesanal a mano. Personajes de videojuegos, anime o retratos estilizados.', 
-            price: 60000, 
-            isNew: true, 
-            image: imgFigura3d, 
-            images: [imgFigura3d, breakLabLogo] 
+            description: 'Modelado, impresión 3D en resina o PLA de alta definición y pintura artesanal a mano. Personajes de videojuegos, anime o retratos estilizados.',
+            price: 60000,
+            isNew: true,
+            image: imgFigura3d,
+            images: [imgFigura3d, breakLabLogo]
         },
         {
             id: 'colgador-3d-huevo-frito',
@@ -1121,6 +1221,37 @@ export const PRODUCTS_DB = {
                 imgColgadorHuevoFritoGancho,
                 videoColgadorHuevoFrito
             ]
+        }
+    ],
+    'figuras-3d-coyote-correcaminos': [
+        {
+            id: 'figuras-3d-coyote-correcaminos-acme',
+            name: 'Set Figuras Wile E. Coyote y Correcaminos ACME 3D (27cm)',
+            subtitle: 'Estatua coleccionable de alta gama Looney Tunes 💣🏜️',
+            description: 'Impresionante set de estatuas de colección de Wile E. Coyote con dinamita ACME y el Correcaminos (Road Runner) de 27cm de altura. Impresas en 3D con máxima definición y acabados detallados. Ideal para coleccionistas geek y nostálgicos de los dibujos clásicos.',
+            price: 110000,
+            isNew: true,
+            image: img3dCoyoteSet,
+            images: [
+                img3dCoyoteSet,
+                img3dCoyoteDinamita,
+                img3dCorrecaminosFigura,
+                img3dCoyoteAntorcha,
+                img3dCorrecaminosEstatua,
+                video3dCoyoteCorrecaminos
+            ]
+        }
+    ],
+    'figuras-3d-anime-coleccion': [
+        {
+            id: 'figuras-3d-fruta-gomu-pokeball',
+            name: 'Set Fruta del Diablo Gomu Gomu & Pokébola 3D',
+            subtitle: 'Colección de anime en impresión 3D ⚓⚡',
+            description: 'Piezas de colección únicas: Fruta del Diablo Gomu Gomu no Mi de Luffy con textura en relieve y Pokébola realista con soporte impresas en 3D con acabados de alta fidelidad.',
+            price: 65000,
+            isNew: true,
+            image: img3dOnePieceFrutaGomu,
+            images: [img3dOnePieceFrutaGomu, video3dOnePiecePokeball]
         }
     ],
     'soportes': [
@@ -1140,83 +1271,147 @@ export const PRODUCTS_DB = {
                 video3dTRexSoporte
             ]
         },
-        { 
-            id: 'soporte-celular-3d', 
-            name: 'Soporte de Celular 3D Temático', 
+        {
+            id: 'soporte-celular-3d',
+            name: 'Soporte de Celular 3D Temático',
             subtitle: 'Soportes geek y divertidos 📱',
-            description: 'Práctico soporte para escritorio impreso en 3D con formas divertidas (astronautas, mandos de videojuegos, personajes populares).', 
-            price: 24000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Práctico soporte para escritorio impreso en 3D con formas divertidas (astronautas, mandos de videojuegos, personajes populares).',
+            price: 24000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'amigurumis': [
-        { 
-            id: 'amigurumi-mascota', 
-            name: 'Amigurumi de Mascota Personalizado', 
+        {
+            id: 'amigurumi-mascota',
+            name: 'Amigurumi de Mascota Personalizado',
             subtitle: 'Tus peluditos replicados a mano 🐾',
-            description: 'Mascota tejida a crochet a mano a partir de fotos de tu perrito o gatito. Hilos de algodón hipoalergénicos y acabados de gran fidelidad.', 
-            price: 40000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Mascota tejida a crochet a mano a partir de fotos de tu perrito o gatito. Hilos de algodón hipoalergénicos y acabados de gran fidelidad.',
+            price: 40000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'amigurumi-llavero', 
-            name: 'Llaveros Amigurumi Mini', 
+        {
+            id: 'amigurumi-llavero',
+            name: 'Llaveros Amigurumi Mini',
             subtitle: 'Tiernos compañeros de viaje 👜',
-            description: 'Pequeños animalitos, plantas u objetos geek tejidos a crochet para llevar en tus llaves o maleta. Rellenos con algodón siliconado.', 
-            price: 15000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Pequeños animalitos, plantas u objetos geek tejidos a crochet para llevar en tus llaves o maleta. Rellenos con algodón siliconado.',
+            price: 15000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'su-flor-especial': [
-        { 
-            id: 'flor-eterna', 
-            name: 'Cúpula de Rosa Eterna Preservada', 
+        {
+            id: 'flor-eterna',
+            name: 'Cúpula de Rosa Eterna Preservada',
             subtitle: 'Rosas eternas preservadas con luz LED 🌟',
-            description: 'Rosa natural tratada técnicamente para durar años sin mantenimiento. Presentada en cúpula de vidrio de alta transparencia con luces LED cálidas.', 
-            price: 75000, 
-            isNew: true, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Rosa natural tratada técnicamente para durar años sin mantenimiento. Presentada en cúpula de vidrio de alta transparencia con luces LED cálidas.',
+            price: 75000,
+            isNew: true,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         },
-        { 
-            id: 'ramo-flores-tejido', 
-            name: 'Ramo de Flores Tejido a Crochet', 
+        {
+            id: 'ramo-flores-tejido',
+            name: 'Ramo de Flores Tejido a Crochet',
             subtitle: 'Flores tejidas que nunca se marchitan 🌸',
-            description: 'Ramo de tulipanes, margaritas y rosas tejidas a crochet a mano. Un detalle floral que nunca se marchita y decora cualquier rincón.', 
-            price: 68000, 
-            isNew: false, 
-            image: breakLabLogo, 
-            images: [breakLabLogo] 
+            description: 'Ramo de tulipanes, margaritas y rosas tejidas a crochet a mano. Un detalle floral que nunca se marchita y decora cualquier rincón.',
+            price: 68000,
+            isNew: false,
+            image: breakLabLogo,
+            images: [breakLabLogo]
         }
     ],
     'combo-avengers': [
         {
-            id: 'combo-avengers-marvel-vengadores-hulk-wolverine-grupo',
-            name: 'Mug Marvel Vengadores Hulk Wolverine Grupo',
-            subtitle: 'Taza personalizada de alta calidad ☕',
-            description: 'Mug de cerámica de 12oz con diseño de Marvel Vengadores Hulk Wolverine Grupo. Resistente al microondas y lavavajillas.',
-            price: 18000,
-            isNew: false,
+            id: 'combo-avengers-completo',
+            name: 'Pack x5 Mugs de Avengers Marvel',
+            subtitle: 'Pack completo de 5 mugs coleccionables Marvel ☕🦸‍♂️',
+            description: 'Llévate el pack completo de tazas temáticas de Avengers y Marvel (Spiderman, Hulk, Wolverine, Iron Man y Vengadores) fabricadas en cerámica premium de 11 oz.',
+            price: 69900,
+            isNew: true,
             image: imgComboAvengersTazaMarvelVengadoresHulkWolverineGrupo,
-            images: [imgComboAvengersTazaMarvelVengadoresHulkWolverineGrupo]
+            images: [
+                imgComboAvengersTazaMarvelVengadoresHulkWolverineGrupo,
+                imgComboAvengersSpiderman,
+                imgComboAvengersHulk,
+                imgComboAvengersPersonalizada,
+                imgComboAvengersSuperheroes,
+                imgComboAvengersWolverine
+            ]
         }
     ],
     'combo-batman': [
         {
-            id: 'combo-batman-the-batman-logotipo-rojo-grupo',
-            name: 'Mug The Batman Logotipo Rojo Grupo',
-            subtitle: 'Taza personalizada de alta calidad ☕',
-            description: 'Mug de cerámica de 12oz con diseño de The Batman Logotipo Rojo Grupo. Resistente al microondas y lavavajillas.',
+            id: 'combo-batman-the-batman-rojo-grupo',
+            name: 'Pack x5 Mugs de Batman DC Comics',
+            subtitle: 'Colección completa de 5 mugs de Batman en cerámica premium ☕🦇',
+            description: 'Llévate la colección completa de mugs temáticos de Batman: The Batman Logo Amarillo y Negro, Batiseñal Roja de Gotham, Batman Cómic Retro Vintage, Silueta Gotham Luna Roja y Set Dúo Batman & Batimóvil. Fabricados en cerámica premium de 11 oz de alta durabilidad y calidad.',
+            price: 69900,
+            isNew: true,
+            image: imgComboBatmanGrupo,
+            images: [
+                imgComboBatmanGrupo,
+                imgComboBatmanLogoAmarillo,
+                imgComboBatmanBatisenal,
+                imgComboBatmanComicRetro,
+                imgComboBatmanSiluetaGotham,
+                imgComboBatmanDuoBatimovil
+            ]
+        },
+        {
+            id: 'mug-batman-the-batman-logo-amarillo',
+            name: 'Mug The Batman Logo Amarillo y Negro',
+            subtitle: 'Taza con logotipo The Batman en cerámica premium ☕🦇',
+            description: 'Mug de cerámica de 11 oz con el emblemático logo amarillo de The Batman sobre fondo negro azabache. Acabado brillante de alta definición, resistente a microondas y lavavajillas.',
+            price: 18000,
+            isNew: true,
+            image: imgComboBatmanLogoAmarillo,
+            images: [imgComboBatmanLogoAmarillo, imgComboBatmanGrupo]
+        },
+        {
+            id: 'mug-batman-batisenal-roja-gotham',
+            name: 'Mug Batman Batiseñal Roja Gotham',
+            subtitle: 'Taza edición coleccionable Batiseñal carmesí ☕🚨',
+            description: 'Mug de cerámica premium de 11 oz con diseño de la Batiseñal encendida sobre la noche roja de Gotham City. Impresión full color de máxima nitidez.',
             price: 18000,
             isNew: false,
-            image: imgComboBatmanTazaTheBatmanLogotipoRojoGrupo,
-            images: [imgComboBatmanTazaTheBatmanLogotipoRojoGrupo]
+            image: imgComboBatmanBatisenal,
+            images: [imgComboBatmanBatisenal, imgComboBatmanGrupo]
+        },
+        {
+            id: 'mug-batman-comic-retro-vintage',
+            name: 'Mug Batman Cómic Retro Vintage',
+            subtitle: 'Taza estilo viñetas de cómic clásico de Batman ☕📖',
+            description: 'Mug de cerámica de 11 oz con paneles e ilustraciones clásicas vintage del Caballero de la Noche al estilo original de los cómics de DC.',
+            price: 18000,
+            isNew: false,
+            image: imgComboBatmanComicRetro,
+            images: [imgComboBatmanComicRetro, imgComboBatmanGrupo]
+        },
+        {
+            id: 'mug-batman-silueta-gotham-luna-roja',
+            name: 'Mug Batman Silueta Gotham Luna Roja',
+            subtitle: 'Taza con Batman vigilando Gotham bajo la luna roja ☕🌙',
+            description: 'Mug de cerámica de 11 oz con la imponente silueta del Hombre Murciélago custodiando los rascacielos de Gotham ante una luna llena carmesí.',
+            price: 18000,
+            isNew: false,
+            image: imgComboBatmanSiluetaGotham,
+            images: [imgComboBatmanSiluetaGotham, imgComboBatmanGrupo]
+        },
+        {
+            id: 'set-duo-tazas-batman-batimovil-comic',
+            name: 'Set Dúo Mugs Batman Cómic & Batimóvil',
+            subtitle: 'Dúo de tazas Batman y el mítico Batimóvil ☕🦇🏎️',
+            description: 'Set especial de 2 mugs de cerámica de 11 oz que combinan el diseño del Caballero de la Noche con el legendario Batimóvil en plena acción.',
+            price: 34000,
+            isNew: true,
+            image: imgComboBatmanDuoBatimovil,
+            images: [imgComboBatmanDuoBatimovil, imgComboBatmanGrupo]
         }
     ],
     'combo-bob-esponja': [
@@ -1224,7 +1419,7 @@ export const PRODUCTS_DB = {
             id: 'combo-bob-esponja-bob-esponja-patricio-pirata-grupo',
             name: 'Mug Bob Esponja Patricio Pirata Grupo',
             subtitle: 'Taza personalizada de alta calidad ☕',
-            description: 'Mug de cerámica de 12oz con diseño de Bob Esponja Patricio Pirata Grupo. Resistente al microondas y lavavajillas.',
+            description: 'Mug de cerámica de 11 oz con diseño de Bob Esponja Patricio Pirata. Cuidados: no calentar mucho al microondas, no usar lavavajillas y lavar con esponja suave.',
             price: 18000,
             isNew: false,
             image: imgComboBobEsponjaTazaBobEsponjaPatricioPirataGrupo,
@@ -1236,7 +1431,7 @@ export const PRODUCTS_DB = {
             id: 'combo-caballeros-del-zodiaco-saint-seiya-caballeros-zodiaco-grupo',
             name: 'Mug Saint Seiya Caballeros Zodíaco Grupo',
             subtitle: 'Taza personalizada de alta calidad ☕',
-            description: 'Mug de cerámica de 12oz con diseño de Saint Seiya Caballeros Zodíaco Grupo. Resistente al microondas y lavavajillas.',
+            description: 'Mug de cerámica de 11 oz con diseño de Saint Seiya Caballeros Zodíaco. Cuidados: no calentar mucho al microondas, no usar lavavajillas y lavar con esponja suave.',
             price: 18000,
             isNew: false,
             image: imgComboCaballerosDelZodiacoTazaSaintSeiyaCaballerosZodiacoGrupo,
@@ -1246,7 +1441,7 @@ export const PRODUCTS_DB = {
     'combo-friends': [
         {
             id: 'combo-friends-completo',
-            name: 'Combo Mugs Friends',
+            name: 'Pack Mugs Friends',
             subtitle: 'Set completo de 6 tazas coleccionables ☕✨',
             description: 'Llévate el set completo de 6 tazas temáticas de la serie Friends (Chandler, Joey, Monica, Rachel, Ross y Phoebe) fabricadas en cerámica de alta calidad.',
             price: 95000,
@@ -1265,7 +1460,7 @@ export const PRODUCTS_DB = {
     'combo-looney-tunes': [
         {
             id: 'combo-looney-tunes-completo',
-            name: 'Combo Looney Tunes',
+            name: 'Pack Looney Tunes',
             subtitle: 'Set completo de tazas coleccionables ☕🐰',
             description: 'Llévate la colección completa de tazas de Looney Tunes (Bugs Bunny, Pato Lucas, Piolín, Taz, Coyote, Correcaminos, Silvestre, Pepe Le Pew y Mickey Mouse) fabricadas en cerámica de alta calidad.',
             price: 135000,
@@ -1289,7 +1484,7 @@ export const PRODUCTS_DB = {
     'combo-los-simpson': [
         {
             id: 'combo-los-simpson-completo',
-            name: 'Combo Los Simpson',
+            name: 'Pack Los Simpson',
             subtitle: 'Set completo de tazas coleccionables ☕🍩',
             description: 'Llévate la colección completa de tazas de Los Simpson (Homero, Marge, Lisa, Maggie y Ayudante de Santa) fabricadas en cerámica de alta calidad.',
             price: 75000,
@@ -1308,19 +1503,19 @@ export const PRODUCTS_DB = {
     'combo-mugs-one-piece': [
         {
             id: 'combo-mugs-one-piece-completo',
-            name: 'Combo Mugs One Piece',
+            name: 'Pack Mugs One Piece',
             subtitle: 'Set completo de 6 tazas coleccionables ☕🏴‍☠️',
             description: 'Llévate la colección completa de 6 tazas temáticas de One Piece (Luffy, Nami, Zoro, Robin, Brook y Luffy Chibi) fabricadas en cerámica de alta calidad.',
             price: 95000,
             isNew: true,
-            image: imgComboMugsOnePieceMugPersonalizadoOnePieceLuffySombreroPaja1,
+            image: imgComboMugsOnePieceWantedCarteles,
             images: [
-                imgComboMugsOnePieceMugPersonalizadoOnePieceLuffySombreroPaja1,
-                imgComboMugsOnePieceTazaDeCeramicaOnePieceNicoRobinChibiColeccionableJpg,
-                imgComboMugsOnePieceTazaPersonalizadaOnePieceBrookReyDelSoulChibi,
-                imgComboMugsOnePieceTazaPersonalizadaOnePieceLuffyChibiDisenoExclusivo,
-                imgComboMugsOnePieceTazaSublimadaOnePieceNamiEstiloChibiFanArt,
-                imgComboMugsOnePieceTazaTematicaOnePieceRoronoaZoroChibiRegaloAnime
+                imgComboMugsOnePieceWantedCarteles,
+                imgComboMugsOnePieceLuffyNamiZoro,
+                imgComboMugsOnePieceJollyRoger,
+                imgComboMugsOnePieceGear5Tripulacion,
+                imgComboMugsOnePieceRostros,
+                imgComboMugsOnePieceThousandSunny
             ]
         }
     ]
@@ -1328,7 +1523,24 @@ export const PRODUCTS_DB = {
 
 // Helper to determine what the product includes based on its name/category
 export const getIncludedItems = (product) => {
+    if (product.id === 'kit-regalo-como-entrenar-a-tu-dragon') {
+        return [
+            '2 Mugs en cerámica de alta calidad (Toothless & Furia Luminosa) personalizados con sus nombres.',
+            'Código interactivo escaneable de Spotify con su canción especial.',
+            'Rompecabezas magnético interactivo en forma de corazón coleccionable.',
+            'Caja de regalo decorada premium BreakLab con tarjeta de dedicatoria personalizada.'
+        ];
+    }
     const name = product.name.toLowerCase();
+    if (name.includes('pack') && (name.includes('mug') || name.includes('taza') || name.includes('batman') || name.includes('avengers') || name.includes('friends') || name.includes('looney') || name.includes('simpson') || name.includes('one piece'))) {
+        return [
+            'Colección completa de mugs en cerámica premium de 11 oz.',
+            'Estampado full color de alta definición resistente al microondas.',
+            'Cuidado fácil y alta durabilidad del brillo y acabado.',
+            'Empaque protector individual para cada mug listo para regalo.',
+            'Tarjeta de dedicatoria personalizada BreakLab.'
+        ];
+    }
     if (name.includes('box') || name.includes('kit') || name.includes('desayuno') || name.includes('estuche')) {
         return [
             'Caja de regalo decorada premium con cinta y moño.',
@@ -1338,10 +1550,10 @@ export const getIncludedItems = (product) => {
         ];
     } else if (name.includes('mug') || name.includes('vaso') || name.includes('taza') || name.includes('tarro')) {
         return [
-            'Taza/Vaso de alta calidad premium.',
+            'Mug fondo color de 11 oz en cerámica premium.',
             'Estampado full color de alta durabilidad y nitidez.',
             'Diseño 100% personalizado a tu gusto.',
-            'Apto para microondas y lavavajillas (Mugs).'
+            'Elije el color que más te guste y personalizalo.',
         ];
     } else if (name.includes('pulsera') || name.includes('collar') || name.includes('miyuki') || name.includes('llavero') || name.includes('portavasos')) {
         return [
@@ -1400,21 +1612,43 @@ export const getProductOptions = (product) => {
     if (product.options) {
         return product.options;
     }
+    if (product.id === 'kit-regalo-como-entrenar-a-tu-dragon') {
+        return [
+            {
+                name: 'boxColor',
+                label: 'Color de la caja de regalo:',
+                choices: ['Kraft Elegante', 'Negro Mate', 'Blanco'],
+                default: 'Kraft Elegante'
+            },
+            {
+                name: 'mugStyle',
+                label: 'Fondo de los mugs:',
+                choices: ['Fondo Negro / Blanco (Original)', 'Fondo Azul / Rosa', 'Todo Blanco'],
+                default: 'Fondo Negro / Blanco (Original)'
+            },
+            {
+                name: 'theme',
+                label: 'Motivo de celebración:',
+                choices: ['Aniversario', 'Amor / Novios', 'Cumpleaños', 'Detalle Sorpresa'],
+                default: 'Aniversario'
+            }
+        ];
+    }
     const name = product.name.toLowerCase();
-    
+
     if (name.includes('mug') || name.includes('vaso') || name.includes('taza') || name.includes('tarro')) {
         return [
             {
                 name: 'color',
-                label: 'Colores disponibles:',
-                choices: ['Blanco', 'Negro', 'Rosa', 'Azul', 'Amarillo'],
+                label: 'Colores de fondo disponibles:',
+                choices: ['Blanco', 'Negro', 'Rosa', 'Azul', 'Amarillo', 'Verde'],
                 default: 'Blanco'
             },
             {
                 name: 'size',
-                label: 'Tamaños disponibles:',
-                choices: ['8oz', '12oz', '18oz'],
-                default: '12oz'
+                label: 'Tamaño:',
+                choices: ['11 oz'],
+                default: '11 oz'
             }
         ];
     } else if (name.includes('box') || name.includes('kit') || name.includes('desayuno') || name.includes('estuche')) {
@@ -1537,6 +1771,17 @@ export const getProductOptions = (product) => {
 };
 
 export const getCategoryProducts = (categoryId) => {
+    if (categoryId === 'boxs' || categoryId === 'box' || categoryId === 'crea-tu-box') {
+        return [
+            ...getCategoryProducts('kit-pareja-dragon'),
+            ...getCategoryProducts('desayuno-premium'),
+            ...getCategoryProducts('desayuno-luxury'),
+            ...getCategoryProducts('box-tematicas'),
+            ...getCategoryProducts('san-valentin'),
+            ...getCategoryProducts('desayuno-clasico'),
+            ...getCategoryProducts('baby-shower')
+        ];
+    }
     if (categoryId === 'rompecabezas') {
         return [
             ...getCategoryProducts('rompecabezas-magneticos'),
@@ -1558,11 +1803,14 @@ export const getCategoryProducts = (categoryId) => {
     if (categoryId === 'gelatortas') {
         return [
             ...getCategoryProducts('gelatortas_mascota'),
-            ...getCategoryProducts('gelatorta_tematica')
+            ...getCategoryProducts('gelatorta_tematica'),
+            ...getCategoryProducts('gelatorta_viajes')
         ];
     }
     if (categoryId === 'figuras-3d') {
         return [
+            ...getCategoryProducts('figuras-3d-coyote-correcaminos'),
+            ...getCategoryProducts('figuras-3d-anime-coleccion'),
             ...getCategoryProducts('figuras-3d-mario-bros'),
             ...getCategoryProducts('figuras-3d-bowser'),
             ...getCategoryProducts('figuras-3d-gengar'),
@@ -1573,7 +1821,7 @@ export const getCategoryProducts = (categoryId) => {
             ...getCategoryProducts('figuras-3d-personalizadas')
         ];
     }
-    if (categoryId === 'combos') {
+    if (categoryId === 'combos' || categoryId === 'packs') {
         return [
             ...getCategoryProducts('combo-avengers'),
             ...getCategoryProducts('combo-batman'),
@@ -1586,12 +1834,12 @@ export const getCategoryProducts = (categoryId) => {
         ];
     }
     const products = PRODUCTS_DB[categoryId] || [
-        { 
-            id: `${categoryId}-special`, 
-            name: `Box/Producto de ${categoryId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`, 
+        {
+            id: `${categoryId}-special`,
+            name: `Box/Producto de ${categoryId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`,
             subtitle: 'Detalle único y especial',
-            description: 'Un detalle único y personalizado', 
-            price: 45000, 
+            description: 'Un detalle único y personalizado',
+            price: 45000,
             isNew: true,
             image: breakLabLogo,
             images: [breakLabLogo]
@@ -1604,8 +1852,8 @@ export const getCategoryProducts = (categoryId) => {
             const fallback = mainImg === breakLabLogo ? imgGengarBox : breakLabLogo;
             pImages.push(fallback);
         }
-        return { 
-            ...p, 
+        return {
+            ...p,
             image: mainImg,
             images: pImages,
             subtitle: p.subtitle || 'Detalle único y especial'
@@ -1623,8 +1871,8 @@ export const getProductById = (productId) => {
                 const fallback = mainImg === breakLabLogo ? imgGengarBox : breakLabLogo;
                 pImages.push(fallback);
             }
-            return { 
-                ...product, 
+            return {
+                ...product,
                 image: mainImg,
                 images: pImages,
                 subtitle: product.subtitle || 'Detalle único y especial'

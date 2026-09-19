@@ -242,6 +242,53 @@
     box-shadow: 0 20px 45px rgba(56, 189, 248, 0.16);
 }
 
+.themeDragon {
+    background: linear-gradient(135deg, #1e222d 0%, #2a2c39 50%, #353347 100%);
+    border: 1.5px solid rgba(139, 92, 246, 0.35);
+}
+.themeDragon .cardTitle {
+    color: #ffffff;
+}
+.themeDragon .cardDesc {
+    color: #cbd5e1;
+}
+.themeDragon::after {
+    background: #06b6d4;
+}
+.themeDragon::before {
+    background: #a855f7;
+}
+.themeDragon:hover {
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 20px 45px rgba(168, 85, 247, 0.25);
+}
+
+.themeAnime {
+    background: linear-gradient(135deg, #fffaf6 0%, #fef3e7 50%, #fdebd5 100%);
+    border: 1.5px solid rgba(234, 88, 12, 0.25);
+}
+.themeAnime::after,
+.themeAnime::before {
+    background: #ea580c;
+}
+.themeAnime:hover {
+    border-color: rgba(234, 88, 12, 0.5);
+    box-shadow: 0 20px 45px rgba(234, 88, 12, 0.18);
+}
+
+.themeRomantic {
+    background: linear-gradient(135deg, #fff8fa 0%, #fdf2f4 50%, #fbe4e9 100%);
+    border: 1.5px solid rgba(225, 29, 72, 0.22);
+}
+.themeRomantic::after,
+.themeRomantic::before {
+    background: #e11d48;
+}
+.themeRomantic:hover {
+    border-color: rgba(225, 29, 72, 0.45);
+    box-shadow: 0 20px 45px rgba(225, 29, 72, 0.16);
+}
+
 /* Callout banner to promote custom builder */
 .builderPromo {
     margin-top: 4.5rem;

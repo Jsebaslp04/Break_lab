@@ -26,7 +26,7 @@ import imgComboLooneyTunes from "../assets/banner-combos-mugs-coleccionables-bre
 import imgComboLosSimpson from "../assets/banner-combos-mugs-coleccionables-breaklab/tazas-los-simpson-familia-edicion-especial-breaklab.jpeg";
 import imgComboOnePiece from "../assets/banner-combos-mugs-coleccionables-breaklab/mug-one-piece-luffy-zoro-chopper-coleccionable-breaklab.jpeg";
 import { useCart } from "./context/CartContext";
-import { PRODUCTS_DB } from "../data/products";
+import { PRODUCTS_DB, imgDragonSet, imgBoxTematica, imgBoxSanValentin } from "../data/products";
 
 export const Menu = () => {
     const location = useLocation();
@@ -103,7 +103,8 @@ export const Menu = () => {
     }
 
     const boxsCategories = [
-        'desayuno-premium', 'desayuno-luxury', 'desayuno-gourmet', 'desayuno-clasico', 'baby-shower'
+        'desayuno-premium', 'desayuno-luxury', 'desayuno-gourmet', 'desayuno-clasico', 'baby-shower',
+        'kit-pareja-dragon', 'box-tematicas', 'san-valentin'
     ];
 
     const combosCategories = [
@@ -116,8 +117,9 @@ export const Menu = () => {
         'gelatortas', 'arte-resina', 'miyuki', 'globo-mensaje', 'vino', 'figuras-3d', 
         'amigurumis', 'su-flor-especial', 'variedades', 'soportes',
         'rompecabezas-magneticos', 'rompecabezas-carton', 'rompecabezas-mdf',
-        'gelatortas_mascota', 'gelatorta_tematica',
-        'figuras-3d-mario-bros', 'figuras-3d-bowser', 'figuras-3d-gengar', 'figuras-3d-pokebola', 'figuras-3d-mewtwo', 'figuras-3d-mapache', 'figuras-3d-t-rex', 'figuras-3d-personalizadas'
+        'gelatortas_mascota', 'gelatorta_tematica', 'gelatorta_viajes',
+        'figuras-3d-mario-bros', 'figuras-3d-bowser', 'figuras-3d-gengar', 'figuras-3d-pokebola', 'figuras-3d-mewtwo', 'figuras-3d-mapache', 'figuras-3d-t-rex', 'figuras-3d-personalizadas',
+        'figuras-3d-coyote-correcaminos', 'figuras-3d-anime-coleccion'
     ];
 
     const isBoxsActive = isActive("/Boxs") || isActive("/box") || isActive("/Box") || 
@@ -125,8 +127,8 @@ export const Menu = () => {
 
     const isArmaTuBoxActive = isActive("/Crea_tu_Box") || isActive("/arma-tu-box") || isActive("/Arma_tu_Box");
 
-    const isCombosActive = isActive("/Combos") || 
-        (activeCategory && (activeCategory === "combos" || combosCategories.includes(activeCategory)));
+    const isCombosActive = isActive("/Combos") || isActive("/Packs") || isActive("/packs") || isActive("/combos") || 
+        (activeCategory && (activeCategory === "combos" || activeCategory === "packs" || combosCategories.includes(activeCategory)));
 
     const isPersonalizamosActive = isActive("/Personalizamos") || 
         (activeCategory && (activeCategory === "personalizamos" || personalizamosCategories.includes(activeCategory)));
@@ -243,6 +245,33 @@ export const Menu = () => {
                                         <span className={styles.megaDesc}>Cajas llenas de ternura y amor para dar la bienvenida al bebé.</span>
                                     </div>
                                 </Link>
+                                <Link to="/categoria/kit-pareja-dragon" className={styles.megaItem}>
+                                    <span className={styles.megaIconImage}>
+                                        <img src={imgDragonSet} alt="Kit Pareja Dragón" className={styles.megaThumb} />
+                                    </span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Kit Dragón <span className={styles.badgeNew}>Nuevo</span></span>
+                                        <span className={styles.megaDesc}>Chimuelo y Furia Luminosa con puzzle musical Spotify.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/box-tematicas" className={styles.megaItem}>
+                                    <span className={styles.megaIconImage}>
+                                        <img src={imgBoxTematica} alt="Boxs Temáticas" className={styles.megaThumb} />
+                                    </span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Boxs Temáticas</span>
+                                        <span className={styles.megaDesc}>Anime, series y superhéroes personalizados al 100%.</span>
+                                    </div>
+                                </Link>
+                                <Link to="/categoria/san-valentin" className={styles.megaItem}>
+                                    <span className={styles.megaIconImage}>
+                                        <img src={imgBoxSanValentin} alt="Box San Valentín" className={styles.megaThumb} />
+                                    </span>
+                                    <div className={styles.megaInfo}>
+                                        <span className={styles.megaTitle}>Box San Valentín</span>
+                                        <span className={styles.megaDesc}>Detalles románticos y exclusivos para esa persona especial.</span>
+                                    </div>
+                                </Link>
                             </div>
                             <div className={styles.dropdownFooter}>
                                 <Link to="/Boxs" className={styles.dropdownFooterLink}>Ver todos los Boxs →</Link>
@@ -256,80 +285,80 @@ export const Menu = () => {
 
                     <div className={styles.dropdownContainer}>
                         <Link to="/Combos" className={`${styles.navLink} ${isCombosActive ? styles.active : ""}`}>
-                            <span className={styles.navEmoji} style={{ fontSize: '1.4rem', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>☕</span> Combos <span className={styles.arrowIcon}>▼</span>
+                            <span className={styles.navEmoji} style={{ fontSize: '1.4rem', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>☕</span> Packs <span className={styles.arrowIcon}>▼</span>
                         </Link>
                         <div className={`${styles.dropdownMenu} ${styles.megaMenuCombos}`}>
                             <div className={styles.megaContainer}>
                                 <div className={styles.megaGridCombos}>
                                     <Link to="/categoria/combo-avengers" className={styles.megaItem}>
                                         <span className={styles.megaIconImage}>
-                                            <img src={imgComboAvengers} alt="Combo Avengers" className={styles.megaThumb} />
+                                            <img src={imgComboAvengers} alt="Pack Avengers" className={styles.megaThumb} />
                                         </span>
                                         <div className={styles.megaInfo}>
-                                            <span className={styles.megaTitle}>Combo Avengers</span>
+                                            <span className={styles.megaTitle}>Pack Avengers</span>
                                             <span className={styles.megaDesc}>Poder y sabor para fanáticos de Marvel.</span>
                                         </div>
                                     </Link>
                                     <Link to="/categoria/combo-batman" className={styles.megaItem}>
                                         <span className={styles.megaIconImage}>
-                                            <img src={imgComboBatman} alt="Combo Batman" className={styles.megaThumb} />
+                                            <img src={imgComboBatman} alt="Pack Batman" className={styles.megaThumb} />
                                         </span>
                                         <div className={styles.megaInfo}>
-                                            <span className={styles.megaTitle}>Combo Batman</span>
+                                            <span className={styles.megaTitle}>Pack Batman</span>
                                             <span className={styles.megaDesc}>Un estilo oscuro directo de Gótica.</span>
                                         </div>
                                     </Link>
                                     <Link to="/categoria/combo-bob-esponja" className={styles.megaItem}>
                                         <span className={styles.megaIconImage}>
-                                            <img src={imgComboBobEsponja} alt="Combo Bob Esponja" className={styles.megaThumb} />
+                                            <img src={imgComboBobEsponja} alt="Pack Bob Esponja" className={styles.megaThumb} />
                                         </span>
                                         <div className={styles.megaInfo}>
-                                            <span className={styles.megaTitle}>Combo Bob Esponja</span>
+                                            <span className={styles.megaTitle}>Pack Bob Esponja</span>
                                             <span className={styles.megaDesc}>Diversión marina para un desayuno alegre.</span>
                                         </div>
                                     </Link>
                                     <Link to="/categoria/combo-caballeros-del-zodiaco" className={styles.megaItem}>
                                         <span className={styles.megaIconImage}>
-                                            <img src={imgComboCaballeros} alt="Combo Caballeros" className={styles.megaThumb} />
+                                            <img src={imgComboCaballeros} alt="Pack Caballeros" className={styles.megaThumb} />
                                         </span>
                                         <div className={styles.megaInfo}>
-                                            <span className={styles.megaTitle}>Combo Caballeros</span>
+                                            <span className={styles.megaTitle}>Pack Caballeros</span>
                                             <span className={styles.megaDesc}>Lleva tu nostalgia al nivel del cosmos.</span>
                                         </div>
                                     </Link>
                                     <Link to="/categoria/combo-friends" className={styles.megaItem}>
                                         <span className={styles.megaIconImage}>
-                                            <img src={imgComboFriends} alt="Combo Friends" className={styles.megaThumb} />
+                                            <img src={imgComboFriends} alt="Pack Friends" className={styles.megaThumb} />
                                         </span>
                                         <div className={styles.megaInfo}>
-                                            <span className={styles.megaTitle}>Combo Friends</span>
+                                            <span className={styles.megaTitle}>Pack Friends</span>
                                             <span className={styles.megaDesc}>Ideal para compartir con tus mejores amigos.</span>
                                         </div>
                                     </Link>
                                     <Link to="/categoria/combo-looney-tunes" className={styles.megaItem}>
                                         <span className={styles.megaIconImage}>
-                                            <img src={imgComboLooneyTunes} alt="Combo Looney Tunes" className={styles.megaThumb} />
+                                            <img src={imgComboLooneyTunes} alt="Pack Looney Tunes" className={styles.megaThumb} />
                                         </span>
                                         <div className={styles.megaInfo}>
-                                            <span className={styles.megaTitle}>Combo Looney Tunes</span>
+                                            <span className={styles.megaTitle}>Pack Looney Tunes</span>
                                             <span className={styles.megaDesc}>Sabor clásico y divertido con Bugs Bunny.</span>
                                         </div>
                                     </Link>
                                     <Link to="/categoria/combo-los-simpson" className={styles.megaItem}>
                                         <span className={styles.megaIconImage}>
-                                            <img src={imgComboLosSimpson} alt="Combo Los Simpson" className={styles.megaThumb} />
+                                            <img src={imgComboLosSimpson} alt="Pack Los Simpson" className={styles.megaThumb} />
                                         </span>
                                         <div className={styles.megaInfo}>
-                                            <span className={styles.megaTitle}>Combo Los Simpson</span>
-                                            <span className={styles.megaDesc}>¡D'oh! El combo para fans de Springfield.</span>
+                                            <span className={styles.megaTitle}>Pack Los Simpson</span>
+                                            <span className={styles.megaDesc}>¡D'oh! El pack para fans de Springfield.</span>
                                         </div>
                                     </Link>
                                     <Link to="/categoria/combo-mugs-one-piece" className={styles.megaItem}>
                                         <span className={styles.megaIconImage}>
-                                            <img src={imgComboOnePiece} alt="Combo One Piece" className={styles.megaThumb} />
+                                            <img src={imgComboOnePiece} alt="Pack One Piece" className={styles.megaThumb} />
                                         </span>
                                         <div className={styles.megaInfo}>
-                                            <span className={styles.megaTitle}>Combo One Piece</span>
+                                            <span className={styles.megaTitle}>Pack One Piece</span>
                                             <span className={styles.megaDesc}>Embárcate en una aventura pirata de sabor.</span>
                                         </div>
                                     </Link>
@@ -337,7 +366,7 @@ export const Menu = () => {
                                 <div className={styles.megaFeaturedCombos}>
                                     <div className={styles.featuredContent}>
                                         <span className={styles.featuredEmoji}>⚡</span>
-                                        <h4 className={styles.featuredTitle}>Combos Fan</h4>
+                                        <h4 className={styles.featuredTitle}>Packs Fan</h4>
                                         <p className={styles.featuredText}>Tus personajes y series favoritos en tazas y cajas sorpresa especiales.</p>
                                         <Link to="/Combos" className={styles.featuredBtn}>Ver Todos →</Link>
                                     </div>
@@ -428,6 +457,15 @@ export const Menu = () => {
                                 <Link to="/categoria/baby-shower" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
                                     <img src={imgBabyShower} alt="" className={styles.drawerThumb} /> Baby Shower
                                 </Link>
+                                <Link to="/categoria/kit-pareja-dragon" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
+                                    <img src={imgDragonSet} alt="" className={styles.drawerThumb} /> Kit Pareja Dragón
+                                </Link>
+                                <Link to="/categoria/box-tematicas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
+                                    <img src={imgBoxTematica} alt="" className={styles.drawerThumb} /> Boxs Temáticas
+                                </Link>
+                                <Link to="/categoria/san-valentin" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
+                                    <img src={imgBoxSanValentin} alt="" className={styles.drawerThumb} /> Box San Valentín
+                                </Link>
                             </div>
                         </div>
 
@@ -437,34 +475,34 @@ export const Menu = () => {
 
                         <div className={styles.drawerSection}>
                             <div className={styles.drawerSectionHeader} onClick={() => toggleDrawerSection('combos')}>
-                                <span className={styles.drawerSectionTitle}>☕ Combos</span>
+                                <span className={styles.drawerSectionTitle}>☕ Packs</span>
                                 <span className={`${styles.drawerChevron} ${drawerSections.combos ? styles.chevronOpen : ""}`}>▼</span>
                             </div>
                             <div className={`${styles.drawerSubLinks} ${drawerSections.combos ? styles.subLinksOpen : ""}`}>
-                                <Link to="/Combos" className={styles.drawerSubLinkViewAll} onClick={() => setIsMenuOpen(false)}>Ver Todos los Combos →</Link>
+                                <Link to="/Combos" className={styles.drawerSubLinkViewAll} onClick={() => setIsMenuOpen(false)}>Ver Todos los Packs →</Link>
                                 <Link to="/categoria/combo-avengers" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
-                                    <img src={imgComboAvengers} alt="" className={styles.drawerThumb} /> Combo Avengers
+                                    <img src={imgComboAvengers} alt="" className={styles.drawerThumb} /> Pack Avengers
                                 </Link>
                                 <Link to="/categoria/combo-batman" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
-                                    <img src={imgComboBatman} alt="" className={styles.drawerThumb} /> Combo Batman
+                                    <img src={imgComboBatman} alt="" className={styles.drawerThumb} /> Pack Batman
                                 </Link>
                                 <Link to="/categoria/combo-bob-esponja" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
-                                    <img src={imgComboBobEsponja} alt="" className={styles.drawerThumb} /> Combo Bob Esponja
+                                    <img src={imgComboBobEsponja} alt="" className={styles.drawerThumb} /> Pack Bob Esponja
                                 </Link>
                                 <Link to="/categoria/combo-caballeros-del-zodiaco" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
-                                    <img src={imgComboCaballeros} alt="" className={styles.drawerThumb} /> Combo Caballeros
+                                    <img src={imgComboCaballeros} alt="" className={styles.drawerThumb} /> Pack Caballeros
                                 </Link>
                                 <Link to="/categoria/combo-friends" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
-                                    <img src={imgComboFriends} alt="" className={styles.drawerThumb} /> Combo Friends
+                                    <img src={imgComboFriends} alt="" className={styles.drawerThumb} /> Pack Friends
                                 </Link>
                                 <Link to="/categoria/combo-looney-tunes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
-                                    <img src={imgComboLooneyTunes} alt="" className={styles.drawerThumb} /> Combo Looney Tunes
+                                    <img src={imgComboLooneyTunes} alt="" className={styles.drawerThumb} /> Pack Looney Tunes
                                 </Link>
                                 <Link to="/categoria/combo-los-simpson" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
-                                    <img src={imgComboLosSimpson} alt="" className={styles.drawerThumb} /> Combo Los Simpson
+                                    <img src={imgComboLosSimpson} alt="" className={styles.drawerThumb} /> Pack Los Simpson
                                 </Link>
                                 <Link to="/categoria/combo-mugs-one-piece" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>
-                                    <img src={imgComboOnePiece} alt="" className={styles.drawerThumb} /> Combo One Piece
+                                    <img src={imgComboOnePiece} alt="" className={styles.drawerThumb} /> Pack One Piece
                                 </Link>
                             </div>
                         </div>

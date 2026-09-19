@@ -15,9 +15,9 @@ import imgComboOnePiece from '../assets/banner-combos-mugs-coleccionables-breakl
 
 export const Combos = () => {
     useSEO({
-        title: "Combos de Mugs Temáticos y Personalizados | BreakLab",
-        description: "Encuentra combos exclusivos de mugs coleccionables en Bogotá. Los Simpson, Friends, One Piece, Avengers, Batman, Bob Esponja, Looney Tunes y más.",
-        keywords: "combos de mugs, tazas coleccionables, mugs personalizados bogota, set de mugs friends, mugs los simpson, breaklab combos"
+        title: "Packs de Mugs Temáticos y Personalizados | BreakLab",
+        description: "Encuentra packs exclusivos de mugs coleccionables en Bogotá. Los Simpson, Friends, One Piece, Avengers, Batman, Bob Esponja, Looney Tunes y más.",
+        keywords: "packs de mugs, tazas coleccionables, mugs personalizados bogota, set de mugs friends, mugs los simpson, breaklab packs"
     });
     
     useEffect(() => {
@@ -27,58 +27,58 @@ export const Combos = () => {
     const categories = [
         { 
             id: 'combo-avengers', 
-            name: 'Combo Avengers', 
+            name: 'Pack Avengers', 
             image: imgComboAvengers, 
-            alt: 'Combo Mugs Avengers Marvel BreakLab', 
+            alt: 'Pack Mugs Avengers Marvel BreakLab', 
             theme: styles.themePlayful 
         },
         { 
             id: 'combo-batman', 
-            name: 'Combo Batman', 
+            name: 'Pack Batman', 
             image: imgComboBatman, 
-            alt: 'Combo Mugs Batman DC Comics BreakLab', 
+            alt: 'Pack Mugs Batman DC Comics BreakLab', 
             theme: styles.themeMasculine 
         },
         { 
             id: 'combo-bob-esponja', 
-            name: 'Combo Bob Esponja', 
+            name: 'Pack Bob Esponja', 
             image: imgComboBobEsponja, 
-            alt: 'Combo Mugs Bob Esponja y Patricio BreakLab', 
+            alt: 'Pack Mugs Bob Esponja y Patricio BreakLab', 
             theme: styles.themePlayful 
         },
         { 
             id: 'combo-caballeros-del-zodiaco', 
-            name: 'Combo Caballeros del Zodíaco', 
+            name: 'Pack Caballeros del Zodíaco', 
             image: imgComboCaballeros, 
-            alt: 'Combo Mugs Caballeros del Zodíaco Saint Seiya BreakLab', 
+            alt: 'Pack Mugs Caballeros del Zodíaco Saint Seiya BreakLab', 
             theme: styles.themePlayful 
         },
         { 
             id: 'combo-friends', 
-            name: 'Combo Friends', 
+            name: 'Pack Friends', 
             image: imgComboFriends, 
-            alt: 'Combo Mugs Friends Central Perk BreakLab', 
+            alt: 'Pack Mugs Friends Central Perk BreakLab', 
             theme: styles.themeRomantic 
         },
         { 
             id: 'combo-looney-tunes', 
-            name: 'Combo Looney Tunes', 
+            name: 'Pack Looney Tunes', 
             image: imgComboLooneyTunes, 
-            alt: 'Combo Mugs Looney Tunes Piolín Taz BreakLab', 
+            alt: 'Pack Mugs Looney Tunes Piolín Taz BreakLab', 
             theme: styles.themePlayful 
         },
         { 
             id: 'combo-los-simpson', 
-            name: 'Combo Los Simpson', 
+            name: 'Pack Los Simpson', 
             image: imgComboLosSimpson, 
-            alt: 'Combo Mugs Los Simpson Familia BreakLab', 
+            alt: 'Pack Mugs Los Simpson Familia BreakLab', 
             theme: styles.themePlayful 
         },
         { 
             id: 'combo-mugs-one-piece', 
-            name: 'Combo One Piece', 
+            name: 'Pack One Piece', 
             image: imgComboOnePiece, 
-            alt: 'Combo Mugs One Piece Luffy Zoro Chopper BreakLab', 
+            alt: 'Pack Mugs One Piece Luffy Zoro Chopper BreakLab', 
             theme: styles.themePlayful 
         }
     ];
@@ -86,8 +86,8 @@ export const Combos = () => {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h1 className={styles.title}>Combos de Mugs Coleccionables</h1>
-                <p className={styles.subtitle}>Descubre nuestros espectaculares combos temáticos de tazas. Llévate la colección completa de tus personajes favoritos o regala un detalle inolvidable.</p>
+                <h1 className={styles.title}>Packs de Mugs Coleccionables</h1>
+                <p className={styles.subtitle}>Descubre nuestros espectaculares packs temáticos de tazas. Llévate la colección completa de tus personajes favoritos o regala un detalle inolvidable.</p>
             </div>
             
             <div className={styles.grid}>

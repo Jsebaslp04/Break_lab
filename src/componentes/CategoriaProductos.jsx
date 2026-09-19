@@ -120,11 +120,14 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'rompecabezas-yugi-oh', label: '🃏 Yu-Gi-Oh!' }
     ],
     'gelatortas': [
-        { id: 'gelatortas_mascota', label: '🐶 Gelatortas de Mascotas' },
-        { id: 'gelatorta_tematica', label: '🎂 Gelatortas Temáticas' }
+        { id: 'gelatortas_mascota', label: '🐶 Mascotas' },
+        { id: 'gelatorta_tematica', label: '⚽ Fútbol' },
+        { id: 'gelatorta_viajes', label: '✈️ Viajes & Mapamundi' }
     ],
     'figuras-3d': [
-        { id: 'figuras-3d-mario-bros', label: '💣 Bomb Mario Bros' },
+        { id: 'figuras-3d-coyote-correcaminos', label: '💣 Coyote & Correcaminos' },
+        { id: 'figuras-3d-anime-coleccion', label: '⚓ One Piece & Pokémon' },
+        { id: 'figuras-3d-mario-bros', label: '🍄 Bomb Mario Bros' },
         { id: 'figuras-3d-bowser', label: '🐢 Bowser 3D' },
         { id: 'figuras-3d-gengar', label: '😈 Gengar 3D' },
         { id: 'figuras-3d-pokebola', label: '🔴 Pokebola Gengar' },
@@ -134,30 +137,49 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'figuras-3d-personalizadas', label: '⚙️ Diseños Varios' }
     ],
     'combos': [
-        { id: 'combo-avengers', label: '🦸 Combo Avengers' },
-        { id: 'combo-batman', label: '🦇 Combo Batman' },
-        { id: 'combo-bob-esponja', label: '🧽 Combo Bob Esponja' },
-        { id: 'combo-caballeros-del-zodiaco', label: '🌌 Combo Caballeros' },
-        { id: 'combo-friends', label: '☕ Combo Friends' },
-        { id: 'combo-looney-tunes', label: '🐰 Combo Looney Tunes' },
-        { id: 'combo-los-simpson', label: '🍩 Combo Simpson' },
-        { id: 'combo-mugs-one-piece', label: '🏴‍☠️ Combo One Piece' }
+        { id: 'combo-avengers', label: '🦸 Pack Avengers' },
+        { id: 'combo-batman', label: '🦇 Pack Batman' },
+        { id: 'combo-bob-esponja', label: '🧽 Pack Bob Esponja' },
+        { id: 'combo-caballeros-del-zodiaco', label: '🌌 Pack Caballeros' },
+        { id: 'combo-friends', label: '☕ Pack Friends' },
+        { id: 'combo-looney-tunes', label: '🐰 Pack Looney Tunes' },
+        { id: 'combo-los-simpson', label: '🍩 Pack Simpson' },
+        { id: 'combo-mugs-one-piece', label: '🏴‍☠️ Pack One Piece' }
+    ],
+    'packs': [
+        { id: 'combo-avengers', label: '🦸 Pack Avengers' },
+        { id: 'combo-batman', label: '🦇 Pack Batman' },
+        { id: 'combo-bob-esponja', label: '🧽 Pack Bob Esponja' },
+        { id: 'combo-caballeros-del-zodiaco', label: '🌌 Pack Caballeros' },
+        { id: 'combo-friends', label: '☕ Pack Friends' },
+        { id: 'combo-looney-tunes', label: '🐰 Pack Looney Tunes' },
+        { id: 'combo-los-simpson', label: '🍩 Pack Simpson' },
+        { id: 'combo-mugs-one-piece', label: '🏴‍☠️ Pack One Piece' }
     ],
     'boxs': [
+        { id: 'kit-pareja-dragon', label: '🐉 Kit Pareja Dragón' },
         { id: 'desayuno-premium', label: '🌟 Desayuno Premium' },
         { id: 'desayuno-luxury', label: '👑 Desayuno Gourmet' },
+        { id: 'box-tematicas', label: '⚓ Box Temática' },
+        { id: 'san-valentin', label: '💝 San Valentín' },
         { id: 'desayuno-clasico', label: '🥐 Desayuno Clásico' },
         { id: 'baby-shower', label: '🍼 Baby Shower' }
     ],
     'box': [
+        { id: 'kit-pareja-dragon', label: '🐉 Kit Pareja Dragón' },
         { id: 'desayuno-premium', label: '🌟 Desayuno Premium' },
         { id: 'desayuno-luxury', label: '👑 Desayuno Gourmet' },
+        { id: 'box-tematicas', label: '⚓ Box Temática' },
+        { id: 'san-valentin', label: '💝 San Valentín' },
         { id: 'desayuno-clasico', label: '🥐 Desayuno Clásico' },
         { id: 'baby-shower', label: '🍼 Baby Shower' }
     ],
     'crea-tu-box': [
+        { id: 'kit-pareja-dragon', label: '🐉 Kit Pareja Dragón' },
         { id: 'desayuno-premium', label: '🌟 Desayuno Premium' },
         { id: 'desayuno-luxury', label: '👑 Desayuno Gourmet' },
+        { id: 'box-tematicas', label: '⚓ Box Temática' },
+        { id: 'san-valentin', label: '💝 San Valentín' },
         { id: 'desayuno-clasico', label: '🥐 Desayuno Clásico' },
         { id: 'baby-shower', label: '🍼 Baby Shower' }
     ],
@@ -189,10 +211,27 @@ export function CategoriaProductos() {
 
     const formatCategoryName = (str) => {
         if (str === 'boxs' || str === 'box' || str === 'crea-tu-box') return 'Boxs y Desayunos Sorpresa';
+        if (str === 'kit-pareja-dragon') return 'Kit Pareja Cómo Entrenar a Tu Dragón';
+        if (str === 'box-tematicas') return 'Boxs Temáticos Anime y Series';
+        if (str === 'san-valentin') return 'Boxs San Valentín & Amor';
         if (str === 'desayuno-luxury' || str === 'desayuno-gourmet') return 'Desayuno Gourmet';
         if (str === 'desayuno-premium') return 'Desayuno Premium';
         if (str === 'desayuno-clasico') return 'Desayuno Clásico';
         if (str === 'baby-shower') return 'Baby Shower';
+        if (str === 'gelatorta_viajes') return 'Gelatortas de Viajes';
+        if (str === 'gelatorta_tematica') return 'Gelatortas Temáticas de Fútbol';
+        if (str === 'gelatortas_mascota') return 'Gelatortas de Mascotas';
+        if (str === 'figuras-3d-coyote-correcaminos') return 'Figuras 3D Wile E. Coyote & Correcaminos ACME';
+        if (str === 'figuras-3d-anime-coleccion') return 'Colección 3D One Piece & Pokémon';
+        if (str === 'combos' || str === 'packs') return 'Packs de Mugs Coleccionables';
+        if (str === 'combo-avengers') return 'Pack Avengers';
+        if (str === 'combo-batman') return 'Pack Batman';
+        if (str === 'combo-bob-esponja') return 'Pack Bob Esponja';
+        if (str === 'combo-caballeros-del-zodiaco') return 'Pack Caballeros del Zodíaco';
+        if (str === 'combo-friends') return 'Pack Friends';
+        if (str === 'combo-looney-tunes') return 'Pack Looney Tunes';
+        if (str === 'combo-los-simpson') return 'Pack Los Simpson';
+        if (str === 'combo-mugs-one-piece') return 'Pack One Piece';
         return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     };
 

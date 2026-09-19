@@ -205,6 +205,9 @@ export function ProductoDetalle() {
         }
     }
     const formatCategoryName = (str) => {
+        if (str.startsWith('combo-')) {
+            return 'Pack ' + str.replace('combo-', '').split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        }
         return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     };
     const categoryName = formatCategoryName(categoryId);
@@ -315,6 +318,15 @@ export function ProductoDetalle() {
                         <div className={styles.priceTag}>
                             ${product.price.toLocaleString()}
                         </div>
+
+                        {product.name.toLowerCase().match(/mug|taza|vaso|pack|combo/) && (
+                            <div className={styles.careNoticeBox}>
+                                <span className={styles.careNoticeIcon}>🧼</span>
+                                <div className={styles.careNoticeText}>
+                                    <strong>Cuidados:</strong> No calentar mucho al microondas, no usar lavavajillas y lavar con esponja suave.
+                                </div>
+                            </div>
+                        )}
 
                         {options.map(opt => (
                             <div key={opt.name} className={styles.optionsSection}>

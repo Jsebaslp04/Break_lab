@@ -8,12 +8,13 @@ import imgDesayunoPremium from '../assets/desayuno-sorpresa-premium-impresion-3d
 import imgDesayunoGourmet from '../assets/desayuno-sorpresa-gourmet-personalizado-regalo-especial.jpeg';
 import imgDesayunoClasico from '../assets/desayuno-sorpresa-clasico-cumpleanos-breaklab.png';
 import imgBabyShower from '../assets/regalo-sorpresa-bienvenida-baby-shower-breaklab.png';
+import { imgDragonSet, imgBoxTematica, imgBoxSanValentin } from '../data/products';
 
 export const Boxs = () => {
     useSEO({
         title: "Desayunos Sorpresa y Cajas de Regalo Boxs | BreakLab",
-        description: "Descubre nuestra selección exclusiva de Boxs y Desayunos Sorpresa en Bogotá: Desayuno Premium, Desayuno Gourmet, Desayuno Clásico y Baby Shower.",
-        keywords: "desayunos sorpresa bogota, box sorpresa, desayuno gourmet, desayuno premium bogota, desayuno clasico, baby shower box"
+        description: "Descubre nuestra selección exclusiva de Boxs y Desayunos Sorpresa en Bogotá: Kit Pareja Dragón, Desayuno Premium, Gourmet, Boxs Temáticas Anime y San Valentín.",
+        keywords: "desayunos sorpresa bogota, box sorpresa, desayuno gourmet, desayuno premium bogota, desayuno clasico, baby shower box, kit pareja dragon"
     });
 
     useEffect(() => {
@@ -21,6 +22,15 @@ export const Boxs = () => {
     }, []);
 
     const categories = [
+        {
+            id: 'kit-pareja-dragon',
+            name: 'Kit Pareja Dragón',
+            image: imgDragonSet,
+            alt: 'Kit Regalo Pareja Cómo Entrenar a Tu Dragón Chimuelo y Furia Luminosa BreakLab',
+            badge: 'Nuevo Romántico ❤️',
+            desc: 'Set de tazas personalizadas con nombres y código Spotify, más rompecabezas corazón interactivo.',
+            theme: styles.themeDragon
+        },
         {
             id: 'desayuno-premium',
             name: 'Desayuno Premium',
@@ -38,6 +48,24 @@ export const Boxs = () => {
             badge: 'Exclusivo ✨',
             desc: 'Para impresionar con la máxima elegancia, waffles belgas, croissant de almendras y prensa francesa.',
             theme: styles.themeLuxury
+        },
+        {
+            id: 'box-tematicas',
+            name: 'Box Temática Anime',
+            image: imgBoxTematica,
+            alt: 'Box Sorpresa Temática One Piece Anime BreakLab',
+            badge: 'Geek / Anime ⚓',
+            desc: 'Increíble caja sorpresa temática con gelatorta artesanal personalizada de One Piece, mug y dulces.',
+            theme: styles.themeAnime
+        },
+        {
+            id: 'san-valentin',
+            name: 'Box San Valentín & Amor',
+            image: imgBoxSanValentin,
+            alt: 'Box San Valentín Gelatorta y Vino BreakLab Bogotá',
+            badge: 'En Pareja 🍷',
+            desc: 'Detalle romántico exclusivo con botella de vino grabada, gelatorta temática y caja de lujo.',
+            theme: styles.themeRomantic
         },
         {
             id: 'desayuno-clasico',

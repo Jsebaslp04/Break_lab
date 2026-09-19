@@ -31,7 +31,7 @@ export function Footer() {
                     <ul>
                         <li><Link to="/Boxs" className={styles.footer_link}>Boxs</Link></li>
                         <li><Link to="/Crea_tu_Box" className={styles.footer_link}>Arma tu Box</Link></li>
-                        <li><Link to="/Combos" className={styles.footer_link}>Combos</Link></li>
+                        <li><Link to="/Combos" className={styles.footer_link}>Packs</Link></li>
                         <li><Link to="/Personalizamos" className={styles.footer_link}>Personalizamos</Link></li>
                     </ul>
                 </div>

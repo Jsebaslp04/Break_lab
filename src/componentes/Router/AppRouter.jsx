@@ -22,6 +22,9 @@ export const AppRouter = () => {
             <Route path="/Arma_tu_Box" element={<Crea_tu_Box />} />
             <Route path="/arma-tu-box" element={<Crea_tu_Box />} />
             <Route path="/Combos" element={<Combos />} />
+            <Route path="/combos" element={<Combos />} />
+            <Route path="/Packs" element={<Combos />} />
+            <Route path="/packs" element={<Combos />} />
             <Route path="/Personalizamos" element={<Personalizamos />} />
             <Route path="/Envios" element={<Inicio />} />
             <Route path="/Contacto" element={<Contacto />} />
