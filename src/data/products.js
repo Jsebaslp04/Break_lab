@@ -116,7 +116,12 @@ import imgComboBobEsponjaSonriente from '../assets/Products/Combos_mugs/Combo_bo
 import imgComboBobEsponjaCalamardo from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-calamardo-guapo-serio-bob-esponja-coleccionable-breaklab.jpeg';
 import imgComboBobEsponjaDonCangrejo from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-don-cangrejo-ojos-de-dinero-regalo-original-breaklab.png';
 import imgComboBobEsponjaPatricio from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-patricio-estrella-fondo-de-bikini-ceramica-breaklab.jpeg';
-import imgComboCaballerosDelZodiacoTazaSaintSeiyaCaballerosZodiacoGrupo from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/taza-saint-seiya-caballeros-zodiaco-grupo.png';
+import imgComboCaballerosDelZodiacoColeccionManga from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/mug-ceramica-los-caballeros-del-zodiaco-saint-seiya-armaduras-bronce-oro-diseno-manga-coleccion.jpeg';
+import imgComboCaballerosDelZodiacoPegasoSeiya from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/mug-saint-seiya-pegaso-seiya-v1-armadura-roja-blanca-caja-regalo-tematica.jpeg';
+import imgComboCaballerosDelZodiacoDragonShiryu from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/mug-saint-seiya-dragon-shiryu-v3-armadura-verde-escudo-dragon-naciente.jpeg';
+import imgComboCaballerosDelZodiacoCisneHyoga from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/mug-caballeros-del-zodiaco-cisne-hyoga-v3-armadura-blanca-poseidon-ataque-polvo-diamantes.jpeg';
+import imgComboCaballerosDelZodiacoAndromedaShun from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/mug-saint-seiya-andromeda-shun-v3-armadura-rosa-cadenas-nebulosas-caja-pandora.jpeg';
+import imgComboCaballerosDelZodiacoFenixIkki from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/mug-caballeros-del-zodiaco-fenix-ikki-v3-armadura-fuego-cadena-nebulosa-anime.jpeg';
 import imgComboFriendsTazaFriendsChandlerBingVerde from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-chandler-bing-verde.png';
 import imgComboFriendsTazaFriendsJoeyTribbianiDisfrazDoctorNegra from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-joey-tribbiani-disfraz-doctor-negra.png';
 import imgComboFriendsTazaFriendsMonicaGellerChefAzul from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-monica-geller-chef-azul.png';
@@ -574,12 +579,13 @@ export const PRODUCTS_DB = {
             id: 'mug-tematico-anime-gamer',
             name: 'Mugs Colección Anime & Geek',
             subtitle: 'Tus personajes e historias favoritas ⚔️',
-            description: 'Mugs temáticos sublimados en alta definición con diseños de Dragon Ball, Pokémon, Death Note, One Piece, Hora de Aventura y más. Material resistente.',
+            description: 'Mugs temáticos sublimados en alta definición con diseños de Caballeros del Zodíaco (Saint Seiya), Dragon Ball, Pokémon, Death Note, One Piece, Hora de Aventura y más. Material resistente.',
             price: 18000,
             isNew: true,
             image: imgMugPikachuCharizard,
             images: [
                 imgMugPikachuCharizard,
+                imgComboCaballerosDelZodiacoColeccionManga,
                 imgMugDbz,
                 imgMugDeathNote,
                 imgMugHoraAventura,
@@ -1388,14 +1394,30 @@ export const PRODUCTS_DB = {
     ],
     'combo-caballeros-del-zodiaco': [
         {
-            id: 'combo-caballeros-del-zodiaco-saint-seiya-caballeros-zodiaco-grupo',
-            name: 'Mug Saint Seiya Caballeros Zodíaco Grupo',
-            subtitle: 'Taza personalizada de alta calidad ☕',
-            description: 'Mug de cerámica de 11 oz con diseño de Saint Seiya Caballeros Zodíaco. Cuidados: no calentar mucho al microondas, no usar lavavajillas y lavar con esponja suave.',
-            price: 18000,
-            isNew: false,
-            image: imgComboCaballerosDelZodiacoTazaSaintSeiyaCaballerosZodiacoGrupo,
-            images: [imgComboCaballerosDelZodiacoTazaSaintSeiyaCaballerosZodiacoGrupo]
+            id: 'combo-caballeros-del-zodiaco-completo',
+            name: 'Pack x6 Mugs de Caballeros del Zodíaco',
+            subtitle: 'Colección completa de 5 caballeros de bronce en cerámica premium con interior y asa de color ☕🌌',
+            description: `Llévate la colección completa de mugs temáticos de Los Caballeros del Zodíaco:
+
+• Seiya de Pegaso
+• Shiryu de Dragón
+• Hyōga de Cisne
+• Shun de Andrómeda
+• Ikki de Fénix
+• Seiya y armaduras
+
+Fabricados en cerámica premium de 11 oz con interior y asa de color según el caballero, alta definición y durabilidad.`,
+            price: 79900,
+            isNew: true,
+            image: imgComboCaballerosDelZodiacoColeccionManga,
+            images: [
+                imgComboCaballerosDelZodiacoColeccionManga,
+                imgComboCaballerosDelZodiacoPegasoSeiya,
+                imgComboCaballerosDelZodiacoDragonShiryu,
+                imgComboCaballerosDelZodiacoCisneHyoga,
+                imgComboCaballerosDelZodiacoAndromedaShun,
+                imgComboCaballerosDelZodiacoFenixIkki
+            ]
         }
     ],
     'combo-friends': [
@@ -1491,8 +1513,16 @@ export const getIncludedItems = (product) => {
             'Caja de regalo decorada premium BreakLab con tarjeta de dedicatoria personalizada.'
         ];
     }
+    if (product.id === 'combo-caballeros-del-zodiaco-completo') {
+        return [
+            'Set completo de 6 mugs temáticos de cerámica premium de 11 oz.',
+            'Interior y asa de color personalizados según cada caballero.',
+            'Cuidado fácil y alta durabilidad del brillo y acabado.',
+            'Tarjeta de dedicatoria personalizada BreakLab.'
+        ];
+    }
     const name = product.name.toLowerCase();
-    if (name.includes('pack') && (name.includes('mug') || name.includes('taza') || name.includes('batman') || name.includes('avengers') || name.includes('friends') || name.includes('looney') || name.includes('simpson') || name.includes('one piece') || name.includes('bob') || name.includes('esponja'))) {
+    if (name.includes('pack') && (name.includes('mug') || name.includes('taza') || name.includes('batman') || name.includes('avengers') || name.includes('friends') || name.includes('looney') || name.includes('simpson') || name.includes('one piece') || name.includes('bob') || name.includes('esponja') || name.includes('caballeros') || name.includes('seiya') || name.includes('zodiaco'))) {
         return [
             'Colección completa de mugs en cerámica premium de 11 oz.',
             'Cuidado fácil y alta durabilidad del brillo y acabado.',
@@ -1824,6 +1854,9 @@ export const getCategoryProducts = (categoryId) => {
 };
 
 export const getProductById = (productId) => {
+    if (productId === 'combo-caballeros-del-zodiaco-saint-seiya-caballeros-zodiaco-grupo') {
+        productId = 'combo-caballeros-del-zodiaco-completo';
+    }
     for (const category in PRODUCTS_DB) {
         const product = PRODUCTS_DB[category].find(p => p.id === productId);
         if (product) {
