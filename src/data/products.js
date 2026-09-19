@@ -111,7 +111,11 @@ import imgComboBatmanBatisenal from '../assets/Products/Combos_mugs/Combo_batman
 import imgComboBatmanComicRetro from '../assets/Products/Combos_mugs/Combo_batman/taza-batman-comic-retro-vintage-regalo-falso-breaklab.jpeg';
 import imgComboBatmanSiluetaGotham from '../assets/Products/Combos_mugs/Combo_batman/taza-batman-silueta-gotham-luna-roja-merch-dc-breaklab.jpeg';
 import imgComboBatmanDuoBatimovil from '../assets/Products/Combos_mugs/Combo_batman/set-duo-tazas-batman-comic-batimovil-regalo-pareja-breaklab.jpeg';
-import imgComboBobEsponjaTazaBobEsponjaPatricioPirataGrupo from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-bob-esponja-patricio-pirata-grupo.png';
+import imgComboBobEsponjaPirataGrupo from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-bob-esponja-patricio-pirata-grupo.jpeg';
+import imgComboBobEsponjaSonriente from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-bob-esponja-sonriente-rostro-ceramica-amarilla-breaklab.jpeg';
+import imgComboBobEsponjaCalamardo from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-calamardo-guapo-serio-bob-esponja-coleccionable-breaklab.jpeg';
+import imgComboBobEsponjaDonCangrejo from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-don-cangrejo-ojos-de-dinero-regalo-original-breaklab.png';
+import imgComboBobEsponjaPatricio from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-patricio-estrella-fondo-de-bikini-ceramica-breaklab.jpeg';
 import imgComboCaballerosDelZodiacoTazaSaintSeiyaCaballerosZodiacoGrupo from '../assets/Products/Combos_mugs/Combo_Caballeros_del_zodiaco/taza-saint-seiya-caballeros-zodiaco-grupo.png';
 import imgComboFriendsTazaFriendsChandlerBingVerde from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-chandler-bing-verde.png';
 import imgComboFriendsTazaFriendsJoeyTribbianiDisfrazDoctorNegra from '../assets/Products/Combos_mugs/Combo_Friends/taza-friends-joey-tribbiani-disfraz-doctor-negra.png';
@@ -1350,7 +1354,7 @@ export const PRODUCTS_DB = {
             id: 'combo-batman-the-batman-rojo-grupo',
             name: 'Pack x5 Mugs de Batman DC Comics',
             subtitle: 'Colección completa de 5 mugs de Batman en cerámica premium ☕🦇',
-            description: 'Llévate la colección completa de mugs temáticos de Batman: The Batman Logo Amarillo y Negro, Batiseñal Roja de Gotham, Batman Cómic Retro Vintage, Silueta Gotham Luna Roja y Set Dúo Batman & Batimóvil. Fabricados en cerámica premium de 11 oz de alta durabilidad y calidad.',
+            description: 'Llévate la colección completa de mugs temáticos de Batman. Fabricados en cerámica premium de 11 oz de alta durabilidad y calidad.',
             price: 69900,
             isNew: true,
             image: imgComboBatmanGrupo,
@@ -1362,68 +1366,24 @@ export const PRODUCTS_DB = {
                 imgComboBatmanSiluetaGotham,
                 imgComboBatmanDuoBatimovil
             ]
-        },
-        {
-            id: 'mug-batman-the-batman-logo-amarillo',
-            name: 'Mug The Batman Logo Amarillo y Negro',
-            subtitle: 'Taza con logotipo The Batman en cerámica premium ☕🦇',
-            description: 'Mug de cerámica de 11 oz con el emblemático logo amarillo de The Batman sobre fondo negro azabache. Acabado brillante de alta definición, resistente a microondas y lavavajillas.',
-            price: 18000,
-            isNew: true,
-            image: imgComboBatmanLogoAmarillo,
-            images: [imgComboBatmanLogoAmarillo, imgComboBatmanGrupo]
-        },
-        {
-            id: 'mug-batman-batisenal-roja-gotham',
-            name: 'Mug Batman Batiseñal Roja Gotham',
-            subtitle: 'Taza edición coleccionable Batiseñal carmesí ☕🚨',
-            description: 'Mug de cerámica premium de 11 oz con diseño de la Batiseñal encendida sobre la noche roja de Gotham City. Impresión full color de máxima nitidez.',
-            price: 18000,
-            isNew: false,
-            image: imgComboBatmanBatisenal,
-            images: [imgComboBatmanBatisenal, imgComboBatmanGrupo]
-        },
-        {
-            id: 'mug-batman-comic-retro-vintage',
-            name: 'Mug Batman Cómic Retro Vintage',
-            subtitle: 'Taza estilo viñetas de cómic clásico de Batman ☕📖',
-            description: 'Mug de cerámica de 11 oz con paneles e ilustraciones clásicas vintage del Caballero de la Noche al estilo original de los cómics de DC.',
-            price: 18000,
-            isNew: false,
-            image: imgComboBatmanComicRetro,
-            images: [imgComboBatmanComicRetro, imgComboBatmanGrupo]
-        },
-        {
-            id: 'mug-batman-silueta-gotham-luna-roja',
-            name: 'Mug Batman Silueta Gotham Luna Roja',
-            subtitle: 'Taza con Batman vigilando Gotham bajo la luna roja ☕🌙',
-            description: 'Mug de cerámica de 11 oz con la imponente silueta del Hombre Murciélago custodiando los rascacielos de Gotham ante una luna llena carmesí.',
-            price: 18000,
-            isNew: false,
-            image: imgComboBatmanSiluetaGotham,
-            images: [imgComboBatmanSiluetaGotham, imgComboBatmanGrupo]
-        },
-        {
-            id: 'set-duo-tazas-batman-batimovil-comic',
-            name: 'Set Dúo Mugs Batman Cómic & Batimóvil',
-            subtitle: 'Dúo de tazas Batman y el mítico Batimóvil ☕🦇🏎️',
-            description: 'Set especial de 2 mugs de cerámica de 11 oz que combinan el diseño del Caballero de la Noche con el legendario Batimóvil en plena acción.',
-            price: 34000,
-            isNew: true,
-            image: imgComboBatmanDuoBatimovil,
-            images: [imgComboBatmanDuoBatimovil, imgComboBatmanGrupo]
         }
     ],
     'combo-bob-esponja': [
         {
             id: 'combo-bob-esponja-bob-esponja-patricio-pirata-grupo',
-            name: 'Mug Bob Esponja Patricio Pirata Grupo',
-            subtitle: 'Taza personalizada de alta calidad ☕',
-            description: 'Mug de cerámica de 11 oz con diseño de Bob Esponja Patricio Pirata. Cuidados: no calentar mucho al microondas, no usar lavavajillas y lavar con esponja suave.',
-            price: 18000,
-            isNew: false,
-            image: imgComboBobEsponjaTazaBobEsponjaPatricioPirataGrupo,
-            images: [imgComboBobEsponjaTazaBobEsponjaPatricioPirataGrupo]
+            name: 'Pack de 4 mugs de Bob Esponja',
+            subtitle: 'Colección completa de 4 mugs de Bob Esponja ☕🧽',
+            description: 'Llévate la colección completa de 4 mugs temáticos de Bob Esponja: Bob Esponja Rostro Sonriente, Patricio Estrella Fondo de Bikini, Calamardo Guapo y Don Cangrejo Ojos de Dinero. Fabricados en cerámica premium de 11 oz de alta durabilidad y calidad.',
+            price: 55900,
+            isNew: true,
+            image: imgComboBobEsponjaPirataGrupo,
+            images: [
+                imgComboBobEsponjaPirataGrupo,
+                imgComboBobEsponjaSonriente,
+                imgComboBobEsponjaPatricio,
+                imgComboBobEsponjaCalamardo,
+                imgComboBobEsponjaDonCangrejo
+            ]
         }
     ],
     'combo-caballeros-del-zodiaco': [
@@ -1532,12 +1492,10 @@ export const getIncludedItems = (product) => {
         ];
     }
     const name = product.name.toLowerCase();
-    if (name.includes('pack') && (name.includes('mug') || name.includes('taza') || name.includes('batman') || name.includes('avengers') || name.includes('friends') || name.includes('looney') || name.includes('simpson') || name.includes('one piece'))) {
+    if (name.includes('pack') && (name.includes('mug') || name.includes('taza') || name.includes('batman') || name.includes('avengers') || name.includes('friends') || name.includes('looney') || name.includes('simpson') || name.includes('one piece') || name.includes('bob') || name.includes('esponja'))) {
         return [
             'Colección completa de mugs en cerámica premium de 11 oz.',
-            'Estampado full color de alta definición resistente al microondas.',
             'Cuidado fácil y alta durabilidad del brillo y acabado.',
-            'Empaque protector individual para cada mug listo para regalo.',
             'Tarjeta de dedicatoria personalizada BreakLab.'
         ];
     }
@@ -1635,6 +1593,10 @@ export const getProductOptions = (product) => {
         ];
     }
     const name = product.name.toLowerCase();
+
+    if (name.includes('pack') || name.includes('combo') || name.includes('colección') || name.includes('coleccion')) {
+        return [];
+    }
 
     if (name.includes('mug') || name.includes('vaso') || name.includes('taza') || name.includes('tarro')) {
         return [

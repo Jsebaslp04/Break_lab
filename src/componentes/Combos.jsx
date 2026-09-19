@@ -6,7 +6,7 @@ import { useSEO } from '../hooks/useSEO';
 // Imágenes reales de alta calidad de la carpeta banner-combos-mugs-coleccionables-breaklab
 import imgComboAvengers from '../assets/banner-combos-mugs-coleccionables-breaklab/taza-heroes-comic-marvel-dc-vengadores-breaklab.png';
 import imgComboBatman from '../assets/banner-combos-mugs-coleccionables-breaklab/mug-batman-logo-rojo-negro-the-batman-breaklab.png';
-import imgComboBobEsponja from '../assets/banner-combos-mugs-coleccionables-breaklab/mug-bob-esponja-patricio-edicion-especial-breaklab.png';
+import imgComboBobEsponja from '../assets/Products/Combos_mugs/Combo_bob_esponja/taza-bob-esponja-patricio-pirata-grupo.jpeg';
 import imgComboCaballeros from '../assets/banner-combos-mugs-coleccionables-breaklab/mug-caballeros-zodiaco-saint-seiya-coleccion-breaklab.png';
 import imgComboFriends from '../assets/banner-combos-mugs-coleccionables-breaklab/taza-friends-central-perk-logo-coleccionable-breaklab.png';
 import imgComboLooneyTunes from '../assets/banner-combos-mugs-coleccionables-breaklab/tazas-looney-tunes-piolin-taz-coleccion-breaklab.jpeg';
