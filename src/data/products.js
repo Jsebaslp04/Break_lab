@@ -1006,94 +1006,6 @@ export const PRODUCTS_DB = {
             images: [imgPuzzleMdfScreenshot]
         }
     ],
-    'arte-resina': [
-        {
-            id: 'llavero-resina-letra',
-            name: 'Llavero de Inicial Personalizado',
-            subtitle: 'Iniciales con estilo encapsuladas 🌸',
-            description: 'Llavero de inicial de resina epóxica hecha a mano con flores prensadas, hojilla de oro o purpurina según tu preferencia. Incluye borla decorativa.',
-            price: 12000,
-            isNew: false,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        },
-        {
-            id: 'portavasos-resina',
-            name: 'Set de Portavasos Resina Epoxi',
-            subtitle: 'Arte epoxi para tu mesa 🥂',
-            description: 'Set de 4 portavasos circulares hechos a mano con resina epoxi de alta resistencia. Diseños personalizados imitando geodas o marmolado.',
-            price: 35000,
-            isNew: true,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        }
-    ],
-    'miyuki': [
-        {
-            id: 'pulsera-miyuki',
-            name: 'Pulsera Miyuki Tejida a Mano',
-            subtitle: 'Elegancia tejida a mano ✨',
-            description: 'Pulsera fina tejida a mano con mostacillas japonesas Delica Miyuki de alta calidad, creando patrones geométricos elegantes y ajustables.',
-            price: 28000,
-            isNew: true,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        },
-        {
-            id: 'collar-miyuki',
-            name: 'Collar Gargantilla Miyuki',
-            subtitle: 'Detalle sutil y moderno 💎',
-            description: 'Delicado collar con dije central tejido en Miyuki en forma de corazón, estrella o inicial, montado en cadena de acero inoxidable hipoalergénico.',
-            price: 42000,
-            isNew: false,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        }
-    ],
-    'globo-mensaje': [
-        {
-            id: 'globo-burbuja',
-            name: 'Globo Burbuja con Mensaje',
-            subtitle: 'Mensajes gigantes en el aire 🎈',
-            description: 'Globo gigante transparente relleno de confeti metálico o plumas de colores, con mensaje personalizado en vinilo adhesivo y base de soporte.',
-            price: 30000,
-            isNew: false,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        },
-        {
-            id: 'globo-metalizado-personalizado',
-            name: 'Ramo de Globos Metalizados',
-            subtitle: 'Bouquets festivos inflados con helio 🎉',
-            description: 'Bouquet de globos con forma de estrella, corazón o números gigantes para cumpleaños, inflados con helio y rotulados con nombres.',
-            price: 45000,
-            isNew: true,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        }
-    ],
-    'vino': [
-        {
-            id: 'vino-personalizado',
-            name: 'Vino Botella Grabada',
-            subtitle: 'Copas y dedicatorias grabadas 🍷',
-            description: 'Botella de vino tinto Gato Negro personalizada con grabado láser en el vidrio con el mensaje o dedicatoria que prefieras.',
-            price: 45000,
-            isNew: true,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        },
-        {
-            id: 'vino-caja-madera',
-            name: 'Estuche de Vino Gourmet',
-            subtitle: 'Estuches finos de madera 🍾',
-            description: 'Botella de vino tinto grabada, presentada en una caja de madera personalizada con tapa deslizable y copas de cristal grabadas.',
-            price: 95000,
-            isNew: false,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        }
-    ],
     'figuras-3d-mario-bros': [
         {
             id: 'figuras-3d-bomb-mario-bross-product',
@@ -1292,50 +1204,6 @@ export const PRODUCTS_DB = {
             images: [breakLabLogo]
         }
     ],
-    'amigurumis': [
-        {
-            id: 'amigurumi-mascota',
-            name: 'Amigurumi de Mascota Personalizado',
-            subtitle: 'Tus peluditos replicados a mano 🐾',
-            description: 'Mascota tejida a crochet a mano a partir de fotos de tu perrito o gatito. Hilos de algodón hipoalergénicos y acabados de gran fidelidad.',
-            price: 40000,
-            isNew: true,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        },
-        {
-            id: 'amigurumi-llavero',
-            name: 'Llaveros Amigurumi Mini',
-            subtitle: 'Tiernos compañeros de viaje 👜',
-            description: 'Pequeños animalitos, plantas u objetos geek tejidos a crochet para llevar en tus llaves o maleta. Rellenos con algodón siliconado.',
-            price: 15000,
-            isNew: false,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        }
-    ],
-    'su-flor-especial': [
-        {
-            id: 'flor-eterna',
-            name: 'Cúpula de Rosa Eterna Preservada',
-            subtitle: 'Rosas eternas preservadas con luz LED 🌟',
-            description: 'Rosa natural tratada técnicamente para durar años sin mantenimiento. Presentada en cúpula de vidrio de alta transparencia con luces LED cálidas.',
-            price: 75000,
-            isNew: true,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        },
-        {
-            id: 'ramo-flores-tejido',
-            name: 'Ramo de Flores Tejido a Crochet',
-            subtitle: 'Flores tejidas que nunca se marchitan 🌸',
-            description: 'Ramo de tulipanes, margaritas y rosas tejidas a crochet a mano. Un detalle floral que nunca se marchita y decora cualquier rincón.',
-            price: 68000,
-            isNew: false,
-            image: breakLabLogo,
-            images: [breakLabLogo]
-        }
-    ],
     'combo-avengers': [
         {
             id: 'combo-avengers-completo',
@@ -1426,7 +1294,7 @@ Fabricados en cerámica premium de 11 oz con interior y asa de color según el c
             name: 'Pack Mugs Friends',
             subtitle: 'Set completo de 6 tazas coleccionables ☕✨',
             description: 'Llévate el set completo de 6 tazas temáticas de la serie Friends (Chandler, Joey, Monica, Rachel, Ross y Phoebe) fabricadas en cerámica de alta calidad.',
-            price: 95000,
+            price: 83900,
             isNew: true,
             image: imgComboFriendsTazaFriendsChandlerBingVerde,
             images: [
@@ -1445,7 +1313,7 @@ Fabricados en cerámica premium de 11 oz con interior y asa de color según el c
             name: 'Pack Looney Tunes',
             subtitle: 'Set completo de tazas coleccionables ☕🐰',
             description: 'Llévate la colección completa de tazas de Looney Tunes (Bugs Bunny, Pato Lucas, Piolín, Taz, Coyote, Correcaminos, Silvestre, Pepe Le Pew y Mickey Mouse) fabricadas en cerámica de alta calidad.',
-            price: 135000,
+            price: 153900,
             isNew: true,
             image: imgComboLooneyTunesCapturaDePantalla20260716171907,
             images: [
@@ -1468,8 +1336,8 @@ Fabricados en cerámica premium de 11 oz con interior y asa de color según el c
             id: 'combo-los-simpson-completo',
             name: 'Pack Los Simpson',
             subtitle: 'Set completo de tazas coleccionables ☕🍩',
-            description: 'Llévate la colección completa de tazas de Los Simpson (Homero, Marge, Lisa, Maggie y Ayudante de Santa) fabricadas en cerámica de alta calidad.',
-            price: 75000,
+            description: 'Llévate la colección completa de tazas de Los Simpson (Homero, Marge, Lisa, Bart, Maggie y Ayudante de Santa) fabricadas en cerámica de alta calidad.',
+            price: 83900,
             isNew: true,
             image: imgComboLosSimpsonCapturaDePantalla20260716171812,
             images: [
@@ -1488,7 +1356,7 @@ Fabricados en cerámica premium de 11 oz con interior y asa de color según el c
             name: 'Pack Mugs One Piece',
             subtitle: 'Set completo de 6 tazas coleccionables ☕🏴‍☠️',
             description: 'Llévate la colección completa de 6 tazas temáticas de One Piece (Luffy, Nami, Zoro, Robin, Brook y Luffy Chibi) fabricadas en cerámica de alta calidad.',
-            price: 95000,
+            price: 83900,
             isNew: true,
             image: imgComboMugsOnePieceWantedCarteles,
             images: [
@@ -1518,7 +1386,6 @@ export const getIncludedItems = (product) => {
             'Set completo de 6 mugs temáticos de cerámica premium de 11 oz.',
             'Interior y asa de color personalizados según cada caballero.',
             'Cuidado fácil y alta durabilidad del brillo y acabado.',
-            'Tarjeta de dedicatoria personalizada BreakLab.'
         ];
     }
     const name = product.name.toLowerCase();
@@ -1526,14 +1393,11 @@ export const getIncludedItems = (product) => {
         return [
             'Colección completa de mugs en cerámica premium de 11 oz.',
             'Cuidado fácil y alta durabilidad del brillo y acabado.',
-            'Tarjeta de dedicatoria personalizada BreakLab.'
         ];
     }
     if (name.includes('box') || name.includes('kit') || name.includes('desayuno') || name.includes('estuche')) {
         return [
             'Caja de regalo decorada premium con cinta y moño.',
-            'Tarjeta de dedicatoria personalizada con tu mensaje.',
-            'Detalles y sorpresas temáticas según la ocasión.',
             'Globo metalizado y empaque especial BreakLab.'
         ];
     } else if (name.includes('mug') || name.includes('vaso') || name.includes('taza') || name.includes('tarro')) {
@@ -1595,6 +1459,16 @@ export const getIncludedItems = (product) => {
     }
 };
 
+// Helper to check if a product is a pack/combo
+export const PACK_UNIT_PRICE = 15900;
+
+export const isPackProduct = (product) => {
+    if (!product) return false;
+    const id = product.id || '';
+    const name = (product.name || '').toLowerCase();
+    return id.startsWith('combo-') || name.includes('pack') || name.includes('combo') || name.includes('colección') || name.includes('coleccion');
+};
+
 // Helper to determine product configuration options based on name/category
 export const getProductOptions = (product) => {
     if (product.options) {
@@ -1622,11 +1496,19 @@ export const getProductOptions = (product) => {
             }
         ];
     }
-    const name = product.name.toLowerCase();
 
-    if (name.includes('pack') || name.includes('combo') || name.includes('colección') || name.includes('coleccion')) {
-        return [];
+    if (isPackProduct(product)) {
+        return [
+            {
+                name: 'presentacion',
+                label: 'Elige cómo deseas llevarlo:',
+                choices: ['Pack Completo', 'Por Unidad'],
+                default: 'Pack Completo'
+            }
+        ];
     }
+
+    const name = product.name.toLowerCase();
 
     if (name.includes('mug') || name.includes('vaso') || name.includes('taza') || name.includes('tarro')) {
         return [

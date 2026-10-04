@@ -95,19 +95,19 @@ const CATEGORY_TABS = [
         id: 'delicias',
         name: 'Comida y Delicias',
         icon: '🍰',
-        matchKeys: ['gelatortas_mascota', 'gelatorta_tematica', 'vino']
+        matchKeys: ['gelatortas_mascota', 'gelatorta_tematica']
     },
     {
         id: 'detalles',
-        name: 'Detalles y Peluches',
-        icon: '🧸',
-        matchKeys: ['amigurumis', 'su-flor-especial', 'arte-resina', 'miyuki', 'variedades']
+        name: 'Detalles y Variedades',
+        icon: '🎁',
+        matchKeys: ['variedades']
     },
     {
-        id: 'globos_llaveros',
-        name: 'Globos y Llaveros',
-        icon: '🎈',
-        matchKeys: ['globo-mensaje', 'llaveros']
+        id: 'llaveros_categoria',
+        name: 'Llaveros Creativos',
+        icon: '🔑',
+        matchKeys: ['llaveros']
     },
     {
         id: 'desayunos_base',
@@ -431,7 +431,7 @@ export const Crea_tu_Box = () => {
                                 <input
                                     type="text"
                                     className={styles.searchInput}
-                                    placeholder="Buscar productos (mugs, anime, chocolates, amigurumis...)"
+                                    placeholder="Buscar productos (mugs, anime, gelatortas, rompecabezas...)"
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                 />

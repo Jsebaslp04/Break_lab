@@ -176,7 +176,7 @@ export function Inicio() {
 
     useSEO({
         title: "Desayunos Sorpresa y Regalos Personalizados en Bogotá | BreakLab",
-        description: "Sorprende con amor en BreakLab. Ofrecemos los mejores desayunos sorpresa, cajas de regalos personalizadas, amigurumis, mugs y detalles únicos en Bogotá con entrega a domicilio.",
+        description: "Sorprende con amor en BreakLab. Ofrecemos los mejores desayunos sorpresa, cajas de regalos personalizadas, mugs, rompecabezas y detalles únicos en Bogotá con entrega a domicilio.",
         keywords: "desayunos sorpresa bogota, regalos personalizados bogota, cajas de regalo, breaklab regalos, desayunos a domicilio bogota",
         schema: localBusinessSchema
     });
@@ -318,9 +318,9 @@ export function Inicio() {
                         'colgador-3d-huevo-frito'
                     ],
                     'pareja_chocolates': [
-                        'flor-eterna',
-                        'pulsera-miyuki',
-                        'collar-miyuki',
+                        'kit-regalo-como-entrenar-a-tu-dragon',
+                        'mug-parejas-1',
+                        'taza-blanca-ceramica-asa-corazon-regalo',
                         'rompecabezas-carton-personalizado',
                         'mug-blanco'
                     ],
@@ -341,8 +341,8 @@ export function Inicio() {
                     ],
                     'mama_chocolates': [
                         'dia-madre-joyas-flores',
-                        'flor-eterna',
-                        'portavasos-resina',
+                        'taza-romantica-personalizada-dorada-aniversario',
+                        'taza-blanca-ceramica-asa-corazon-regalo',
                         'rompecabezas-carton-personalizado'
                     ],
 
@@ -361,7 +361,7 @@ export function Inicio() {
                         'figuras-3d-mewtwo-product',
                         'figuras-3d-bowser-product'
                     ],
-                    'papa_chocolates': ['vino-caja-madera', 'vino-personalizado', 'llavero-resina-letra'],
+                    'papa_chocolates': ['dia-hombre-cervecero', 'llavero-one-piece-destapador', 'mug-interior-color'],
 
                     'nino_gamer': [
                         'dia-nino-gamer',
@@ -374,15 +374,14 @@ export function Inicio() {
                     ],
                     'nino_gourmet': [
                         'kit-escolar-sorpresa',
-                        'kit-escolar-basico',
-                        'dia-nino-amigurumi'
+                        'kit-escolar-basico'
                     ],
                     'nino_impresion_3d': [
                         'figuras-3d-bomb-mario-bross-product',
                         'figuras-3d-pokebola-product',
                         'figuras-3d-mapache-product'
                     ],
-                    'nino_chocolates': ['figura-3d-personalizada', 'globo-burbuja', 'globo-metalizado-personalizado'],
+                    'nino_chocolates': ['figuras-3d-bomb-mario-bross-product', 'llavero-pikachu-rectangular', 'rompecabezas-super-mario'],
 
                     'amigo_gamer': [
                         'rompecabezas-magnetico-one-piece-luffy',
@@ -405,7 +404,7 @@ export function Inicio() {
                         'figuras-3d-t-rex-product',
                         'colgador-3d-huevo-frito'
                     ],
-                    'amigo_chocolates': ['llavero-resina-letra', 'portavasos-resina', 'pulsera-miyuki']
+                    'amigo_chocolates': ['llavero-mario-luigi', 'llavero-one-piece-destapador', 'tarro-mason-jar']
                 };
 
                 const key = `${finderRecipient}_${finderVibe}`;
@@ -609,7 +608,7 @@ export function Inicio() {
                                 <img src={iconDisena} className={`${styles.step_icon_img} ${styles.icon_step2}`} alt="Diseña desde cero" />
                             </div>
                             <p className={styles.step_title}>Hazlo único</p>
-                            <p>Añade detalles con alma: chocolates, globos, amigurumis o piezas impresas en 3D. ¡Tú diriges la personalización!</p>
+                            <p>Añade detalles con alma: chocolates, fotos, llaveros o piezas impresas en 3D. ¡Tú diriges la personalización!</p>
                         </div>
                         <div className={styles.step_card}>
                             <div className={styles.step_badge}>Paso 3</div>

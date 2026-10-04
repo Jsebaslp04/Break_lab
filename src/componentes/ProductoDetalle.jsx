@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from './context/CartContext';
-import { getProductById, PRODUCTS_DB, getIncludedItems, getProductOptions } from '../data/products';
+import { getProductById, PRODUCTS_DB, getIncludedItems, getProductOptions, isPackProduct, PACK_UNIT_PRICE } from '../data/products';
 import styles from './ProductoDetalle.module.css';
 import { useSEO } from '../hooks/useSEO';
 
@@ -26,6 +26,10 @@ export function ProductoDetalle() {
         return initial;
     });
 
+    const isPack = isPackProduct(product);
+    const isUnitOption = isPack && selectedOptions.presentacion === 'Por Unidad';
+    const currentPrice = isUnitOption ? PACK_UNIT_PRICE : product.price;
+
     const schemaImages = (product.images && product.images.length > 0 ? product.images : [product.image || "/break_lab_logo.png"])
         .map(img => img.startsWith('http') ? img : `${window.location.origin}${img.startsWith('/') ? img : '/' + img}`);
 
@@ -48,7 +52,7 @@ export function ProductoDetalle() {
             "@type": "Offer",
             "url": window.location.href,
             "priceCurrency": "COP",
-            "price": product.price,
+            "price": currentPrice,
             "priceValidUntil": priceValidUntil,
             "availability": "https://schema.org/InStock",
             "seller": {
@@ -116,10 +120,11 @@ export function ProductoDetalle() {
     };
 
     const handleAddSelected = () => {
-        const optString = Object.values(selectedOptions).join(', ');
-        const optId = Object.values(selectedOptions).join('-');
+        const optValues = Object.values(selectedOptions).filter(Boolean);
+        const optString = optValues.join(', ');
+        const optId = optValues.join('-');
 
-        let selectedImage = product.image;
+        let selectedImage = product.images?.[activeImageIdx] || product.image;
         if (selectedOptions.color && product.colorImageMap && product.images) {
             const imgIdx = product.colorImageMap[selectedOptions.color];
             if (imgIdx !== undefined && product.images[imgIdx]) {
@@ -128,10 +133,10 @@ export function ProductoDetalle() {
         }
 
         const productsToAdd = [{
-            id: `${product.id}-${optId}`,
+            id: optId ? `${product.id}-${optId}` : product.id,
             productId: product.id,
-            name: `${product.name} (${optString})`,
-            price: product.price,
+            name: optString ? `${product.name} (${optString})` : product.name,
+            price: currentPrice,
             quantity: 1,
             image: selectedImage,
             selectedOptions: { ...selectedOptions }
@@ -154,10 +159,11 @@ export function ProductoDetalle() {
     };
 
     const handleAddOnlyMainProduct = () => {
-        const optString = Object.values(selectedOptions).join(', ');
-        const optId = Object.values(selectedOptions).join('-');
+        const optValues = Object.values(selectedOptions).filter(Boolean);
+        const optString = optValues.join(', ');
+        const optId = optValues.join('-');
 
-        let selectedImage = product.image;
+        let selectedImage = product.images?.[activeImageIdx] || product.image;
         if (selectedOptions.color && product.colorImageMap && product.images) {
             const imgIdx = product.colorImageMap[selectedOptions.color];
             if (imgIdx !== undefined && product.images[imgIdx]) {
@@ -166,10 +172,10 @@ export function ProductoDetalle() {
         }
 
         addToCart([{
-            id: `${product.id}-${optId}`,
+            id: optId ? `${product.id}-${optId}` : product.id,
             productId: product.id,
-            name: `${product.name} (${optString})`,
-            price: product.price,
+            name: optString ? `${product.name} (${optString})` : product.name,
+            price: currentPrice,
             quantity: 1,
             image: selectedImage,
             selectedOptions: { ...selectedOptions }
@@ -182,16 +188,16 @@ export function ProductoDetalle() {
 
     const getTheme = (productId) => {
         const idLower = productId?.toLowerCase() || '';
-        if (idLower.includes('valentin') || idLower.includes('mujer') || idLower.includes('madre') || idLower.includes('amor') || idLower.includes('miyuki') || idLower.includes('flor')) {
+        if (idLower.includes('valentin') || idLower.includes('mujer') || idLower.includes('madre') || idLower.includes('amor')) {
             return styles.themeRomantic;
         }
         if (idLower.includes('escolar') || idLower.includes('nino') || idLower.includes('figura')) {
             return styles.themePlayful;
         }
-        if (idLower.includes('hombre') || idLower.includes('padre') || idLower.includes('vino')) {
+        if (idLower.includes('hombre') || idLower.includes('padre')) {
             return styles.themeMasculine;
         }
-        if (idLower.includes('reyes') || idLower.includes('santa') || idLower.includes('resina')) {
+        if (idLower.includes('reyes') || idLower.includes('santa')) {
             return styles.themeFestive;
         }
         return styles.themeDefault;
@@ -315,8 +321,28 @@ export function ProductoDetalle() {
                             <p className={styles.tagline}>💝 {product.subtitle}</p>
                         )}
                         
-                        <div className={styles.priceTag}>
-                            ${product.price.toLocaleString()}
+                        <div className={styles.priceContainer}>
+                            <div className={styles.priceTag}>
+                                ${currentPrice.toLocaleString()}
+                            </div>
+                            {isPack && (
+                                <button 
+                                    type="button"
+                                    className={`${styles.unitPriceOptionBadge} ${isUnitOption ? styles.unitPriceOptionBadgeActive : ''}`}
+                                    onClick={() => handleSelectOption('presentacion', isUnitOption ? 'Pack Completo' : 'Por Unidad')}
+                                    title={isUnitOption ? 'Clic para seleccionar el Pack Completo' : 'Clic para comprar por unidad a $15.900'}
+                                >
+                                    <span className={styles.unitPriceOptionBracket}>[</span>
+                                    <span className={styles.unitPriceOptionIcon}>{isUnitOption ? '📦' : '🏷️'}</span>
+                                    <span className={styles.unitPriceOptionText}>
+                                        {isUnitOption ? `O Pack Completo a $${product.price.toLocaleString()}` : `O Unidad a $${PACK_UNIT_PRICE.toLocaleString()}`}
+                                    </span>
+                                    <span className={styles.unitPriceOptionBracket}>]</span>
+                                    <span className={styles.unitPriceOptionPill}>
+                                        {isUnitOption ? 'Ver Pack' : 'Elegir unidad'}
+                                    </span>
+                                </button>
+                            )}
                         </div>
 
                         {product.name.toLowerCase().match(/mug|taza|vaso|pack|combo/) && (
@@ -334,19 +360,37 @@ export function ProductoDetalle() {
                                 <div className={styles.pillsRow}>
                                     {opt.choices.map(choice => {
                                         const isSelected = selectedOptions[opt.name] === choice;
+                                        let choiceLabel = choice;
+                                        if (opt.name === 'presentacion') {
+                                            if (choice === 'Pack Completo') {
+                                                choiceLabel = `📦 Pack Completo ($${product.price.toLocaleString()})`;
+                                            } else if (choice === 'Por Unidad') {
+                                                choiceLabel = `☕ Por Unidad ($${PACK_UNIT_PRICE.toLocaleString()})`;
+                                            }
+                                        }
                                         return (
                                             <button 
                                                 key={choice}
                                                 className={`${styles.optionPill} ${isSelected ? styles.activePill : ''}`}
                                                 onClick={() => handleSelectOption(opt.name, choice)}
                                             >
-                                                {choice}
+                                                {choiceLabel}
                                             </button>
                                         );
                                     })}
                                 </div>
                             </div>
                         ))}
+
+                        {isUnitOption && (
+                            <div className={styles.unitSelectionHint}>
+                                <span className={styles.unitSelectionHintIcon}>💡</span>
+                                <div className={styles.unitSelectionHintContent}>
+                                    <strong>¿Deseas una taza específica?</strong>
+                                    <p>Al coordinar tu pedido por WhatsApp, indícanos cuál de los personajes o modelos de la colección deseas recibir.</p>
+                                </div>
+                            </div>
+                        )}
 
                         <button className={styles.addToCartBtn} onClick={() => setShowModal(true)}>
                             Añadir al Carrito

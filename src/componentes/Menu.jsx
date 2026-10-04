@@ -114,8 +114,7 @@ export const Menu = () => {
 
     const personalizamosCategories = [
         'mugs-personalizados', 'vasos-personalizados', 'llaveros', 'rompecabezas', 
-        'gelatortas', 'arte-resina', 'miyuki', 'globo-mensaje', 'vino', 'figuras-3d', 
-        'amigurumis', 'su-flor-especial', 'variedades', 'soportes',
+        'gelatortas', 'figuras-3d', 'variedades', 'soportes',
         'rompecabezas-magneticos', 'rompecabezas-carton', 'rompecabezas-mdf',
         'gelatortas_mascota', 'gelatorta_tematica', 'gelatorta_viajes',
         'figuras-3d-mario-bros', 'figuras-3d-bowser', 'figuras-3d-gengar', 'figuras-3d-pokebola', 'figuras-3d-mewtwo', 'figuras-3d-mapache', 'figuras-3d-t-rex', 'figuras-3d-personalizadas',
@@ -383,27 +382,21 @@ export const Menu = () => {
                             <div className={styles.megaContainer}>
                                 <div className={styles.megaColumnsPersonalizamos}>
                                     <div className={styles.megaColumn}>
-                                        <span className={styles.megaColumnHeader}>☕ Mugs y Copas</span>
+                                        <span className={styles.megaColumnHeader}>☕ Mugs y Vasos</span>
                                         <Link to="/categoria/mugs-personalizados" className={styles.megaSubItem}>Mugs Personalizados</Link>
                                         <Link to="/categoria/vasos-personalizados" className={styles.megaSubItem}>Vasos Personalizados</Link>
-                                        <Link to="/categoria/vino" className={styles.megaSubItem}>Vino con Etiqueta</Link>
-                                        <Link to="/categoria/globo-mensaje" className={styles.megaSubItem}>Globo Mensaje</Link>
                                     </div>
                                     <div className={styles.megaColumn}>
-                                        <span className={styles.megaColumnHeader}>🎨 Regalos y Arte</span>
+                                        <span className={styles.megaColumnHeader}>🎨 Regalos y Accesorios</span>
                                         <Link to="/categoria/llaveros" className={styles.megaSubItem}>Llaveros Creativos</Link>
                                         <Link to="/categoria/rompecabezas" className={styles.megaSubItem}>Rompecabezas</Link>
-                                        <Link to="/categoria/miyuki" className={styles.megaSubItem}>Miyuki (Bisutería)</Link>
                                         <Link to="/categoria/variedades" className={styles.megaSubItem}>Detalles Varios</Link>
                                     </div>
                                     <div className={styles.megaColumn}>
-                                        <span className={styles.megaColumnHeader}>🍰 Especiales</span>
+                                        <span className={styles.megaColumnHeader}>🍰 Repostería y 3D</span>
                                         <Link to="/categoria/gelatortas" className={styles.megaSubItem}>Gelatortas Únicas</Link>
-                                        <Link to="/categoria/arte-resina" className={styles.megaSubItem}>Arte en Resina</Link>
                                         <Link to="/categoria/figuras-3d" className={styles.megaSubItem}>Figuras 3D</Link>
                                         <Link to="/categoria/soportes" className={styles.megaSubItem}>Soportes</Link>
-                                        <Link to="/categoria/amigurumis" className={styles.megaSubItem}>Amigurumis</Link>
-                                        <Link to="/categoria/su-flor-especial" className={styles.megaSubItem}>Su Flor Especial</Link>
                                     </div>
                                 </div>
                                 <div className={styles.megaFeaturedPersonalizamos}>
@@ -519,14 +512,8 @@ export const Menu = () => {
                                 <Link to="/categoria/llaveros" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🔑 Llaveros</Link>
                                 <Link to="/categoria/rompecabezas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🧩 Rompecabezas</Link>
                                 <Link to="/categoria/gelatortas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🎂 Gelatortas</Link>
-                                <Link to="/categoria/arte-resina" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>✨ Arte en Resina</Link>
-                                <Link to="/categoria/miyuki" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>📿 Miyuki</Link>
-                                <Link to="/categoria/globo-mensaje" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🎈 Globo Mensaje</Link>
-                                <Link to="/categoria/vino" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🍷 Vino</Link>
                                 <Link to="/categoria/figuras-3d" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🤖 Figuras 3D</Link>
                                 <Link to="/categoria/soportes" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>📱 Soportes</Link>
-                                <Link to="/categoria/amigurumis" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🧸 Amigurumis</Link>
-                                <Link to="/categoria/su-flor-especial" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🌹 Su Flor Especial</Link>
                                 <Link to="/categoria/variedades" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🎁 Variedades</Link>
                             </div>
                         </div>

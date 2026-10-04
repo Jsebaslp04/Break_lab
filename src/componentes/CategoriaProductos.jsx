@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './CategoriaProductos.module.css';
-import { getCategoryProducts } from '../data/products';
+import { getCategoryProducts, isPackProduct, PACK_UNIT_PRICE } from '../data/products';
 import { useSEO } from '../hooks/useSEO';
 
 function ProductCard({ product }) {
+    const isPack = isPackProduct(product);
     const [currentIdx, setCurrentIdx] = useState(0);
     const images = product.images && product.images.length > 0 ? product.images : [product.image];
     const hasMultipleImages = images.length > 1;
@@ -85,9 +86,20 @@ function ProductCard({ product }) {
                 <hr className={styles.cardDivider} />
                 
                 <div className={styles.cardFooter}>
-                    <span className={styles.productPrice}>
-                        ${product.price.toLocaleString()}
-                    </span>
+                    <div className={styles.priceContainer}>
+                        <span className={styles.productPrice}>
+                            ${product.price.toLocaleString()}
+                        </span>
+                        {isPack && (
+                            <span className={styles.packUnitNotice}>
+                                <span className={styles.packUnitBracket}>[</span>
+                                <span className={styles.packUnitText}>
+                                    O Unidad a <strong className={styles.packUnitPrice}>${PACK_UNIT_PRICE.toLocaleString()}</strong>
+                                </span>
+                                <span className={styles.packUnitBracket}>]</span>
+                            </span>
+                        )}
+                    </div>
                     
                     <span className={styles.verDetalleBtn}>
                         Ver Detalles
@@ -189,14 +201,8 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'llaveros', label: '🔑 Llaveros' },
         { id: 'rompecabezas', label: '🧩 Rompecabezas' },
         { id: 'gelatortas', label: '🎂 Gelatortas' },
-        { id: 'arte-resina', label: '🎨 Arte en Resina' },
-        { id: 'miyuki', label: '💎 Miyuki' },
-        { id: 'globo-mensaje', label: '🎈 Globo Mensaje' },
-        { id: 'vino', label: '🍷 Vino' },
         { id: 'figuras-3d', label: '👾 Figuras 3D' },
         { id: 'soportes', label: '📱 Soportes' },
-        { id: 'amigurumis', label: '🧶 Amigurumis' },
-        { id: 'su-flor-especial', label: '🌹 Su Flor Especial' },
         { id: 'variedades', label: '🎁 Variedades' }
     ]
 };

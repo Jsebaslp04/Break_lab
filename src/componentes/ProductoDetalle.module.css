@@ -328,14 +328,137 @@
     line-height: 1.3;
 }
 
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-bottom: 1.6rem;
+}
+
 .priceTag {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 2.75rem;
     font-weight: 800;
     color: var(--primary);
-    margin-bottom: 1.6rem;
+    margin-bottom: 0;
     line-height: 1;
     letter-spacing: -0.5px;
+}
+
+.unitPriceOptionBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4ec 50%, #fecdd3 100%);
+    border: 2px solid #f43f5e;
+    border-radius: 50px;
+    padding: 0.5rem 1.15rem 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    outline: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: left;
+    box-shadow: 0 4px 14px rgba(244, 63, 94, 0.22);
+}
+
+.unitPriceOptionBadge:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(244, 63, 94, 0.35);
+    background: linear-gradient(135deg, #ffe4ec 0%, #ffd1df 100%);
+    border-color: #e11d48;
+}
+
+.unitPriceOptionBadgeActive {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #16a34a;
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+}
+
+.unitPriceOptionBadgeActive:hover {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    border-color: #15803d;
+    box-shadow: 0 6px 18px rgba(22, 163, 74, 0.35);
+}
+
+.unitPriceOptionBracket {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #e11d48;
+    line-height: 1;
+    font-family: 'Plus Jakarta Sans', monospace, sans-serif;
+}
+
+.unitPriceOptionBadgeActive .unitPriceOptionBracket {
+    color: #16a34a;
+}
+
+.unitPriceOptionIcon {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+.unitPriceOptionText {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #9f1239;
+    line-height: 1.2;
+}
+
+.unitPriceOptionBadgeActive .unitPriceOptionText {
+    color: #15803d;
+}
+
+.unitPriceOptionPill {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #e11d48;
+    color: white;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(225, 29, 72, 0.3);
+    transition: all 0.2s ease;
+}
+
+.unitPriceOptionBadgeActive .unitPriceOptionPill {
+    background: #16a34a;
+    color: white;
+    box-shadow: 0 2px 6px rgba(22, 163, 74, 0.3);
+}
+
+.unitSelectionHint {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-left: 4px solid var(--primary);
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.unitSelectionHintIcon {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.unitSelectionHintContent strong {
+    display: block;
+    color: var(--text-dark);
+    font-size: 0.92rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 0.2rem;
+}
+
+.unitSelectionHintContent p {
+    margin: 0;
+    color: var(--text-medium);
+    font-size: 0.85rem;
+    line-height: 1.45;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .optionsSection {
