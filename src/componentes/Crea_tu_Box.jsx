@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './Crea_tu_Box.module.css';
 import { useSEO } from '../hooks/useSEO';
 import { useCart } from './context/CartContext';
 import { PRODUCTS_DB, breakLabLogo } from '../data/products';
+import { ARMA_TU_BOX_PRODUCTS, ARMA_TU_BOX_CATEGORIES } from '../data/armaTuBoxProducts';
 import boxIcon from '../assets/box.png';
 
 // Box bases options
@@ -50,9 +50,9 @@ const BOX_BASES = [
     }
 ];
 
-// High-level category tab definitions
-const CATEGORY_TABS = [
-    { id: 'all', name: 'Todos los Productos', icon: '🌟' },
+// High-level category tab definitions for web store catalog option
+const WEB_CATEGORY_TABS = [
+    { id: 'all', name: 'Todo el Catálogo Web', icon: '🌟' },
     {
         id: 'mugs',
         name: 'Mugs y Vasos',
@@ -77,7 +77,7 @@ const CATEGORY_TABS = [
     },
     {
         id: 'geek_3d',
-        name: 'Figuras 3D y Geek',
+        name: 'Figuras 3D Geek',
         icon: '👾',
         matchKeys: [
             'figuras-3d-mario-bros',
@@ -93,25 +93,25 @@ const CATEGORY_TABS = [
     },
     {
         id: 'delicias',
-        name: 'Comida y Delicias',
+        name: 'Gelatortas Web',
         icon: '🍰',
         matchKeys: ['gelatortas_mascota', 'gelatorta_tematica']
     },
     {
-        id: 'detalles',
-        name: 'Detalles y Variedades',
-        icon: '🎁',
-        matchKeys: ['variedades']
-    },
-    {
         id: 'llaveros_categoria',
-        name: 'Llaveros Creativos',
+        name: 'Llaveros Web',
         icon: '🔑',
         matchKeys: ['llaveros']
     },
     {
+        id: 'detalles',
+        name: 'Variedades',
+        icon: '🎁',
+        matchKeys: ['variedades']
+    },
+    {
         id: 'desayunos_base',
-        name: 'Kits y Desayunos Base',
+        name: 'Kits y Desayunos',
         icon: '🥞',
         matchKeys: [
             'desayuno-luxury',
@@ -147,17 +147,53 @@ export const Crea_tu_Box = () => {
 
     // State for Box builder
     const [selectedBase, setSelectedBase] = useState(BOX_BASES[0]);
-    const [selectedTab, setSelectedTab] = useState('all');
+
+    // Catalog source: 'box_custom' (default: Arma tu box folder without prices) OR 'web_catalog' (web store products with prices)
+    const [catalogSource, setCatalogSource] = useState('box_custom');
+
+    // Category filters
+    const [selectedBoxCategory, setSelectedBoxCategory] = useState('all');
+    const [selectedWebCategory, setSelectedWebCategory] = useState('all');
+
     const [searchQuery, setSearchQuery] = useState('');
     const [sortBy, setSortBy] = useState('default');
-    const [selectedItems, setSelectedItems] = useState({}); // { [productId]: { product, quantity } }
+
+    // Selected items map: { [id]: { item, quantity, isWebProduct } }
+    const [selectedItems, setSelectedItems] = useState({});
+
+    // Client form state
     const [recipientName, setRecipientName] = useState('');
     const [dedicationMessage, setDedicationMessage] = useState('');
+    const [clientNotes, setClientNotes] = useState('');
+
     const [isMobileSummaryOpen, setIsMobileSummaryOpen] = useState(false);
     const [addedToast, setAddedToast] = useState(null);
+    const [previewProduct, setPreviewProduct] = useState(null);
+    const [isImageZoomed, setIsImageZoomed] = useState(false);
 
-    // Flatten all products from PRODUCTS_DB into unique array
-    const allProducts = useMemo(() => {
+    const handleOpenPreview = (product) => {
+        setIsImageZoomed(false);
+        setPreviewProduct(product);
+    };
+
+    const handleClosePreview = () => {
+        setPreviewProduct(null);
+        setIsImageZoomed(false);
+    };
+
+    // Close preview on Escape key
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                handleClosePreview();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    // Flatten all products from PRODUCTS_DB into unique array for web catalog mode
+    const allWebProducts = useMemo(() => {
         const productMap = new Map();
 
         Object.entries(PRODUCTS_DB).forEach(([categoryKey, items]) => {
@@ -179,64 +215,130 @@ export const Crea_tu_Box = () => {
         return Array.from(productMap.values());
     }, []);
 
-    // Filter products by active tab and search query
-    const filteredProducts = useMemo(() => {
-        const activeTabObj = CATEGORY_TABS.find(t => t.id === selectedTab);
-
-        let list = allProducts.filter(product => {
-            // Category filter
-            if (selectedTab !== 'all' && activeTabObj && activeTabObj.matchKeys) {
-                if (!activeTabObj.matchKeys.includes(product.categoryKey)) {
+    // Filter products depending on active catalog source
+    const currentDisplayProducts = useMemo(() => {
+        if (catalogSource === 'box_custom') {
+            let list = ARMA_TU_BOX_PRODUCTS.filter(prod => {
+                // Category filter
+                if (selectedBoxCategory !== 'all' && prod.category !== selectedBoxCategory) {
                     return false;
                 }
+
+                // Search query filter
+                if (searchQuery.trim()) {
+                    const q = searchQuery.toLowerCase().trim();
+                    const matchName = prod.name?.toLowerCase().includes(q);
+                    const matchSub = prod.subtitle?.toLowerCase().includes(q);
+                    const matchDesc = prod.description?.toLowerCase().includes(q);
+                    const matchCat = prod.categoryName?.toLowerCase().includes(q);
+                    const matchBadge = prod.badge?.toLowerCase().includes(q);
+                    const matchTags = prod.tags?.some(t => t.toLowerCase().includes(q));
+                    if (!matchName && !matchSub && !matchDesc && !matchCat && !matchBadge && !matchTags) return false;
+                }
+
+                return true;
+            });
+
+            // Sorting
+            if (sortBy === 'name_asc') {
+                list = [...list].sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortBy === 'name_desc') {
+                list = [...list].sort((a, b) => b.name.localeCompare(a.name));
             }
 
-            // Search filter
-            if (searchQuery.trim()) {
-                const q = searchQuery.toLowerCase().trim();
-                const matchName = product.name?.toLowerCase().includes(q);
-                const matchSub = product.subtitle?.toLowerCase().includes(q);
-                const matchDesc = product.description?.toLowerCase().includes(q);
-                if (!matchName && !matchSub && !matchDesc) return false;
+            return list;
+        } else {
+            // Web store catalog
+            const activeTabObj = WEB_CATEGORY_TABS.find(t => t.id === selectedWebCategory);
+
+            let list = allWebProducts.filter(prod => {
+                if (selectedWebCategory !== 'all' && activeTabObj && activeTabObj.matchKeys) {
+                    if (!activeTabObj.matchKeys.includes(prod.categoryKey)) {
+                        return false;
+                    }
+                }
+
+                if (searchQuery.trim()) {
+                    const q = searchQuery.toLowerCase().trim();
+                    const matchName = prod.name?.toLowerCase().includes(q);
+                    const matchSub = prod.subtitle?.toLowerCase().includes(q);
+                    const matchDesc = prod.description?.toLowerCase().includes(q);
+                    if (!matchName && !matchSub && !matchDesc) return false;
+                }
+
+                return true;
+            });
+
+            if (sortBy === 'price_asc') {
+                list = [...list].sort((a, b) => a.price - b.price);
+            } else if (sortBy === 'price_desc') {
+                list = [...list].sort((a, b) => b.price - a.price);
+            } else if (sortBy === 'name_asc') {
+                list = [...list].sort((a, b) => a.name.localeCompare(b.name));
             }
 
-            return true;
-        });
-
-        // Sorting
-        if (sortBy === 'price_asc') {
-            list = [...list].sort((a, b) => a.price - b.price);
-        } else if (sortBy === 'price_desc') {
-            list = [...list].sort((a, b) => b.price - a.price);
-        } else if (sortBy === 'name') {
-            list = [...list].sort((a, b) => a.name.localeCompare(b.name));
+            return list;
         }
+    }, [catalogSource, selectedBoxCategory, selectedWebCategory, searchQuery, sortBy, allWebProducts]);
 
-        return list;
-    }, [allProducts, selectedTab, searchQuery, sortBy]);
+    // Group box products by category with full section information
+    const groupedBoxProducts = useMemo(() => {
+        const categoriesToDisplay = selectedBoxCategory === 'all'
+            ? ARMA_TU_BOX_CATEGORIES.filter(c => c.id !== 'all')
+            : ARMA_TU_BOX_CATEGORIES.filter(c => c.id === selectedBoxCategory);
 
-    // Calculations
-    const itemsList = Object.values(selectedItems);
-    const totalItemsCount = itemsList.reduce((sum, it) => sum + it.quantity, 0);
-    const itemsSubtotal = itemsList.reduce((sum, it) => sum + (it.product.price * it.quantity), 0);
+        return categoriesToDisplay.map(cat => {
+            const catProducts = currentDisplayProducts.filter(p => p.category === cat.id);
+            return {
+                ...cat,
+                products: catProducts
+            };
+        }).filter(group => group.products.length > 0);
+    }, [selectedBoxCategory, currentDisplayProducts]);
+
+    // Group web products by category with full section information
+    const groupedWebProducts = useMemo(() => {
+        const tabsToDisplay = selectedWebCategory === 'all'
+            ? WEB_CATEGORY_TABS.filter(t => t.id !== 'all')
+            : WEB_CATEGORY_TABS.filter(t => t.id === selectedWebCategory);
+
+        return tabsToDisplay.map(tab => {
+            const tabProducts = currentDisplayProducts.filter(p => tab.matchKeys?.includes(p.categoryKey));
+            return {
+                ...tab,
+                products: tabProducts
+            };
+        }).filter(group => group.products.length > 0);
+    }, [selectedWebCategory, currentDisplayProducts]);
+
+    // Group calculations
+    const itemsList = useMemo(() => Object.values(selectedItems), [selectedItems]);
+    const boxItemsList = useMemo(() => itemsList.filter(it => !it.isWebProduct), [itemsList]);
+    const webItemsList = useMemo(() => itemsList.filter(it => it.isWebProduct), [itemsList]);
+
+    const totalItemsCount = useMemo(() => itemsList.reduce((sum, it) => sum + it.quantity, 0), [itemsList]);
+    const boxItemsCount = useMemo(() => boxItemsList.reduce((sum, it) => sum + it.quantity, 0), [boxItemsList]);
+    const webItemsCount = useMemo(() => webItemsList.reduce((sum, it) => sum + it.quantity, 0), [webItemsList]);
+
+    const webSubtotal = useMemo(() => webItemsList.reduce((sum, it) => sum + ((it.item.price || 0) * it.quantity), 0), [webItemsList]);
     const basePrice = selectedBase ? selectedBase.price : 0;
-    const totalPrice = basePrice + itemsSubtotal;
+    const totalPrice = basePrice + webSubtotal;
 
     // Handlers
-    const handleAddItem = (product) => {
+    const handleAddItem = (product, isWeb = false) => {
         setSelectedItems(prev => {
             const existing = prev[product.id];
             const newQty = existing ? existing.quantity + 1 : 1;
             return {
                 ...prev,
                 [product.id]: {
-                    product,
-                    quantity: newQty
+                    item: product,
+                    quantity: newQty,
+                    isWebProduct: isWeb
                 }
             };
         });
 
-        // Toast feedback
         setAddedToast(`+ Agregado: ${product.name}`);
         setTimeout(() => setAddedToast(null), 2200);
     };
@@ -273,17 +375,18 @@ export const Crea_tu_Box = () => {
             setSelectedItems({});
             setDedicationMessage('');
             setRecipientName('');
+            setClientNotes('');
         }
     };
 
-    // Add custom box to main cart
+    // Add custom box to main web cart
     const handleAddBoxToCart = () => {
         if (totalItemsCount === 0 && (!selectedBase || selectedBase.price === 0)) {
-            alert('¡Selecciona al menos un producto o una base para tu Box!');
+            alert('¡Selecciona al menos un artículo o una base para tu Box!');
             return;
         }
 
-        const itemsSummary = itemsList.map(it => `${it.quantity}x ${it.product.name}`).join(', ');
+        const itemsSummary = itemsList.map(it => `${it.quantity}x ${it.item.name}`).join(', ');
         const boxTitle = `Box Personalizada (${selectedBase.name})${itemsSummary ? ': ' + itemsSummary : ''}`;
 
         const cartBoxItem = {
@@ -292,51 +395,211 @@ export const Crea_tu_Box = () => {
             name: boxTitle,
             price: totalPrice,
             quantity: 1,
-            image: selectedBase.id !== 'base-sin-caja' ? boxIcon : (itemsList[0]?.product.image || breakLabLogo),
+            image: selectedBase.id !== 'base-sin-caja' ? boxIcon : (itemsList[0]?.item.image || breakLabLogo),
             selectedOptions: {
                 base: selectedBase.name,
-                para: recipientName || 'No especificado',
-                dedicatoria: dedicationMessage || 'Sin dedicatoria'
+                para: recipientName.trim() || 'No especificado',
+                dedicatoria: dedicationMessage.trim() || 'Sin dedicatoria',
+                indicacionesCotizacion: clientNotes.trim() || 'Sin recomendaciones especiales',
+                articulosBoxCotizar: boxItemsList.map(it => `${it.quantity}x ${it.item.name} (${it.item.categoryName || 'Personalizable'})`),
+                productosWebTienda: webItemsList.map(it => `${it.quantity}x ${it.item.name} ($${it.item.price?.toLocaleString('es-CO')})`)
             }
         };
 
         addToCart(cartBoxItem);
         setIsMobileSummaryOpen(false);
+        setAddedToast('🛒 ¡Box agregada al carrito con éxito!');
+        setTimeout(() => setAddedToast(null), 3000);
     };
 
-    // Send order via WhatsApp
+    // Send order / quote request via WhatsApp
     const handleOrderWhatsApp = () => {
         if (totalItemsCount === 0 && (!selectedBase || selectedBase.price === 0)) {
-            alert('¡Selecciona al menos un producto o una base para tu Box!');
+            alert('¡Selecciona al menos un artículo o una base para tu Box!');
             return;
         }
 
-        let msg = `¡Hola BreakLab! 👋 Quiero cotizar y ordenar mi *Box/Ancheta Personalizada* armada a mi medida:%0A%0A`;
-        
+        let msg = `🎁 *SOLICITUD DE COTIZACIÓN - ARMA TU BOX BREAKLAB* 🎁\n\n`;
+        msg += `¡Hola BreakLab! 👋 Quiero cotizar mi *Box / Ancheta Personalizada* con los siguientes productos elegidos a mi medida:\n\n`;
+
         if (selectedBase) {
-            msg += `📦 *Base de Empaque:* ${selectedBase.name} ($${selectedBase.price.toLocaleString('es-CO')})%0A`;
+            msg += `📦 *Base de Empaque:* ${selectedBase.name} (${selectedBase.price === 0 ? 'Sin costo adicional' : '$' + selectedBase.price.toLocaleString('es-CO') + ' COP'})\n\n`;
         }
 
-        msg += `%0A🎁 *Productos Seleccionados (${totalItemsCount} unid.):*%0A`;
-        if (itemsList.length > 0) {
-            itemsList.forEach(it => {
-                msg += `• ${it.quantity}x ${it.product.name} - $${(it.product.price * it.quantity).toLocaleString('es-CO')}%0A`;
+        // Artículos de Box para cotizar (sin precio)
+        if (boxItemsList.length > 0) {
+            msg += `✨ *Artículos para Box Seleccionados (${boxItemsCount} unid. - Para Cotizar):*\n`;
+            boxItemsList.forEach(it => {
+                msg += `  • ${it.quantity}x ${it.item.name} [${it.item.categoryName || 'Personalizable'}]\n`;
             });
-        } else {
-            msg += `• Solo la base decorada%0A`;
+            msg += `\n`;
+        }
+
+        // Productos de la tienda web si incluyó alguno
+        if (webItemsList.length > 0) {
+            msg += `🌐 *Productos de la Tienda Web Agregados (${webItemsCount} unid.):*\n`;
+            webItemsList.forEach(it => {
+                msg += `  • ${it.quantity}x ${it.item.name} - $${((it.item.price || 0) * it.quantity).toLocaleString('es-CO')} COP\n`;
+            });
+            msg += `\n`;
         }
 
         if (recipientName.trim()) {
-            msg += `%0A👤 *Para:* ${recipientName.trim()}%0A`;
+            msg += `👤 *Para:* ${recipientName.trim()}\n`;
         }
 
         if (dedicationMessage.trim()) {
-            msg += `💌 *Dedicatoria:* "${dedicationMessage.trim()}"%0A`;
+            msg += `💌 *Dedicatoria para tarjeta:* "${dedicationMessage.trim()}"\n`;
         }
 
-        msg += `%0A💰 *Total Estimado: $${totalPrice.toLocaleString('es-CO')} COP*%0A%0A¿Me confirman disponibilidad y tiempos de entrega en Bogotá? 😊✨`;
+        if (clientNotes.trim()) {
+            msg += `\n📝 *Recomendaciones e Indicaciones especiales para la cotización:*\n"${clientNotes.trim()}"\n`;
+        } else {
+            msg += `\n📝 *Recomendaciones / Personalización:* (Pendiente por coordinar fotos y detalles de diseño)\n`;
+        }
 
-        window.open(`https://wa.me/573208738961?text=${msg}`, '_blank');
+        msg += `\n📊 *Resumen:* ${totalItemsCount} artículo${totalItemsCount > 1 ? 's' : ''} en total.\n`;
+        if (totalPrice > 0) {
+            msg += `💰 *Subtotal base y tienda:* $${totalPrice.toLocaleString('es-CO')} COP (+ cotización de artículos personalizados)\n`;
+        } else {
+            msg += `💰 *Valor:* Pendiente por cotizar según las personalizaciones indicadas.\n`;
+        }
+
+        msg += `\n¿Me podrían confirmar el valor total de la cotización, opciones de personalización y tiempos de entrega en Bogotá? 😊✨`;
+
+        const encoded = encodeURIComponent(msg);
+        window.open(`https://wa.me/573208738961?text=${encoded}`, '_blank');
+    };
+
+    // Card renderer for consistent appearance across categories
+    const renderProductCard = (product, isWeb = false) => {
+        const inBoxItem = selectedItems[product.id];
+        const inBoxQty = inBoxItem ? inBoxItem.quantity : 0;
+        const isVideo = product.image?.endsWith?.('.mp4');
+
+        return (
+            <div
+                key={product.id}
+                className={`${styles.productCard} ${inBoxQty > 0 ? styles.productCardInBox : ''}`}
+            >
+                {/* Card Image */}
+                <div
+                    className={styles.productImgWrapper}
+                    onClick={() => handleOpenPreview(product)}
+                    title="Clic para ampliar y ver en detalle"
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleOpenPreview(product);
+                        }
+                    }}
+                >
+                    {isVideo ? (
+                        <video
+                            src={product.image}
+                            className={styles.productImg}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                        />
+                    ) : (
+                        <img
+                            src={product.image || breakLabLogo}
+                            alt={product.name}
+                            className={styles.productImg}
+                            loading="lazy"
+                            onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = breakLabLogo;
+                            }}
+                        />
+                    )}
+
+                    {/* Zoom Hint Badge */}
+                    <span className={styles.zoomOverlayBadge}>
+                        🔍 Ampliar
+                    </span>
+
+                    {/* Top Badges */}
+                    {product.badge && (
+                        <span className={styles.itemCustomBadge}>{product.badge}</span>
+                    )}
+                    {product.isNew && (
+                        <span className={styles.newBadge}>Nuevo</span>
+                    )}
+                    {inBoxQty > 0 && (
+                        <span className={styles.inBoxBadge}>
+                            ✓ En tu Box ({inBoxQty})
+                        </span>
+                    )}
+                </div>
+
+                {/* Card Content */}
+                <div className={styles.productContent}>
+                    {product.categoryName && (
+                        <span className={styles.categoryChip}>
+                            {product.categoryName}
+                        </span>
+                    )}
+                    <h3
+                        className={styles.productName}
+                        title={`Clic para ampliar: ${product.name}`}
+                        onClick={() => handleOpenPreview(product)}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        {product.name}
+                    </h3>
+                    <p className={styles.productSubtitle} title={product.subtitle}>
+                        {product.subtitle}
+                    </p>
+
+                    <div className={styles.productPriceRow}>
+                        {/* Price or Quote Tag */}
+                        {isWeb ? (
+                            <span className={styles.productPrice}>
+                                ${product.price?.toLocaleString('es-CO')}
+                            </span>
+                        ) : (
+                            <span className={styles.quoteStatusTag}>
+                                ✨ Para Cotizar
+                            </span>
+                        )}
+
+                        {/* Add / Quantity Controls */}
+                        {inBoxQty === 0 ? (
+                            <button
+                                className={styles.addBtn}
+                                onClick={() => handleAddItem(product, isWeb)}
+                                aria-label={`Elegir ${product.name} para mi box`}
+                            >
+                                <span>+</span> Elegir
+                            </button>
+                        ) : (
+                            <div className={styles.qtyControls}>
+                                <button
+                                    className={styles.qtyBtn}
+                                    onClick={() => handleRemoveItem(product.id)}
+                                    aria-label="Disminuir cantidad"
+                                >
+                                    -
+                                </button>
+                                <span className={styles.qtyDisplay}>{inBoxQty}</span>
+                                <button
+                                    className={styles.qtyBtn}
+                                    onClick={() => handleAddItem(product, isWeb)}
+                                    aria-label="Aumentar cantidad"
+                                >
+                                    +
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        );
     };
 
     return (
@@ -350,10 +613,10 @@ export const Crea_tu_Box = () => {
 
             {/* Header / Intro */}
             <div className={styles.builderHeader}>
-                <div className={styles.badgeTop}>Diseño Exclusivo BreakLab ✨</div>
+                <div className={styles.badgeTop}>Personalización Exclusiva BreakLab ✨</div>
                 <h1 className={styles.mainTitle}>Arma tu Box o Ancheta a Tu Medida 🎁</h1>
                 <p className={styles.mainSubtitle}>
-                    Elige la base de tu regalo, navega por nuestras categorías y agrega tus productos favoritos. Nosotros nos encargamos de empacarlo con amor, viruta decorativa y tarjeta especial.
+                    Elige la base de tu regalo, escoge libremente los artículos personalizados de nuestro catálogo y escribe tus especificaciones. Te enviaremos la cotización detallada de inmediato por WhatsApp.
                 </p>
 
                 {/* Steps Visual Tracker */}
@@ -365,19 +628,19 @@ export const Crea_tu_Box = () => {
                     <div className={styles.stepDivider}></div>
                     <div className={`${styles.stepItem} ${totalItemsCount > 0 ? styles.stepActive : ''}`}>
                         <span className={styles.stepNumber}>2</span>
-                        <span className={styles.stepText}>Agrega Productos ({totalItemsCount})</span>
+                        <span className={styles.stepText}>Agrega Artículos ({totalItemsCount})</span>
                     </div>
                     <div className={styles.stepDivider}></div>
-                    <div className={`${styles.stepItem} ${dedicationMessage || recipientName ? styles.stepActive : ''}`}>
+                    <div className={`${styles.stepItem} ${clientNotes || dedicationMessage || recipientName ? styles.stepActive : ''}`}>
                         <span className={styles.stepNumber}>3</span>
-                        <span className={styles.stepText}>Personaliza y Pide</span>
+                        <span className={styles.stepText}>Indicaciones y Cotización</span>
                     </div>
                 </div>
             </div>
 
             {/* Main Builder Grid */}
             <div className={styles.builderLayout}>
-                {/* Left Column: Bases + Category Tabs + Products */}
+                {/* Left Column: Bases + Products Catalog */}
                 <div className={styles.catalogColumn}>
                     
                     {/* Step 1: Base Selection */}
@@ -417,12 +680,78 @@ export const Crea_tu_Box = () => {
                         </div>
                     </section>
 
-                    {/* Step 2: Category Tabs & Products */}
+                    {/* Step 2: Category Tabs & Products Selection */}
                     <section className={styles.sectionBlock}>
                         <div className={styles.sectionHeader}>
                             <span className={styles.sectionNumber}>Paso 2</span>
-                            <h2 className={styles.sectionTitle}>Explora y Agrega Productos a Tu Ancheta</h2>
+                            <div>
+                                <h2 className={styles.sectionTitle}>Explora y Elige los Artículos para Tu Box</h2>
+                            </div>
                         </div>
+
+                        {/* Catalog Source Switcher */}
+                        <div className={styles.catalogSourceNav}>
+                            <button
+                                type="button"
+                                className={`${styles.catalogSourceBtn} ${catalogSource === 'box_custom' ? styles.catalogSourceBtnActive : ''}`}
+                                onClick={() => {
+                                    setCatalogSource('box_custom');
+                                    setSearchQuery('');
+                                    setSortBy('default');
+                                }}
+                            >
+                                <span className={styles.catalogSourceIcon}>🎁</span>
+                                <div className={styles.catalogSourceText}>
+                                    <strong>Artículos Arma tu Box</strong>
+                                    <span>Catálogo exclusivo para cotizar (sin precio)</span>
+                                </div>
+                                <span className={styles.catalogSourceBadge}>
+                                    {ARMA_TU_BOX_PRODUCTS.length} productos
+                                </span>
+                            </button>
+
+                            <button
+                                type="button"
+                                className={`${styles.catalogSourceBtn} ${catalogSource === 'web_catalog' ? styles.catalogSourceBtnActive : ''}`}
+                                onClick={() => {
+                                    setCatalogSource('web_catalog');
+                                    setSearchQuery('');
+                                    setSortBy('default');
+                                }}
+                            >
+                                <span className={styles.catalogSourceIcon}>🌐</span>
+                                <div className={styles.catalogSourceText}>
+                                    <strong>Productos de la Tienda Web</strong>
+                                    <span>Mugs, Puzzles y Geek con precio de lista</span>
+                                </div>
+                                <span className={styles.catalogSourceBadge}>
+                                    {allWebProducts.length} productos
+                                </span>
+                            </button>
+                        </div>
+
+                        {/* Informative notice banner based on catalog mode */}
+                        {catalogSource === 'box_custom' ? (
+                            <div className={styles.sourceNoticeBanner}>
+                                <span className={styles.sourceNoticeIcon}>✨</span>
+                                <div className={styles.sourceNoticeContent}>
+                                    <h4>Catálogo Exclusivo para Armar tu Box</h4>
+                                    <p>
+                                        Elige cualquiera y los que quieras de estos productos. <strong>No tienen precio fijo</strong>: agrégalos a tu lista, escribe al final tus indicaciones o recomendaciones de lo que deseas (fotos, frases, colores o sabores) y te enviaremos la cotización detallada por WhatsApp como carrito de compras.
+                                    </p>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className={`${styles.sourceNoticeBanner} ${styles.sourceNoticeBannerWeb}`}>
+                                <span className={styles.sourceNoticeIcon}>🛒</span>
+                                <div className={styles.sourceNoticeContent}>
+                                    <h4>Catálogo General de la Tienda Web</h4>
+                                    <p>
+                                        ¿Quieres sumar a tu box artículos listos de nuestra tienda online? Aquí puedes elegir mugs temáticos, rompecabezas y figuras 3D con su precio habitual.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
 
                         {/* Search & Sort Row */}
                         <div className={styles.filterBar}>
@@ -431,7 +760,11 @@ export const Crea_tu_Box = () => {
                                 <input
                                     type="text"
                                     className={styles.searchInput}
-                                    placeholder="Buscar productos (mugs, anime, gelatortas, rompecabezas...)"
+                                    placeholder={
+                                        catalogSource === 'box_custom'
+                                            ? "Buscar en artículos de Box (mugs, gelatortas, retablos, llaveros, cojines...)"
+                                            : "Buscar en catálogo web..."
+                                    }
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                 />
@@ -450,36 +783,93 @@ export const Crea_tu_Box = () => {
                                     value={sortBy}
                                     onChange={(e) => setSortBy(e.target.value)}
                                 >
-                                    <option value="default">Destacados</option>
-                                    <option value="price_asc">Menor precio</option>
-                                    <option value="price_desc">Mayor precio</option>
-                                    <option value="name">Nombre (A-Z)</option>
+                                    <option value="default">Recomendados</option>
+                                    <option value="name_asc">Nombre (A-Z)</option>
+                                    {catalogSource === 'box_custom' ? (
+                                        <option value="name_desc">Nombre (Z-A)</option>
+                                    ) : (
+                                        <>
+                                            <option value="price_asc">Menor precio</option>
+                                            <option value="price_desc">Mayor precio</option>
+                                        </>
+                                    )}
                                 </select>
                             </div>
                         </div>
 
-                        {/* Category Tabs */}
+                        {/* Category Navigation Bar (Pills with Item Count Badges) */}
                         <div className={styles.categoryTabsContainer}>
-                            <div className={styles.tabsScroll}>
-                                {CATEGORY_TABS.map(tab => {
-                                    const isActive = selectedTab === tab.id;
-                                    return (
-                                        <button
-                                            key={tab.id}
-                                            className={`${styles.tabBtn} ${isActive ? styles.tabBtnActive : ''}`}
-                                            onClick={() => setSelectedTab(tab.id)}
-                                        >
-                                            <span className={styles.tabIcon}>{tab.icon}</span>
-                                            <span className={styles.tabText}>{tab.name}</span>
-                                        </button>
-                                    );
-                                })}
+                            <div className={styles.categoryTabsHeader}>
+                                <span className={styles.categoryTabsLabel}>
+                                    🏷️ Categorías disponibles:
+                                </span>
+                                {catalogSource === 'box_custom' && selectedBoxCategory !== 'all' && (
+                                    <button
+                                        type="button"
+                                        className={styles.resetCategoryFilterBtn}
+                                        onClick={() => setSelectedBoxCategory('all')}
+                                    >
+                                        Ver todas las categorías ({ARMA_TU_BOX_PRODUCTS.length}) ✕
+                                    </button>
+                                )}
+                                {catalogSource === 'web_catalog' && selectedWebCategory !== 'all' && (
+                                    <button
+                                        type="button"
+                                        className={styles.resetCategoryFilterBtn}
+                                        onClick={() => setSelectedWebCategory('all')}
+                                    >
+                                        Ver todo el catálogo ({allWebProducts.length}) ✕
+                                    </button>
+                                )}
+                            </div>
+
+                            <div className={styles.tabsGrid}>
+                                {catalogSource === 'box_custom'
+                                    ? ARMA_TU_BOX_CATEGORIES.map(cat => {
+                                        const isActive = selectedBoxCategory === cat.id;
+                                        const count = cat.id === 'all'
+                                            ? ARMA_TU_BOX_PRODUCTS.length
+                                            : ARMA_TU_BOX_PRODUCTS.filter(p => p.category === cat.id).length;
+
+                                        return (
+                                            <button
+                                                key={cat.id}
+                                                className={`${styles.tabBtn} ${isActive ? styles.tabBtnActive : ''}`}
+                                                onClick={() => setSelectedBoxCategory(cat.id)}
+                                            >
+                                                <span className={styles.tabIcon}>{cat.icon}</span>
+                                                <span className={styles.tabText}>{cat.name}</span>
+                                                <span className={styles.tabBadge}>{count}</span>
+                                            </button>
+                                        );
+                                    })
+                                    : WEB_CATEGORY_TABS.map(tab => {
+                                        const isActive = selectedWebCategory === tab.id;
+                                        const count = tab.id === 'all'
+                                            ? allWebProducts.length
+                                            : allWebProducts.filter(p => tab.matchKeys?.includes(p.categoryKey)).length;
+
+                                        return (
+                                            <button
+                                                key={tab.id}
+                                                className={`${styles.tabBtn} ${isActive ? styles.tabBtnActive : ''}`}
+                                                onClick={() => setSelectedWebCategory(tab.id)}
+                                            >
+                                                <span className={styles.tabIcon}>{tab.icon}</span>
+                                                <span className={styles.tabText}>{tab.name}</span>
+                                                <span className={styles.tabBadge}>{count}</span>
+                                            </button>
+                                        );
+                                    })
+                                }
                             </div>
                         </div>
 
                         {/* Products Counter */}
                         <div className={styles.resultsInfo}>
-                            <span>Mostrando <strong>{filteredProducts.length}</strong> productos disponibles</span>
+                            <span>
+                                Mostrando <strong>{currentDisplayProducts.length}</strong> productos disponibles {catalogSource === 'box_custom' ? 'para cotizar' : 'en la web'}
+                            </span>
                             {searchQuery && (
                                 <span className={styles.searchTag}>
                                     Filtro: "{searchQuery}"
@@ -488,98 +878,72 @@ export const Crea_tu_Box = () => {
                             )}
                         </div>
 
-                        {/* Products Grid */}
-                        {filteredProducts.length === 0 ? (
+                        {/* Products Display (Organized and Grouped by Category with Titles) */}
+                        {currentDisplayProducts.length === 0 ? (
                             <div className={styles.emptyResults}>
                                 <span className={styles.emptyIcon}>🔎</span>
-                                <h3>No encontramos productos con ese criterio</h3>
+                                <h3>No encontramos artículos con ese criterio</h3>
                                 <p>Prueba buscando con otra palabra o selecciona otra categoría.</p>
-                                <button className={styles.resetFilterBtn} onClick={() => { setSearchQuery(''); setSelectedTab('all'); }}>
-                                    Ver todos los productos
+                                <button
+                                    className={styles.resetFilterBtn}
+                                    onClick={() => {
+                                        setSearchQuery('');
+                                        if (catalogSource === 'box_custom') setSelectedBoxCategory('all');
+                                        else setSelectedWebCategory('all');
+                                    }}
+                                >
+                                    Ver todas las categorías
                                 </button>
                             </div>
                         ) : (
-                            <div className={styles.productsGrid}>
-                                {filteredProducts.map(product => {
-                                    const inBoxItem = selectedItems[product.id];
-                                    const inBoxQty = inBoxItem ? inBoxItem.quantity : 0;
-                                    const isVideo = product.image?.endsWith('.mp4');
-
-                                    return (
-                                        <div
-                                            key={product.id}
-                                            className={`${styles.productCard} ${inBoxQty > 0 ? styles.productCardInBox : ''}`}
-                                        >
-                                            {/* Card Image */}
-                                            <div className={styles.productImgWrapper}>
-                                                {isVideo ? (
-                                                    <video
-                                                        src={product.image}
-                                                        className={styles.productImg}
-                                                        autoPlay
-                                                        muted
-                                                        loop
-                                                        playsInline
-                                                    />
-                                                ) : (
-                                                    <img
-                                                        src={product.image}
-                                                        alt={product.name}
-                                                        className={styles.productImg}
-                                                        loading="lazy"
-                                                    />
-                                                )}
-                                                {product.isNew && <span className={styles.newBadge}>Nuevo</span>}
-                                                {inBoxQty > 0 && (
-                                                    <span className={styles.inBoxBadge}>
-                                                        ✓ En tu Box ({inBoxQty})
-                                                    </span>
-                                                )}
+                            <div className={styles.categorySectionsContainer}>
+                                {catalogSource === 'box_custom' ? (
+                                    groupedBoxProducts.map(group => (
+                                        <div key={group.id} className={styles.categorySectionGroup} id={`cat-${group.id}`}>
+                                            <div className={styles.categorySectionHeader}>
+                                                <div className={styles.categoryTitleWrapper}>
+                                                    <span className={styles.categoryHeaderIcon}>{group.icon}</span>
+                                                    <div>
+                                                        <h3 className={styles.categorySectionTitle}>{group.name}</h3>
+                                                        <p className={styles.categorySectionDesc}>
+                                                            {group.description || `${group.products.length} artículos disponibles para cotizar`}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <span className={styles.categoryCountBadge}>
+                                                    {group.products.length} {group.products.length === 1 ? 'artículo' : 'artículos'}
+                                                </span>
                                             </div>
 
-                                            {/* Card Content */}
-                                            <div className={styles.productContent}>
-                                                <h3 className={styles.productName}>{product.name}</h3>
-                                                <p className={styles.productSubtitle}>{product.subtitle}</p>
-
-                                                <div className={styles.productPriceRow}>
-                                                    <span className={styles.productPrice}>
-                                                        ${product.price.toLocaleString('es-CO')}
-                                                    </span>
-
-                                                    {/* Add / Quantity Controls */}
-                                                    {inBoxQty === 0 ? (
-                                                        <button
-                                                            className={styles.addBtn}
-                                                            onClick={() => handleAddItem(product)}
-                                                            aria-label={`Agregar ${product.name} a mi box`}
-                                                        >
-                                                            <span>+</span> Agregar
-                                                        </button>
-                                                    ) : (
-                                                        <div className={styles.qtyControls}>
-                                                            <button
-                                                                className={styles.qtyBtn}
-                                                                onClick={() => handleRemoveItem(product.id)}
-                                                                aria-label="Disminuir cantidad"
-                                                            >
-                                                                -
-                                                            </button>
-                                                            <span className={styles.qtyDisplay}>{inBoxQty}</span>
-                                                            <button
-                                                                className={styles.qtyBtn}
-                                                                onClick={() => handleAddItem(product)}
-                                                                aria-label="Aumentar cantidad"
-                                                            >
-                                                                +
-                                                            </button>
-                                                        </div>
-                                                    )}
-                                                </div>
+                                            <div className={styles.productsGrid}>
+                                                {group.products.map(product => renderProductCard(product, false))}
                                             </div>
                                         </div>
-                                    );
-                                })}
+                                    ))
+                                ) : (
+                                    groupedWebProducts.map(group => (
+                                        <div key={group.id} className={styles.categorySectionGroup} id={`web-cat-${group.id}`}>
+                                            <div className={styles.categorySectionHeader}>
+                                                <div className={styles.categoryTitleWrapper}>
+                                                    <span className={styles.categoryHeaderIcon}>{group.icon}</span>
+                                                    <div>
+                                                        <h3 className={styles.categorySectionTitle}>{group.name}</h3>
+                                                        <p className={styles.categorySectionDesc}>
+                                                            Productos oficiales de la tienda web BreakLab
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <span className={styles.categoryCountBadge}>
+                                                    {group.products.length} {group.products.length === 1 ? 'artículo' : 'artículos'}
+                                                </span>
+                                            </div>
+
+                                            <div className={styles.productsGrid}>
+                                                {group.products.map(product => renderProductCard(product, true))}
+                                            </div>
+                                        </div>
+                                    ))
+                                )}
                             </div>
                         )}
                     </section>
@@ -610,7 +974,7 @@ export const Crea_tu_Box = () => {
                                 </div>
                             </div>
                             <span className={styles.summaryBasePrice}>
-                                {selectedBase.price === 0 ? 'Gratis' : `$${selectedBase.price.toLocaleString('es-CO')}`}
+                                {selectedBase.price === 0 ? 'Sin costo' : `$${selectedBase.price.toLocaleString('es-CO')}`}
                             </span>
                         </div>
 
@@ -620,50 +984,92 @@ export const Crea_tu_Box = () => {
                                 <div className={styles.summaryEmptyState}>
                                     <div className={styles.emptyBoxIcon}>📦</div>
                                     <p className={styles.emptyBoxTitle}>Tu Box está vacía</p>
-                                    <p className={styles.emptyBoxText}>Selecciona productos del catálogo para armar tu regalo.</p>
+                                    <p className={styles.emptyBoxText}>Selecciona artículos del catálogo para armar tu regalo a medida.</p>
                                 </div>
                             ) : (
-                                itemsList.map(({ product, quantity }) => (
-                                    <div key={product.id} className={styles.summaryItemRow}>
-                                        <img src={product.image} alt={product.name} className={styles.summaryItemImg} />
-                                        <div className={styles.summaryItemInfo}>
-                                            <div className={styles.summaryItemName}>{product.name}</div>
-                                            <div className={styles.summaryItemMeta}>
-                                                <span>${product.price.toLocaleString('es-CO')} c/u</span>
-                                                <div className={styles.miniQtyControls}>
-                                                    <button onClick={() => handleRemoveItem(product.id)}>-</button>
-                                                    <span>{quantity}</span>
-                                                    <button onClick={() => handleAddItem(product)}>+</button>
-                                                </div>
+                                <>
+                                    {/* Exclusive Box customizable items (No predefined price) */}
+                                    {boxItemsList.length > 0 && (
+                                        <>
+                                            <div className={styles.summaryGroupTitle}>
+                                                🎁 Artículos para Box ({boxItemsCount} unid. - A Cotizar)
                                             </div>
-                                        </div>
-                                        <div className={styles.summaryItemSubtotal}>
-                                            ${(product.price * quantity).toLocaleString('es-CO')}
-                                            <button
-                                                className={styles.deleteItemBtn}
-                                                onClick={() => handleDeleteItem(product.id)}
-                                                title="Eliminar de la box"
-                                            >
-                                                🗑️
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))
+                                            {boxItemsList.map(({ item, quantity }) => (
+                                                <div key={item.id} className={styles.summaryItemRow}>
+                                                    <img src={item.image || breakLabLogo} alt={item.name} className={styles.summaryItemImg} />
+                                                    <div className={styles.summaryItemInfo}>
+                                                        <div className={styles.summaryItemName}>{item.name}</div>
+                                                        <div className={styles.summaryItemMeta}>
+                                                            <span className={styles.summaryItemQuoteTag}>Para Cotizar</span>
+                                                            <div className={styles.miniQtyControls}>
+                                                                <button onClick={() => handleRemoveItem(item.id)}>-</button>
+                                                                <span>{quantity}</span>
+                                                                <button onClick={() => handleAddItem(item, false)}>+</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button
+                                                        className={styles.deleteItemBtn}
+                                                        onClick={() => handleDeleteItem(item.id)}
+                                                        title="Eliminar de la box"
+                                                    >
+                                                        🗑️
+                                                    </button>
+                                                </div>
+                                            ))}
+                                        </>
+                                    )}
+
+                                    {/* Web store products (with predefined prices) */}
+                                    {webItemsList.length > 0 && (
+                                        <>
+                                            <div className={styles.summaryGroupTitle}>
+                                                🌐 Productos Web ({webItemsCount} unid.)
+                                            </div>
+                                            {webItemsList.map(({ item, quantity }) => (
+                                                <div key={item.id} className={styles.summaryItemRow}>
+                                                    <img src={item.image || breakLabLogo} alt={item.name} className={styles.summaryItemImg} />
+                                                    <div className={styles.summaryItemInfo}>
+                                                        <div className={styles.summaryItemName}>{item.name}</div>
+                                                        <div className={styles.summaryItemMeta}>
+                                                            <span>${item.price?.toLocaleString('es-CO')} c/u</span>
+                                                            <div className={styles.miniQtyControls}>
+                                                                <button onClick={() => handleRemoveItem(item.id)}>-</button>
+                                                                <span>{quantity}</span>
+                                                                <button onClick={() => handleAddItem(item, true)}>+</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className={styles.summaryItemSubtotal}>
+                                                        ${((item.price || 0) * quantity).toLocaleString('es-CO')}
+                                                        <button
+                                                            className={styles.deleteItemBtn}
+                                                            onClick={() => handleDeleteItem(item.id)}
+                                                            title="Eliminar de la box"
+                                                        >
+                                                            🗑️
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </>
+                                    )}
+                                </>
                             )}
                         </div>
 
-                        {/* Step 3: Card Dedication & Recipient */}
+                        {/* Step 3: Card Dedication & Client Indications / Recommendations */}
                         <div className={styles.personalizationBlock}>
                             <div className={styles.personalizationTitle}>
-                                💌 Personaliza tu Tarjeta
+                                💌 Destinatario y Tarjeta
                             </div>
                             <div className={styles.formGroup}>
-                                <label htmlFor="recipient-name">Para quién es (Opcional):</label>
+                                <label htmlFor="recipient-name">¿Para quién es? (Opcional):</label>
                                 <input
                                     id="recipient-name"
                                     type="text"
                                     className={styles.inputField}
-                                    placeholder="Ej: Mamá, Juan, Mi Pareja 💖"
+                                    placeholder="Ej: Mamá, Pareja, Laura, Carlos..."
                                     value={recipientName}
                                     onChange={(e) => setRecipientName(e.target.value)}
                                 />
@@ -672,12 +1078,35 @@ export const Crea_tu_Box = () => {
                                 <label htmlFor="card-dedication">Dedicatoria para la tarjeta:</label>
                                 <textarea
                                     id="card-dedication"
-                                    rows="3"
+                                    rows="2"
                                     className={styles.textareaField}
-                                    placeholder="Escribe el mensaje emotivo que imprimiremos en la tarjeta de regalo..."
+                                    placeholder="Mensaje especial para imprimir en la tarjeta..."
                                     value={dedicationMessage}
                                     onChange={(e) => setDedicationMessage(e.target.value)}
                                 />
+                            </div>
+                        </div>
+
+                        {/* Recommendations & Specific Instructions Box */}
+                        <div className={styles.recommendationsBlock}>
+                            <div className={styles.recommendationsTitle}>
+                                <span>📝</span> Recomendaciones para Cotizar
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="client-notes">
+                                    Indicaciones especiales de lo que deseas:
+                                </label>
+                                <textarea
+                                    id="client-notes"
+                                    rows="3"
+                                    className={styles.textareaFieldNotes}
+                                    placeholder="Cuéntanos aquí cómo imaginas tu regalo: fotos que enviarás para sublimar, colores o temáticas (anime, series, amor...), nombres o fechas especiales, sabores preferidos..."
+                                    value={clientNotes}
+                                    onChange={(e) => setClientNotes(e.target.value)}
+                                />
+                                <p className={styles.notesHelpText}>
+                                    💡 Llegará directo a WhatsApp con tu lista tipo carrito para darte la cotización exacta y opciones de diseño.
+                                </p>
                             </div>
                         </div>
 
@@ -685,31 +1114,44 @@ export const Crea_tu_Box = () => {
                         <div className={styles.priceBreakdown}>
                             <div className={styles.priceRow}>
                                 <span>Base de empaque</span>
-                                <span>${basePrice.toLocaleString('es-CO')}</span>
+                                <span>{basePrice === 0 ? 'Sin costo adicional' : `$${basePrice.toLocaleString('es-CO')}`}</span>
                             </div>
-                            <div className={styles.priceRow}>
-                                <span>Productos seleccionados ({totalItemsCount})</span>
-                                <span>${itemsSubtotal.toLocaleString('es-CO')}</span>
-                            </div>
+                            {boxItemsCount > 0 && (
+                                <div className={styles.priceRow}>
+                                    <span>Artículos para Box ({boxItemsCount})</span>
+                                    <span className={styles.summaryItemQuoteTag}>A Cotizar por WhatsApp</span>
+                                </div>
+                            )}
+                            {webItemsCount > 0 && (
+                                <div className={styles.priceRow}>
+                                    <span>Productos Web ({webItemsCount})</span>
+                                    <span>${webSubtotal.toLocaleString('es-CO')}</span>
+                                </div>
+                            )}
                             <div className={`${styles.priceRow} ${styles.priceRowTotal}`}>
                                 <span>Total Box</span>
-                                <span className={styles.totalPriceValue}>${totalPrice.toLocaleString('es-CO')} COP</span>
+                                <span className={styles.totalPriceValue}>
+                                    {totalPrice > 0 ? `$${totalPrice.toLocaleString('es-CO')} COP*` : 'A Cotizar*'}
+                                </span>
+                            </div>
+                            <div style={{ fontSize: '0.72rem', color: '#8d6e63', textAlign: 'right', marginTop: '-4px' }}>
+                                *Artículos personalizados sujetos a cotización
                             </div>
                         </div>
 
                         {/* Action Buttons */}
                         <div className={styles.summaryActions}>
                             <button
-                                className={styles.addToCartBtn}
-                                onClick={handleAddBoxToCart}
-                            >
-                                🛒 Agregar Box al Carrito
-                            </button>
-                            <button
                                 className={styles.orderWhatsAppBtn}
                                 onClick={handleOrderWhatsApp}
                             >
-                                💬 Pedir Box por WhatsApp
+                                💬 Cotizar Box por WhatsApp (Carrito e Indicaciones)
+                            </button>
+                            <button
+                                className={styles.addToCartBtn}
+                                onClick={handleAddBoxToCart}
+                            >
+                                🛒 Agregar Box al Carrito Web
                             </button>
                         </div>
                     </div>
@@ -720,17 +1162,17 @@ export const Crea_tu_Box = () => {
             <div className={styles.mobileBottomBar}>
                 <div className={styles.mobileBarInfo}>
                     <div className={styles.mobileBarCount}>
-                        🎁 <strong>{totalItemsCount}</strong> items en tu Box
+                        🎁 <strong>{totalItemsCount}</strong> items ({boxItemsCount} a cotizar)
                     </div>
                     <div className={styles.mobileBarPrice}>
-                        Total: <strong>${totalPrice.toLocaleString('es-CO')}</strong>
+                        {totalPrice > 0 ? `Subtotal: $${totalPrice.toLocaleString('es-CO')}` : 'Cotización WhatsApp'}
                     </div>
                 </div>
                 <button
                     className={styles.mobileViewSummaryBtn}
                     onClick={() => setIsMobileSummaryOpen(true)}
                 >
-                    Ver Resumen →
+                    Ver Lista y Cotizar →
                 </button>
             </div>
 
@@ -759,7 +1201,7 @@ export const Crea_tu_Box = () => {
                                     </div>
                                 </div>
                                 <span className={styles.summaryBasePrice}>
-                                    {selectedBase.price === 0 ? 'Gratis' : `$${selectedBase.price.toLocaleString('es-CO')}`}
+                                    {selectedBase.price === 0 ? 'Sin costo' : `$${selectedBase.price.toLocaleString('es-CO')}`}
                                 </span>
                             </div>
 
@@ -770,46 +1212,85 @@ export const Crea_tu_Box = () => {
                                         <p className={styles.emptyBoxTitle}>Aún no has agregado productos</p>
                                     </div>
                                 ) : (
-                                    itemsList.map(({ product, quantity }) => (
-                                        <div key={product.id} className={styles.summaryItemRow}>
-                                            <img src={product.image} alt={product.name} className={styles.summaryItemImg} />
-                                            <div className={styles.summaryItemInfo}>
-                                                <div className={styles.summaryItemName}>{product.name}</div>
-                                                <div className={styles.summaryItemMeta}>
-                                                    <span>${product.price.toLocaleString('es-CO')} c/u</span>
-                                                    <div className={styles.miniQtyControls}>
-                                                        <button onClick={() => handleRemoveItem(product.id)}>-</button>
-                                                        <span>{quantity}</span>
-                                                        <button onClick={() => handleAddItem(product)}>+</button>
-                                                    </div>
+                                    <>
+                                        {boxItemsList.length > 0 && (
+                                            <>
+                                                <div className={styles.summaryGroupTitle}>
+                                                    🎁 Artículos para Box ({boxItemsCount} unid. - A Cotizar)
                                                 </div>
-                                            </div>
-                                            <div className={styles.summaryItemSubtotal}>
-                                                ${(product.price * quantity).toLocaleString('es-CO')}
-                                                <button
-                                                    className={styles.deleteItemBtn}
-                                                    onClick={() => handleDeleteItem(product.id)}
-                                                >
-                                                    🗑️
-                                                </button>
-                                            </div>
-                                        </div>
-                                    ))
+                                                {boxItemsList.map(({ item, quantity }) => (
+                                                    <div key={item.id} className={styles.summaryItemRow}>
+                                                        <img src={item.image || breakLabLogo} alt={item.name} className={styles.summaryItemImg} />
+                                                        <div className={styles.summaryItemInfo}>
+                                                            <div className={styles.summaryItemName}>{item.name}</div>
+                                                            <div className={styles.summaryItemMeta}>
+                                                                <span className={styles.summaryItemQuoteTag}>Para Cotizar</span>
+                                                                <div className={styles.miniQtyControls}>
+                                                                    <button onClick={() => handleRemoveItem(item.id)}>-</button>
+                                                                    <span>{quantity}</span>
+                                                                    <button onClick={() => handleAddItem(item, false)}>+</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button
+                                                            className={styles.deleteItemBtn}
+                                                            onClick={() => handleDeleteItem(item.id)}
+                                                        >
+                                                            🗑️
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </>
+                                        )}
+
+                                        {webItemsList.length > 0 && (
+                                            <>
+                                                <div className={styles.summaryGroupTitle}>
+                                                    🌐 Productos Web ({webItemsCount} unid.)
+                                                </div>
+                                                {webItemsList.map(({ item, quantity }) => (
+                                                    <div key={item.id} className={styles.summaryItemRow}>
+                                                        <img src={item.image || breakLabLogo} alt={item.name} className={styles.summaryItemImg} />
+                                                        <div className={styles.summaryItemInfo}>
+                                                            <div className={styles.summaryItemName}>{item.name}</div>
+                                                            <div className={styles.summaryItemMeta}>
+                                                                <span>${item.price?.toLocaleString('es-CO')} c/u</span>
+                                                                <div className={styles.miniQtyControls}>
+                                                                    <button onClick={() => handleRemoveItem(item.id)}>-</button>
+                                                                    <span>{quantity}</span>
+                                                                    <button onClick={() => handleAddItem(item, true)}>+</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className={styles.summaryItemSubtotal}>
+                                                            ${((item.price || 0) * quantity).toLocaleString('es-CO')}
+                                                            <button
+                                                                className={styles.deleteItemBtn}
+                                                                onClick={() => handleDeleteItem(item.id)}
+                                                            >
+                                                                🗑️
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </>
+                                        )}
+                                    </>
                                 )}
                             </div>
 
                             {/* Dedication Form */}
                             <div className={styles.personalizationBlock}>
                                 <div className={styles.personalizationTitle}>
-                                    💌 Personaliza tu Tarjeta
+                                    💌 Tarjeta y Destinatario
                                 </div>
                                 <div className={styles.formGroup}>
-                                    <label htmlFor="mobile-recipient-name">Para quién es (Opcional):</label>
+                                    <label htmlFor="mobile-recipient-name">¿Para quién es? (Opcional):</label>
                                     <input
                                         id="mobile-recipient-name"
                                         type="text"
                                         className={styles.inputField}
-                                        placeholder="Ej: Mamá, Juan, Mi Pareja 💖"
+                                        placeholder="Ej: Mamá, Pareja, Laura..."
                                         value={recipientName}
                                         onChange={(e) => setRecipientName(e.target.value)}
                                     />
@@ -827,27 +1308,178 @@ export const Crea_tu_Box = () => {
                                 </div>
                             </div>
 
+                            {/* Recommendations Form */}
+                            <div className={styles.recommendationsBlock}>
+                                <div className={styles.recommendationsTitle}>
+                                    <span>📝</span> Indicaciones y Recomendaciones
+                                </div>
+                                <div className={styles.formGroup}>
+                                    <label htmlFor="mobile-client-notes">
+                                        Detalles de lo que deseas para cotizar:
+                                    </label>
+                                    <textarea
+                                        id="mobile-client-notes"
+                                        rows="3"
+                                        className={styles.textareaFieldNotes}
+                                        placeholder="Fotos a incluir, colores, nombres, sabores de gelatorta o detalles especiales..."
+                                        value={clientNotes}
+                                        onChange={(e) => setClientNotes(e.target.value)}
+                                    />
+                                    <p className={styles.notesHelpText}>
+                                        💡 Se enviará a WhatsApp en formato carrito de compras para cotizarte.
+                                    </p>
+                                </div>
+                            </div>
+
                             {/* Total and Actions */}
                             <div className={styles.priceBreakdown}>
                                 <div className={`${styles.priceRow} ${styles.priceRowTotal}`}>
                                     <span>Total Box</span>
-                                    <span className={styles.totalPriceValue}>${totalPrice.toLocaleString('es-CO')} COP</span>
+                                    <span className={styles.totalPriceValue}>
+                                        {totalPrice > 0 ? `$${totalPrice.toLocaleString('es-CO')} COP*` : 'A Cotizar*'}
+                                    </span>
+                                </div>
+                                <div style={{ fontSize: '0.72rem', color: '#8d6e63', textAlign: 'right', marginTop: '-4px' }}>
+                                    *Artículos de box sujetos a cotización personalizada
                                 </div>
                             </div>
 
                             <div className={styles.summaryActions}>
                                 <button
-                                    className={styles.addToCartBtn}
-                                    onClick={handleAddBoxToCart}
-                                >
-                                    🛒 Agregar Box al Carrito
-                                </button>
-                                <button
                                     className={styles.orderWhatsAppBtn}
                                     onClick={handleOrderWhatsApp}
                                 >
-                                    💬 Pedir Box por WhatsApp
+                                    💬 Cotizar Box por WhatsApp (Carrito e Indicaciones)
                                 </button>
+                                <button
+                                    className={styles.addToCartBtn}
+                                    onClick={handleAddBoxToCart}
+                                >
+                                    🛒 Agregar Box al Carrito Web
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Image Preview Lightbox Modal */}
+            {previewProduct && (
+                <div
+                    className={styles.lightboxBackdrop}
+                    onClick={handleClosePreview}
+                >
+                    <div
+                        className={`${styles.lightboxCard} ${isImageZoomed ? styles.lightboxCardZoomMode : ''}`}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className={styles.lightboxCloseBtn}
+                            onClick={handleClosePreview}
+                            aria-label="Cerrar vista ampliada"
+                            title="Cerrar (Esc)"
+                        >
+                            ✕
+                        </button>
+
+                        <div
+                            className={`${styles.lightboxImgWrapper} ${isImageZoomed ? styles.lightboxImgWrapperZoomed : ''}`}
+                            onClick={() => setIsImageZoomed(prev => !prev)}
+                            title={isImageZoomed ? 'Clic para reducir' : 'Clic para ampliar imagen al máximo'}
+                        >
+                            {previewProduct.image?.endsWith?.('.mp4') ? (
+                                <video
+                                    src={previewProduct.image}
+                                    className={styles.lightboxImg}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    controls
+                                />
+                            ) : (
+                                <img
+                                    src={previewProduct.image || breakLabLogo}
+                                    alt={previewProduct.name}
+                                    className={`${styles.lightboxImg} ${isImageZoomed ? styles.lightboxImgZoomed : ''}`}
+                                    onError={(e) => {
+                                        e.currentTarget.onerror = null;
+                                        e.currentTarget.src = breakLabLogo;
+                                    }}
+                                />
+                            )}
+
+                            <div className={styles.lightboxZoomHint}>
+                                {isImageZoomed ? '🔍 Clic para reducir' : '🔍 Clic para zoom extra'}
+                            </div>
+                        </div>
+
+                        <div className={styles.lightboxInfo}>
+                            <div>
+                                {previewProduct.categoryName && (
+                                    <div className={styles.lightboxCategory}>
+                                        📂 {previewProduct.categoryName}
+                                    </div>
+                                )}
+                                <h2 className={styles.lightboxTitle}>
+                                    {previewProduct.name}
+                                </h2>
+                                {previewProduct.subtitle && (
+                                    <p className={styles.lightboxSubtitle}>
+                                        {previewProduct.subtitle}
+                                    </p>
+                                )}
+                                {previewProduct.description && (
+                                    <div className={styles.lightboxDescription}>
+                                        <p style={{ margin: 0 }}>{previewProduct.description}</p>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className={styles.lightboxActionRow}>
+                                {previewProduct.price ? (
+                                    <span className={styles.lightboxPriceTag}>
+                                        ${previewProduct.price.toLocaleString('es-CO')} COP
+                                    </span>
+                                ) : (
+                                    <span className={styles.quoteStatusTag}>
+                                        ✨ Para Cotizar
+                                    </span>
+                                )}
+
+                                {/* Add / Quantity controls inside modal */}
+                                {(() => {
+                                    const inBoxItem = selectedItems[previewProduct.id];
+                                    const inBoxQty = inBoxItem ? inBoxItem.quantity : 0;
+                                    const isWeb = catalogSource === 'web_catalog';
+
+                                    return inBoxQty === 0 ? (
+                                        <button
+                                            className={styles.addBtn}
+                                            onClick={() => handleAddItem(previewProduct, isWeb)}
+                                        >
+                                            <span>+</span> Elegir para mi Box
+                                        </button>
+                                    ) : (
+                                        <div className={styles.qtyControls}>
+                                            <button
+                                                className={styles.qtyBtn}
+                                                onClick={() => handleRemoveItem(previewProduct.id)}
+                                                aria-label="Disminuir cantidad"
+                                            >
+                                                -
+                                            </button>
+                                            <span className={styles.qtyDisplay}>{inBoxQty}</span>
+                                            <button
+                                                className={styles.qtyBtn}
+                                                onClick={() => handleAddItem(previewProduct, isWeb)}
+                                                aria-label="Aumentar cantidad"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                    );
+                                })()}
                             </div>
                         </div>
                     </div>

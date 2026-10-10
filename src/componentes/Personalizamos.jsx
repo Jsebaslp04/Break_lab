@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import styles from './Personalizamos.module.css';
 import { useSEO } from '../hooks/useSEO';
 
+// Imágenes de categorías personalizadas
+import imgCatMugs from '../assets/Categorias_menu/mugs-personalizados-con-disenos-de-personajes-y-frases.jpeg';
+import imgCatVasos from '../assets/Categorias_menu/vasos-de-vidrio-esmerilado-personalizados-con-disenos.jpeg';
+import imgCatLlaveros from '../assets/Categorias_menu/llaveros-personalizados-impresion-3d-coleccion-sublimado.png';
+import imgCatRompecabezas from '../assets/Categorias_menu/rompecabezas-personalizados-anime-y-geek-coleccion.png';
+import imgCatGelatortas from '../assets/Categorias_menu/gelatortas-personalizadas-y-postres-creativos.jpeg';
+import imgCatFiguras3D from '../assets/Categorias_menu/catalogo-impresiones-3d-figuras-coleccionables-geek.jpeg';
+import imgCatVariedades from '../assets/Categorias_menu/catalogo-variedades-regalos-geek-y-originales.jpeg';
+
 export const Personalizamos = () => {
     useSEO({
         title: "Regalos y Detalles Personalizados a Medida | BreakLab",
@@ -15,13 +24,13 @@ export const Personalizamos = () => {
     }, []);
 
     const categories = [
-        { id: 'mugs-personalizados', name: 'Mugs Personalizados', icon: '☕', theme: styles.themePlayful },
-        { id: 'vasos-personalizados', name: 'Vasos Personalizados', icon: '🥤', theme: styles.themePlayful },
-        { id: 'llaveros', name: 'Llaveros', icon: '🔑', theme: styles.themePlayful },
-        { id: 'rompecabezas', name: 'Rompecabezas', icon: '🧩', theme: styles.themePlayful },
-        { id: 'gelatortas', name: 'Gelatortas', icon: '🎂', theme: styles.themeRomantic },
-        { id: 'figuras-3d', name: 'Figuras 3D', icon: '👾', theme: styles.themePlayful },
-        { id: 'variedades', name: 'Variedades', icon: '🎁', theme: styles.themeFestive }
+        { id: 'mugs-personalizados', name: 'Mugs Personalizados', image: imgCatMugs, theme: styles.themePlayful },
+        { id: 'vasos-personalizados', name: 'Vasos Personalizados', image: imgCatVasos, theme: styles.themeMasculine },
+        { id: 'llaveros', name: 'Llaveros', image: imgCatLlaveros, theme: styles.themePlayful },
+        { id: 'rompecabezas', name: 'Rompecabezas', image: imgCatRompecabezas, theme: styles.themeFestive },
+        { id: 'gelatortas', name: 'Gelatortas', image: imgCatGelatortas, theme: styles.themeRomantic },
+        { id: 'figuras-3d', name: 'Figuras 3D', image: imgCatFiguras3D, theme: styles.themeMasculine },
+        { id: 'variedades', name: 'Variedades', image: imgCatVariedades, theme: styles.themeFestive }
     ];
 
     return (
@@ -34,8 +43,13 @@ export const Personalizamos = () => {
             <div className={styles.grid}>
                 {categories.map((cat) => (
                     <Link to={`/categoria/${cat.id}`} key={cat.id} className={`${styles.card} ${cat.theme}`}>
-                        <div className={styles.iconWrapper}>
-                            <span className={styles.icon}>{cat.icon}</span>
+                        <div className={styles.imageWrapper}>
+                            <img 
+                                src={cat.image} 
+                                alt={`Categoría ${cat.name} BreakLab`} 
+                                className={styles.categoryImg} 
+                                loading="lazy" 
+                            />
                         </div>
                         <h2 className={styles.cardTitle}>{cat.name}</h2>
                         <span className={styles.exploreBtn}>Ver Opciones →</span>

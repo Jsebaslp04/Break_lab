@@ -350,8 +350,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
-    background: linear-gradient(135deg, #fff0f5 0%, #ffe4ec 50%, #fecdd3 100%);
-    border: 2px solid #f43f5e;
+    background: linear-gradient(135deg, #fbf6f0 0%, #f3e8dc 100%);
+    border: 1.5px solid #dfcfbe;
     border-radius: 50px;
     padding: 0.5rem 1.15rem 0.5rem 1rem;
     cursor: pointer;
@@ -359,14 +359,14 @@
     outline: none;
     font-family: 'Plus Jakarta Sans', sans-serif;
     text-align: left;
-    box-shadow: 0 4px 14px rgba(244, 63, 94, 0.22);
+    box-shadow: 0 3px 10px rgba(90, 60, 40, 0.08);
 }
 
 .unitPriceOptionBadge:hover {
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 18px rgba(244, 63, 94, 0.35);
-    background: linear-gradient(135deg, #ffe4ec 0%, #ffd1df 100%);
-    border-color: #e11d48;
+    box-shadow: 0 6px 16px rgba(90, 60, 40, 0.16);
+    background: linear-gradient(135deg, #f7efe4 0%, #ebe0d2 100%);
+    border-color: #cfb9a3;
 }
 
 .unitPriceOptionBadgeActive {
@@ -384,7 +384,7 @@
 .unitPriceOptionBracket {
     font-size: 1.2rem;
     font-weight: 900;
-    color: #e11d48;
+    color: #5a3c28;
     line-height: 1;
     font-family: 'Plus Jakarta Sans', monospace, sans-serif;
 }
@@ -401,7 +401,7 @@
 .unitPriceOptionText {
     font-size: 1rem;
     font-weight: 800;
-    color: #9f1239;
+    color: #452b1a;
     line-height: 1.2;
 }
 
@@ -414,11 +414,11 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    background: #e11d48;
+    background: #5a3c28;
     color: white;
     padding: 0.3rem 0.75rem;
     border-radius: 20px;
-    box-shadow: 0 2px 6px rgba(225, 29, 72, 0.3);
+    box-shadow: 0 2px 6px rgba(90, 60, 40, 0.25);
     transition: all 0.2s ease;
 }
 

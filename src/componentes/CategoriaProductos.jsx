@@ -86,11 +86,17 @@ function ProductCard({ product }) {
                 <hr className={styles.cardDivider} />
                 
                 <div className={styles.cardFooter}>
-                    <div className={styles.priceContainer}>
+                    <div className={styles.priceRow}>
                         <span className={styles.productPrice}>
                             ${product.price.toLocaleString()}
                         </span>
-                        {isPack && (
+                        <span className={styles.verDetalleBtn}>
+                            Ver Detalles
+                        </span>
+                    </div>
+
+                    {isPack && (
+                        <div className={styles.packUnitNoticeRow}>
                             <span className={styles.packUnitNotice}>
                                 <span className={styles.packUnitBracket}>[</span>
                                 <span className={styles.packUnitText}>
@@ -98,12 +104,8 @@ function ProductCard({ product }) {
                                 </span>
                                 <span className={styles.packUnitBracket}>]</span>
                             </span>
-                        )}
-                    </div>
-                    
-                    <span className={styles.verDetalleBtn}>
-                        Ver Detalles
-                    </span>
+                        </div>
+                    )}
                 </div>
             </div>
         </Link>
