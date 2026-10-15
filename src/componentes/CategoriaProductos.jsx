@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './CategoriaProductos.module.css';
 import { getCategoryProducts, isPackProduct, PACK_UNIT_PRICE } from '../data/products';
@@ -212,6 +212,7 @@ const SUBCATEGORIES_CONFIG = {
 export function CategoriaProductos() {
     const { id } = useParams();
     const categoriaId = id || 'kit-escolar';
+    const [selectedSubcategory, setSelectedSubcategory] = useState('all');
 
     // Determine if the current category is a parent category
     const isParentCategory = !!SUBCATEGORIES_CONFIG[categoriaId];
@@ -219,6 +220,15 @@ export function CategoriaProductos() {
 
     const formatCategoryName = (str) => {
         if (str === 'boxs' || str === 'box' || str === 'crea-tu-box') return 'Boxs y Desayunos Sorpresa';
+        if (str === 'personalizamos') return 'Personalizamos Tus Ideas';
+        if (str === 'mugs-personalizados') return 'Mugs Personalizados';
+        if (str === 'vasos-personalizados') return 'Vasos Personalizados';
+        if (str === 'llaveros') return 'Llaveros Creativos';
+        if (str === 'rompecabezas' || str === 'rompecabezas-magneticos') return 'Rompecabezas Personalizados';
+        if (str === 'gelatortas') return 'Gelatortas Personalizadas';
+        if (str === 'figuras-3d') return 'Figuras 3D Coleccionables';
+        if (str === 'variedades') return 'Variedades y Regalos Únicos';
+        if (str === 'soportes') return 'Soportes Portacelulares 3D';
         if (str === 'kit-pareja-dragon') return 'Kit Pareja Cómo Entrenar a Tu Dragón';
         if (str === 'box-tematicas') return 'Boxs Temáticos Anime y Series';
         if (str === 'san-valentin') return 'Boxs San Valentín & Amor';
@@ -245,9 +255,26 @@ export function CategoriaProductos() {
 
     const displayCategoryName = formatCategoryName(categoriaId);
 
-    const allProductsCombined = isParentCategory 
-        ? subcategories.flatMap(sub => getCategoryProducts(sub.id))
-        : getCategoryProducts(categoriaId);
+    const allProductsCombined = useMemo(() => {
+        const raw = isParentCategory 
+            ? subcategories.flatMap(sub => getCategoryProducts(sub.id))
+            : getCategoryProducts(categoriaId);
+
+        const seenIds = new Set();
+        return raw.filter(prod => {
+            if (!prod || !prod.id) return false;
+            if (seenIds.has(prod.id)) return false;
+            seenIds.add(prod.id);
+            return true;
+        });
+    }, [isParentCategory, subcategories, categoriaId]);
+
+    const displayedProducts = useMemo(() => {
+        if (!isParentCategory || selectedSubcategory === 'all') {
+            return allProductsCombined;
+        }
+        return getCategoryProducts(selectedSubcategory);
+    }, [isParentCategory, selectedSubcategory, allProductsCombined]);
 
     const itemListSchema = {
         "@context": "https://schema.org",
@@ -275,14 +302,41 @@ export function CategoriaProductos() {
     
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        setSelectedSubcategory('all');
     }, [id, categoriaId]);
 
     return (
         <div className={styles.categoryContainer}>
             <h1 className={styles.categoryTitle}>{displayCategoryName}</h1>
 
+            {isParentCategory && subcategories.length > 1 && (
+                <div className={styles.tabContainer}>
+                    <button 
+                        type="button"
+                        className={`${styles.tabBtn} ${selectedSubcategory === 'all' ? styles.tabActive : ''}`}
+                        onClick={() => setSelectedSubcategory('all')}
+                    >
+                        🌟 Todos ({allProductsCombined.length})
+                    </button>
+                    {subcategories.map(sub => {
+                        const count = getCategoryProducts(sub.id).length;
+                        if (count === 0) return null;
+                        return (
+                            <button
+                                key={sub.id}
+                                type="button"
+                                className={`${styles.tabBtn} ${selectedSubcategory === sub.id ? styles.tabActive : ''}`}
+                                onClick={() => setSelectedSubcategory(sub.id)}
+                            >
+                                {sub.label} ({count})
+                            </button>
+                        );
+                    })}
+                </div>
+            )}
+
             <div className={styles.productsGrid}>
-                {allProductsCombined.map(product => (
+                {displayedProducts.map(product => (
                     <ProductCard 
                         key={product.id} 
                         product={product} 

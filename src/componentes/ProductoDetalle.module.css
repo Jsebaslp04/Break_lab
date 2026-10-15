@@ -556,18 +556,64 @@
 
 .modalContent {
     background: var(--bg-card);
-    padding: 3rem;
+    padding: 3rem 2.5rem 2.5rem;
     border-radius: 20px;
     text-align: center;
     max-width: 600px;
     width: 90%;
     box-shadow: var(--shadow-lg);
+    position: relative;
+    animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalCloseBtn {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--text-medium);
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.modalCloseBtn:hover {
+    color: var(--primary);
+    transform: scale(1.15);
 }
 
 .modalContent h2 {
     font-family: 'Playfair Display', serif;
     color: var(--primary-hover);
+    margin-bottom: 0.8rem;
+    font-size: 1.7rem;
+}
+
+.modalContent p {
+    color: var(--text-medium);
+    font-size: 0.95rem;
     margin-bottom: 1rem;
+}
+
+.btnContinue {
+    padding: 0.8rem 1.5rem;
+    border: 1.5px solid var(--border-medium);
+    background: var(--bg-body);
+    color: var(--text-dark);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.btnContinue:hover {
+    background: var(--bg-cream);
+    border-color: var(--primary);
+    transform: translateY(-2px);
 }
 
 .suggestedItems {

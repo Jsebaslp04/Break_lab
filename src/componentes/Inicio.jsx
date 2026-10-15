@@ -307,8 +307,8 @@ export function Inicio() {
                     ],
                     'pareja_gourmet': [
                         'san-valentin-dulce',
-                        'vino-caja-madera',
-                        'vino-personalizado',
+                        'box-san-valentin-gelatorta-vino',
+                        'desayuno-luxury-real',
                         'gelatorta-huella-perro'
                     ],
                     'pareja_impresion_3d': [
@@ -319,8 +319,8 @@ export function Inicio() {
                     ],
                     'pareja_chocolates': [
                         'kit-regalo-como-entrenar-a-tu-dragon',
-                        'mug-parejas-1',
-                        'taza-blanca-ceramica-asa-corazon-regalo',
+                        'mugs-parejas',
+                        'mug-borde-asa-dorada',
                         'rompecabezas-carton-personalizado',
                         'mug-blanco'
                     ],
@@ -341,8 +341,8 @@ export function Inicio() {
                     ],
                     'mama_chocolates': [
                         'dia-madre-joyas-flores',
-                        'taza-romantica-personalizada-dorada-aniversario',
-                        'taza-blanca-ceramica-asa-corazon-regalo',
+                        'mug-borde-asa-dorada',
+                        'mug-blanco',
                         'rompecabezas-carton-personalizado'
                     ],
 
@@ -350,7 +350,7 @@ export function Inicio() {
                         'soporte-celular-3d',
                         'rompecabezas-magnetico-one-piece-luffy',
                         'dia-nino-gamer',
-                        'mouse-pad-gamer-wow',
+                        'mouse-pad-wow',
                         'rompecabezas-dragon-ball',
                         'mug-neon',
                         'llavero-one-piece-destapador'

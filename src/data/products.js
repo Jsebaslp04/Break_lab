@@ -1682,6 +1682,7 @@ export const getCategoryProducts = (categoryId) => {
         ];
     }
     if (categoryId === 'figuras-3d') {
+        const seen = new Set();
         return [
             ...getCategoryProducts('figuras-3d-coyote-correcaminos'),
             ...getCategoryProducts('figuras-3d-anime-coleccion'),
@@ -1693,7 +1694,11 @@ export const getCategoryProducts = (categoryId) => {
             ...getCategoryProducts('figuras-3d-mapache'),
             ...getCategoryProducts('figuras-3d-t-rex'),
             ...getCategoryProducts('figuras-3d-personalizadas')
-        ];
+        ].filter(p => {
+            if (seen.has(p.id)) return false;
+            seen.add(p.id);
+            return true;
+        });
     }
     if (categoryId === 'combos' || categoryId === 'packs') {
         return [
@@ -1706,6 +1711,23 @@ export const getCategoryProducts = (categoryId) => {
             ...getCategoryProducts('combo-los-simpson'),
             ...getCategoryProducts('combo-mugs-one-piece')
         ];
+    }
+    if (categoryId === 'personalizamos') {
+        const seen = new Set();
+        return [
+            ...getCategoryProducts('mugs-personalizados'),
+            ...getCategoryProducts('vasos-personalizados'),
+            ...getCategoryProducts('llaveros'),
+            ...getCategoryProducts('rompecabezas'),
+            ...getCategoryProducts('gelatortas'),
+            ...getCategoryProducts('figuras-3d'),
+            ...getCategoryProducts('soportes'),
+            ...getCategoryProducts('variedades')
+        ].filter(p => {
+            if (seen.has(p.id)) return false;
+            seen.add(p.id);
+            return true;
+        });
     }
     const products = PRODUCTS_DB[categoryId] || [
         {

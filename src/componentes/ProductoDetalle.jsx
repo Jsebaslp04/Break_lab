@@ -82,17 +82,21 @@ export function ProductoDetalle() {
     }, [id]);
 
     const handleClose = () => {
-        let categoryId = 'mugs-personalizados';
-        for (const cat in PRODUCTS_DB) {
-            if (PRODUCTS_DB[cat].some(p => p.id === product.id)) {
-                categoryId = cat;
-                break;
+        if (window.history.state && window.history.state.idx > 0) {
+            navigate(-1);
+        } else {
+            let categoryId = 'mugs-personalizados';
+            for (const cat in PRODUCTS_DB) {
+                if (PRODUCTS_DB[cat].some(p => p.id === product.id)) {
+                    categoryId = cat;
+                    break;
+                }
             }
+            if (categoryId.includes('rompecabezas')) {
+                categoryId = 'rompecabezas';
+            }
+            navigate(`/categoria/${categoryId}`);
         }
-        if (categoryId.includes('rompecabezas')) {
-            categoryId = 'rompecabezas';
-        }
-        navigate(`/categoria/${categoryId}`);
     };
 
     const suggestedItems = [
@@ -119,46 +123,7 @@ export function ProductoDetalle() {
         }
     };
 
-    const handleAddSelected = () => {
-        const optValues = Object.values(selectedOptions).filter(Boolean);
-        const optString = optValues.join(', ');
-        const optId = optValues.join('-');
-
-        let selectedImage = product.images?.[activeImageIdx] || product.image;
-        if (selectedOptions.color && product.colorImageMap && product.images) {
-            const imgIdx = product.colorImageMap[selectedOptions.color];
-            if (imgIdx !== undefined && product.images[imgIdx]) {
-                selectedImage = product.images[imgIdx];
-            }
-        }
-
-        const productsToAdd = [{
-            id: optId ? `${product.id}-${optId}` : product.id,
-            productId: product.id,
-            name: optString ? `${product.name} (${optString})` : product.name,
-            price: currentPrice,
-            quantity: 1,
-            image: selectedImage,
-            selectedOptions: { ...selectedOptions }
-        }];
-
-        suggestedItems.forEach(sug => {
-            if (selectedSug[sug.id]) {
-                productsToAdd.push({
-                    id: sug.id,
-                    name: sug.name,
-                    price: sug.price,
-                    quantity: 1
-                });
-            }
-        });
-
-        addToCart(productsToAdd);
-        setShowModal(false);
-        setSelectedSug({});
-    };
-
-    const handleAddOnlyMainProduct = () => {
+    const handleAddToCartClick = () => {
         const optValues = Object.values(selectedOptions).filter(Boolean);
         const optString = optValues.join(', ');
         const optId = optValues.join('-');
@@ -180,6 +145,38 @@ export function ProductoDetalle() {
             image: selectedImage,
             selectedOptions: { ...selectedOptions }
         }]);
+
+        setShowModal(true);
+    };
+
+    const handleAddSuggestionsAndGoToCart = () => {
+        const sugToAdd = [];
+        suggestedItems.forEach(sug => {
+            if (selectedSug[sug.id]) {
+                sugToAdd.push({
+                    id: `${sug.id}-${Date.now()}`,
+                    name: sug.name,
+                    price: sug.price,
+                    quantity: 1
+                });
+            }
+        });
+
+        if (sugToAdd.length > 0) {
+            addToCart(sugToAdd);
+        }
+        setShowModal(false);
+        setSelectedSug({});
+        navigate('/carrito');
+    };
+
+    const handleGoToCart = () => {
+        setShowModal(false);
+        setSelectedSug({});
+        navigate('/carrito');
+    };
+
+    const handleContinueShopping = () => {
         setShowModal(false);
         setSelectedSug({});
     };
@@ -392,17 +389,20 @@ export function ProductoDetalle() {
                             </div>
                         )}
 
-                        <button className={styles.addToCartBtn} onClick={() => setShowModal(true)}>
+                        <button className={styles.addToCartBtn} onClick={handleAddToCartClick}>
                             Añadir al Carrito
                         </button>
                     </div>
                 </div>
 
                 {showModal && (
-                    <div className={styles.modalOverlay}>
-                        <div className={styles.modalContent}>
-                            <h2>✨ ¡Has añadido un producto al carrito! 🎉</h2>
-                            <p>Sugerimos añadir más productos para complementar tu regalo:</p>
+                    <div className={styles.modalOverlay} onClick={handleContinueShopping}>
+                        <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                            <button className={styles.modalCloseBtn} onClick={handleContinueShopping} aria-label="Cerrar modal">
+                                &times;
+                            </button>
+                            <h2>✨ ¡Producto añadido al carrito! 🎉</h2>
+                            <p>¿Deseas complementar tu detalle con alguna sugerencia especial antes de finalizar?</p>
                             <div className={styles.suggestedItems}>
                                 {suggestedItems.map(sug => (
                                     <div 
@@ -418,15 +418,24 @@ export function ProductoDetalle() {
                                 ))}
                             </div>
                             <div className={styles.modalActions}>
-                                <button className={styles.btnSecondary} onClick={handleAddOnlyMainProduct}>
-                                    No, gracias (Ver carrito)
+                                <button className={styles.btnSecondary} onClick={handleGoToCart}>
+                                    🛒 Ir al Carrito
                                 </button>
-                                <button 
-                                    className={`${styles.btnPrimary} ${!hasSelection ? styles.btnDisabled : ''}`} 
-                                    onClick={handleAddSelected}
-                                >
-                                    {hasSelection ? 'Sí, agregar seleccionados' : 'Selecciona una sugerencia'}
-                                </button>
+                                {hasSelection ? (
+                                    <button 
+                                        className={styles.btnPrimary} 
+                                        onClick={handleAddSuggestionsAndGoToCart}
+                                    >
+                                        ✓ Agregar seleccionados e ir al Carrito
+                                    </button>
+                                ) : (
+                                    <button 
+                                        className={styles.btnContinue} 
+                                        onClick={handleContinueShopping}
+                                    >
+                                        Seguir explorando
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>

@@ -23,11 +23,17 @@ export const Cart = () => {
     const total = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
     const handleCheckout = () => {
-        let text = "¡Hola! Quiero finalizar mi compra en BreakLab:%0A%0A";
+        let text = "¡Hola BreakLab! 👋 Quiero finalizar mi compra:%0A%0A";
         cartItems.forEach(item => {
-            text += `- ${item.quantity}x ${item.name} ($${(item.price * item.quantity).toLocaleString()})%0A`;
+            text += `• ${item.quantity}x ${item.name} ($${(item.price * item.quantity).toLocaleString()})%0A`;
+            if (item.selectedOptions?.para && item.selectedOptions.para !== 'No especificado') {
+                text += `  Para: ${encodeURIComponent(item.selectedOptions.para)}%0A`;
+            }
+            if (item.selectedOptions?.dedicatoria && item.selectedOptions.dedicatoria !== 'Sin dedicatoria') {
+                text += `  Dedicatoria: "${encodeURIComponent(item.selectedOptions.dedicatoria)}"%0A`;
+            }
         });
-        text += `%0A*Total: $${total.toLocaleString()}*`;
+        text += `%0A*Total Estimado: $${total.toLocaleString()} COP*`;
         
         window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
     };
@@ -81,6 +87,16 @@ export const Cart = () => {
                                             <div className={styles.itemInfo}>
                                                 <h4>{item.name}</h4>
                                                 <p className={styles.itemPrice}>${item.price.toLocaleString()}</p>
+                                                {item.selectedOptions?.para && item.selectedOptions.para !== 'No especificado' && (
+                                                    <p style={{ margin: '0.2rem 0', fontSize: '0.85rem', color: 'var(--text-medium)' }}>
+                                                        <strong>Para:</strong> {item.selectedOptions.para}
+                                                    </p>
+                                                )}
+                                                {item.selectedOptions?.dedicatoria && item.selectedOptions.dedicatoria !== 'Sin dedicatoria' && (
+                                                    <p style={{ margin: '0.2rem 0', fontSize: '0.85rem', color: 'var(--text-medium)', fontStyle: 'italic' }}>
+                                                        <strong>Dedicatoria:</strong> &ldquo;{item.selectedOptions.dedicatoria}&rdquo;
+                                                    </p>
+                                                )}
                                                 
                                                 {/* Selector de color dinámico en el carrito */}
                                                 {(() => {

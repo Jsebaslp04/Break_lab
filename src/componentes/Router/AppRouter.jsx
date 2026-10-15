@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Inicio } from "../Inicio";
 import { Boxs } from "../Boxs";
 import { Crea_tu_Box } from "../Crea_tu_Box";
@@ -26,12 +26,16 @@ export const AppRouter = () => {
             <Route path="/Packs" element={<Combos />} />
             <Route path="/packs" element={<Combos />} />
             <Route path="/Personalizamos" element={<Personalizamos />} />
+            <Route path="/personalizamos" element={<Personalizamos />} />
             <Route path="/Envios" element={<Inicio />} />
+            <Route path="/envios" element={<Inicio />} />
             <Route path="/Contacto" element={<Contacto />} />
+            <Route path="/contacto" element={<Contacto />} />
             <Route path="/info/:seccion" element={<Informacion />} />
             <Route path="/categoria/:id" element={<CategoriaProductos />} />
             <Route path="/producto/:id" element={<ProductoDetalle />} />
             <Route path="/carrito" element={<Cart />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     )
 }
