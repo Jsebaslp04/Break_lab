@@ -229,18 +229,18 @@ export function ProductoDetalle() {
                         {product.images && product.images.length > 1 && (
                             <div className={styles.thumbnailList}>
                                 {product.images.map((img, idx) => (
-                                    <button 
-                                        key={idx} 
+                                    <button
+                                        key={idx}
                                         className={`${styles.thumbnailBtn} ${idx === activeImageIdx ? styles.thumbnailActive : ''}`}
                                         onClick={() => setActiveImageIdx(idx)}
                                         aria-label={`Ver imagen ${idx + 1}`}
                                     >
                                         {img.endsWith('.mp4') ? (
                                             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                                                <video 
-                                                    src={img} 
-                                                    className={styles.thumbnailImg} 
-                                                    muted 
+                                                <video
+                                                    src={img}
+                                                    className={styles.thumbnailImg}
+                                                    muted
                                                     playsInline
                                                 />
                                                 <span style={{
@@ -254,10 +254,10 @@ export function ProductoDetalle() {
                                                 }}>▶</span>
                                             </div>
                                         ) : (
-                                            <img 
-                                                src={img} 
-                                                alt={`Vista alternativa ${idx + 1}`} 
-                                                className={styles.thumbnailImg} 
+                                            <img
+                                                src={img}
+                                                alt={`Vista alternativa ${idx + 1}`}
+                                                className={styles.thumbnailImg}
                                             />
                                         )}
                                     </button>
@@ -270,9 +270,9 @@ export function ProductoDetalle() {
                             setIsLightboxOpen(true);
                         }}>
                             {product.images[activeImageIdx]?.endsWith('.mp4') ? (
-                                <video 
-                                    src={product.images[activeImageIdx]} 
-                                    className={styles.detailImage} 
+                                <video
+                                    src={product.images[activeImageIdx]}
+                                    className={styles.detailImage}
                                     autoPlay
                                     muted
                                     loop
@@ -284,11 +284,11 @@ export function ProductoDetalle() {
                                     }}
                                 />
                             ) : (
-                                <img 
-                                    src={product.images[activeImageIdx] || product.image} 
-                                    alt={`Fotografía de ${product.name} - Detalle de regalo de BreakLab`} 
-                                    className={styles.detailImage} 
-                                    loading="eager" 
+                                <img
+                                    src={product.images[activeImageIdx] || product.image}
+                                    alt={`Fotografía de ${product.name} - Detalle de regalo de BreakLab`}
+                                    className={styles.detailImage}
+                                    loading="eager"
                                 />
                             )}
                             {product.isNew && <span className={styles.newBadge}>NUEVO</span>}
@@ -302,7 +302,7 @@ export function ProductoDetalle() {
                         <span className={styles.categoryLabel}>{categoryName.toUpperCase()}</span>
                         <h1 className={styles.title}>{product.name}</h1>
                         <p className={styles.description}>{product.description}</p>
-                        
+
                         <div className={styles.includedSection}>
                             <p className={styles.includedTitle}>Este detalle incluye:</p>
                             <ul className={styles.includedList}>
@@ -317,13 +317,13 @@ export function ProductoDetalle() {
                         {product.subtitle && (
                             <p className={styles.tagline}>💝 {product.subtitle}</p>
                         )}
-                        
+
                         <div className={styles.priceContainer}>
                             <div className={styles.priceTag}>
                                 ${currentPrice.toLocaleString()}
                             </div>
                             {isPack && (
-                                <button 
+                                <button
                                     type="button"
                                     className={`${styles.unitPriceOptionBadge} ${isUnitOption ? styles.unitPriceOptionBadgeActive : ''}`}
                                     onClick={() => handleSelectOption('presentacion', isUnitOption ? 'Pack Completo' : 'Por Unidad')}
@@ -346,7 +346,7 @@ export function ProductoDetalle() {
                             <div className={styles.careNoticeBox}>
                                 <span className={styles.careNoticeIcon}>🧼</span>
                                 <div className={styles.careNoticeText}>
-                                    <strong>Cuidados:</strong> No calentar mucho al microondas, no usar lavavajillas y lavar con esponja suave.
+                                    <strong>Cuidados:</strong> No calentar en tiempo prolongado en el microondas, ni usar lavavajillas. Lavar con esponja suave.
                                 </div>
                             </div>
                         )}
@@ -366,7 +366,7 @@ export function ProductoDetalle() {
                                             }
                                         }
                                         return (
-                                            <button 
+                                            <button
                                                 key={choice}
                                                 className={`${styles.optionPill} ${isSelected ? styles.activePill : ''}`}
                                                 onClick={() => handleSelectOption(opt.name, choice)}
@@ -405,13 +405,13 @@ export function ProductoDetalle() {
                             <p>¿Deseas complementar tu detalle con alguna sugerencia especial antes de finalizar?</p>
                             <div className={styles.suggestedItems}>
                                 {suggestedItems.map(sug => (
-                                    <div 
-                                        key={sug.id} 
+                                    <div
+                                        key={sug.id}
                                         className={`${styles.suggestedBox} ${selectedSug[sug.id] ? styles.selected : ''}`}
                                         onClick={() => toggleSuggestion(sug.id)}
                                     >
-                                        <span className={styles.sugIcon}>{sug.icon}</span> 
-                                        <strong>{sug.name}</strong><br/>
+                                        <span className={styles.sugIcon}>{sug.icon}</span>
+                                        <strong>{sug.name}</strong><br />
                                         <span className={styles.sugPrice}>+${sug.price.toLocaleString()}</span>
                                         {selectedSug[sug.id] && <div className={styles.checkIcon}>✓</div>}
                                     </div>
@@ -422,15 +422,15 @@ export function ProductoDetalle() {
                                     🛒 Ir al Carrito
                                 </button>
                                 {hasSelection ? (
-                                    <button 
-                                        className={styles.btnPrimary} 
+                                    <button
+                                        className={styles.btnPrimary}
                                         onClick={handleAddSuggestionsAndGoToCart}
                                     >
                                         ✓ Agregar seleccionados e ir al Carrito
                                     </button>
                                 ) : (
-                                    <button 
-                                        className={styles.btnContinue} 
+                                    <button
+                                        className={styles.btnContinue}
                                         onClick={handleContinueShopping}
                                     >
                                         Seguir explorando
@@ -445,16 +445,16 @@ export function ProductoDetalle() {
             {isLightboxOpen && (
                 <div className={styles.lightboxOverlay} onClick={() => setIsLightboxOpen(false)}>
                     <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-                        <button 
-                            className={styles.lightboxClose} 
+                        <button
+                            className={styles.lightboxClose}
                             onClick={() => setIsLightboxOpen(false)}
                             aria-label="Cerrar ampliación"
                         >
                             &times;
                         </button>
-                        
+
                         {product.images.length > 1 && (
-                            <button 
+                            <button
                                 className={`${styles.lightboxArrow} ${styles.lightboxArrowLeft}`}
                                 onClick={(e) => {
                                     e.stopPropagation();
@@ -467,22 +467,22 @@ export function ProductoDetalle() {
                         )}
 
                         {product.images[lightboxImageIdx]?.endsWith('.mp4') ? (
-                            <video 
-                                src={product.images[lightboxImageIdx]} 
-                                className={styles.lightboxImage} 
+                            <video
+                                src={product.images[lightboxImageIdx]}
+                                className={styles.lightboxImage}
                                 controls
                                 autoPlay
                             />
                         ) : (
-                            <img 
-                                src={product.images[lightboxImageIdx] || product.image} 
-                                alt={`Ampliación de ${product.name} - Imagen ${lightboxImageIdx + 1}`} 
-                                className={styles.lightboxImage} 
+                            <img
+                                src={product.images[lightboxImageIdx] || product.image}
+                                alt={`Ampliación de ${product.name} - Imagen ${lightboxImageIdx + 1}`}
+                                className={styles.lightboxImage}
                             />
                         )}
 
                         {product.images.length > 1 && (
-                            <button 
+                            <button
                                 className={`${styles.lightboxArrow} ${styles.lightboxArrowRight}`}
                                 onClick={(e) => {
                                     e.stopPropagation();
@@ -497,7 +497,7 @@ export function ProductoDetalle() {
                         {product.images.length > 1 && (
                             <div className={styles.lightboxBullets}>
                                 {product.images.map((_, idx) => (
-                                    <button 
+                                    <button
                                         key={idx}
                                         className={`${styles.lightboxBullet} ${idx === lightboxImageIdx ? styles.lightboxBulletActive : ''}`}
                                         onClick={(e) => {

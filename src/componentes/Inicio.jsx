@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './Inicio.module.css'
 import { useSEO } from '../hooks/useSEO'
 import { getProductById, PRODUCTS_DB, breakLabLogo } from '../data/products'
+import imgBanner3d from '../assets/Swiper/banner-promocional-impresion-3d-personalizada-breaklab.jpeg'
 import img1 from '../assets/Swiper/impresion-3d-personajes-videojuegos.png'
 import img2 from '../assets/Swiper/rompecabezas-magnetico-one-piece-luffy.png'
 import img3 from '../assets/Swiper/vaso-frost-personalizado-mascotas.png'
@@ -21,12 +22,12 @@ import iconEnvios from '../assets/Images_inicio/breaklab-icono-envios-domicilios
 export function Banner() {
     const slides = [
         {
-            image: img1,
-            title: "Figuras 3D Personalizadas",
-            description: "Damos vida a tus personajes de anime y videojuegos favoritos con impresión 3D.",
+            image: imgBanner3d,
+            title: "Impresión 3D Personalizada",
+            description: "Damos vida a tus ideas: llaveros, nombres, figuras coleccionables y regalos únicos.",
             link: "/categoria/figuras-3d",
-            btnText: "Explorar Figuras 3D 👾",
-            alt: "Modelado e impresión 3D de personajes y figuras personalizadas en Bogotá"
+            btnText: "Explorar Impresiones 3D 👾",
+            alt: "Impresión 3D personalizada, llaveros, nombres, figuras y regalos BreakLab Bogotá"
         },
         {
             image: img2,

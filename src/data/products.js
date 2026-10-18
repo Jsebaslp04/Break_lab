@@ -518,62 +518,105 @@ export const PRODUCTS_DB = {
     'mugs-personalizados': [
         {
             id: 'mug-interior-color',
-            name: 'Mug con Interior y Asa de Color',
+            name: 'Mug fondo Color Personalizado',
             subtitle: 'Elige tu color preferido 🌈',
-            description: 'Mug de cerámica de alta calidad personalizado con asa e interior de color. Resistente al microondas y lavavajillas. Elige el color que mejor combine con tu diseño.',
-            price: 18000,
+            description: 'Mug de cerámica de alta calidad personalizado con tu diseño favorito. Elige el color que mejor combine con tu diseño.',
+            price: 15900,
             isNew: true,
             image: imgMugInteriorAmarillo,
             images: [
                 imgMugInteriorAmarillo,
                 imgMugInteriorAzul,
                 imgMugInteriorRojo,
-                imgMugInteriorVerde
+                imgMugInteriorVerde,
+                imgMugBordeAsaNegra,
+                imgMugPikachuCharizard,
+                imgMugDbz,
+                imgMugLuffyRojo,
+                imgMugHoraAventura,
+                imgMugDeathNote
             ],
             options: [
                 {
                     name: 'color',
-                    label: 'Color de asa e interior:',
-                    choices: ['Amarillo', 'Azul', 'Rojo', 'Verde'],
+                    label: 'Colores disponibles:',
+                    choices: ['Amarillo', 'Azul', 'Rojo', 'Verde', 'Negro'],
                     default: 'Amarillo'
+                },
+                {
+                    name: 'size',
+                    label: 'Tamaño:',
+                    choices: ['11 oz'],
+                    default: '11 oz'
                 }
             ],
             colorImageMap: {
                 'Amarillo': 0,
                 'Azul': 1,
                 'Rojo': 2,
-                'Verde': 3
+                'Verde': 3,
+                'Negro': 4
             }
         },
         {
             id: 'mug-magico',
-            name: 'Mug Mágico Personalizado',
+            name: 'Mug Mágico Escarchado Personalizado',
             subtitle: 'Sorpresa de color al instante 🔮',
-            description: 'Taza de cerámica negra que revela el diseño personalizado al verter líquidos calientes. Con destellos sutiles de glitter tipo galaxia. Ideal para fotos familiares, de mascotas o textos ocultos.',
-            price: 25000,
+            description: 'Mug escarchado mágico que revela el diseño personalizado con líquidos calientes y destellos sutiles de glitter tipo galaxia. Ideal para fotos familiares, de mascotas o mensajes para esa persona especial.',
+            price: 24900,
             isNew: true,
             image: imgMugMagicaGlitter,
-            images: [imgMugMagicaGlitter, imgMugNeonPack]
+            images: [imgMugMagicaGlitter],
+            options: [
+                {
+                    name: 'size',
+                    label: 'Tamaño:',
+                    choices: ['11 oz'],
+                    default: '11 oz'
+                }
+            ]
         },
         {
             id: 'mug-borde-asa-dorada',
-            name: 'Mug Premium con Borde y Asa Dorada',
+            name: 'Mug Premium Borde Dorado Personalizado',
             subtitle: 'Elegancia y brillo en tu taza ✨',
-            description: 'Taza de cerámica premium con acabado metálico dorado en el asa y el borde superior. Ideal para diseños de aniversario, marcas elegantes y regalos de lujo.',
-            price: 22000,
+            description: 'Mug de cerámica premium con acabado dorado en el asa y el borde superior. Ideal para diseños de aniversario, marcas elegantes y regalos de lujo.',
+            price: 24900,
             isNew: true,
             image: imgMugBordeAsaDorada,
-            images: [imgMugBordeAsaDorada, imgMugDoradaRomantica]
+            images: [imgMugBordeAsaDorada, imgMugDoradaRomantica],
+            options: [
+                {
+                    name: 'size',
+                    label: 'Tamaño:',
+                    choices: ['11 oz'],
+                    default: '11 oz'
+                }
+            ]
         },
         {
             id: 'mug-neon',
-            name: 'Mug Neón Cyberpunk Sci-Fi',
+            name: 'Mug Neón Personalizado',
             subtitle: 'Colores neón que resaltan ⚡',
             description: 'Taza personalizada con colores neón mate. Diseño vibrante de alta visibilidad, excelente para diseños gaming, modernos y atrevidos.',
-            price: 20000,
+            price: 22900,
             isNew: true,
             image: imgMugNeonCyberpunk,
-            images: [imgMugNeonCyberpunk, imgMugNeonPack]
+            images: [imgMugNeonCyberpunk, imgMugNeonPack],
+            options: [
+                {
+                    name: 'color',
+                    label: 'Colores:',
+                    choices: ['Amarillo Neón', 'Rosado Neón', 'Anaranjado Neón', 'Verde Neón'],
+                    default: 'Amarillo Neón'
+                },
+                {
+                    name: 'size',
+                    label: 'Tamaño:',
+                    choices: ['11 oz'],
+                    default: '11 oz'
+                }
+            ]
         },
         {
             id: 'mug-tematico-anime-gamer',
@@ -1388,6 +1431,38 @@ export const getIncludedItems = (product) => {
             'Cuidado fácil y alta durabilidad del brillo y acabado.',
         ];
     }
+    if (product.id === 'mug-magico') {
+        return [
+            'Mug mágico escarchado de 11 oz en cerámica premium.',
+            'Efecto térmico que revela el diseño personalizado al contacto con líquidos calientes.',
+            'Elegante acabado escarchado tipo galaxia con destellos sutiles.',
+            'Diseño 100% personalizado con fotos, mensajes o imágenes.'
+        ];
+    }
+    if (product.id === 'mug-borde-asa-dorada') {
+        return [
+            'Mug premium de 11 oz con borde y asa dorada en cerámica brillante.',
+            'Acabado metálico dorado de lujo en borde superior y asa.',
+            'Estampado full color de alta durabilidad y nitidez.',
+            'Diseño 100% personalizado.'
+        ];
+    }
+    if (product.id === 'mug-neon') {
+        return [
+            'Mug color neón de 11 oz en cerámica premium.',
+            'Diseño full color de alta durabilidad y nitidez.',
+            'Diseño 100% personalizado.',
+            'Elije el diseño que más te guste y personalizalo.'
+        ];
+    }
+    if (product.id === 'mug-interior-color') {
+        return [
+            'Mug fondo color de 11 oz en cerámica premium.',
+            'Diseño impreso de alta calidad.',
+            'Diseño 100% personalizado.',
+            'Elige el color que más te guste y personalízalo.'
+        ];
+    }
     const name = product.name.toLowerCase();
     if (name.includes('pack') && (name.includes('mug') || name.includes('taza') || name.includes('batman') || name.includes('avengers') || name.includes('friends') || name.includes('looney') || name.includes('simpson') || name.includes('one piece') || name.includes('bob') || name.includes('esponja') || name.includes('caballeros') || name.includes('seiya') || name.includes('zodiaco'))) {
         return [
@@ -1402,10 +1477,10 @@ export const getIncludedItems = (product) => {
         ];
     } else if (name.includes('mug') || name.includes('vaso') || name.includes('taza') || name.includes('tarro')) {
         return [
-            'Mug fondo color de 11 oz en cerámica premium.',
+            'Mug personalizado de 11 oz en cerámica premium.',
             'Estampado full color de alta durabilidad y nitidez.',
-            'Diseño 100% personalizado a tu gusto.',
-            'Elije el color que más te guste y personalizalo.',
+            'Diseño 100% personalizado.',
+            'Elije el diseño que más te guste y personalizalo.',
         ];
     } else if (name.includes('pulsera') || name.includes('collar') || name.includes('miyuki') || name.includes('llavero') || name.includes('portavasos')) {
         return [
@@ -1493,6 +1568,62 @@ export const getProductOptions = (product) => {
                 label: 'Motivo de celebración:',
                 choices: ['Aniversario', 'Amor / Novios', 'Cumpleaños', 'Detalle Sorpresa'],
                 default: 'Aniversario'
+            }
+        ];
+    }
+
+    if (product.id === 'mug-magico') {
+        return [
+            {
+                name: 'size',
+                label: 'Tamaño:',
+                choices: ['11 oz'],
+                default: '11 oz'
+            }
+        ];
+    }
+
+    if (product.id === 'mug-borde-asa-dorada') {
+        return [
+            {
+                name: 'size',
+                label: 'Tamaño:',
+                choices: ['11 oz'],
+                default: '11 oz'
+            }
+        ];
+    }
+
+    if (product.id === 'mug-neon') {
+        return [
+            {
+                name: 'color',
+                label: 'Colores:',
+                choices: ['Amarillo Neón', 'Rosado Neón', 'Anaranjado Neón', 'Verde Neón'],
+                default: 'Amarillo Neón'
+            },
+            {
+                name: 'size',
+                label: 'Tamaño:',
+                choices: ['11 oz'],
+                default: '11 oz'
+            }
+        ];
+    }
+
+    if (product.id === 'mug-interior-color') {
+        return [
+            {
+                name: 'color',
+                label: 'Colores disponibles:',
+                choices: ['Amarillo', 'Azul', 'Rojo', 'Verde', 'Negro'],
+                default: 'Amarillo'
+            },
+            {
+                name: 'size',
+                label: 'Tamaño:',
+                choices: ['11 oz'],
+                default: '11 oz'
             }
         ];
     }
@@ -1744,10 +1875,6 @@ export const getCategoryProducts = (categoryId) => {
     return products.map(p => {
         const mainImg = p.image || breakLabLogo;
         let pImages = p.images && p.images.length > 0 ? [...p.images] : [mainImg];
-        if (pImages.length === 1) {
-            const fallback = mainImg === breakLabLogo ? imgGengarBox : breakLabLogo;
-            pImages.push(fallback);
-        }
         return {
             ...p,
             image: mainImg,
@@ -1766,10 +1893,6 @@ export const getProductById = (productId) => {
         if (product) {
             const mainImg = product.image || breakLabLogo;
             let pImages = product.images && product.images.length > 0 ? [...product.images] : [mainImg];
-            if (pImages.length === 1) {
-                const fallback = mainImg === breakLabLogo ? imgGengarBox : breakLabLogo;
-                pImages.push(fallback);
-            }
             return {
                 ...product,
                 image: mainImg,
