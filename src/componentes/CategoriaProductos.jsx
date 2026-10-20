@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './CategoriaProductos.module.css';
-import { getCategoryProducts, isPackProduct, PACK_UNIT_PRICE } from '../data/products';
+import { getCategoryProducts } from '../data/products';
 import { useSEO } from '../hooks/useSEO';
 
 function ProductCard({ product }) {
-    const isPack = isPackProduct(product);
     const [currentIdx, setCurrentIdx] = useState(0);
     const images = product.images && product.images.length > 0 ? product.images : [product.image];
     const hasMultipleImages = images.length > 1;
@@ -94,18 +93,6 @@ function ProductCard({ product }) {
                             Ver Detalles
                         </span>
                     </div>
-
-                    {isPack && (
-                        <div className={styles.packUnitNoticeRow}>
-                            <span className={styles.packUnitNotice}>
-                                <span className={styles.packUnitBracket}>[</span>
-                                <span className={styles.packUnitText}>
-                                    O Unidad a <strong className={styles.packUnitPrice}>${PACK_UNIT_PRICE.toLocaleString()}</strong>
-                                </span>
-                                <span className={styles.packUnitBracket}>]</span>
-                            </span>
-                        </div>
-                    )}
                 </div>
             </div>
         </Link>

@@ -167,67 +167,6 @@
     line-height: 1;
 }
 
-.packUnitNoticeRow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 0.1rem;
-}
-
-.packUnitNotice {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.86rem;
-    font-weight: 700;
-    color: var(--secondary);
-    background: linear-gradient(135deg, #fbf6f0 0%, #f3e8dc 100%);
-    padding: 0.32rem 0.85rem;
-    border-radius: 50px;
-    border: 1.5px solid #dfcfbe;
-    box-shadow: 0 3px 10px rgba(90, 60, 40, 0.08);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    line-height: 1.2;
-    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    white-space: nowrap;
-}
-
-.productCard:hover .packUnitNotice {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 5px 14px rgba(90, 60, 40, 0.15);
-    background: linear-gradient(135deg, #f7efe4 0%, #ebe0d2 100%);
-    border-color: #cfb9a3;
-}
-
-.packUnitBracket {
-    font-size: 1.15rem;
-    font-weight: 900;
-    color: var(--secondary);
-    line-height: 1;
-    font-family: 'Plus Jakarta Sans', monospace, sans-serif;
-}
-
-.packUnitText {
-    color: var(--secondary);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.84rem;
-    letter-spacing: 0.2px;
-}
-
-.packUnitPrice {
-    font-weight: 900;
-    color: #ffffff;
-    background: var(--secondary);
-    padding: 0.12rem 0.5rem;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(90, 60, 40, 0.2);
-    letter-spacing: 0.3px;
-}
-
 .addBtnMini {
     background: var(--primary-light);
     color: var(--primary-hover);

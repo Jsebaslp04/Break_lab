@@ -1541,7 +1541,7 @@ export const isPackProduct = (product) => {
     if (!product) return false;
     const id = product.id || '';
     const name = (product.name || '').toLowerCase();
-    return id.startsWith('combo-') || name.includes('pack') || name.includes('combo') || name.includes('colección') || name.includes('coleccion');
+    return id.startsWith('combo-') || name.includes('pack') || name.includes('combo');
 };
 
 // Helper to determine product configuration options based on name/category
