@@ -303,7 +303,7 @@ export function Inicio() {
                         'dia-nino-gamer',
                         'box-tematica-one-piece',
                         'rompecabezas-one-piece',
-                        'mug-tematico-anime-gamer',
+                        'mug-interior-color',
                         'llavero-luffy-redondo'
                     ],
                     'pareja_gourmet': [
@@ -390,7 +390,7 @@ export function Inicio() {
                         'soporte-celular-3d',
                         'rompecabezas-yugioh',
                         'mouse-pad-gel-crash',
-                        'mug-tematico-anime-gamer',
+                        'mug-interior-color',
                         'reloj-despertador-cubo'
                     ],
                     'amigo_gourmet': [

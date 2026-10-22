@@ -322,9 +322,27 @@ export function ProductoDetalle() {
                             <div className={styles.priceTag}>
                                 ${currentPrice.toLocaleString()}
                             </div>
+                            {isPack && (
+                                <button
+                                    type="button"
+                                    className={`${styles.unitPriceOptionBadge} ${isUnitOption ? styles.unitPriceOptionBadgeActive : ''}`}
+                                    onClick={() => handleSelectOption('presentacion', isUnitOption ? 'Pack Completo' : 'Por Unidad')}
+                                    title={isUnitOption ? 'Clic para seleccionar el Pack Completo' : 'Clic para comprar por unidad a $15.900'}
+                                >
+                                    <span className={styles.unitPriceOptionBracket}>[</span>
+                                    <span className={styles.unitPriceOptionIcon}>{isUnitOption ? '📦' : '🏷️'}</span>
+                                    <span className={styles.unitPriceOptionText}>
+                                        {isUnitOption ? `O Pack Completo a $${product.price.toLocaleString()}` : `O Unidad a $${PACK_UNIT_PRICE.toLocaleString()}`}
+                                    </span>
+                                    <span className={styles.unitPriceOptionBracket}>]</span>
+                                    <span className={styles.unitPriceOptionPill}>
+                                        {isUnitOption ? 'Ver Pack' : 'Elegir unidad'}
+                                    </span>
+                                </button>
+                            )}
                         </div>
 
-                        {product.name.toLowerCase().match(/mug|taza|vaso|pack|combo/) && (
+                        {product.name.toLowerCase().match(/mug|taza|vaso|pack|combo|pocillo/) && (
                             <div className={styles.careNoticeBox}>
                                 <span className={styles.careNoticeIcon}>🧼</span>
                                 <div className={styles.careNoticeText}>

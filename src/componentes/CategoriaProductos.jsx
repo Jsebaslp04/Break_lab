@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './CategoriaProductos.module.css';
-import { getCategoryProducts } from '../data/products';
+import { getCategoryProducts, isPackProduct, PACK_UNIT_PRICE } from '../data/products';
 import { useSEO } from '../hooks/useSEO';
 
 function ProductCard({ product }) {
+    const isPack = isPackProduct(product);
     const [currentIdx, setCurrentIdx] = useState(0);
     const images = product.images && product.images.length > 0 ? product.images : [product.image];
     const hasMultipleImages = images.length > 1;
@@ -93,6 +94,18 @@ function ProductCard({ product }) {
                             Ver Detalles
                         </span>
                     </div>
+
+                    {isPack && (
+                        <div className={styles.packUnitNoticeRow}>
+                            <span className={styles.packUnitNotice}>
+                                <span className={styles.packUnitBracket}>[</span>
+                                <span className={styles.packUnitText}>
+                                    O Unidad a <strong className={styles.packUnitPrice}>${PACK_UNIT_PRICE.toLocaleString()}</strong>
+                                </span>
+                                <span className={styles.packUnitBracket}>]</span>
+                            </span>
+                        </div>
+                    )}
                 </div>
             </div>
         </Link>
@@ -126,6 +139,9 @@ const SUBCATEGORIES_CONFIG = {
         { id: 'gelatorta_viajes', label: '✈️ Viajes & Mapamundi' }
     ],
     'figuras-3d': [
+        { id: 'figuras-3d-pantera-rosa', label: '🌸 Pantera Rosa' },
+        { id: 'figuras-3d-conde-patula', label: '🦆 Conde Pátula' },
+        { id: 'figuras-3d-estrella-fidget', label: '⭐ Estrella Fidget' },
         { id: 'figuras-3d-coyote-correcaminos', label: '💣 Coyote & Correcaminos' },
         { id: 'figuras-3d-anime-coleccion', label: '⚓ One Piece & Pokémon' },
         { id: 'figuras-3d-mario-bros', label: '🍄 Bomb Mario Bros' },
@@ -186,6 +202,7 @@ const SUBCATEGORIES_CONFIG = {
     ],
     'personalizamos': [
         { id: 'mugs-personalizados', label: '☕ Mugs Personalizados' },
+        { id: 'mug-color-interno-corazon', label: '💖 Mug Color Interno Corazón' },
         { id: 'vasos-personalizados', label: '🥤 Vasos Personalizados' },
         { id: 'llaveros', label: '🔑 Llaveros' },
         { id: 'rompecabezas', label: '🧩 Rompecabezas' },
@@ -209,8 +226,9 @@ export function CategoriaProductos() {
         if (str === 'boxs' || str === 'box' || str === 'crea-tu-box') return 'Boxs y Desayunos Sorpresa';
         if (str === 'personalizamos') return 'Personalizamos Tus Ideas';
         if (str === 'mugs-personalizados') return 'Mugs Personalizados';
+        if (str === 'mug-color-interno-corazon') return 'Mug Color Interno Corazón';
         if (str === 'vasos-personalizados') return 'Vasos Personalizados';
-        if (str === 'llaveros') return 'Llaveros Creativos';
+        if (str === 'llaveros') return 'Llaveros';
         if (str === 'rompecabezas' || str === 'rompecabezas-magneticos') return 'Rompecabezas Personalizados';
         if (str === 'gelatortas') return 'Gelatortas Personalizadas';
         if (str === 'figuras-3d') return 'Figuras 3D Coleccionables';
@@ -226,6 +244,9 @@ export function CategoriaProductos() {
         if (str === 'gelatorta_viajes') return 'Gelatortas de Viajes';
         if (str === 'gelatorta_tematica') return 'Gelatortas Temáticas de Fútbol';
         if (str === 'gelatortas_mascota') return 'Gelatortas de Mascotas';
+        if (str === 'figuras-3d-pantera-rosa') return 'Figura 3D Pantera Rosa';
+        if (str === 'figuras-3d-conde-patula') return 'Figura 3D Conde Pátula';
+        if (str === 'figuras-3d-estrella-fidget') return 'Estrella Articulada Fidget 3D';
         if (str === 'figuras-3d-coyote-correcaminos') return 'Figuras 3D Wile E. Coyote & Correcaminos ACME';
         if (str === 'figuras-3d-anime-coleccion') return 'Colección 3D One Piece & Pokémon';
         if (str === 'combos' || str === 'packs') return 'Packs de Mugs Coleccionables';

@@ -27,10 +27,16 @@ import imgGelatortaViajes from '../assets/Products/Gelatortas/gelatorta-tematica
 import videoGelatortaViajes from '../assets/Products/Gelatortas/gelatorta-tematica-viajes-breaklab/video-gelatorta-personalizada-mapamundi-viajes-bogota.mp4';
 
 // Llaveros imports
-import imgLlaveroMarioLuigi from '../assets/Products/Llaveros/llavero-cuadrado-acrilico-mario-luigi-bros.png';
-import imgLlaveroOnePieceBandera from '../assets/Products/Llaveros/llavero-destapador-metalico-one-piece-bandera.png';
-import imgLlaveroPokemonPikachu from '../assets/Products/Llaveros/llavero-rectangular-personalizado-pokemon-pikachu.png';
-import imgLlaveroLuffyOnePiece from '../assets/Products/Llaveros/llavero-redondo-personalizado-luffy-one-piece.png';
+import imgLlaveroMarioLuigi from '../assets/Products/Llaveros/coleccion-llaveros-acrilicos-personalizados-breaklab/llavero-cuadrado-acrilico-mario-luigi-bros.png';
+import imgLlaveroAcrilicoRedondo from '../assets/Products/Llaveros/coleccion-llaveros-acrilicos-personalizados-breaklab/breaklab-llavero-acrilico-redondo-personalizable-marmol.jpeg';
+import imgLlaveroAcrilicoRectangular from '../assets/Products/Llaveros/coleccion-llaveros-acrilicos-personalizados-breaklab/breaklab-llavero-acrilico-rectangular-transparente-portafolio.jpeg';
+import imgLlaveroAcrilicoCorazon from '../assets/Products/Llaveros/coleccion-llaveros-acrilicos-personalizados-breaklab/breaklab-llaveros-acrilicos-forma-corazon-personalizados.jpeg';
+import imgLlaveroOnePieceBandera from '../assets/Products/Llaveros/llavero-destapador-personalizado/llavero-destapador-metalico-one-piece-bandera.png';
+import imgLlaveroDestapadorSublimacion from '../assets/Products/Llaveros/llavero-destapador-personalizado/llavero_abridor_metalico_personalizable_sublimacion.jpeg';
+import imgLlaveroPokemonPikachu from '../assets/Products/Llaveros/llavero-rectangular-personalizado/llavero-rectangular-personalizado-pokemon-pikachu.png';
+import imgLlaveroRectangularMetalico from '../assets/Products/Llaveros/llavero-rectangular-personalizado/llavero_rectangular_metalico_sublimacion_portafolio.jpeg';
+import imgLlaveroLuffyOnePiece from '../assets/Products/Llaveros/llavero-metalico-circular/llavero-redondo-personalizado-luffy-one-piece.png';
+import imgLlaveroRedondoMetalico from '../assets/Products/Llaveros/llavero-metalico-circular/llavero_redondo_metal_personalizado_merchandising.jpeg';
 import imgLlaveroAguacatePareja from '../assets/Products/Llaveros/llaveros-aguacate-clicker-pareja-breaklab/llaveros-pareja-aguacate-clicker-amor-y-amistad-bogota.jpeg';
 import videoLlaveroAguacate from '../assets/Products/Llaveros/llaveros-aguacate-clicker-pareja-breaklab/video-llavero-clicker-aguacate-corazon-impresion-3d.mp4';
 
@@ -39,6 +45,7 @@ import imgMugNeonPack from '../assets/Products/Mugs/set-tazas-ceramica-colores-n
 import imgMugBordeAsaNegra from '../assets/Products/Mugs/taza-blanca-borde-asa-negra-personalizable.png';
 import imgMugAsaCorazonUp from '../assets/Products/Mugs/taza-blanca-ceramica-asa-corazon-regalo-up.png';
 import imgMugAsaCorazon from '../assets/Products/Mugs/taza-blanca-ceramica-asa-corazon-regalo.png';
+import imgMugBlancoPersonalizado from '../assets/Products/Mugs/mug_blanco_personalizado.jpeg';
 import imgMugBordeAsaDorada from '../assets/Products/Mugs/taza-ceramica-borde-asa-dorada-premium.png';
 import imgMugInteriorAmarillo from '../assets/Products/Mugs/taza-ceramica-interior-asa-amarillo-sol.png';
 import imgMugInteriorAzul from '../assets/Products/Mugs/taza-ceramica-interior-asa-azul-rey-lisa.png';
@@ -88,6 +95,15 @@ import imgImanSet16cm from '../assets/Products/Variedades/imanes-nevera-puerta-3
 import imgImanCoyoteHelp from '../assets/Products/Variedades/imanes-nevera-puerta-3d-16cm-personajes-coleccionables/iman-nevera-wile-e-coyote-16cm-cartel-help-looney-tunes-3d.jpeg';
 import imgImanPatoLucas from '../assets/Products/Variedades/imanes-nevera-puerta-3d-16cm-personajes-coleccionables/iman-nevera-pato-lucas-16cm-estrellado-looney-tunes-3d.jpeg';
 import imgImanPikachu from '../assets/Products/Variedades/imanes-nevera-puerta-3d-16cm-personajes-coleccionables/iman-nevera-pikachu-16cm-grieta-pared-pokemon-3d.jpeg';
+import videoImanCoyote from '../assets/Products/Variedades/imanes-nevera-puerta-3d-16cm-personajes-coleccionables/iman-nevera-wile-e-coyote-18cm-cartel-help-ventana-bogota.mp4';
+
+// Lagartija Moto / Bici 3D imports
+import imgLagartijaMotoDivertida from '../assets/Products/Variedades/regalo_lagartija_moto_acompañante_3d/figura_decorativa_para_moto_lagartija_divertida.jpeg';
+import imgLagartijaColeccion from '../assets/Products/Variedades/regalo_lagartija_moto_acompañante_3d/coleccion_figuras_impresion_3d_lagartijas_divertidas.jpeg';
+import imgLagartijaManubrio from '../assets/Products/Variedades/regalo_lagartija_moto_acompañante_3d/adorno_divertido_para_manubrio_de_moto.jpeg';
+import imgLagartijaBici from '../assets/Products/Variedades/regalo_lagartija_moto_acompañante_3d/figura_decorativa_para_ciclista_con_lagartija_3d.jpg';
+import imgLagartijaRuta from '../assets/Products/Variedades/regalo_lagartija_moto_acompañante_3d/accesorio_divertido_para_bicicleta_de_ruta_lagartija.jpg';
+import videoLagartijaMoto from '../assets/Products/Variedades/regalo_lagartija_moto_acompañante_3d/coleccion_figuras_impresion_3d_lagartija_moto.mp4';
 
 // Huevo Frito Wall Hanger imports
 import imgColgadorHuevoFrito from '../assets/Products/Variedades/colgador-3d-huevo-frito/colgador-pared-huevo-frito-impresion-3d.jpeg';
@@ -191,6 +207,23 @@ import img3dTRexFigura from '../assets/Products/Impresiones_3d/Portacelulares_T_
 import img3dTRexPortacelularesBogota from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/portacelulares-dinosaurio-t-rex-impresion-3d-bogota.jpeg';
 import img3dTRexSoporteEsqueleto from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/soporte-celular-esqueleto-dinosaurio-pla-15cm.jpeg';
 import video3dTRexSoporte from '../assets/Products/Impresiones_3d/Portacelulares_T_Rex/video-soporte-celular-dinosaurio-t-rex-3d-bogota.mp4';
+
+// Pantera Rosa 3D imports
+import img3dPanteraRosaColeccion from '../assets/Products/Impresiones_3d/coleccion-figuras-impresion-3d-breaklab-pantera-rosa/figura-pantera-rosa-impresion-3d-breaklab-coleccionable.jpeg';
+import img3dPanteraRosaParis from '../assets/Products/Impresiones_3d/coleccion-figuras-impresion-3d-breaklab-pantera-rosa/figura-pantera-rosa-paris-impresion-3d-breaklab.jpeg';
+import img3dPanteraRosaEspalda from '../assets/Products/Impresiones_3d/coleccion-figuras-impresion-3d-breaklab-pantera-rosa/espalda-figura-pantera-rosa-impresion-3d-breaklab.jpeg';
+import video3dPanteraRosa from '../assets/Products/Impresiones_3d/coleccion-figuras-impresion-3d-breaklab-pantera-rosa/video-demostracion-figura-pantera-rosa-impresion-3.mp4';
+
+// Conde Pátula 3D imports
+import img3dCondePatulaFrontal from '../assets/Products/Impresiones_3d/conde-patula-breaklab-impresion-3d/breaklab-figura-coleccionable-duck-patula-con-pajarita-roja-frontal.jpeg';
+import img3dCondePatulaTrasera from '../assets/Products/Impresiones_3d/conde-patula-breaklab-impresion-3d/breaklab-impresion-3d-conde-patula-vista-trasera-capa-morada.jpeg';
+import video3dCondePatula from '../assets/Products/Impresiones_3d/conde-patula-breaklab-impresion-3d/video-demostracion-figura-conde-patula-breaklab-impresion-3d.mp4';
+
+// Estrella Fidget 3D imports
+import img3dEstrellaMovible from '../assets/Products/Impresiones_3d/estrella-articulada-anties-tres-stl-impresion-3d/fidget_toy_estrella_antiestres_movible.jpeg';
+import img3dEstrellaAntiestres from '../assets/Products/Impresiones_3d/estrella-articulada-anties-tres-stl-impresion-3d/estrella_articulada_antiestres.jpeg';
+import img3dEstrellaModelo from '../assets/Products/Impresiones_3d/estrella-articulada-anties-tres-stl-impresion-3d/modelo_3d_estrella_antiestres_bogota.jpeg';
+import video3dEstrella from '../assets/Products/Impresiones_3d/estrella-articulada-anties-tres-stl-impresion-3d/fidget_toy_estrella_3d_antiestres_demostracion.mp4';
 
 // Gelatortas extra imports
 import imgGelatortaTematicaGelatortaTematicaBarcelona1 from '../assets/Products/Gelatortas/Gelatorta_tematica_futbol/gelatorta-tematica-fc-barcelona-futbol-1.png';
@@ -619,73 +652,135 @@ export const PRODUCTS_DB = {
             ]
         },
         {
-            id: 'mug-tematico-anime-gamer',
-            name: 'Mugs Colección Anime & Geek',
-            subtitle: 'Tus personajes e historias favoritas ⚔️',
-            description: 'Mugs temáticos sublimados en alta definición con diseños de Caballeros del Zodíaco (Saint Seiya), Dragon Ball, Pokémon, Death Note, One Piece, Hora de Aventura y más. Material resistente.',
-            price: 18000,
+            id: 'mugs-parejas',
+            name: 'Pack de Mugs Personalizados para Pareja',
+            subtitle: 'El complemento perfecto para los dos 💕',
+            description: 'Celebren su historia de amor con este exclusivo pack de mugs. Diseño personalizado para unirse y contar su propia conexión a través de detalles personalizados. Ideal para regalar, sorprender y hacer inolvidable cada mañana juntos.',
+            price: 31900,
             isNew: true,
-            image: imgMugPikachuCharizard,
-            images: [
-                imgMugPikachuCharizard,
-                imgComboCaballerosDelZodiacoColeccionManga,
-                imgMugDbz,
-                imgMugDeathNote,
-                imgMugHoraAventura,
-                imgMugLuffyRojo
+            image: imgMugParejas2,
+            images: [imgMugParejas2, imgMugParejas1],
+            allowUnitPurchase: false,
+            options: [
+                {
+                    name: 'size',
+                    label: 'Tamaño:',
+                    choices: ['11 oz (Set x2 Mugs)'],
+                    default: '11 oz (Set x2 Mugs)'
+                }
             ]
         },
         {
-            id: 'mugs-parejas',
-            name: 'Set de Mugs Personalizados Pareja',
-            subtitle: 'El complemento perfecto para los dos 💕',
-            description: 'Set de dos tazas con ilustraciones románticas y mensajes combinados. Ideales para aniversarios, bodas o simplemente celebrar el amor diario.',
-            price: 32000,
+            id: 'mug-color-interno-corazon',
+            name: 'Mug Color Interno Corazón',
+            subtitle: 'Asa en forma de corazón y detalle único 💖',
+            description: 'Mug de cerámica personalizado con diseño exclusivo, interior de color y asa en forma de corazón. Ideal para aniversarios, parejas y fechas especiales.',
+            price: 16900,
             isNew: true,
-            image: imgMugParejas2,
-            images: [imgMugParejas2, imgMugParejas1]
+            image: imgMugAsaCorazon,
+            images: [imgMugAsaCorazon, imgMugAsaCorazonUp],
+            options: [
+                {
+                    name: 'size',
+                    label: 'Tamaño:',
+                    choices: ['11 oz'],
+                    default: '11 oz'
+                }
+            ]
         },
         {
             id: 'mug-blanco',
             name: 'Mug Blanco Clásico',
-            subtitle: 'Diseños nítidos y duraderos 🎨',
-            description: 'Taza de cerámica blanca premium brillante. Estampado de alta durabilidad apto para microondas y lavavajillas con tu diseño preferido.',
-            price: 15000,
+            subtitle: 'Diseños personalizados nítidos y duraderos 🎨',
+            description: 'Taza de cerámica blanca premium brillante con tu diseño preferido.',
+            price: 14900,
             isNew: false,
-            image: imgMugBordeAsaNegra,
-            images: [imgMugBordeAsaNegra, imgMugAsaCorazon, imgMugAsaCorazonUp]
+            image: imgMugBlancoPersonalizado,
+            images: [imgMugBlancoPersonalizado],
+            options: [
+                {
+                    name: 'size',
+                    label: 'Tamaño:',
+                    choices: ['11 oz'],
+                    default: '11 oz'
+                }
+            ]
+        }
+    ],
+    'mug-color-interno-corazon': [
+        {
+            id: 'mug-color-interno-corazon',
+            name: 'Mug Color Interno Corazón',
+            subtitle: 'Asa en forma de corazón y detalle único 💖',
+            description: 'Mug de cerámica personalizado con diseño exclusivo, interior de color y asa en forma de corazón. Ideal para aniversarios, parejas y fechas especiales.',
+            price: 16900,
+            isNew: true,
+            image: imgMugAsaCorazon,
+            images: [imgMugAsaCorazon, imgMugAsaCorazonUp],
+            options: [
+                {
+                    name: 'size',
+                    label: 'Tamaño:',
+                    choices: ['11 oz'],
+                    default: '11 oz'
+                }
+            ]
         }
     ],
     'vasos-personalizados': [
         {
             id: 'tarro-mason-jar',
-            name: 'Tarro Mason Jar Vidrio Satinado Degradado',
+            name: 'Vaso de Vidrio Opalizado con Pitillo Personalizado',
             subtitle: 'Bebidas con estilo y color 🥤',
-            description: 'Tarro tipo Mason Jar de vidrio satinado opalizado con un hermoso degradado de colores. Incluye tapa y pitillo. Perfecto para jugos, batidos y cocteles.',
-            price: 28000,
+            description: 'Vaso opalizado fondo color con diseño personalizado. Incluye tapa metálica y pitillo. Perfecto para jugos, batidos y cocteles.',
+            price: 19900,
             isNew: true,
             image: imgVasoMasonJar,
-            images: [imgVasoMasonJar]
+            images: [imgVasoMasonJar],
+            options: [
+                {
+                    name: 'color',
+                    label: 'Colores de fondo disponibles:',
+                    choices: ['Negro', 'Rojo', 'Azul', 'Amarillo', 'Verde'],
+                    default: 'Negro'
+                }
+            ]
         },
         {
             id: 'tazas-neon-opalizadas',
-            name: 'Tazas Neón Opalizadas Mate',
+            name: 'Pocillo Fondo Color Opalizado',
             subtitle: 'Diseño traslúcido y colorido 🌟',
-            description: 'Tazas hechas de vidrio opalizado mate con acabado en colores neón vibrantes. Perfectas para café, té y de tragos con estilo original.',
-            price: 18000,
+            description: 'Pocillo de vidrio opalizado mate fondo color con diseño personalizado. Perfecto para café, té, chocolate y bebidas con estilo original.',
+            price: 14900,
             isNew: true,
             image: imgVasoNeonOpalizado,
-            images: [imgVasoNeonOpalizado]
+            images: [imgVasoNeonOpalizado],
+            options: [
+                {
+                    name: 'color',
+                    label: 'Colores disponibles:',
+                    choices: ['Verde', 'Morado', 'Rojo', 'Amarillo', 'Rosado', 'Azul'],
+                    default: 'Verde'
+                }
+            ]
         },
         {
             id: 'vaso-frost-personalizado-mascotas',
-            name: 'Vaso Frost Personalizado Mascotas',
-            subtitle: 'Tu fiel amigo en tu bebida 🐶',
-            description: 'Vaso de vidrio esmerilado con la ilustración de tu mascota a todo color. Incluye tapa de madera de bambú ecológica y pitillo transparente.',
-            price: 32000,
+            name: 'Vaso Opalizado fondo color Personalizado',
+            subtitle: 'Diseño y calidad',
+            description: 'Vaso de vidrio opalizado fondo color personalizado.',
+            price: 21900,
             isNew: true,
             image: imgVasoMascotas,
-            images: [imgVasoMascotas, breakLabLogo]
+            images: [imgVasoMascotas],
+            options: [
+                {
+                    name: 'color',
+                    label: 'Colores de fondo disponibles:',
+                    choices: ['Negro', 'Rojo', 'Azul', 'Amarillo', 'Verde'],
+                    default: 'Negro'
+                }
+            ]
         },
         {
             id: 'vaso-frost-frase-personalizada',
@@ -701,50 +796,82 @@ export const PRODUCTS_DB = {
     'llaveros': [
         {
             id: 'llavero-mario-luigi',
-            name: 'Llavero Cuadrado Acrílico Mario & Luigi Bros',
-            subtitle: 'Tus personajes favoritos siempre contigo 🎮',
-            description: 'Llavero cuadrado acrílico de alta durabilidad con diseño de Mario y Luigi Bros. Perfecto para colgar en tus llaves, mochila o regalar a un fanático de los videojuegos.',
-            price: 8000,
+            name: 'Llavero Personalizado en Acrílico',
+            subtitle: 'Tus fotos, personajes y diseños favoritos siempre contigo ✨',
+            description: 'Llavero acrílico de alta resistencia y durabilidad. Elige tu forma preferida (redondo, rectangular o corazón) y personalízalo con tu imagen, fotografía, frase o personaje favorito.',
+            price: 4900,
             isNew: true,
-            image: imgLlaveroMarioLuigi,
-            images: [imgLlaveroMarioLuigi]
+            image: imgLlaveroAcrilicoRedondo,
+            images: [
+                imgLlaveroAcrilicoRedondo,
+                imgLlaveroAcrilicoCorazon,
+                imgLlaveroAcrilicoRectangular,
+                imgLlaveroMarioLuigi
+            ],
+            options: [
+                {
+                    name: 'forma',
+                    label: 'Forma del llavero:',
+                    choices: ['Redondo', 'Rectangular', 'Corazón'],
+                    default: 'Redondo'
+                }
+            ]
         },
         {
             id: 'llavero-one-piece-destapador',
-            name: 'Llavero Destapador Metálico One Piece',
-            subtitle: 'El poder pirata en tus llaves ⚓',
-            description: 'Práctico llavero metálico multifuncional con destapador de botellas y el emblema de la tripulación de Luffy de One Piece. Resistente y con detalles nítidos.',
-            price: 10000,
+            name: 'Llavero Destapador Metálico Personalizado',
+            subtitle: 'Destapador práctico y resistente ✨',
+            description: 'Práctico llavero metálico multifuncional con destapador totalmente Personalizado. Resistente y con detalles nítidos.',
+            price: 15900,
             isNew: true,
-            image: imgLlaveroOnePieceBandera,
-            images: [imgLlaveroOnePieceBandera]
+            image: imgLlaveroDestapadorSublimacion,
+            images: [
+                imgLlaveroDestapadorSublimacion,
+                imgLlaveroOnePieceBandera
+            ],
+            options: [
+                {
+                    name: 'forma',
+                    label: 'Forma del destapador:',
+                    choices: ['Cuadrado', 'Rectangular'],
+                    default: 'Cuadrado'
+                }
+            ]
         },
         {
             id: 'llavero-pikachu-rectangular',
-            name: 'Llavero Rectangular Personalizado Pokémon Pikachu',
-            subtitle: '¡Atrápalos a todos! ⚡',
-            description: 'Llavero acrílico rectangular con diseño a color de Pikachu de Pokémon. Personalizable con nombre en la parte posterior.',
-            price: 8000,
+            name: 'Llavero Rectangular Personalizado',
+            subtitle: 'Tus fotos, personajes y diseños favoritos siempre contigo ✨',
+            description: 'Llavero metálico rectangular de alta resistencia y durabilidad. Personalízalo con tu imagen, fotografía, frase o personaje preferido con máxima nitidez y brillo.',
+            price: 15900,
             isNew: true,
-            image: imgLlaveroPokemonPikachu,
-            images: [imgLlaveroPokemonPikachu]
+            image: imgLlaveroRectangularMetalico,
+            images: [
+                imgLlaveroRectangularMetalico,
+                imgLlaveroPokemonPikachu
+            ],
+            options: []
         },
         {
             id: 'llavero-luffy-redondo',
-            name: 'Llavero Redondo Personalizado Luffy One Piece',
-            subtitle: 'El futuro rey de los piratas 🍖',
-            description: 'Llavero redondo de alta definición con el rostro de Monkey D. Luffy de One Piece. Ligero, resistente y excelente para coleccionar o regalar.',
-            price: 8000,
+            name: 'Llavero Metálico Redondo Personalizado',
+            subtitle: 'Tus fotos, personajes y diseños favoritos siempre contigo ✨',
+            description: 'Llavero metálico redondo de alta resistencia y durabilidad. Personalízalo con tu imagen, fotografía, frase o personaje preferido con máxima nitidez y brillo.',
+            price: 13900,
             isNew: true,
-            image: imgLlaveroLuffyOnePiece,
-            images: [imgLlaveroLuffyOnePiece]
+            image: imgLlaveroRedondoMetalico,
+            images: [
+                imgLlaveroRedondoMetalico,
+                imgLlaveroLuffyOnePiece
+            ],
+            options: []
         },
         {
             id: 'figuras-3d-mapache-product',
             name: 'Llavero Mapache Articulado 3D',
             subtitle: 'Divertido mapache fidget articulado 🦝',
             description: 'Llavero de mapache totalmente articulado impreso en 3D. Excelente juguete antiestrés y accesorio para tus llaves o mochila.',
-            price: 18000,
+            price: 14900,
             isNew: true,
             image: img3dMapacheLlaveroArticuladoBogota,
             images: [
@@ -752,7 +879,8 @@ export const PRODUCTS_DB = {
                 img3dMapacheAccesorio,
                 img3dMapacheLlaveroOriginal,
                 video3dMapacheLlavero
-            ]
+            ],
+            options: []
         },
         {
             id: 'llavero-aguacate-clicker-pareja',
@@ -762,7 +890,8 @@ export const PRODUCTS_DB = {
             price: 24000,
             isNew: true,
             image: imgLlaveroAguacatePareja,
-            images: [imgLlaveroAguacatePareja, videoLlaveroAguacate]
+            images: [imgLlaveroAguacatePareja, videoLlaveroAguacate],
+            options: []
         }
     ],
     'gelatortas_mascota': [
@@ -871,7 +1000,41 @@ export const PRODUCTS_DB = {
                 imgImanSet16cm,
                 imgImanCoyoteHelp,
                 imgImanPatoLucas,
-                imgImanPikachu
+                imgImanPikachu,
+                videoImanCoyote
+            ],
+            options: [
+                {
+                    name: 'personaje',
+                    label: 'Elige tu personaje o set:',
+                    choices: ['Wile E. Coyote (HELP)', 'Pato Lucas', 'Pikachu', 'Set Completo x3'],
+                    default: 'Wile E. Coyote (HELP)'
+                }
+            ]
+        },
+        {
+            id: 'lagartija-moto-bici-3d',
+            name: 'Figura Acompañante Lagartija 3D para Moto y Bicicleta',
+            subtitle: 'Tu copiloto más divertido y veloz en cada ruta 🦎🏍️',
+            description: 'Original figura articulada de lagartija para manubrio de moto o bicicleta impresa en 3D. Diseñada para sujetarse con firmeza y acompañarte en tus viajes con estilo único y divertido.',
+            price: 18000,
+            isNew: true,
+            image: imgLagartijaMotoDivertida,
+            images: [
+                imgLagartijaMotoDivertida,
+                imgLagartijaColeccion,
+                imgLagartijaManubrio,
+                imgLagartijaBici,
+                imgLagartijaRuta,
+                videoLagartijaMoto
+            ],
+            options: [
+                {
+                    name: 'color',
+                    label: 'Color de la lagartija:',
+                    choices: ['Verde Neón', 'Negro', 'Naranja', 'Azul', 'Rojo'],
+                    default: 'Verde Neón'
+                }
             ]
         }
     ],
@@ -1219,6 +1382,80 @@ export const PRODUCTS_DB = {
             images: [img3dOnePieceFrutaGomu, video3dOnePiecePokeball]
         }
     ],
+    'figuras-3d-pantera-rosa': [
+        {
+            id: 'figura-3d-pantera-rosa-product',
+            name: 'Figura Coleccionable Pantera Rosa 3D',
+            subtitle: 'Elegancia, humor y nostalgia en tu colección 🌸🎷',
+            description: 'Estatua decorativa y de colección de la Pantera Rosa impresa en 3D con máxima definición y pintada a mano con su icónico color rosa. Una pieza retro imperdible para amantes de los clásicos animados.',
+            price: 55000,
+            isNew: true,
+            image: img3dPanteraRosaColeccion,
+            images: [
+                img3dPanteraRosaColeccion,
+                img3dPanteraRosaParis,
+                img3dPanteraRosaEspalda,
+                video3dPanteraRosa
+            ],
+            options: [
+                {
+                    name: 'finish',
+                    label: 'Tipo de acabado:',
+                    choices: ['Pintado a mano', 'Base natural'],
+                    default: 'Pintado a mano'
+                }
+            ]
+        }
+    ],
+    'figuras-3d-conde-patula': [
+        {
+            id: 'figura-3d-conde-patula-product',
+            name: 'Figura Coleccionable Conde Pátula 3D (Duckula)',
+            subtitle: 'El vampiro vegetariano más famoso de Transilvania 🦆🧛‍♂️',
+            description: 'Figura de colección de El Conde Pátula (Count Duckula) impresa en 3D con su clásica capa morada y pajarita roja en alto nivel de detalle. Acabado fiel a la legendaria serie animada.',
+            price: 55000,
+            isNew: true,
+            image: img3dCondePatulaFrontal,
+            images: [
+                img3dCondePatulaFrontal,
+                img3dCondePatulaTrasera,
+                video3dCondePatula
+            ],
+            options: [
+                {
+                    name: 'finish',
+                    label: 'Tipo de acabado:',
+                    choices: ['Pintado a mano', 'Base natural'],
+                    default: 'Pintado a mano'
+                }
+            ]
+        }
+    ],
+    'figuras-3d-estrella-fidget': [
+        {
+            id: 'figura-3d-estrella-fidget-product',
+            name: 'Estrella Articulada Antiestrés Fidget Toy 3D',
+            subtitle: 'Sensación táctil infinita y relajante ⭐🌀',
+            description: 'Juguete fidget interactivo en forma de estrella articulada impreso en 3D en PLA de alta resistencia. Movimiento fluido continuo ideal para reducir el estrés y mejorar la concentración.',
+            price: 16900,
+            isNew: true,
+            image: img3dEstrellaMovible,
+            images: [
+                img3dEstrellaMovible,
+                img3dEstrellaAntiestres,
+                img3dEstrellaModelo,
+                video3dEstrella
+            ],
+            options: [
+                {
+                    name: 'color',
+                    label: 'Color disponible:',
+                    choices: ['Multicolor Seda', 'Dorado', 'Azul Galaxia', 'Rosa Pastel', 'Negro Mate'],
+                    default: 'Multicolor Seda'
+                }
+            ]
+        }
+    ],
     'soportes': [
         {
             id: 'figuras-3d-t-rex-product',
@@ -1443,7 +1680,7 @@ export const getIncludedItems = (product) => {
         return [
             'Mug premium de 11 oz con borde y asa dorada en cerámica brillante.',
             'Acabado metálico dorado de lujo en borde superior y asa.',
-            'Estampado full color de alta durabilidad y nitidez.',
+            'Diseño full color de alta durabilidad y nitidez.',
             'Diseño 100% personalizado.'
         ];
     }
@@ -1463,6 +1700,100 @@ export const getIncludedItems = (product) => {
             'Elige el color que más te guste y personalízalo.'
         ];
     }
+    if (product.id === 'mug-color-interno-corazon') {
+        return [
+            'Mug cerámico de 11 oz con diseño ergonómico y asa en forma de corazón.',
+            'Interior y asa de color rojo vibrante.',
+            'Personalizado con tu foto, frase o diseño preferido.',
+            'Acabado brillante de alta definición y durabilidad.'
+        ];
+    }
+    if (product.id === 'mug-blanco') {
+        return [
+            'Mug blanco clásico de 11 oz en cerámica premium brillante.',
+            'Diseño personalizado con máximo detalle y nitidez.',
+            'Diseño 100% personalizado.'
+        ];
+    }
+    if (product.id === 'mugs-parejas') {
+        return [
+            'Set dúo de 2 mugs personalizados de 11 oz en cerámica premium.',
+            'Diseño personalizado.',
+            'Diseño full color de alta nitidez.',
+        ];
+    }
+    if (product.id === 'llavero-mario-luigi' || (product.name && (product.name.toLowerCase().includes('acrílico') || product.name.toLowerCase().includes('acrilico')))) {
+        return [
+            'Llavero en acrílico resistente de alta nitidez y brillo.',
+            'Disponible en forma redonda, rectangular o corazón.',
+            'Diseño 100% personalizado con tu foto, frase o personaje.',
+            'Incluye herraje metálico reforzado listo para usar.'
+        ];
+    }
+    if (product.id === 'llavero-one-piece-destapador' || (product.name && product.name.toLowerCase().includes('destapador'))) {
+        return [
+            'Llavero metálico resistente con destapador integrado.',
+            'Diseño 100% personalizado full color con acabado brillante.',
+            'Herraje metálico reforzado listo para usar.',
+            'Material duradero de alta calidad.'
+        ];
+    }
+    if (product.id === 'llavero-pikachu-rectangular' || (product.name && product.name.toLowerCase().includes('llavero rectangular personalizado'))) {
+        return [
+            'Llavero rectangular metálico de alta resistencia y durabilidad.',
+            'Diseño 100% personalizado con tu foto, frase o personaje.',
+            'Acabado brillante con colores vivos y máxima nitidez.',
+            'Herraje metálico reforzado listo para usar.'
+        ];
+    }
+    if (product.id === 'llavero-luffy-redondo' || (product.name && product.name.toLowerCase().includes('metálico redondo'))) {
+        return [
+            'Llavero redondo metálico de alta resistencia y durabilidad.',
+            'Diseño 100% personalizado con tu foto, frase o personaje.',
+            'Acabado brillante con colores vivos y máxima nitidez.',
+            'Herraje metálico reforzado listo para usar.'
+        ];
+    }
+    if (product.id === 'imanes-3d-16cm-personajes-coleccionables' || (product.name && product.name.toLowerCase().includes('imanes 3d'))) {
+        return [
+            'Imanes decorativos de 16cm a 18cm en relieve 3D de alta definición.',
+            'Imanes de neodimio de alta potencia para máxima adherencia en superficies metálicas.',
+            'Diseño tridimensional con efecto óptico saliendo de la pared.',
+            'Material resistente con acabado a color de alta durabilidad.'
+        ];
+    }
+    if (product.id === 'lagartija-moto-bici-3d' || (product.name && product.name.toLowerCase().includes('lagartija 3d'))) {
+        return [
+            'Figura articulada de lagartija en impresión 3D.',
+            'Diseño especial para sujeción en manubrio de moto o bicicleta.',
+            'Material PLA resistente a vibraciones y condiciones de ruta.',
+            'Diseño único, divertido y coleccionable.'
+        ];
+    }
+    if (product.id === 'figura-3d-pantera-rosa-product' || (product.name && product.name.toLowerCase().includes('pantera rosa'))) {
+        return [
+            'Estatua de colección de la Pantera Rosa en impresión 3D de alta definición.',
+            'Pintada a mano con su icónico color rosa y acabado satinado.',
+            'Base de exhibición estable para escritorio o repisa.',
+            'Empaque protector especial BreakLab.'
+        ];
+    }
+    if (product.id === 'figura-3d-conde-patula-product' || (product.name && product.name.toLowerCase().includes('conde pátula'))) {
+        return [
+            'Figura coleccionable de El Conde Pátula en impresión 3D.',
+            'Detalles fieles: capa morada, pajarita roja y expresión clásica.',
+            'Pintado artesanal a mano con acabado duradero.',
+            'Empaque seguro de colección BreakLab.'
+        ];
+    }
+    if (product.id === 'figura-3d-estrella-fidget-product' || (product.name && product.name.toLowerCase().includes('estrella articulada'))) {
+        return [
+            'Juguete sensorial antiestrés fidget toy en forma de estrella articulada.',
+            'Impreso en 3D en material PLA sedoso de movimiento infinito.',
+            'Efecto relajante ideal para oficina, estudio o juego táctil.',
+            'Resistente y liviano para llevar a cualquier lugar.'
+        ];
+    }
     const name = product.name.toLowerCase();
     if (name.includes('pack') && (name.includes('mug') || name.includes('taza') || name.includes('batman') || name.includes('avengers') || name.includes('friends') || name.includes('looney') || name.includes('simpson') || name.includes('one piece') || name.includes('bob') || name.includes('esponja') || name.includes('caballeros') || name.includes('seiya') || name.includes('zodiaco'))) {
         return [
@@ -1477,17 +1808,14 @@ export const getIncludedItems = (product) => {
         ];
     } else if (name.includes('mug') || name.includes('vaso') || name.includes('taza') || name.includes('tarro')) {
         return [
-            'Mug personalizado de 11 oz en cerámica premium.',
-            'Estampado full color de alta durabilidad y nitidez.',
+            'Diseño full color de alta durabilidad y nitidez.',
             'Diseño 100% personalizado.',
             'Elije el diseño que más te guste y personalizalo.',
         ];
     } else if (name.includes('pulsera') || name.includes('collar') || name.includes('miyuki') || name.includes('llavero') || name.includes('portavasos')) {
         return [
-            'Elaborado a mano con técnicas de alta costura artesanal.',
             'Materiales resistentes de excelente calidad.',
-            'Personalización especial incluida.',
-            'Empaque listo para regalar.'
+            'Impresa en PLA full color',
         ];
     } else if (name.includes('globo')) {
         return [
@@ -1527,9 +1855,7 @@ export const getIncludedItems = (product) => {
     } else {
         return [
             'Diseño exclusivo 100% personalizado.',
-            'Materiales seleccionados de primera calidad.',
-            'Empaque especial decorativo.',
-            'Garantía de satisfacción BreakLab.'
+            'Materiales seleccionados de primera calidad.'
         ];
     }
 };
@@ -1539,9 +1865,10 @@ export const PACK_UNIT_PRICE = 15900;
 
 export const isPackProduct = (product) => {
     if (!product) return false;
+    if (product.id === 'mugs-parejas' || product.allowUnitPurchase === false) return false;
     const id = product.id || '';
     const name = (product.name || '').toLowerCase();
-    return id.startsWith('combo-') || name.includes('pack') || name.includes('combo');
+    return id.startsWith('combo-') || (name.includes('pack') && !name.includes('pareja'));
 };
 
 // Helper to determine product configuration options based on name/category
@@ -1628,6 +1955,28 @@ export const getProductOptions = (product) => {
         ];
     }
 
+    if (product.id === 'mug-color-interno-corazon') {
+        return [
+            {
+                name: 'size',
+                label: 'Tamaño:',
+                choices: ['11 oz'],
+                default: '11 oz'
+            }
+        ];
+    }
+
+    if (product.id === 'mug-blanco') {
+        return [
+            {
+                name: 'size',
+                label: 'Tamaño:',
+                choices: ['11 oz'],
+                default: '11 oz'
+            }
+        ];
+    }
+
     if (isPackProduct(product)) {
         return [
             {
@@ -1639,9 +1988,47 @@ export const getProductOptions = (product) => {
         ];
     }
 
+    if (
+        product.id === 'tarro-mason-jar' ||
+        product.id === 'vaso-frost-personalizado-mascotas' ||
+        (product.name && product.name.toLowerCase().includes('vaso de vidrio opalizado')) ||
+        (product.name && product.name.toLowerCase().includes('opalizado fondo color'))
+    ) {
+        return [
+            {
+                name: 'color',
+                label: 'Colores de fondo disponibles:',
+                choices: ['Negro', 'Rojo', 'Azul', 'Amarillo', 'Verde'],
+                default: 'Negro'
+            }
+        ];
+    }
+
+    if (product.id === 'tazas-neon-opalizadas' || (product.name && product.name.toLowerCase().includes('pocillo fondo color opalizado'))) {
+        return [
+            {
+                name: 'color',
+                label: 'Colores disponibles:',
+                choices: ['Verde', 'Morado', 'Rojo', 'Amarillo', 'Rosado', 'Azul'],
+                default: 'Verde'
+            }
+        ];
+    }
+
     const name = product.name.toLowerCase();
 
-    if (name.includes('mug') || name.includes('vaso') || name.includes('taza') || name.includes('tarro')) {
+    if (product.id === 'llavero-one-piece-destapador' || (product.name && product.name.toLowerCase().includes('destapador'))) {
+        return [
+            {
+                name: 'forma',
+                label: 'Forma del destapador:',
+                choices: ['Cuadrado', 'Rectangular'],
+                default: 'Cuadrado'
+            }
+        ];
+    }
+
+    if (name.includes('mug') || name.includes('taza') || name.includes('tarro') || name.includes('pocillo')) {
         return [
             {
                 name: 'color',
@@ -1671,7 +2058,7 @@ export const getProductOptions = (product) => {
                 default: 'Cumpleaños'
             }
         ];
-    } else if (name.includes('pulsera') || name.includes('collar') || name.includes('miyuki') || name.includes('llavero') || name.includes('portavasos')) {
+    } else if (name.includes('pulsera') || name.includes('collar') || name.includes('miyuki') || name.includes('portavasos')) {
         return [
             {
                 name: 'color',
@@ -1701,7 +2088,7 @@ export const getProductOptions = (product) => {
                 default: 'Elegante'
             }
         ];
-    } else if (name.includes('figura') || name.includes('soporte') || name.includes('3d')) {
+    } else if ((name.includes('figura') || name.includes('soporte') || name.includes('3d')) && !name.includes('llavero')) {
         return [
             {
                 name: 'finish',
@@ -1815,6 +2202,9 @@ export const getCategoryProducts = (categoryId) => {
     if (categoryId === 'figuras-3d') {
         const seen = new Set();
         return [
+            ...getCategoryProducts('figuras-3d-pantera-rosa'),
+            ...getCategoryProducts('figuras-3d-conde-patula'),
+            ...getCategoryProducts('figuras-3d-estrella-fidget'),
             ...getCategoryProducts('figuras-3d-coyote-correcaminos'),
             ...getCategoryProducts('figuras-3d-anime-coleccion'),
             ...getCategoryProducts('figuras-3d-mario-bros'),

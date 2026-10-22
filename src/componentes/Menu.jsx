@@ -73,11 +73,11 @@ export const Menu = () => {
                 const subtitleNorm = (product.subtitle || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 const descNorm = (product.description || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 const catNorm = product.category.toLowerCase().replace(/-/g, " ");
-                
-                return nameNorm.includes(normalizedQuery) || 
-                       subtitleNorm.includes(normalizedQuery) ||
-                       descNorm.includes(normalizedQuery) ||
-                       catNorm.includes(normalizedQuery);
+
+                return nameNorm.includes(normalizedQuery) ||
+                    subtitleNorm.includes(normalizedQuery) ||
+                    descNorm.includes(normalizedQuery) ||
+                    catNorm.includes(normalizedQuery);
             });
             setSearchResults(filtered.slice(0, 8));
         }
@@ -113,7 +113,7 @@ export const Menu = () => {
     ];
 
     const personalizamosCategories = [
-        'mugs-personalizados', 'vasos-personalizados', 'llaveros', 'rompecabezas', 
+        'mugs-personalizados', 'mug-color-interno-corazon', 'vasos-personalizados', 'llaveros', 'rompecabezas',
         'gelatortas', 'figuras-3d', 'variedades', 'soportes',
         'rompecabezas-magneticos', 'rompecabezas-carton', 'rompecabezas-mdf',
         'gelatortas_mascota', 'gelatorta_tematica', 'gelatorta_viajes',
@@ -121,23 +121,23 @@ export const Menu = () => {
         'figuras-3d-coyote-correcaminos', 'figuras-3d-anime-coleccion'
     ];
 
-    const isBoxsActive = isActive("/Boxs") || isActive("/box") || isActive("/Box") || 
+    const isBoxsActive = isActive("/Boxs") || isActive("/box") || isActive("/Box") ||
         (activeCategory && (activeCategory === "boxs" || activeCategory === "box" || boxsCategories.includes(activeCategory)));
 
     const isArmaTuBoxActive = isActive("/Crea_tu_Box") || isActive("/arma-tu-box") || isActive("/Arma_tu_Box");
 
-    const isCombosActive = isActive("/Combos") || isActive("/Packs") || isActive("/packs") || isActive("/combos") || 
+    const isCombosActive = isActive("/Combos") || isActive("/Packs") || isActive("/packs") || isActive("/combos") ||
         (activeCategory && (activeCategory === "combos" || activeCategory === "packs" || combosCategories.includes(activeCategory)));
 
-    const isPersonalizamosActive = isActive("/Personalizamos") || 
+    const isPersonalizamosActive = isActive("/Personalizamos") ||
         (activeCategory && (activeCategory === "personalizamos" || personalizamosCategories.includes(activeCategory)));
 
     return (
         <header className={styles.header}>
             <div className={styles.headerLogo}>
-                <button 
-                    className={`${styles.hamburgerBtn} ${isMenuOpen ? styles.hamburgerActive : ''}`} 
-                    onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                <button
+                    className={`${styles.hamburgerBtn} ${isMenuOpen ? styles.hamburgerActive : ''}`}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label="Abrir menú"
                     aria-expanded={isMenuOpen}
                 >
@@ -155,25 +155,25 @@ export const Menu = () => {
                         <p className={styles.subtitle}>Desayunos Sorpresa</p>
                     </div>
                 </Link>
-                
+
                 <div className={styles.searchBar}>
-                    <input 
-                        type="text" 
-                        placeholder="Buscar productos..." 
-                        className={styles.searchInput} 
+                    <input
+                        type="text"
+                        placeholder="Buscar productos..."
+                        className={styles.searchInput}
                         value={searchQuery}
                         onChange={handleSearchChange}
                     />
                     <button className={styles.searchButton} aria-label="Buscar productos">
                         <img src={search} alt="Buscar" />
                     </button>
-                    
+
                     {searchResults.length > 0 && (
                         <div className={styles.searchDropdown}>
                             {searchResults.map(product => (
-                                <Link 
-                                    key={product.id} 
-                                    to={`/producto/${product.id}`} 
+                                <Link
+                                    key={product.id}
+                                    to={`/producto/${product.id}`}
                                     className={styles.searchResultItem}
                                     onClick={handleSuggestionClick}
                                 >
@@ -187,7 +187,7 @@ export const Menu = () => {
                         </div>
                     )}
                 </div>
-                
+
                 <div className={styles.headerActions}>
                     <Link to="/carrito" className={`${styles.iconBtn} ${styles.cartBtn}`} aria-label={`Carrito de compras, ${cartCount} productos`}>
                         <img src={carrito} alt="Carrito de compras BreakLab" />
@@ -201,7 +201,7 @@ export const Menu = () => {
                     <Link to="/" className={`${styles.navLink} ${isActive("/") ? styles.active : ""}`}>
                         <span className={styles.navEmoji}><img src={home} alt="Inicio" /></span> Inicio
                     </Link>
-                    
+
                     <div className={styles.dropdownContainer}>
                         <Link to="/Boxs" className={`${styles.navLink} ${isBoxsActive ? styles.active : ""}`}>
                             <span className={styles.navEmoji}><img src={box} alt="Caja de regalos" /></span> Boxs <span className={styles.arrowIcon}>▼</span>
@@ -384,11 +384,12 @@ export const Menu = () => {
                                     <div className={styles.megaColumn}>
                                         <span className={styles.megaColumnHeader}>☕ Mugs y Vasos</span>
                                         <Link to="/categoria/mugs-personalizados" className={styles.megaSubItem}>Mugs Personalizados</Link>
+                                        <Link to="/categoria/mug-color-interno-corazon" className={styles.megaSubItem}>Mug Color Interno Corazón</Link>
                                         <Link to="/categoria/vasos-personalizados" className={styles.megaSubItem}>Vasos Personalizados</Link>
                                     </div>
                                     <div className={styles.megaColumn}>
                                         <span className={styles.megaColumnHeader}>🎨 Regalos y Accesorios</span>
-                                        <Link to="/categoria/llaveros" className={styles.megaSubItem}>Llaveros Creativos</Link>
+                                        <Link to="/categoria/llaveros" className={styles.megaSubItem}>Llaveros</Link>
                                         <Link to="/categoria/rompecabezas" className={styles.megaSubItem}>Rompecabezas</Link>
                                         <Link to="/categoria/variedades" className={styles.megaSubItem}>Detalles Varios</Link>
                                     </div>
@@ -430,7 +431,7 @@ export const Menu = () => {
                         <Link to="/" className={`${styles.drawerLink} ${isActive("/") ? styles.drawerLinkActive : ""}`} onClick={() => setIsMenuOpen(false)}>
                             🏠 Inicio
                         </Link>
-                        
+
                         <div className={styles.drawerSection}>
                             <div className={styles.drawerSectionHeader} onClick={() => toggleDrawerSection('boxs')}>
                                 <span className={styles.drawerSectionTitle}>📦 Boxs</span>
@@ -508,6 +509,7 @@ export const Menu = () => {
                             <div className={`${styles.drawerSubLinks} ${drawerSections.personalizamos ? styles.subLinksOpen : ""}`}>
                                 <Link to="/Personalizamos" className={styles.drawerSubLinkViewAll} onClick={() => setIsMenuOpen(false)}>Ver Todo Personalizado →</Link>
                                 <Link to="/categoria/mugs-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>☕ Mugs Personalizados</Link>
+                                <Link to="/categoria/mug-color-interno-corazon" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>💖 Mug Color Interno Corazón</Link>
                                 <Link to="/categoria/vasos-personalizados" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🥤 Vasos Personalizados</Link>
                                 <Link to="/categoria/llaveros" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🔑 Llaveros</Link>
                                 <Link to="/categoria/rompecabezas" className={styles.drawerSubLink} onClick={() => setIsMenuOpen(false)}>🧩 Rompecabezas</Link>
